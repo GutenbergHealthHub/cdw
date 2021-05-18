@@ -1,5 +1,6 @@
 -- structured ops.
 
+DROP SCHEMA IF EXISTS ops_metainfo cascade;
 
 CREATE SCHEMA IF NOT EXISTS ops_metainfo;
 
