@@ -7,7 +7,8 @@
 CREATE TABLE kis.nbew (
 	einri varchar(4) NOT NULL,
 	falnr varchar NOT NULL,
-	lfdbew int4 NOT NULL,
+--	lfdbew int4 NOT NULL,
+	lfdnr  int4 NOT NULL,
 	bewty bpchar(1) NULL,
 	bwart varchar(2) NULL,
 	bwidt date NULL,
