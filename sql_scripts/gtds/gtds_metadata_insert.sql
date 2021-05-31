@@ -371,9 +371,9 @@
 ('X','unbekannt')
 ;
 
--- insert into residiv
-  insert into metadata_repository.residiv (sourceid, residiv)
-  values 
+-- insert into rezidiv
+insert into metadata_repository.rezidiv (sourceid, rezidiv)
+  values
   ('P', 'Primärtumor'),
   ('L', 'Lymphknoten'),
   ('M', 'Metastasen'),

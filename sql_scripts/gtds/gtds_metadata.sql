@@ -355,15 +355,14 @@
     inserted timestamp not null default now(),
     unique(sourceid, abschluss_grund)
 );
-
-  -- residiv
-  drop table if exists metadata_repository.residiv;
-  create table metadata_repository.residiv(
+  -- rezidiv
+  drop table if exists metadata_repository.rezidiv;
+  create table metadata_repository.rezidiv(
     id serial primary key,
     sourceid varchar not null,
-    residiv varchar not null,
+    rezidiv varchar not null,
     description varchar,
     source varchar not null references metadata_repository.sources(sourceid) default 'gtds',
     inserted timestamp not null default now(),
-    unique(sourceid, residiv)
+    unique(sourceid, rezidiv)
 );
