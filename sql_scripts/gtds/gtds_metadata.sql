@@ -366,3 +366,16 @@
     inserted timestamp not null default now(),
     unique(sourceid, rezidiv)
 );
+
+-- datenart
+drop table if exists metadata_repository.gtds_datenart;
+  create table metadata_repository.gtds_datenart(
+    id serial primary key,
+--    sourceid varchar not null,
+    datenart varchar not null unique,
+    description varchar,
+    source varchar not null references metadata_repository.sources(sourceid) default 'gtds',
+    inserted timestamp not null default now()
+--    unique(sourceid, rezidiv)
+);
+

@@ -379,3 +379,16 @@ insert into metadata_repository.rezidiv (sourceid, rezidiv)
   ('M', 'Metastasen'),
   ('G', 'Gesamtbeurteilung')
 ;
+
+
+insert into metadata_repository.gtds_datenart (datenart)
+  values
+  ('Operation'),
+  ('Bestrahlung'),
+  ('Innere'),
+  ('Verlauf'),
+  ('Aufenhalt'),
+  ('Abschluss'),
+  ('Diagnose'),
+  ('Metastase')
+;
