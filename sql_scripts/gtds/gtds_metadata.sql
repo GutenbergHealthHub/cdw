@@ -379,3 +379,13 @@ drop table if exists metadata_repository.gtds_datenart;
 --    unique(sourceid, rezidiv)
 );
 
+-- behandlungsanlass
+drop table if exists metadata_repository.behandlungsanlass;
+create table metadata_repository.behandlungsanlass(
+  id serial primary key,
+  sourceid varchar not null,
+  behandlungsanlass varchar not null,
+  source varchar not null default 'gtds' references metadata_repository.sources(sourceid),
+  inserted timestamp not null default now(),
+  unique(sourceid, behandlungsanlass)
+);

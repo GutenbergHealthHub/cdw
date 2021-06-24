@@ -380,7 +380,7 @@ insert into metadata_repository.rezidiv (sourceid, rezidiv)
   ('G', 'Gesamtbeurteilung')
 ;
 
-
+-- insert into gtds_datenart
 insert into metadata_repository.gtds_datenart (datenart)
   values
   ('Operation'),
@@ -391,4 +391,17 @@ insert into metadata_repository.gtds_datenart (datenart)
   ('Abschluss'),
   ('Diagnose'),
   ('Metastase')
+;
+
+-- insert into behandlungsanlass
+insert into metadata_repository.behandlungsanlass(sourceid, behandlungsanlass)
+  values
+  ('T','Primärtumor'),
+  ('R','lokoregionäres Rezidiv'),
+  ('L','Lymphknotenrezidiv'),
+  ('M','Fernmetastasen'),
+  ('B','lokoregionäres Rezidiv und Fernmetastasen'),
+  ('G','generelle Progression des Krankheitsbildes'),
+  ('X','Unbekannt'),
+  ('P','Primärtumorrezidiv')
 ;
