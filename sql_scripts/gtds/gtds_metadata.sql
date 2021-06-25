@@ -389,3 +389,4 @@ create table metadata_repository.behandlungsanlass(
   inserted timestamp not null default now(),
   unique(sourceid, behandlungsanlass)
 );
+

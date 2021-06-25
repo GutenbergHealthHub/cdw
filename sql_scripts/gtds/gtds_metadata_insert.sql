@@ -405,3 +405,4 @@ insert into metadata_repository.behandlungsanlass(sourceid, behandlungsanlass)
   ('X','Unbekannt'),
   ('P','Primärtumorrezidiv')
 ;
+
