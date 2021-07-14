@@ -8,7 +8,7 @@ create or replace procedure copra.set_to_void_dsgvo()
 	      select 
 	        id 
 	      from copra.co6_config_variables ccv 
-	      where name ~*'name|mail|efon|versic|stras|rede|chrift|fax|atzi|geber|nym' 
+	      where name ~*'name|mail|efon|versic|stras|rede|chrift|fax|atzi|geber|nym|nt_ID' 
 	      and name !~*'medik|atmu|mikro'
 	    );
   end; $$;
