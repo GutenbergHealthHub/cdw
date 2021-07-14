@@ -1,0 +1,32 @@
+\chapter{Benutzer}
+\label{ch: usr}
+
+Das \ac{cDWH} hat auch verschiedene Benutzer mit unterschiedlichen Aufgaben.
+
+\begin{table}[ht]
+	\centering   
+	\caption{Benutzer im \ac{cDWH}}
+	\begin{tabular}{||l|l|p{3.4cm}|l||}
+		\hline
+		Benutzer & Schema & Berechtigungen & Anwendung\\ [0.5ex]
+		\hline\hline
+		\texttt{centrallabcdwuser} & \texttt{centrallab} & \texttt{select, insert, update, delete, truncate} & - \\
+		\hline
+		\texttt{clinicuser} & \texttt{all} & \texttt{administrator} & - \\
+		\hline
+		\texttt{grafana} & \texttt{all} & \texttt{select} & ja \\
+		\hline
+	    \texttt{kisvendor} & \texttt{kis} & \texttt{select, insert, update, delete, truncate} & - \\
+	    \hline 
+	    \texttt{p21user} & \texttt{p21} & \texttt{select, insert, update, delete, truncate} & - \\	    
+		\hline
+		\texttt{gtdscdwuser} & \texttt{gtdscdwuser} & \texttt{select, insert, update, delete, truncate} & - \\
+		\hline
+		\texttt{onlyreader} & \texttt{all in staging\_test} & \texttt{select} & - \\
+		\hline 
+		\texttt{copracdwuser} & \texttt{copra} & \texttt{select, insert, update, delete, truncate} & - \\
+		\hline
+		\texttt{imagiccdwuser} & \texttt{imagic} & \texttt{select, insert, update, delete, truncate} & - \\
+		\hline
+	\end{tabular}
+\end{table}

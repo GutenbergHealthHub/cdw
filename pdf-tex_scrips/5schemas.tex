@@ -1,0 +1,156 @@
+\chapter{Schemata}
+\label{ch: schema}
+
+Die Schemata speichern die "rohe" \textbf{pseudonymisierte} Information der ursprünglichen Systems oder die Metadaten. Diese Daten werden in Views analysiert oder weiter verarbeitet für andere Anwendungen oder Projekten. Wichtige Hinweis ist, dass die Daten in dem Data Warehouse bleiben unverändert.
+  \section{p21}
+  Dieses Schema speichert die jährliche Information der \S21, die von Medizincontrolling in CSV-Dateien generiert wird. 
+  
+  Der jährliche Rhythmus ist zu groß, als dass die Daten bspw. zur Rekrutierung von Patienten für Studien aber auch zu Forschung genutzt werden können. Auf diesem Grund wird diese Information in der Zukunft nicht mehr aus CSV-Dateien genommen sondern direkt aus dem \ac{KIS}.
+
+  \subsection{Tabellen}
+  \begin{table}[ht]
+  	\centering   
+  	\caption{Tabellen im Schema p21}
+  	\begin{tabular}{||l|l||}
+  		\hline
+  		Tabelle & Beschreibung \\ [0.5ex]
+  		\hline\hline
+  		\texttt{p21\_encounter} & Information der Datei FALL.csv: Fälle \\
+  		\hline
+  		\texttt{p21\_department} & Inhalt der Datei  FAB.csv: Fachabteilung \\
+  		\hline
+  		\texttt{p21\_operation} & Information der Datei  OPS.csv: Operationen \\
+  		\hline
+  		\texttt{p21\_diagnosis} & Basiert auf der Datei ICD.csv: Diagnosen (ICDGM-10) \\
+        \hline
+  	\end{tabular}
+  \end{table}
+  
+\subsection{Views}
+In diesem Schema befinden sich auch die Views für \ac{ETL}-Prozessen die, solche Information aus \S21 benötigen. Der Inhalt dieser Views entspricht die Formatierung der \ac{KHEntgG} \S 21 Übermittlung und Nutzung der Daten.
+     	\begin{table}[ht]
+     	\centering   
+    	\caption{Views im Schema p21}
+     	\begin{tabular}{||l|l||}
+     	
+     		\hline
+     		View & Beschreibung \\ [0.5ex]
+     		\hline\hline
+     		\texttt{fall} & Falldaten \\
+     		\hline
+     		\texttt{fab} & Fachabteilungsangaben \\
+     		\hline
+     		\texttt{icd} & Diagnosenangaben \\
+     		\hline
+     		\texttt{ops} & Prozedurenangaben \\
+     		\hline
+     	\end{tabular}
+    \end{table}
+
+  \section{kis}
+   Hier werden die tagesaktuellen extrahierten Daten zu Patienten, Fällen, Bewegungen, Diagnosen und Prozeduren direkt aus dem Quellsystem \ac{KIS} gespeichert. Mit Hilfe diesem Schema lassen sich viele der Abbildungen für weitere Projekte realisieren.
+  
+   \subsection{Tabellen}
+  In diesem Schema behalten die Tabellen denselben Namen wie in \ac{KIS}. 
+   \begin{table}[ht]
+   	\centering   
+   	\caption{Tabellen im Schema kis}
+   	\begin{tabular}{||l|l||}   		
+   		\hline
+   		View & Beschreibung \\ [0.5ex]
+   		\hline\hline
+   		\texttt{nbew} & Bewegung \\
+   		\hline
+   		\texttt{ndia} & Diagnosen \\
+   		\hline
+   		\texttt{nfal} & Fälle \\
+   		\hline
+   		\texttt{nicp} & Prozeduren \\
+   		\hline
+   		\texttt{npat} & Patienten \\
+   		\hline
+   		\texttt{norg} & Organisationseinheiten \\
+   		\hline
+   	\end{tabular}
+   \end{table}
+  
+  \section{copra}
+  Hier wird die tagesaktuelle Information aus dem COPRA-System gespeichert. Dieses Schema beinhaltet Befunde, ärztliche Anweisungen und Überblick über Behandlungsschritte.
+  \subsection{Tabellen}
+  In diesem Schema behalten die Tabellen denselben Namen wie im COPRA-System. 
+  \begin{table}[ht]
+  	\centering   
+  	\caption{Tabellen im Schema copra}
+  	\begin{tabular}{||l|l||}   		
+  		\hline
+  		Tabelle & Beschreibung \\ [0.5ex]
+  		\hline\hline
+  		\texttt{co6\_data\_decimal\_6\_3} & Metadaten der nummerischen Messungen \\
+  		\hline
+  		\texttt{co6\_data\_object} & Metadaten der Messungen von Typ Objekt\\
+  		\hline
+  		\texttt{co6\_medic\_data\_patient} & Demografische Information der Patienten \\
+  		\hline
+  		\texttt{co6\_medic\_pressure} & Daten der Herz-Messungen\\
+  		\hline
+  	\end{tabular}
+  \end{table}
+
+  \section{gtds} 
+  Dieses Schema speichert die Daten der mainzenen Instanz des \ac{GTDS} und somit die Erfassung und Verarbeitung der Daten der revidierten Basisdokumentation klinischen Krebsregistern.
+  \subsection{Tabellen}
+  Dieses Schema hat momentan nur eine Tabelle. Die ist auf eine View auf eine Auswertung auf die Daten des \ac{GTDS} basiert.
+  \begin{table}[ht]
+  	\centering   
+  	\caption{Tabellen im Schema gtds}
+  	\begin{tabular}{||l|l||}   		
+  		\hline
+  		Tabelle & Beschreibung \\ [0.5ex]
+  		\hline\hline
+  		\texttt{auswertung\_diz} & Auswertung auf Daten auf \ac{GTDS} \\
+  		\hline
+  	\end{tabular}
+  \end{table}
+  \section{centrallab}
+  Hier werden die Daten aus dem Zentrallabor (Institut für Klinische Chemie und Laboratoriumsmedizin) gespeichert.
+  \subsection{Tabellen}
+  Die Tabellen speichern die Messungen sowie Mapping zu LOINC-Code.
+  \begin{table}[ht]
+  	\centering
+  	\caption{Tabellen im Schema centrallabor}
+  	\begin{tabular}{|| l | l ||}
+  		\hline
+  		Tabelle & Beschreibung \\[0.5ex]
+  		\hline\hline
+  		\texttt{observation} & Laborwerte der Patienten \\
+  		\hline
+  		\texttt{observationreport} & Verlinkung der Laborwerten mit Fälle und Patienten \\
+  		\hline
+  		\texttt{loinc\_mapping\_central\_lab} & Mapping der LOINC-Code zu der Messungen und/Geräte \\
+  		\hline
+  	\end{tabular}
+  \end{table}
+
+\section{imagic}
+Hier wird die Information aus dem IMAGIC-System gespeichert. Dieses Schema beinhaltet Information aus der Hautklinik. Davon Metadaten der Bilder sowie Befunde anhand der Bilder.
+\subsection{Tabellen}
+In diesem Schema behalten die Tabellen denselben Namen wie im IMAGIC-System. 
+\begin{table}[ht]
+	\centering   
+	\caption{Tabellen im Schema imagic}
+	\begin{tabular}{||l|l||}   		
+		\hline
+		Tabelle & Beschreibung \\ [0.5ex]
+		\hline\hline
+		\texttt{image} & Metadaten der Bilder \\
+		\hline
+		\texttt{patient} & Patienten Informationen \\
+		\hline
+		\texttt{study} & Information der Studien an der Hautklinik \\
+		\hline
+		\texttt{visit} &  Besuch/Fall-Information\\
+		\hline
+	\end{tabular}
+\end{table}
+
+  \section{metadata\_repository}

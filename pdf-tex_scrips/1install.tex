@@ -1,0 +1,58 @@
+\chapter{Installation und Konfiguration der Instanz des \ac{cDWH}}
+    
+    Die PostgreSQL-Instanz wurde mit Hilfe von PostgreSQL \ac{TDE} verschlüsselt. Das bedeutet, dass alle Dateien aus der PostgreSQL-Instanz sind auf dem Festplatte verschlüsselt gespeichert und bei lesen entschlüsselt.
+    \section{\ac{TDE}-Installion}    
+    Die Installation von PostgreSQL \ac{TDE} Version postgresql-12.3\_TDE\_1.0 verfolgte die Installation Guide des Software (\url{https://www.cybertec-postgresql.com/de/transparent-data-encryption-installation-guide/}) Davor waren die notwendige Bibliotheken und Software installiert:
+    \begin{itemize}
+    	\item zlib1g-dev   
+    	\item libssl-dev
+    	\item libldb-dev
+    	\item libldap2-dev
+    	\item libperl-dev
+    	\item python-dev
+    	\item libreadline-dev
+    	\item libxml2-dev
+    	\item libxslt1-dev
+    	\item bison
+    	\item flex
+    	\item uuid-dev
+    	\item make
+    	\item gcc
+    	\item libsystemd-dev
+    	\item libxml2-utils
+    	\item xsltproc
+    \end{itemize}
+    Install-Kommando: 
+    
+       
+    sudo ./configure --prefix=/usr/local/pg12tde --with-openssl --with-perl --with-python --with-ldap --with-libxml --with-uuid=e2fs --with-systemd\\ \\
+    Start-Kommando: 
+    
+    /usr/local/pg12tde/bin/initdb -D /media/db/cdw\_database/clinic\_instance
+    
+
+	\section{\ac{TDE}-Konfiguration} 
+	
+    \subsection{\ac{TDE}-Instanz-Dateien}
+    Auf dem Betriebssystem wurde den Benutzer clinicuser angelegt, der dient die Administration der \ac{DB}-Instanz und besitzt keine administrative rechte auf dem Betriebssystem.
+    Die Dateien der \ac{TDE}-Instanz befinden sich in dem Server unter /media/db/cdw\_database.
+    \begin{itemize}
+    	\item clinic\_instance -- Ordner der Instanz der \ac{cDWH} mit \ac{DB}- und Konfigurationsdateien.
+    	%\item dbkeys -- Ordner der mit Schlüssel-Datei. Jede Schlüssel in der Datei hat 1000 Zufall-Zeichenketten, jede davon ist 1000 Charakter lang mit Buchstaben, Zahlen und Sonderzeichen, davon wird eine genommen, verschlüsselt und als Schlüssel für dem Start des PostgreSQL-\ac{TDE}-Services benützt.
+    	\item sh\_scripts -- Shell-Skripts fürs Schlüssel-Manager.
+    	\item dbBack -- Täglicher Backup der ganzen Instanz.
+    \end{itemize}
+
+    \subsection{Konfigurationsdateien}
+    Die Datei postgresql.conf wurde wie folgt modifiziert:
+    \begin{itemize}
+    	\item port = 5433 \#Proxy der Instanz
+    	\item listen\_addresses = '*' \# Maschinen auf denen die Instanz abrufbar ist
+    	\item password\_encryption = scram-sha-256 \# Kennwort-Verschlüsselung Protokoll
+    	\item encryption\_key\_command = '/media/db/cdw\_database/sh\_scripts/clinic\_instance\_key.sh'
+    \end{itemize}
+	In der Datei pg\_hba.conf wurden die Benutzer der Instanz definiert.
+	\begin{itemize}
+		\item local   all     all                      scram-sha-256 \# lokale Verbindungen
+		\item host    all             all              0.0.0.0/0         scram-sha-256 \# externe Verbindungen
+	\end{itemize}

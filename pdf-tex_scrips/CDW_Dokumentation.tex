@@ -1,0 +1,36 @@
+\documentclass[12pt, a4paper]{report}
+  \usepackage[utf8]{inputenc}
+  \usepackage[ngerman]{babel}
+  \usepackage{graphicx}
+  \usepackage[nohyperlinks, printonlyused, withpage, smaller]{acronym}
+  \usepackage{url}
+  \usepackage{hyperref}
+  
+  \title{\acs{cDWH} Dokumentation} 
+  \author{Abel Hodelin Hernandez}
+  \date{\today}
+  
+    \begin{document}
+    	\begin{titlepage}
+    		\maketitle	
+    	\end{titlepage}
+    	\section*{Acronyms}
+    \begin{acronym}[CDW]
+    	\acro{cDWH}{clinic Data Warehouse}
+    	\acro{DBMS}{Database Management System}
+    	\acro{DB}{Datenbank}
+    	\acro{TDE}{Transparent Data Encryption}
+    	\acro{ETL}{Extraction Tranformation Load}
+    	\acro{KIS}{Krankenhausinformationssystem}
+    	\acro{GTDS}{Gißener Tumordokumentationssystem}
+    	\acro{KHEntgG}{Krankenhausentgeltgesetz}
+    \end{acronym}    
+    \clearpage
+    \tableofcontents{}
+  \include{1install}
+  \include{2structcdw}
+  \include{3using}
+  \include{4backup}
+  \include{5schemas}
+  \include{6users}  
+    \end{document}
