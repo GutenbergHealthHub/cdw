@@ -215,3 +215,160 @@ insert into metadata_repository.einweisungs_ueberweisungs_nachbehandlungsart(rfs
     ('EN', 'NT-Beh. Vorges.')
 ;
 
+--deathcause
+drop table if exists metadata_repository.deathcause;
+
+CREATE TABLE metadata_repository.deathcause (
+	id serial NOT NULL primary key,
+	sourceid varchar NOT NULL,
+	deathcause varchar NOT NULL,
+	description varchar NULL,
+	"source" varchar NOT NULL DEFAULT 'kis',
+	inserted timestamp not null default now(),
+	UNIQUE (sourceid, deathcause)
+);
+
+insert into metadata_repository.deathcause (sourceid, deathcause)
+  values
+  ('01', 'Natürlicher Tod'),
+  ('02', 'Krankheitsbedingt'),
+  ('03', 'Operat. M. Todesfolge'),
+  ('04', 'NA'),
+  ('05', 'Unnatürlicher Tod'),
+  ('06', 'Extern verstorben')
+;
+
+DROP TABLE if exists metadata_repository.country;
+
+CREATE TABLE metadata_repository.country (
+	id serial primary key,
+	sourceid varchar NOT NULL,
+	country varchar NOT NULL,
+	"source" varchar NOT NULL DEFAULT 'kis',
+	inserted timestamp not null default now(),
+	UNIQUE (sourceid, country)
+);
+
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('AE','AE','kis'),
+	 ('AF','AF','kis'),
+	 ('AL','AL','kis'),
+	 ('AM','AM','kis'),
+	 ('AR','AR','kis'),
+	 ('AT','AT','kis'),
+	 ('AU','AU','kis'),
+	 ('AZ','AZ','kis'),
+	 ('BA','BA','kis'),
+	 ('BD','BD','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('BE','BE','kis'),
+	 ('BG','BG','kis'),
+	 ('BH','BH','kis'),
+	 ('BR','BR','kis'),
+	 ('BY','BY','kis'),
+	 ('CA','CA','kis'),
+	 ('CG','CG','kis'),
+	 ('CH','CH','kis'),
+	 ('CL','CL','kis'),
+	 ('CM','CM','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('CN','CN','kis'),
+	 ('CS','CS','kis'),
+	 ('CY','CY','kis'),
+	 ('CZ','CZ','kis'),
+	 ('DE','DE','kis'),
+	 ('DK','DK','kis'),
+	 ('DZ','DZ','kis'),
+	 ('EC','EC','kis'),
+	 ('EE','EE','kis'),
+	 ('EG','EG','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('ER','ER','kis'),
+	 ('ES','ES','kis'),
+	 ('FI','FI','kis'),
+	 ('FR','FR','kis'),
+	 ('GB','GB','kis'),
+	 ('GE','GE','kis'),
+	 ('GH','GH','kis'),
+	 ('GR','GR','kis'),
+	 ('HK','HK','kis'),
+	 ('HR','HR','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('HU','HU','kis'),
+	 ('ID','ID','kis'),
+	 ('IE','IE','kis'),
+	 ('IL','IL','kis'),
+	 ('IN','IN','kis'),
+	 ('IQ','IQ','kis'),
+	 ('IR','IR','kis'),
+	 ('IS','IS','kis'),
+	 ('IT','IT','kis'),
+	 ('JO','JO','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('JP','JP','kis'),
+	 ('KE','KE','kis'),
+	 ('KR','KR','kis'),
+	 ('KS','KS','kis'),
+	 ('KW','KW','kis'),
+	 ('KZ','KZ','kis'),
+	 ('LT','LT','kis'),
+	 ('LU','LU','kis'),
+	 ('LV','LV','kis'),
+	 ('LY','LY','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('MA','MA','kis'),
+	 ('MD','MD','kis'),
+	 ('MK','MK','kis'),
+	 ('MN','MN','kis'),
+	 ('MX','MX','kis'),
+	 ('MY','MY','kis'),
+	 ('NA','NA','kis'),
+	 ('NG','NG','kis'),
+	 ('NI','NI','kis'),
+	 ('NL','NL','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('NO','NO','kis'),
+	 ('NZ','NZ','kis'),
+	 ('OM','OM','kis'),
+	 ('PA','PA','kis'),
+	 ('PH','PH','kis'),
+	 ('PK','PK','kis'),
+	 ('PL','PL','kis'),
+	 ('PT','PT','kis'),
+	 ('PY','PY','kis'),
+	 ('QA','QA','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('RO','RO','kis'),
+	 ('RS','RS','kis'),
+	 ('RU','RU','kis'),
+	 ('RW','RW','kis'),
+	 ('SA','SA','kis'),
+	 ('SD','SD','kis'),
+	 ('SE','SE','kis'),
+	 ('SG','SG','kis'),
+	 ('SK','SK','kis'),
+	 ('SLO','SLO','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('SO','SO','kis'),
+	 ('SR','SR','kis'),
+	 ('SV','SV','kis'),
+	 ('SY','SY','kis'),
+	 ('SZ','SZ','kis'),
+	 ('TH','TH','kis'),
+	 ('TJ','TJ','kis'),
+	 ('TM','TM','kis'),
+	 ('TN','TN','kis'),
+	 ('TR','TR','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('TW','TW','kis'),
+	 ('UA','UA','kis'),
+	 ('UNB','UNB','kis'),
+	 ('US','US','kis'),
+	 ('UY','UY','kis'),
+	 ('UZ','UZ','kis'),
+	 ('VA','VA','kis'),
+	 ('VE','VE','kis'),
+	 ('VN','VN','kis'),
+	 ('YE','YE','kis');
+INSERT INTO metadata_repository.country (sourceid,country,"source") VALUES
+	 ('YU','YU','kis');
