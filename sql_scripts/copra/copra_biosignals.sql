@@ -1,8 +1,8 @@
 -- Patient String Parameters
 
-drop function if exists copra.patient_string(config_id int);
+drop function if exists copra.patient_string(config_id bigint);
 
-create or replace function copra.patient_string(config_id int)
+create or replace function copra.patient_string(config_id bigint)
   returns table  (
     --pat_id bigint,
     pat_h_id varchar,
@@ -41,9 +41,9 @@ create or replace function copra.patient_string(config_id int)
 
 -- Patient Decimal Parameters
 
-drop function if exists copra.patient_decimal(config_id int);
+drop function if exists copra.patient_decimal(config_id bigint);
 
-create or replace function copra.patient_decimal(config_id int)
+create or replace function copra.patient_decimal(config_id bigint)
   returns table  (
     --pat_id bigint,
     pat_h_id varchar,
@@ -83,9 +83,9 @@ create or replace function copra.patient_decimal(config_id int)
 
 -- Patient Pressure Parameters
 
-drop function if exists copra.patient_pressure(config_id int);
+drop function if exists copra.patient_pressure(config_id bigint);
 
-create or replace function copra.patient_pressure(config_id int)
+create or replace function copra.patient_pressure(config_id bigint)
   returns table (
     pat_h_id varchar,
     pat_b_year int,
