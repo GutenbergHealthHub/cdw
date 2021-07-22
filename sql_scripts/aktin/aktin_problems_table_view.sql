@@ -18,8 +18,11 @@ drop view if exists aktin.dqa_v_aktin_copra_problem;
 create or replace view aktin.dqa_v_aktin_copra_problem
 as
   select 
-    'alter_aufnahme' problem, 
-    alter_aufnahme::varchar problem_value,
+    'alter_aufnahme' problem,
+    case
+      when alter_aufnahme isnull then 'NULL'
+      else alter_aufnahme::varchar 
+    end problem_value,
     fall_nummer,
     zeitpunkt_aufnahme 
   from aktin.aktin_copra 
@@ -27,7 +30,10 @@ as
     union 
   select 
     'geschlecht',
-    geschlecht,
+    case 
+      when geschlecht isnull then 'NULL'
+      else geschlecht
+    end geschlecht,
     fall_nummer,
     zeitpunkt_aufnahme 
   from aktin.aktin_copra
@@ -37,7 +43,10 @@ as
     union
   select 
     'zeitpunkt_aufnahme',
-    zeitpunkt_aufnahme::varchar,
+    case
+      when zeitpunkt_aufnahme isnull then 'NULL'
+      else zeitpunkt_aufnahme::varchar
+    end zeitpunkt_aufnahme_var,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -47,7 +56,10 @@ as
     union 
   select 
     'zeitpunkt_ersteinsch', 
-    zeitpunkt_ersteinsch::varchar,
+    case
+      when zeitpunkt_ersteinsch isnull then 'NULL'
+      else  zeitpunkt_ersteinsch::varchar
+    end zeitpunkt_ersteinsch,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -56,7 +68,10 @@ as
     union 
   select 
     'zeitpunkt_entlassung',
-    zeitpunkt_entlassung::varchar,
+    case
+      when zeitpunkt_entlassung isnull then 'NULL' 
+      else zeitpunkt_entlassung::varchar
+    end zeitpunkt_entlassung,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -64,8 +79,11 @@ as
     union 
   select 
     'aufnahmegrund',
-    aufnahmegrund,
-    fall_nummer ,
+    case
+      when aufnahmegrund isnull then 'NULL'
+      else aufnahmegrund
+    end aufnahmegrund,
+    fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
   where aufnahmegrund isnull 
@@ -73,7 +91,10 @@ as
     union 
   select 
     'mts_status_farbe',
-    mts_status_farbe ,
+    case
+      when mts_status_farbe isnull then 'NULL'
+      else mts_status_farbe
+    end mts_status_farbe,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac
@@ -84,7 +105,10 @@ as
    union 
   select 
     'atemfrequenz',
-    atemfrequenz::varchar,
+    case
+      when atemfrequenz isnull then 'NULL'
+      else atemfrequenz::varchar
+    end atemfrequenz,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -92,7 +116,10 @@ as
     union 
   select 
     'herzfrequenz',
-    herzfrequenz::varchar ,
+    case
+      when herzfrequenz isnull then 'NULL'
+      else herzfrequenz::varchar
+    end herzfrequenz,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -100,7 +127,10 @@ as
     union 
   select 
     'systolic_pressure',
-    systolic_pressure::varchar,
+    case 
+      when systolic_pressure isnull then 'NULL'
+      else systolic_pressure::varchar
+    end systolic_pressure,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -108,7 +138,10 @@ as
     union 
   select 
     'temperatur', 
-    temperatur::varchar,
+    case
+      when temperatur isnull then 'NULL'
+      else temperatur::varchar
+    end temperatur,
     fall_nummer,
     zeitpunkt_aufnahme 
   from aktin.aktin_copra ac 
@@ -116,7 +149,10 @@ as
     union 
   select 
     'gcs_scorevalue',
-    gcs_scorevalue::varchar,
+    case
+      when gcs_scorevalue isnull then 'NULL'
+      else gcs_scorevalue::varchar
+    end gcs_scorevalue,
     fall_nummer,
     zeitpunkt_aufnahme 
   from aktin.aktin_copra ac 
@@ -124,7 +160,10 @@ as
     union 
   select
     'gcs_augenint',
-    gcs_augenint::varchar,
+    case
+      when gcs_augenint isnull then 'NULL'
+      else gcs_augenint::varchar
+    end gcs_augenint,
     fall_nummer ,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -132,7 +171,10 @@ as
    union 
   select 
     'gcs_motorik',
-    gcs_motorik::varchar ,
+    case
+      when gcs_motorik isnull then 'NULL'
+      else gcs_motorik::varchar
+    end gcs_motorik,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -140,7 +182,10 @@ as
     union 
   select 
     'gcs_lang',
-    gcs_lang::varchar,
+    case
+      when gcs_lang isnull then 'NULL'
+      else gcs_lang::varchar
+    end gcs_lang,
     fall_nummer ,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -148,7 +193,10 @@ as
     union 
   select 
     'schmerzskala',
-    schmerzskala::varchar,
+    case
+      when schmerzskala isnull then 'NULL'
+      else schmerzskala::varchar
+    end schmerzskala,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -156,7 +204,10 @@ as
     union 
   select 
     'pupille_reaktion_links',
-    pupille_reaktion_links ,
+    case
+      when pupille_reaktion_links isnull then 'NULL'
+      else pupille_reaktion_links
+    end pupille_reaktion_links,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -166,8 +217,11 @@ as
   and pupille_reaktion_links notnull
     union 
   select 
-    'pupille_reaktion_rechts', 
-    pupille_reaktion_rechts ,
+    'pupille_reaktion_rechts',
+    case
+      when pupille_reaktion_rechts isnull then 'NULL'
+      else pupille_reaktion_rechts
+    end pupille_reaktion_rechts,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
@@ -177,9 +231,12 @@ as
   and pupille_reaktion_rechts notnull
     union 
   select 
-    'pupille_weite_links', 
-    pupille_weite_links,
-    fall_nummer ,
+    'pupille_weite_links',
+    case
+      when pupille_weite_links isnull then 'NULL'
+      else pupille_weite_links
+    end pupille_weite_links,
+    fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
   left join metadata_repository.pupille_width pw 
@@ -189,7 +246,10 @@ as
     union 
   select 
     'pupille_weite_rechts',
-    pupille_weite_rechts,
+    case
+      when pupille_weite_rechts isnull then 'NULL'
+      else pupille_weite_rechts
+    end pupille_weite_rechts,
     fall_nummer,
     zeitpunkt_aufnahme 
   from aktin.aktin_copra ac 
@@ -200,7 +260,10 @@ as
     union 
   select 
     'schwanger',
-    schwanger ,
+    case
+      when schwanger isnull then 'NULL'
+      else schwanger
+    end schwanger,
     fall_nummer,
     zeitpunkt_aufnahme
   from aktin.aktin_copra ac 
