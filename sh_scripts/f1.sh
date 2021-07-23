@@ -6,3 +6,11 @@ sed -e 's/^M/patern/' file_to_read > file_to_write
 
 # iconv to convert from ISO-8859-15 (Windows) to utf-8
 iconv -f ISO-8859-15 -t UTF-8//TRANSLIT < FILE_TO_READ > FILE_OUPUT
+
+# for to execute script
+for i in {1..100000}; do bash script_to_execute.sh; done
+
+# generate ramdom string and save into a file
+str=`</dev/urandom tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_\`{|}~' | head -c number`
+echo "$str" >> /dir/file
+
