@@ -1,9 +1,9 @@
-cd ~/cdw/ICD/icd_versions
+#cd ~/cdw/ICD/icd_versions
+cd $1
 
 echo "Unziping files..."
 for z in *.zip; do
    di=`echo $z | sed -e 's/\.zip//'`
-   #echo "$di end"
    mkdir -p $di
    unzip -q $z -d $di
 done
