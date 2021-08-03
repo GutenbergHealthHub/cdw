@@ -1,6 +1,5 @@
 # Convert files format from ISO-8859 to UTF-8
 
-#cd ~/cdw/ICD/icd_versions/codes
 cd $1
 echo "from ISO-8859 to UTF-8..."
 

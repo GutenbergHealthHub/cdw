@@ -10,7 +10,8 @@ cd $1
 
 echo "Coping files with icd10gm codes into codes directory..."
 
-ver='icd10gm[0-9]{4}' # icd version
+# ver='icd10gm[0-9]{4}' # icd version
+ver=$2
 # copy files with icd10gm codes into codes directory
 
 for d in */*/*/*s20*.txt */*/*/*[sS].txt;do # iteration in directory with codes

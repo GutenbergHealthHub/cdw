@@ -1,4 +1,3 @@
-#cd ~/cdw/ICD/icd_versions
 cd $1
 
 echo "Unziping files..."
