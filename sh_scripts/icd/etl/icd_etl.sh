@@ -2,3 +2,5 @@
 
 bash unziper.sh
 bash cp_codes.sh
+
+echo "End!"
