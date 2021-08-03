@@ -65,11 +65,11 @@ AFTER INSERT OR UPDATE OR DELETE ON emp
 
 
 select * from emp_audit ea ;
---truncate emp ;
+truncate emp_audit ;
 
 copy emp from '/home/abel/test/emp.csv' WITH DELIMITER E';' CSV QUOTE E'\b' header;
 
-select count(empname) from emp e;
+select count(empname) from emp_audit ea ;
 
-
+select * from emp_audit ea ;
   
