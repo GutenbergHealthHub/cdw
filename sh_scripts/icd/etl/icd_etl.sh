@@ -7,6 +7,7 @@ bash ../../utils/unziper.sh $icdversions
 bash ../../utils/copy_codes.sh $icdversions $ver
 bash ../../utils/extra_info.sh $icdversions $dat
 bash ../../utils/iso_2_utf8.sh $icdcodes
+bash ../../utils/column_count.sh $icdcodes
 cd
 echo "End!"
 exit
