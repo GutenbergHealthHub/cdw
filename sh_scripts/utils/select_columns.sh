@@ -1,8 +1,8 @@
-# Count number of columns in csv (with ";") files
+# Select the important columns in the code file and copy it in a csv file with ";".
 
 cd $1
 #cd /home/$USER/cdw/ICD/icd_versions/codes
-echo "Count columns in code files and copy to csv files..."
+echo "Selecting columns in code files and copy to csv files..."
 
 for t in *.txt; do
   csv=`echo $t | sed -e 's/txt/csv/'` # csv file
@@ -19,6 +19,7 @@ for t in *.txt; do
   # versions from 2017 till now
   [[ $col == "28" ]] && awk -v y="$ver" -F ';' '{OFS = ";"}{print y, $0}' $t > $csv
 
+  rm $t
   chmod -w $csv # delete write permissions
 done
 cd

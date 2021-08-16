@@ -1,8 +1,8 @@
-# Copy the  codes into the directory codes
-# if directory codes exists remove content of directory
-cd $1
-da=$2
-echo "Coping creation date to file icd10gm_versions.dat..."
+# Copy the version and date of version in a csv file (;)
+
+cd $1 # Directory with information about the version
+da=$2 # Date of release
+echo "Coping release date to file icd10gm_versions.dat..."
 # echo "version;release" > $1codes/icd10gm_versions.dat
 echo "version;release" > $da
 verpatern='[0-9]{4}' # icd version

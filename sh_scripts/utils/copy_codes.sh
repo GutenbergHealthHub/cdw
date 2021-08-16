@@ -1,5 +1,5 @@
 # Copy the icd10gm codes into the directory codes
-# if directory codes exists remove content of directory
+# if directory with files with codes exists remove content of directory
 # cd ~/cdw/ICD/icd_versions
 cd $1
 
