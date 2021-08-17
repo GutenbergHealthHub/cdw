@@ -62,7 +62,7 @@ CREATE TABLE icd_metainfo.Kodes (
       Titel          VARCHAR(255) NOT NULL,
       Dreisteller    VARCHAR(255),
       Viersteller    VARCHAR(255),
-      Fünfsteller    VARCHAR(255),
+      Fuenfsteller    VARCHAR(255),
       P295           VARCHAR(2),
       P301           VARCHAR(2),
       MortL1Code     VARCHAR(6) REFERENCES icd_metainfo.MortL1(MortL1Code),
