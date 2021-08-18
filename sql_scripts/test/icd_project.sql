@@ -225,7 +225,9 @@ CREATE OR REPLACE FUNCTION func_insert_new_icd10gm_bfarm() RETURNS TRIGGER AS $n
 				FROM icd_metainfo.icd10gm ig 
 				join new_table icd -- ok
 				  on icd.code = ig.code
-				where ig.ebene != icd.ebene
+				left join icd_metainfo.icd10gm_history igh
+				  on ig.code = igh.code
+				where (ig.ebene != icd.ebene
 				  or ig.ort != icd.ort
 				  or ig.art != icd.art
 				  or ig.kapnr != icd.kapnr
@@ -251,7 +253,8 @@ CREATE OR REPLACE FUNCTION func_insert_new_icd10gm_bfarm() RETURNS TRIGGER AS $n
 				  or ig.exot != icd.exot
 				  or ig.belegt != icd.belegt
 				  or ig.ifsgmeldung != icd.ifsgmeldung
-				  or ig.ifsglabor != icd.ifsglabor
+				  or ig.ifsglabor != icd.ifsglabor)
+				  and (igh.code isnull or igh.ver isnull)
 				 ;
 			
 			-- update in normal table
@@ -329,33 +332,6 @@ CREATE OR REPLACE FUNCTION func_insert_new_icd10gm_bfarm() RETURNS TRIGGER AS $n
 $new_icd10gm_bfarm$ LANGUAGE plpgsql;
 
 
--- function to insert into history table the deprecated icd
-/*CREATE OR REPLACE FUNCTION func_delete_new_icd10gm_bfarm() RETURNS TRIGGER AS $old_icd10gm_bfarm$
-    begin
-			insert into icd_metainfo.icd10gm_history   
-		    	SELECT 
-				  n.*,
-				  date_part('year', now())::varchar nver,
-				  'D' verevent
-				FROM new_table n -- icd_metainfo.icd10gm ig 
-				left join icd_metainfo.kodes icd -- ok
-				  on icd.code = n.code
-				left join icd_metainfo.icd10gm_history igh 
-				  on igh.code = n.code
-				where icd.code isnull and igh.code isnull;
-	    
-            INSERT INTO icd_metainfo.icd10gm_history
-              SELECT 
-                date_part('year', now()) ver, n.*
-              FROM new_table n 
-              right join icd_metainfo.icd10gm icd
-                on icd.code = n.code
-              where n.code isnull;
-        RETURN NULL; -- result is ignored since this is an AFTER trigger
-    END;
-$old_icd10gm_bfarm$ LANGUAGE plpgsql;
-*/
-
 SELECT cast(date_part('year', now()) as varchar) ver, icd.* FROM icd_metainfo.kodes icd;
 
 -- trigger in table icd_metainfo.kode to insert new icds
@@ -368,13 +344,188 @@ CREATE TRIGGER tr_icd10gm_insert_from_bfarm
 -- function to insert new icd10gm from bfarm into the table with all icd 
 CREATE OR REPLACE FUNCTION func_insert_new_icd10gm_files() RETURNS TRIGGER AS $new_icd10gm_files$
     BEGIN
-            INSERT INTO icd_metainfo.icd10gm
+            -- old icd to history
+	    	insert into icd_metainfo.icd10gm_history   
+		    	SELECT 
+				  ig.ver,
+				  ig.ebene,
+				  ig.ort,
+				  ig.art,
+				  ig.kapnr,
+				  ig.grvon,
+				  ig.code,
+				  ig.normcode,
+				  ig.codeohnepunkt,
+				  ig.titel,
+				  ig.dreisteller,
+				  ig.viersteller,
+				  ig.fuenfsteller,
+				  ig.p295,
+				  ig.p301,
+				  ig.mortl1code,
+				  ig.mortl2code,
+				  ig.mortl3code,
+				  ig.mortl4code,
+				  ig.morblcode,
+				  ig.sexcode,
+				  ig.sexfehlertyp,
+				  ig.altunt,
+				  ig.altob,
+				  ig.altfehlertyp,
+				  ig.exot,
+				  ig.belegt,
+				  ig.ifsgmeldung,
+				  ig.ifsglabor,
+				  (select ver from new_table limit 1) vermodif, -- version without the icd
+				  'D' verevent
+				FROM icd_metainfo.icd10gm ig 
+				left join new_table icd -- ok
+				  on icd.code = ig.code
+				left join icd_metainfo.icd10gm_history igh 
+				  on igh.code = ig.code
+				where icd.code isnull and igh.code isnull;
+			
+			-- updated icd to history
+			insert into icd_metainfo.icd10gm_history 
+		    	SELECT 
+				  ig.ver,
+				  ig.ebene,
+				  ig.ort,
+				  ig.art,
+				  ig.kapnr,
+				  ig.grvon,
+				  ig.code,
+				  ig.normcode,
+				  ig.codeohnepunkt,
+				  ig.titel,
+				  ig.dreisteller,
+				  ig.viersteller,
+				  ig.fuenfsteller,
+				  ig.p295,
+				  ig.p301,
+				  ig.mortl1code,
+				  ig.mortl2code,
+				  ig.mortl3code,
+				  ig.mortl4code,
+				  ig.morblcode,
+				  ig.sexcode,
+				  ig.sexfehlertyp,
+				  ig.altunt,
+				  ig.altob,
+				  ig.altfehlertyp,
+				  ig.exot,
+				  ig.belegt,
+				  ig.ifsgmeldung,
+				  ig.ifsglabor,
+				  (select ver from new_table limit 1) vermodif,
+				  'U' verevent
+				FROM icd_metainfo.icd10gm ig 
+				join new_table icd -- ok
+				  on icd.code = ig.code
+				left join icd_metainfo.icd10gm_history igh
+				  on ig.code = igh.code
+				where (ig.ebene != icd.ebene
+				  or ig.ort != icd.ort
+				  or ig.art != icd.art
+				  or ig.kapnr != icd.kapnr
+				  or ig.grvon != icd.grvon
+				  or ig.normcode != icd.normcode
+				  or ig.codeohnepunkt != icd.codeohnepunkt
+				  or ig.titel != icd.titel
+				  or ig.dreisteller != icd.dreisteller
+				  or ig.viersteller != icd.viersteller
+				  or ig.fuenfsteller != icd.fuenfsteller
+				  or ig.p295 != icd.p295
+				  or ig.p301 != icd.p301
+				  or ig.mortl1code != icd.mortl1code
+				  or ig.mortl2code != icd.mortl2code
+				  or ig.mortl3code != icd.mortl3code
+				  or ig.mortl4code != icd.mortl4code
+				  or ig.morblcode != icd.morblcode
+				  or ig.sexcode != icd.sexcode
+				  or ig.sexfehlertyp != icd.sexfehlertyp
+				  or ig.altunt != icd.altunt
+				  or ig.altob != icd.altob
+				  or ig.altfehlertyp != icd.altfehlertyp
+				  or ig.exot != icd.exot
+				  or ig.belegt != icd.belegt
+				  or ig.ifsgmeldung != icd.ifsgmeldung
+				  or ig.ifsglabor != icd.ifsglabor
+				  )
+				  and (igh.code isnull or igh.ver isnull)
+				 ;
+				
+				
+				-- update in normal table
+			update icd_metainfo.icd10gm ig
+		    	set 
+				  ver = icd.ver,
+				  ebene = icd.ebene,
+				  ort = icd.ort,
+				  art = icd.art,
+				  kapnr = icd.kapnr,
+				  grvon = icd.grvon,
+				  normcode = icd.normcode,
+				  codeohnepunkt = icd.codeohnepunkt,
+				  titel = icd.titel,
+				  dreisteller = icd.dreisteller,
+				  viersteller = icd.viersteller,
+				  fuenfsteller = icd.fuenfsteller,
+				  p295 = icd.p295,
+				  p301 = icd.p301,
+				  mortl1code = icd.mortl1code,
+				  mortl2code = icd.mortl2code,
+				  mortl3code = icd.mortl3code,
+				  mortl4code = icd.mortl4code,
+				  morblcode = icd.morblcode,
+				  sexcode = icd.sexcode,
+				  sexfehlertyp = icd.sexfehlertyp,
+				  altunt = icd.altunt,
+				  altob = icd.altob,
+				  altfehlertyp = icd.altfehlertyp,
+				  exot = icd.exot,
+				  belegt = icd.belegt,
+				  ifsgmeldung = icd.ifsgmeldung,
+				  ifsglabor = icd.ifsglabor
+				  from new_table icd 
+				where icd.code = ig.code and (
+				  ig.ebene != icd.ebene
+				  or ig.ort != icd.ort
+				  or ig.art != icd.art
+				  or ig.kapnr != icd.kapnr
+				  or ig.grvon != icd.grvon
+				  or ig.normcode != icd.normcode
+				  or ig.codeohnepunkt != icd.codeohnepunkt
+				  or ig.titel != icd.titel
+				  or ig.dreisteller != icd.dreisteller
+				  or ig.viersteller != icd.viersteller
+				  or ig.fuenfsteller != icd.fuenfsteller
+				  or ig.p295 != icd.p295
+				  or ig.p301 != icd.p301
+				  or ig.mortl1code != icd.mortl1code
+				  or ig.mortl2code != icd.mortl2code
+				  or ig.mortl3code != icd.mortl3code
+				  or ig.mortl4code != icd.mortl4code
+				  or ig.morblcode != icd.morblcode
+				  or ig.sexcode != icd.sexcode
+				  or ig.sexfehlertyp != icd.sexfehlertyp
+				  or ig.altunt != icd.altunt
+				  or ig.altob != icd.altob
+				  or ig.altfehlertyp != icd.altfehlertyp
+				  or ig.exot != icd.exot
+				  or ig.belegt != icd.belegt
+				  or ig.ifsgmeldung != icd.ifsgmeldung
+				  or ig.ifsglabor != icd.ifsglabor)
+				 ;
+	    
+	    	INSERT INTO icd_metainfo.icd10gm
               SELECT 
                 n.*, false 
               FROM new_table n 
               left join icd_metainfo.icd10gm icd
                 on icd.code = n.code
               where icd.code isnull;
+             
         RETURN NULL;
     END;
 $new_icd10gm_files$ LANGUAGE plpgsql;
@@ -406,7 +557,7 @@ select * from icd_metainfo.kodes;
 
 select * from icd_metainfo.icd10gm ig;
 
-select * from icd_metainfo.icd10gm_history igh ;
+select * from icd_metainfo.icd10gm_history igh;
 
 select * from icd_metainfo.icd10gm ig where code like 'A04.7%';
 select * from icd_metainfo.icd_tmp it where code like 'A05.-%';
@@ -418,6 +569,7 @@ select count(code) icd, ver from icd_metainfo.icd10gm ig group by ver
 select * from icd_metainfo.icd_tmp where code in 
   (select code from icd_metainfo.icd_tmp it group by code having count(ver) = 14) limit 40;
  
+ select * from icd_metainfo.icd10gm ig where titel like 'Zik%';
  
 SELECT 
   n.*,
@@ -435,7 +587,7 @@ select * from icd_metainfo.icd_tmp it where code like 'A04.7-%';
 select * from icd_metainfo.icd10gm_history igh ;
 
 select 
- ig.ver ,
+ 'updated' tab, ig.ver ,
   ig.ebene,
 				  ig.ort,
 				  ig.art,
@@ -464,10 +616,10 @@ select
 				  ig.belegt,
 				  ig.ifsgmeldung,
 				  ig.ifsglabor
-  from icd_metainfo.icd10gm ig where code like 'K57.5-'
+  from icd_metainfo.icd10gm ig where code like 'U81.44%'
   union
 select 
- ig.ver ,ig.ebene,
+ 'history', ig.ver ,ig.ebene,
 				  ig.ort,
 				  ig.art,
 				  ig.kapnr,
@@ -494,7 +646,11 @@ select
 				  ig.exot,
 				  ig.belegt,
 				  ig.ifsgmeldung,
-				  ig.ifsglabor from icd_metainfo.icd10gm_history ig where code like 'K57.5-'
+				  ig.ifsglabor from icd_metainfo.icd10gm_history ig where code like 'U81.44%'
 
-select * from icd
+select code, count(verevent) quantity from icd_metainfo.icd10gm_history icd group by code order by quantity desc;
+select * from icd_metainfo.icd10gm_history where code like 'M89.83';
 
+select * from icd_metainfo.icd10gm_history igh where verevent = 'U'
+
+select count(code), vermo from 
