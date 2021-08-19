@@ -119,3 +119,13 @@ create table icd_metainfo.icd10gm_history(
 );
 
 create index ix_code_history on icd_metainfo.icd10gm_history(code);
+
+alter table icd_metainfo.icd10gm_history 
+  add constraint fk_version_history foreign key (ver) references icd_metainfo.icd10gm_release_info(icd10gm_version);
+  
+alter table icd_metainfo.icd10gm_history 
+  add constraint fk_modif_version_history foreign key (vermodif) references icd_metainfo.icd10gm_release_info(icd10gm_version);
+  
+alter table icd_metainfo.icd10gm 
+  add constraint fk_version_icd10gm foreign key (ver) references icd_metainfo.icd10gm_release_info(icd10gm_version);
+ 
