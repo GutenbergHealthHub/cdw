@@ -49,8 +49,9 @@ CREATE table icd_metainfo.MortL4 (
       MortL4Code     VARCHAR(5) CONSTRAINT MortL4CodeX PRIMARY KEY,
       MortL4Ti       VARCHAR(255) NOT NULL
 );
-
+drop table if exists icd_metainfo.Kodes;
 CREATE TABLE icd_metainfo.Kodes (
+	  Ver			 VARCHAR(10) REFERENCES icd_metainfo.icd10gm_release_info(icd10gm_version),
       Ebene          VARCHAR(2),
       Ort            VARCHAR(2),
       Art            VARCHAR(2),
@@ -62,7 +63,7 @@ CREATE TABLE icd_metainfo.Kodes (
       Titel          VARCHAR(255) NOT NULL,
       Dreisteller    VARCHAR(255),
       Viersteller    VARCHAR(255),
-      Fuenfsteller    VARCHAR(255),
+      Fuenfsteller   VARCHAR(255),
       P295           VARCHAR(2),
       P301           VARCHAR(2),
       MortL1Code     VARCHAR(6) REFERENCES icd_metainfo.MortL1(MortL1Code),

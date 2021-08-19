@@ -147,7 +147,9 @@ select distinct ver from icd_metainfo.icd10gm ig;
 select distinct ver from icd_metainfo.icd10gm_history igh ;
 
 -- modifications
-select count(code) quanti,   from icd_metainfo.icd10gm_history igh group by verevent; 
+select count(code) quanti, verevent  from icd_metainfo.icd10gm_history igh group by verevent;
+
+select 
 
 
 -- update von 2007 - null d v f erstmal raus
