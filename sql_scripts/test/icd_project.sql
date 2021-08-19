@@ -142,4 +142,22 @@ select * from icd_metainfo.icd10gm_history where code like 'M89.83';
 
 select * from icd_metainfo.icd10gm_history igh where verevent = 'U'
 
-select count(code), vermo from 
+ 
+select distinct ver from icd_metainfo.icd10gm ig;
+select distinct ver from icd_metainfo.icd10gm_history igh ;
+
+-- modifications
+select count(code) quanti,   from icd_metainfo.icd10gm_history igh group by verevent; 
+
+
+-- update von 2007 - null d v f erstmal raus
+-- update nomenklaturen raus
+-- spliterung (!, -, ) ... Ebene
+
+select code, ver, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'D';
+select count(code) from icd_metainfo.icd10gm;
+
+select * from icd_metainfo.icd10gm where code like 'U07.1%';
+select count(code) quanti,  ver, verevent from icd_metainfo.icd10gm_history igh group by ver, verevent order by ver desc;
+select * from icd_metainfo.
+ 
