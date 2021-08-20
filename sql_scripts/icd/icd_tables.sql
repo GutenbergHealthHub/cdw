@@ -50,7 +50,7 @@ drop table if exists icd_metainfo.icd_tmp cascade;
 -- all icd10gm from 2007 till now
 --drop table if exists icd_metainfo.icd10gm cascade;
 create table icd_metainfo.icd10gm(
-  ver varchar default date_part('year', now()),
+  ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), --default date_part('year', now())::varchar,
   ebene varchar,
   ort varchar,
   art varchar,
@@ -85,7 +85,7 @@ create table icd_metainfo.icd10gm(
 --table for history of icd10gm
 --drop table if exists icd_metainfo.icd10gm_history cascade;
 create table icd_metainfo.icd10gm_history(
-  ver varchar, -- original version
+  ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- original version
   ebene varchar,
   ort varchar,
   art varchar,
@@ -114,12 +114,13 @@ create table icd_metainfo.icd10gm_history(
   belegt varchar,
   ifsgmeldung varchar,
   ifsglabor varchar,
-  vermodif varchar, -- new version
+  vermodif varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- new version
   verevent varchar check(verevent in ('D', 'U')) --change in the new release
 );
 
 create index ix_code_history on icd_metainfo.icd10gm_history(code);
 
+/*
 alter table icd_metainfo.icd10gm_history 
   add constraint fk_version_history foreign key (ver) references icd_metainfo.icd10gm_release_info(icd10gm_version);
   
@@ -128,4 +129,4 @@ alter table icd_metainfo.icd10gm_history
   
 alter table icd_metainfo.icd10gm 
   add constraint fk_version_icd10gm foreign key (ver) references icd_metainfo.icd10gm_release_info(icd10gm_version);
- 
+*/

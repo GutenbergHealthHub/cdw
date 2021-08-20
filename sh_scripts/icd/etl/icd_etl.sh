@@ -2,7 +2,6 @@
 icdversions="/home/$USER/cdw/ICD/icd_versions/" # derectory with all information of icd
 icdcodes="${icdversions}codes/" # directory with codes
 dat=${icdcodes}icd10gm_versions.dat # releases
-#tb="icd_metainfo.icd_tmp" # temporary table in database
 tb="icd_metainfo.kodes" # kode table in database
 tr="tr_icd10gm_insert_from_bfarm"
 ver='icd10gm[0-9]{4}'
