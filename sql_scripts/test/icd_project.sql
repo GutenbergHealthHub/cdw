@@ -1,48 +1,3 @@
-truncate table icd_metainfo.kodes cascade;
-truncate table icd_metainfo.mortl4 cascade;
-truncate table icd_metainfo.mortl3 cascade;
-truncate table icd_metainfo.mortl3grp cascade;
-truncate table icd_metainfo.mortl2 cascade;
-truncate table icd_metainfo.mortl1 cascade;
-truncate table icd_metainfo.mortl1grp cascade;
-truncate table icd_metainfo.morbl cascade;
-truncate table icd_metainfo.gruppen cascade;
-truncate table icd_metainfo.kapitel cascade;
-
-
-COPY icd_metainfo.kapitel from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/icd10gm2021syst_kapitel.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-COPY icd_metainfo.gruppen from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/icd10gm2021syst_gruppen.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-COPY icd_metainfo.morbl from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/morbl_2021.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-COPY icd_metainfo.mortl1grp from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/mortl1grp_2021.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-COPY icd_metainfo.mortl1 from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/mortl1_2021.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-COPY icd_metainfo.mortl2 from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/mortl2_2021.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-COPY icd_metainfo.mortl3grp from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/mortl3grp_2021.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-COPY icd_metainfo.mortl3 from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/mortl3_2021.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-COPY icd_metainfo.mortl4 from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/mortl4_2021.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-COPY icd_metainfo.kodes from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/icd10gm2021syst_kodes.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-
-
-
-
-
-
-
-   
-truncate icd_metainfo.icd10gm;
-truncate icd_metainfo.icd_tmp;
-truncate icd_metainfo.kodes;
-truncate icd_metainfo.icd10gm_history;
-
--- from files 
-COPY icd_metainfo.icd_tmp from '/home/abel/cdw/ICD/icd_versions/codes/icd10gm2020.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
-select * from icd_metainfo.icd_tmp;
-
-
-
--- from bfarm
-COPY icd_metainfo.kodes from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/icd10gm2021syst_kodes.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
-select * from icd_metainfo.kodes;
-
 
 select * from icd_metainfo.icd10gm ig;
 
@@ -163,3 +118,78 @@ select * from icd_metainfo.icd10gm where code like 'U07.1%';
 select count(code) quanti,  ver, verevent from icd_metainfo.icd10gm_history igh group by ver, verevent order by ver desc;
 select * from icd_metainfo.
  
+
+
+
+
+create table icd_metainfo.data_analisis(
+   quantity int,
+   year_icd int
+);
+COPY icd_metainfo.data_analisis from '/home/abel/cdw/ICD/icd_versions/codes/icd_year.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
+
+select quantity, year_icd::varchar from icd_metainfo.data_analisis
+  union
+select sum(quantity), 'Gesamt' from icd_metainfo.data_analisis
+  union 
+select round(avg(quantity)) , 'Durchschnitt' from icd_metainfo.data_analisis order by year_icd;
+
+
+select * from icd_metainfo.kodes;
+
+
+select * from icd_metainfo.icd10gm ig ;
+select * from icd_metainfo.icd10gm_history igh; 
+
+select count(code) icd, ver from icd_metainfo.icd10gm ig group by ver
+  union 
+ select count(code), 'total' from icd_metainfo.icd10gm  order by ver;
+
+select 'ebene' "Spalte", count(distinct ig.code) "Anzahl" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on  igh.code = ig.code
+where ig.ebene != igh.ebene
+  union 
+select 'ort' "Spalte", count(distinct ig.code) "Anzahl" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.ort != igh.ort 
+  union 
+select 'art' "Spalte", count(distinct ig.code) "Anzahl" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.art != igh.art
+  union 
+select 'kapnr' "Spalte", count(distinct ig.code) "Anzahl" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.kapnr != igh.kapnr
+  union
+select 'grvon' "Spalte", count(distinct ig.code) "Anzahl" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.grvon != igh.grvon 
+
+
+
+
+
+
+
+select ig.code, ig.ebene icd10gm, igh.ebene history from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on  igh.code = ig.code
+where ig.ebene != igh.ebene ;
+
+
+
+
+
+
+
+
+select distinct ebene, md5(ebene), ascii(ebene) , ver from icd_metainfo.icd10gm_history ig order by ebene;
+
+
+
+select distinct ebene, md5(ebene), ascii(ebene) , ver from icd_metainfo.icd10gm_history ig order by ebene;
+
+select distinct code, ver from icd_metainfo.icd10gm_history igh where ebene like '0'
+
+
+
+
+
+select count(code) icd, vermodif from icd_metainfo.icd10gm_history igh group by vermodif
+  union 
+ select count(code), 'total' from icd_metainfo.icd10gm_history order by vermodif;
+
+select * from icd_metainfo.icd10gm_history igh where verevent = 'U';
