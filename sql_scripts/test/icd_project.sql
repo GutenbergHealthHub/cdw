@@ -145,23 +145,119 @@ select count(code) icd, ver from icd_metainfo.icd10gm ig group by ver
   union 
  select count(code), 'total' from icd_metainfo.icd10gm  order by ver;
 
-select 'ebene' "Spalte", count(distinct ig.code) "Anzahl" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on  igh.code = ig.code
-where ig.ebene != igh.ebene
+select count(distinct ig.code) "Anzahl", 'Klassifikationsebene' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on  igh.code = ig.code
+where ig.ebene != igh.ebene and igh.verevent like 'U'
   union 
-select 'ort' "Spalte", count(distinct ig.code) "Anzahl" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.ort != igh.ort 
+select count(distinct ig.code) "Anzahl", 'Ort der Schlüsselnummer im Klassifikationsbaum' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.ort != igh.ort and igh.verevent like 'U' 
   union 
-select 'art' "Spalte", count(distinct ig.code) "Anzahl" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.art != igh.art
+select count(distinct ig.code) "Anzahl", 'Art der Vier- und Fünfsteller' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.art != igh.art and igh.verevent like 'U'
   union 
-select 'kapnr' "Spalte", count(distinct ig.code) "Anzahl" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.kapnr != igh.kapnr
+select count(distinct ig.code) "Anzahl", 'Kapitelnummer' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.kapnr != igh.kapnr and igh.verevent like 'U'
   union
-select 'grvon' "Spalte", count(distinct ig.code) "Anzahl" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.grvon != igh.grvon 
+select count(distinct ig.code) "Anzahl", 'Erster Dreisteller der Gruppe' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.grvon != igh.grvon and igh.verevent like 'U' 
+  union 
+select count(distinct ig.code) "Anzahl", 'Schlüsselnummer ohne Strich, Stern und  Ausrufezeichen' "Spalte"from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.normcode != igh.normcode and igh.verevent like 'U' 
+  union 
+select count(distinct ig.code) "Anzahl", 'Schlüsselnummer ohne Punkt, Strich, Stern und Ausrufezeichen' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.codeohnepunkt != igh.codeohnepunkt  and igh.verevent like 'U'
+  union 
+select count(distinct ig.code) "Anzahl", 'Klassentitel' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.titel != igh.titel and igh.verevent like 'U'
+  union 
+select count(distinct ig.code) "Anzahl", 'Paragraph 295' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.p295 != igh.p295 and igh.verevent like 'U'
+  union 
+select count(distinct ig.code) "Anzahl", 'Paragraph 301' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.p301 != igh.p301 and igh.verevent like 'U' 
+  union 
+select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 1' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.mortl1code != igh.mortl1code and igh.verevent like 'U'
+  union 
+select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 2' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.mortl2code != igh.mortl2code and igh.verevent like 'U'
+  union 
+select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 3' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.mortl3code != igh.mortl3code and igh.verevent like 'U'
+  union 
+select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 4' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.mortl4code != igh.mortl4code and igh.verevent like 'U'
+  union 
+select count(distinct ig.code) "Anzahl", 'Bezug zur Morbiditätsliste' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.morblcode != igh.morblcode and igh.verevent like 'U'
+  union 
+select count(distinct ig.code) "Anzahl", 'Geschlechtsbezug' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.sexcode != igh.sexcode and igh.verevent like 'U' 
+  union 
+select count(distinct ig.code) "Anzahl", 'Art des Fehlers bei Geschlechtsbezug' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.sexfehlertyp != igh.sexfehlertyp and igh.verevent like 'U' 
+  union 
+select count(distinct ig.code) "Anzahl", 'Untere Altersgrenze' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.altunt != igh.altunt and igh.verevent like 'U' 
+  union 
+select count(distinct ig.code) "Anzahl", 'Obere Altersgrenze' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.altob != igh.altob and igh.verevent like 'U'
+  union 
+select count(distinct ig.code) "Anzahl", 'Alter Fehlertyp' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.altfehlertyp != igh.altfehlertyp and igh.verevent like 'U' 
+  union 
+select count(distinct ig.code) "Anzahl", 'Sehr seltene Krankheit in Mitteleuropa' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.exot != igh.exot and igh.verevent like 'U' 
+  union 
+select count(distinct ig.code) "Anzahl", 'Belegt' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.belegt != igh.belegt and igh.verevent like 'U' 
+  union 
+select count(distinct ig.code) "Anzahl", 'Arzt-Meldepflicht' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.ifsgmeldung != igh.ifsgmeldung  and igh.verevent like 'U'
+  union 
+select count(distinct ig.code) "Anzahl", 'Anwendung der Laborausschlussziffer des einheitlisches Bewertungsmaßstab' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.ifsglabor != igh.ifsglabor and igh.verevent like 'U'
+order by "Anzahl" desc, "Spalte";
+
+
+select 
+  count(distinct ig.code) "Anzahl"
+from icd_metainfo.icd10gm ig 
+join icd_metainfo.icd10gm_history igh 
+  on igh.code = ig.code
+where ig.ebene != igh.ebene 
+or ig.ort != igh.ort 
+or ig.art != igh.art 
+or ig.kapnr != igh.kapnr 
+or ig.grvon != igh.grvon 
+or ig.normcode != igh.normcode 
+or ig.codeohnepunkt != igh.codeohnepunkt 
+or ig.titel != igh.titel 
+or ig.p295 != igh.p295 
+or ig.p301 != igh.p301 
+or ig.mortl1code != igh.mortl1code 
+or ig.mortl2code != igh.mortl2code
+or ig.mortl3code != igh.mortl3code
+or ig.mortl4code != igh.mortl4code
+or ig.morblcode != igh.morblcode 
+or ig.sexcode != igh.sexcode 
+or ig.sexfehlertyp != igh.sexfehlertyp 
+or ig.altunt != igh.altunt 
+or ig.altob != igh.altob 
+or ig.altfehlertyp != igh.altfehlertyp 
+or ig.exot != igh.exot 
+or ig.belegt != igh.belegt 
+or ig.ifsgmeldung != igh.ifsgmeldung 
+or ig.ifsglabor != igh.ifsglabor;
 
 
 
+
+and igh.verevent like 'U'
+
+
+
+select distinct ig.code, ig.sexfehlertyp , igh.sexfehlertyp from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.sexfehlertyp != igh.sexfehlertyp 
 
 
 
@@ -170,7 +266,7 @@ select ig.code, ig.ebene icd10gm, igh.ebene history from icd_metainfo.icd10gm ig
 where ig.ebene != igh.ebene ;
 
 
-
+select mortl1code, count(code) anzahl from icd_metainfo.kodes k group by mortl1code order by anzahl desc;
 
 
 
