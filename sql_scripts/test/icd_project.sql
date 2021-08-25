@@ -40,6 +40,8 @@ insert into icd_metainfo.icd_by_year
     on t.code = iby.code 
   where t.ver = '2021' and iby.code isnull;
  
+ select *, altunt||altob "alter" from icd_metainfo.icd_by_year iby;
+ 
  select count(code), ver from icd_metainfo.icd_by_year group by ver 
   union 
 select count(code), 'Gesamt' from icd_metainfo.icd_by_year order by ver;
@@ -356,3 +358,10 @@ where ig.mortl1code != igh.mortl1code and igh.verevent like 'U' and igh.mortl1co
 select count(ig.code) "Anzahl", case when igh.mortl1code not like 'UNDEF' then 'DEF' else igh.mortl1code end "Bezug zur Mortalitätsliste 1" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
 where ig.mortl1code != igh.mortl1code and igh.verevent like 'U' group by "Bezug zur Mortalitätsliste 1"
 
+
+
+
+
+select distinct altunt, altob, altunt||altob from icd_metainfo.icd_by_year iby where altunt not like '9999' order by altunt; 
+select code, titel, altunt, altob from icd_metainfo.icd_by_year where altunt like 't028';
+select distinct kapnr from icd_metainfo.icd_by_year iby order by kapnr ;
