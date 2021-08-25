@@ -1,5 +1,6 @@
 cd $1
-
+echo $1
+ls -l $1
 echo "Unziping files..."
 for z in *.zip; do
    di=`echo $z | sed -e 's/\.zip//'`
