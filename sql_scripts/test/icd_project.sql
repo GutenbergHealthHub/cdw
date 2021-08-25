@@ -1,3 +1,52 @@
+create table icd_metainfo.icd_tmp(
+  ver varchar,
+  ebene varchar,
+  ort varchar,
+  art varchar,
+  kapnr varchar,
+  grvon varchar,
+  code varchar,
+  normcode varchar,
+  codeohnepunkt varchar,
+  titel varchar,
+  dreisteller varchar,
+  viersteller varchar,
+  fuenfsteller varchar, -- look off!! this column hat a strange character in the original name
+  p295 varchar,
+  p301 varchar,
+  mortl1code varchar,
+  mortl2code varchar,
+  mortl3code varchar,
+  mortl4code varchar,
+  morblcode varchar,
+  sexcode varchar,
+  sexfehlertyp varchar,
+  altunt varchar,
+  altob varchar,
+  altfehlertyp varchar,
+  exot varchar,
+  belegt varchar,
+  ifsgmeldung varchar,
+  ifsglabor varchar
+);
+
+COPY icd_metainfo.icd_tmp from '/home/abel/cdw/ICD/icd_versions/codes/icd10gm2021.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
+
+--select * into icd_metainfo.icd_by_year from icd_metainfo.icd_tmp where ver = '2007';
+
+insert into icd_metainfo.icd_by_year 
+  select t.* from icd_metainfo.icd_tmp t 
+  left join icd_metainfo.icd_by_year iby  
+    on t.code = iby.code 
+  where t.ver = '2021' and iby.code isnull;
+ 
+ select count(code), ver from icd_metainfo.icd_by_year group by ver 
+  union 
+select count(code), 'Gesamt' from icd_metainfo.icd_by_year order by ver;
+
+ select count(code) from icd_metainfo.icd10gm ig ;
+
+select distinct ebene, code, codeohnepunkt, titel, ver from icd_metainfo.icd_by_year where codeohnepunkt in (select codeohnepunkt from icd_metainfo.icd_by_year group by codeohnepunkt having count(code) > 1) order by codeohnepunkt, ver;
 
 select * from icd_metainfo.icd10gm ig;
 
