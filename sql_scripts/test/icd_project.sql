@@ -359,7 +359,13 @@ select count(ig.code) "Anzahl", case when igh.mortl1code not like 'UNDEF' then '
 where ig.mortl1code != igh.mortl1code and igh.verevent like 'U' group by "Bezug zur Mortalitätsliste 1"
 
 
+select count(mortl1ti) quantity, 'mort1' mort from icd_metainfo.mortl1 m1
+  union
+select count(mortl2ti), 'mort2' from icd_metainfo.mortl2 m2
 
+select mortl2ti morti, 'm2' mort from icd_metainfo.mortl2 m2 where mortl2ti not in (select mortl1ti from icd_metainfo.mortl1 m1)
+  union
+select mortl1ti, 'm1' from icd_metainfo.mortl1 m1 where mortl1ti not in (select mortl2ti from icd_metainfo.mortl2 m2) order by mort, morti
 
 
 select distinct altunt, altob, altunt||altob from icd_metainfo.icd_by_year iby where altunt not like '9999' order by altunt; 
@@ -371,3 +377,16 @@ select kapnr, ver from icd_metainfo.icd_by_year iby where ver not like '2007' gr
 
 (
 select kapnr from icd_metainfo.icd_by_year iby where ver not like '2007' group by kapnr, ver having count(code) > 20);
+
+
+drop table icd_metainfo.icd_by_year_no_2007;
+select *, altunt||altob "alter" into icd_metainfo.icd_by_year_alter from icd_metainfo.icd_by_year iby;
+
+select distinct "alter" from icd_metainfo.icd_by_year_no_2007 where "alter" not like '999%';
+
+select * from icd_metainfo.icd_by_year_no_2007 ig where titel like 'COV%';
+
+
+select * from icd_metainfo.icd10gm_history igh where verevent = 'D'
+
+select count(code) from icd_metainfo.icd_tmp it where ver = '2020' and code not in (select code from icd_metainfo.icd_tmp where ver = '2021');
