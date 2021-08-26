@@ -365,3 +365,9 @@ where ig.mortl1code != igh.mortl1code and igh.verevent like 'U' group by "Bezug 
 select distinct altunt, altob, altunt||altob from icd_metainfo.icd_by_year iby where altunt not like '9999' order by altunt; 
 select code, titel, altunt, altob from icd_metainfo.icd_by_year where altunt like 't028';
 select distinct kapnr from icd_metainfo.icd_by_year iby order by kapnr ;
+
+
+select kapnr, ver from icd_metainfo.icd_by_year iby where ver not like '2007' group by kapnr, ver having count(code) > 20; 
+
+(
+select kapnr from icd_metainfo.icd_by_year iby where ver not like '2007' group by kapnr, ver having count(code) > 20);
