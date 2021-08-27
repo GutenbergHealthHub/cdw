@@ -390,3 +390,5 @@ select * from icd_metainfo.icd_by_year_no_2007 ig where titel like 'COV%';
 select * from icd_metainfo.icd10gm_history igh where verevent = 'D'
 
 select count(code) from icd_metainfo.icd_tmp it where ver = '2020' and code not in (select code from icd_metainfo.icd_tmp where ver = '2021');
+
+select * from icd_metainfo.icd10gm_history igh where verevent = 'D' order by vermodif, ver ;
