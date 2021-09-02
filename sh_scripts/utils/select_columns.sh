@@ -10,13 +10,13 @@ for t in *.txt; do
   [[ $t =~ [0-9]{4} ]] && ver=${BASH_REMATCH[0]} # year of version of ICDs
   
   # selecting important columns
-  # versions from 2007 to 2011
+  # versions from 2007 to 2012
   [[ $col == "27" ]] && awk -v y="$ver" -F ';' '{OFS = ";"}{print y, $1, $2, $3, $4, $5, $6, $7, $8, $9, "", "", "", $10, $11, $12, $13, $14, $15, $16, $17, $18, $20, $22, $23, $24, $25, $26, $27}' $t > $csv
 
-  # versions from 2012 to 2016
+  # versions from 2013 to 2017
   [[ $col == "30" ]] && awk -v y="$ver" -F ';' '{OFS = ";"}{print y, $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18, $19, $20, $21, $23, $25, $26, $27, $28, $29, $30}' $t > $csv
   
-  # versions from 2017 till now
+  # versions from 2018 till now
   [[ $col == "28" ]] && awk -v y="$ver" -F ';' '{OFS = ";"}{print y, $0}' $t > $csv
 
   rm $t
