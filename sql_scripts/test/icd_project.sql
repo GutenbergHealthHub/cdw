@@ -436,3 +436,121 @@ select ig.ver new_ver, igh.ver old_ver, ig.code, ig.mortl1code, igh.mortl1code  
 where ig.mortl1code != igh.mortl1code and igh.verevent like 'U' and ig.mortl1code not like 'UNDEF%' and igh.mortl1code not like 'UNDEF%';
 
 
+
+
+update icd_metainfo.icd10gm 
+  set dreisteller = 'Cholera' where code = 'A00.-';
+  
+ 
+select * from icd_metainfo.icd10gm_history igh  where code = 'A00.-';
+ 
+update icd_metainfo.icd10gm ig set 
+   dreisteller = icd.dreisteller,
+   viersteller = icd.viersteller,
+   fuenfsteller = icd.fuenfsteller
+   from icd_metainfo.icd_tmp icd
+   --where ig.code = icd.code 
+
+select k.code, k.dreisteller, k.viersteller, k.fuenfsteller from icd_metainfo.icd10gm ig join icd_metainfo.kodes k 
+  on k.code = ig.code;
+ 
+select * into icd_metainfo.testing from icd_metainfo.icd10gm ig;
+
+update icd_metainfo.icd10gm t set 
+  dreisteller = it.dreisteller, 
+  viersteller = it.viersteller, 
+  fuenfsteller = it.fuenfsteller
+from icd_metainfo.dvf it 
+  where t.code = it.code;
+
+ 
+ select * from icd_metainfo.dvf where code = 'A00.0';
+drop table icd_metainfo.dvf;
+select distinct on (code) ver, code, dreisteller, viersteller, fuenfsteller into icd_metainfo.dvf from icd_metainfo.icd_tmp  order by code, ver desc;
+
+/*update icd_metainfo.icd10gm ig set 
+   dreisteller = icd.dreisteller,
+   viersteller = icd.viersteller,
+   fuenfsteller = icd.fuenfsteller
+   from icd_metainfo.icd_tmp icd;
+ select distinct on (code) code from icd_metainfo.icd_tmp it order by code, ver desc ;
+*/
+
+select count(*) from 
+(
+select ig.code, igh.ver olversion, igh.mortl1code oldliste, igh.vermodif newversion, ig.mortl1code newliste 
+from icd_metainfo.icd10gm ig 
+join icd_metainfo.icd10gm_history igh on ig.code = igh.code 
+where ig.mortl1code not like 'UNDEF%' and igh.mortl1code like 'UNDEF%' and igh.vermodif = '2008' order by ig.code
+) as t;  
+
+
+
+
+select count(*) from 
+(
+select ig.code, igh.ver olversion, igh.mortl3code oldliste, igh.vermodif newversion, ig.mortl3code newliste 
+from icd_metainfo.icd10gm ig 
+join icd_metainfo.icd10gm_history igh on ig.code = igh.code 
+where ig.mortl3code not like 'UNDEF%' and igh.mortl3code like 'UNDEF%' and igh.vermodif = '2008' order by ig.code
+) as t;  
+
+
+select distinct igh.ver "Alte Version", igh.vermodif "Version der Änderung", ig.code "Code",  ig.titel "Titel", igh.titel, igh.sexcode "Alte Klassifikation", ig.sexcode "Neue Klassifikation" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.sexcode != igh.sexcode and igh.verevent like 'U' and ig.titel not like '%beleg%' order by igh.ver, igh.vermodif, ig.code;
+
+
+select distinct ig.kapnr, igh.ver "Alte Version", igh.vermodif "Version der Änderung", ig.code "Code",  ig.titel "Titel", igh.titel, igh.sexcode "Alte Klassifikation", ig.sexcode "Neue Klassifikation" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.sexcode != igh.sexcode and igh.verevent like 'U' and ig.titel not like '%beleg%' and ig.titel ~* 'mamm|brust' order by igh.ver, igh.vermodif, ig.code;
+
+select distinct igh.ver "Alte Version", igh.vermodif "Version der Änderung", ig.code "Code",  ig.titel "Titel", igh.sexcode "Alte Klassifikation", ig.sexcode "Neue Klassifikation" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.sexcode != igh.sexcode and igh.verevent like 'U' and ig.titel not like '%beleg%' and ig.titel !~* 'mamm|brust' order by igh.ver, igh.vermodif, ig.code;
+
+
+select count(distinct ig.code) "Anzahl", 'Geschlechtsbezug' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.sexcode != igh.sexcode and igh.verevent like 'U' 
+
+
+
+
+select distinct ig.code, ig.titel from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.sexcode != igh.sexcode and igh.verevent like 'U' and ig.titel not like '%beleg%' and ig.titel ~* 'mamm|brust';
+
+select distinct ig.code, ig.titel from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.sexcode != igh.sexcode and igh.verevent like 'U' and ig.titel not like '%beleg%' and ig.titel !~* 'mamm|brust' ;
+
+
+
+
+
+select distinct igh.ver "Alte Version", igh.vermodif "Version der Änderung", ig.code "Code",  ig.titel "Titel", igh.titel, igh.exot "Alte Klassifikation", ig.exot "Neue Klassifikation" from icd_metainfo.kodes ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
+where ig.exot != igh.exot and igh.verevent like 'U' and ig.titel not like '%beleg%' order by igh.ver, igh.vermodif, ig.code;
+
+select * into icd_metainfo.deleted from icd_metainfo.icd10gm_history igh where verevent = 'D';
+
+select codeohnepunkt , count(code) from icd_metainfo.icd10gm ig group by codeohnepunkt having count(code) > 1 order by codeohnepunkt ;
+
+
+select count(*) from icd_metainfo.icd10gm ig;
+
+select count(distinct code), count(distinct codeohnepunkt) from icd_metainfo.icd10gm ig;
+
+select 
+  ver, code, titel
+from icd_metainfo.icd10gm ig 
+where codeohnepunkt in (select igh.codeohnepunkt from icd_metainfo.icd10gm_history igh where igh.verevent = 'D' )
+and codeohnepunkt in (select codeohnepunkt from icd_metainfo.icd10gm ig group by codeohnepunkt having count(code) > 1 )
+order by code, ver;
+
+
+select 
+  ver, code, titel
+from icd_metainfo.icd10gm ig 
+where codeohnepunkt in (select igh.codeohnepunkt from icd_metainfo.icd10gm_history igh where igh.verevent = 'D' )
+and codeohnepunkt not in (select codeohnepunkt from icd_metainfo.icd10gm ig group by codeohnepunkt having count(code) > 1 )
+order by code, ver;
+
+
+
+select * from icd_metainfo.icd10gm ig where titel like '%Warteze%';
+
