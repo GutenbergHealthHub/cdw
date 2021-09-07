@@ -536,11 +536,11 @@ select count(*) from icd_metainfo.icd10gm ig;
 select count(distinct code), count(distinct codeohnepunkt) from icd_metainfo.icd10gm ig;
 
 select 
-  ver, code, titel
+  ver, ort, code, titel
 from icd_metainfo.icd10gm ig 
 where codeohnepunkt in (select igh.codeohnepunkt from icd_metainfo.icd10gm_history igh where igh.verevent = 'D' )
 and codeohnepunkt in (select codeohnepunkt from icd_metainfo.icd10gm ig group by codeohnepunkt having count(code) > 1 )
-order by code, ver;
+order by ver, code;
 
 
 select 
@@ -550,7 +550,11 @@ where codeohnepunkt in (select igh.codeohnepunkt from icd_metainfo.icd10gm_histo
 and codeohnepunkt not in (select codeohnepunkt from icd_metainfo.icd10gm ig group by codeohnepunkt having count(code) > 1 )
 order by code, ver;
 
-
+select count(code), vermodif from icd_metainfo.icd10gm_history igh where verevent = 'D' group by vermodif ;
 
 select * from icd_metainfo.icd10gm ig where titel like '%Warteze%';
 
+select codeohnepunkt, code from icd_metainfo.deleted where codeohnepunkt in (select codeohnepunkt from icd_metainfo.deleted d group by codeohnepunkt having count(code) > 1);
+
+
+select * from icd_metainfo.icd10gm ig where code like 'U07%' and code not in (select code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D');
