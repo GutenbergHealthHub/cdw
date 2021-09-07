@@ -1,11 +1,6 @@
 
 CREATE SCHEMA IF NOT EXISTS icd_metainfo;
 
-create table icd_metainfo.icd10gm_release_info(
-  icd10gm_version varchar(10) primary key,
-  icd10gm_release date not null unique
-);
-
 CREATE TABLE icd_metainfo.Kapitel (
       KapNr varchar(3) PRIMARY KEY,
       KapTi VARCHAR(255) NOT NULL

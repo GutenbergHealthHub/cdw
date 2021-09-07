@@ -1,19 +1,19 @@
 -- table for releases
-drop table if exists icd_metainfo.icd10gm_release_info;
+/*drop table if exists icd_metainfo.icd10gm_release_info;
 create table icd_metainfo.icd10gm_release_info(
   icd10gm_version varchar(10) primary key,
   icd10gm_release date not null unique
-);
+);*/
 
 --truncate icd_metainfo.icd10gm_release_info;
-COPY icd_metainfo.icd10gm_release_info from '/home/abel/cdw/ICD/icd_versions/codes/icd10gm_versions.dat' WITH DELIMITER E';' CSV QUOTE E'\b' Header;
+/*COPY icd_metainfo.icd10gm_release_info from '/home/abel/cdw/ICD/icd_versions/codes/icd10gm_versions.dat' WITH DELIMITER E';' CSV QUOTE E'\b' Header;
 insert into icd_metainfo.icd10gm_release_info
   values ('2021', '2020-11-11');
- 
-select * from icd_metainfo.icd10gm_release_info;
+ */
+--select * from icd_metainfo.icd10gm_release_info;
 
 -- temporary old icds from files 2007-2020
-drop table if exists icd_metainfo.icd_tmp cascade;
+--drop table if exists icd_metainfo.icd_tmp cascade;
 
 /*create table icd_metainfo.icd_tmp(
   ver varchar,
@@ -50,7 +50,7 @@ drop table if exists icd_metainfo.icd_tmp cascade;
 -- all icd10gm from 2007 till now
 --drop table if exists icd_metainfo.icd10gm cascade;
 create table icd_metainfo.icd10gm(
-  ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), --default date_part('year', now())::varchar,
+  ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- current version
   ebene varchar,
   ort varchar,
   art varchar,
@@ -85,7 +85,7 @@ create table icd_metainfo.icd10gm(
 --table for history of icd10gm
 --drop table if exists icd_metainfo.icd10gm_history cascade;
 create table icd_metainfo.icd10gm_history(
-  ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- original version
+  ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- version of insertion
   ebene varchar,
   ort varchar,
   art varchar,
@@ -115,7 +115,7 @@ create table icd_metainfo.icd10gm_history(
   ifsgmeldung varchar,
   ifsglabor varchar,
   vermodif varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- new version
-  verevent varchar check(verevent in ('D', 'U')) --change in the new release
+  verevent varchar check(verevent in ('D', 'I', 'U')) --change in the new release
 );
 
 create index ix_code_history on icd_metainfo.icd10gm_history(code);

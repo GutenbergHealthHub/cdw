@@ -3,18 +3,10 @@
 -- 2. update ICDs to the new version if needed
 -- 3. insert new ICDs into the management table 
 
-drop FUNCTION func_insert_new_icd10gm_bfarm();
-CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS TRIGGER AS $icd10gm_bfarm$
+
+CREATE OR REPLACE FUNCTION func_insert_new_icd10gm_bfarm() RETURNS TRIGGER AS $icd10gm_bfarm$
     begin
-	    	INSERT INTO icd_metainfo.icd10gm_history 
-              SELECT 
-                n.*,n.ver, 'I'
-              FROM new_table n 
-              left join icd_metainfo.icd10gm_history icd
-                on icd.code = n.code
-              where icd.code isnull;
-	    
-	        -- old icd to history
+	    	-- old icd to history
 	    	insert into icd_metainfo.icd10gm_history   
 		    	SELECT 
 				  ig.ver,
@@ -133,4 +125,4 @@ $icd10gm_bfarm$ LANGUAGE plpgsql;
 CREATE TRIGGER tr_icd10gm_insert_from_bfarm
     AFTER INSERT ON icd_metainfo.kodes 
     REFERENCING NEW TABLE AS new_table
-    FOR EACH STATEMENT EXECUTE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm();
+    FOR EACH STATEMENT EXECUTE FUNCTION func_insert_new_icd10gm_bfarm();
