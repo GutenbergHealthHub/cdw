@@ -1,7 +1,7 @@
 -- Function to insert modified icd10gm into history table 
 -- insert update ICDs into the history table
 
-CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history() RETURNS TRIGGER AS $icd10gm_to_history$
+CREATE OR REPLACE FUNCTION func_updated_to_icd10gm_history() RETURNS TRIGGER AS $icd10gm_to_history$
     begin
 	    	-- updated icd to history
 			insert into icd_metainfo.icd10gm_history   
@@ -69,10 +69,8 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history() RETURN
     END;
 $icd10gm_to_history$ LANGUAGE plpgsql;
 
---drop trigger tr_icd10gm_updated_to_history on icd_metainfo.icd10gm;
-
 --trigger to update the history table with the old values
 CREATE TRIGGER tr_icd10gm_updated_to_history
     AFTER UPDATE ON icd_metainfo.icd10gm 
     REFERENCING OLD TABLE AS new_table
-    FOR EACH STATEMENT EXECUTE FUNCTION icd_metainfo.func_updated_to_icd10gm_history();
+    FOR EACH STATEMENT EXECUTE FUNCTION func_updated_to_icd10gm_history();

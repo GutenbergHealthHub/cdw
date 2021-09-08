@@ -6,13 +6,7 @@
 drop FUNCTION func_insert_new_icd10gm_bfarm();
 CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS TRIGGER AS $icd10gm_bfarm$
     begin
-	    	INSERT INTO icd_metainfo.icd10gm_history 
-              SELECT 
-                n.*,n.ver, 'I'
-              FROM new_table n 
-              left join icd_metainfo.icd10gm_history icd
-                on icd.code = n.code
-              where icd.code isnull;
+	    	
 	    
 	        -- old icd to history
 	    	insert into icd_metainfo.icd10gm_history   
@@ -51,9 +45,11 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
 				FROM icd_metainfo.icd10gm ig 
 				left join new_table icd -- ok
 				  on icd.code = ig.code
-				left join icd_metainfo.icd10gm_history igh 
-				  on igh.code = ig.code
-				where icd.code isnull and igh.code isnull;
+				--join icd_metainfo.icd10gm_history igh 
+				  --on igh.code = ig.code 
+				where icd.code isnull 
+			    and ig.code not in (select igh.code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D' and ig.ver != )
+			   ; --and igh.code isnull;
 			
 			-- update in normal table
 			update icd_metainfo.icd10gm ig
@@ -97,8 +93,11 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
 				  or ig.codeohnepunkt != icd.codeohnepunkt
 				  or ig.titel != icd.titel
 				  or ig.dreisteller != icd.dreisteller
+				  or (ig.dreisteller isnull and icd.dreisteller notnull)
 				  or ig.viersteller != icd.viersteller
+				  or (ig.viersteller isnull and icd.viersteller notnull)
 				  or ig.fuenfsteller != icd.fuenfsteller
+				  or (ig.fuenfsteller isnull and icd.fuenfsteller notnull)
 				  or ig.p295 != icd.p295
 				  or ig.p301 != icd.p301
 				  or ig.mortl1code != icd.mortl1code
@@ -124,6 +123,15 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
               left join icd_metainfo.icd10gm icd
                 on icd.code = n.code
               where icd.code isnull;
+             
+             INSERT INTO icd_metainfo.icd10gm_history 
+              SELECT 
+                n.*,n.ver, 'I'
+              FROM new_table n 
+              left join icd_metainfo.icd10gm_history icd
+                on icd.code = n.code
+              where icd.code isnull;
+             
         RETURN NULL;
     END;
 $icd10gm_bfarm$ LANGUAGE plpgsql;

@@ -1,44 +1,3 @@
-create table icd_metainfo.icd_tmp(
-  ver varchar,
-  ebene varchar,
-  ort varchar,
-  art varchar,
-  kapnr varchar,
-  grvon varchar,
-  code varchar,
-  normcode varchar,
-  codeohnepunkt varchar,
-  titel varchar,
-  dreisteller varchar,
-  viersteller varchar,
-  fuenfsteller varchar, -- look off!! this column hat a strange character in the original name
-  p295 varchar,
-  p301 varchar,
-  mortl1code varchar,
-  mortl2code varchar,
-  mortl3code varchar,
-  mortl4code varchar,
-  morblcode varchar,
-  sexcode varchar,
-  sexfehlertyp varchar,
-  altunt varchar,
-  altob varchar,
-  altfehlertyp varchar,
-  exot varchar,
-  belegt varchar,
-  ifsgmeldung varchar,
-  ifsglabor varchar
-);
-
-COPY icd_metainfo.icd_tmp from '/home/abel/cdw/ICD/icd_versions/codes/icd10gm2021.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
-
---select * into icd_metainfo.icd_by_year from icd_metainfo.icd_tmp where ver = '2007';
-
-insert into icd_metainfo.icd_by_year 
-  select t.* from icd_metainfo.icd_tmp t 
-  left join icd_metainfo.icd_by_year iby  
-    on t.code = iby.code 
-  where t.ver = '2021' and iby.code isnull;
  
  select *, altunt||altob "alter" from icd_metainfo.icd_by_year iby;
  
@@ -54,8 +13,6 @@ select * from icd_metainfo.icd10gm ig;
 
 select * from icd_metainfo.icd10gm_history igh;
 
-select * from icd_metainfo.icd10gm ig where code like 'A04.7%';
-select * from icd_metainfo.icd_tmp it where code like 'A05.-%';
 
 select count(code) icd, ver from icd_metainfo.icd10gm ig group by ver
   union 
@@ -81,67 +38,7 @@ select * from icd_metainfo.icd_tmp it where code like 'A04.7-%';
 
 select * from icd_metainfo.icd10gm_history igh ;
 
-select 
- 'updated' tab, ig.ver ,
-  ig.ebene,
-				  ig.ort,
-				  ig.art,
-				  ig.kapnr,
-				  ig.grvon,
-				  ig.code,
-				  ig.normcode,
-				  ig.codeohnepunkt,
-				  ig.titel,
-				  ig.dreisteller,
-				  ig.viersteller,
-				  ig.fuenfsteller,
-				  ig.p295,
-				  ig.p301,
-				  ig.mortl1code,
-				  ig.mortl2code,
-				  ig.mortl3code,
-				  ig.mortl4code,
-				  ig.morblcode,
-				  ig.sexcode,
-				  ig.sexfehlertyp,
-				  ig.altunt,
-				  ig.altob,
-				  ig.altfehlertyp,
-				  ig.exot,
-				  ig.belegt,
-				  ig.ifsgmeldung,
-				  ig.ifsglabor
-  from icd_metainfo.icd10gm ig where code like 'U81.44%'
-  union
-select 
- 'history', ig.ver ,ig.ebene,
-				  ig.ort,
-				  ig.art,
-				  ig.kapnr,
-				  ig.grvon,
-				  ig.code,
-				  ig.normcode,
-				  ig.codeohnepunkt,
-				  ig.titel,
-				  ig.dreisteller,
-				  ig.viersteller,
-				  ig.fuenfsteller,
-				  ig.p295,
-				  ig.p301,
-				  ig.mortl1code,
-				  ig.mortl2code,
-				  ig.mortl3code,
-				  ig.mortl4code,
-				  ig.morblcode,
-				  ig.sexcode,
-				  ig.sexfehlertyp,
-				  ig.altunt,
-				  ig.altob,
-				  ig.altfehlertyp,
-				  ig.exot,
-				  ig.belegt,
-				  ig.ifsgmeldung,
-				  ig.ifsglabor from icd_metainfo.icd10gm_history ig where code like 'U81.44%'
+
 
 select code, count(verevent) quantity from icd_metainfo.icd10gm_history icd group by code order by quantity desc;
 select * from icd_metainfo.icd10gm_history where code like 'M89.83';
@@ -170,27 +67,6 @@ select count(code) quanti,  ver, verevent from icd_metainfo.icd10gm_history igh 
 select * from icd_metainfo.
  
 
-
-
-
-create table icd_metainfo.data_analisis(
-   quantity int,
-   year_icd int
-);
-COPY icd_metainfo.data_analisis from '/home/abel/cdw/ICD/icd_versions/codes/icd_year.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
-
-select quantity, year_icd::varchar from icd_metainfo.data_analisis
-  union
-select sum(quantity), 'Gesamt' from icd_metainfo.data_analisis
-  union 
-select round(avg(quantity)) , 'Durchschnitt' from icd_metainfo.data_analisis order by year_icd;
-
-
-select * from icd_metainfo.kodes;
-
-
-select * from icd_metainfo.icd10gm ig ;
-select * from icd_metainfo.icd10gm_history igh; 
 
 select count(code) icd, ver from icd_metainfo.icd10gm ig group by ver
   union 
@@ -291,39 +167,6 @@ where ig.ifsglabor != igh.ifsglabor and igh.verevent like 'U'
 order by "Anzahl" desc, "Spalte";
 
 
-select count(code), altunt from icd_metainfo.icd10gm ig group by altunt order by altunt ;
-
-select 
-  count(distinct ig.code) "Anzahl"
-from icd_metainfo.icd10gm ig 
-join icd_metainfo.icd10gm_history igh 
-  on igh.code = ig.code
-where ig.ebene != igh.ebene 
-or ig.ort != igh.ort 
-or ig.art != igh.art 
-or ig.kapnr != igh.kapnr 
-or ig.grvon != igh.grvon 
-or ig.normcode != igh.normcode 
-or ig.codeohnepunkt != igh.codeohnepunkt 
-or ig.titel != igh.titel 
-or ig.p295 != igh.p295 
-or ig.p301 != igh.p301 
-or ig.mortl1code != igh.mortl1code 
-or ig.mortl2code != igh.mortl2code
-or ig.mortl3code != igh.mortl3code
-or ig.mortl4code != igh.mortl4code
-or ig.morblcode != igh.morblcode 
-or ig.sexcode != igh.sexcode 
-or ig.sexfehlertyp != igh.sexfehlertyp 
-or ig.altunt != igh.altunt 
-or ig.altob != igh.altob 
-or ig.altfehlertyp != igh.altfehlertyp 
-or ig.exot != igh.exot 
-or ig.belegt != igh.belegt 
-or ig.ifsgmeldung != igh.ifsgmeldung 
-or ig.ifsglabor != igh.ifsglabor;
-
-
 
 
 and igh.verevent like 'U'
@@ -339,30 +182,6 @@ where ig.sexfehlertyp != igh.sexfehlertyp
 select ig.code, ig.ebene icd10gm, igh.ebene history from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on  igh.code = ig.code
 where ig.ebene != igh.ebene ;
 
-
-select mortl1code, count(code) anzahl from icd_metainfo.kodes k group by mortl1code order by anzahl desc;
-
-
-
-
-
-select distinct ebene, md5(ebene), ascii(ebene) , ver from icd_metainfo.icd10gm_history ig order by ebene;
-
-
-
-select distinct ebene, md5(ebene), ascii(ebene) , ver from icd_metainfo.icd10gm_history ig order by ebene;
-
-select distinct code, ver from icd_metainfo.icd10gm_history igh where ebene like '0'
-
-
-
-
-
-select count(code) icd, vermodif from icd_metainfo.icd10gm_history igh group by vermodif
-  union 
- select count(code), 'total' from icd_metainfo.icd10gm_history order by vermodif;
-
-select * from icd_metainfo.icd10gm_history igh where verevent = 'U';
 
 
 
@@ -396,10 +215,8 @@ select code, titel, altunt, altob from icd_metainfo.icd_by_year where altunt lik
 select distinct kapnr from icd_metainfo.icd_by_year iby order by kapnr ;
 
 
-select kapnr, ver from icd_metainfo.icd_by_year iby where ver not like '2007' group by kapnr, ver having count(code) > 20; 
 
-(
-select kapnr from icd_metainfo.icd_by_year iby where ver not like '2007' group by kapnr, ver having count(code) > 20);
+
 
 
 drop table icd_metainfo.icd_by_year_no_2007;
@@ -558,3 +375,9 @@ select codeohnepunkt, code from icd_metainfo.deleted where codeohnepunkt in (sel
 
 
 select * from icd_metainfo.icd10gm ig where code like 'U07%' and code not in (select code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D');
+
+
+
+
+
+select distinct code from icd_metainfo.icd_tmp it where ver = '2009' and code not in (select code from icd_metainfo.icd_tmp where ver = '2008')

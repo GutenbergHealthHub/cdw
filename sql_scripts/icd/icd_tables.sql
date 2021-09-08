@@ -83,8 +83,9 @@ create table icd_metainfo.icd10gm(
 );
 
 --table for history of icd10gm
---drop table if exists icd_metainfo.icd10gm_history cascade;
+drop table if exists icd_metainfo.icd10gm_history cascade;
 create table icd_metainfo.icd10gm_history(
+  --id bigserial primary key,
   ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- version of insertion
   ebene varchar,
   ort varchar,
