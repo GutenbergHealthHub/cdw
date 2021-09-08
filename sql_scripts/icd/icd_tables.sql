@@ -116,7 +116,7 @@ create table icd_metainfo.icd10gm_history(
   ifsgmeldung varchar,
   ifsglabor varchar,
   vermodif varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- new version
-  verevent varchar check(verevent in ('D', 'I', 'U')) --change in the new release
+  verevent varchar check(verevent in ('D', 'I', 'U', 'RU')) --change in the new release
 );
 
 create index ix_code_history on icd_metainfo.icd10gm_history(code);

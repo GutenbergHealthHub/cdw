@@ -8,6 +8,12 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
     begin
 	    	
 	    
+	    
+	       update icd_metainfo.icd10gm_history
+	         set verevent = 'RU'
+	         where verevent = 'D' and code in (select code from new_table n);
+	        
+	        
 	        -- old icd to history
 	    	insert into icd_metainfo.icd10gm_history   
 		    	SELECT 
@@ -48,7 +54,7 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
 				--join icd_metainfo.icd10gm_history igh 
 				  --on igh.code = ig.code 
 				where icd.code isnull 
-			    and ig.code not in (select igh.code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D' and ig.ver != )
+			    and ig.code not in (select igh.code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D')
 			   ; --and igh.code isnull;
 			
 			-- update in normal table
