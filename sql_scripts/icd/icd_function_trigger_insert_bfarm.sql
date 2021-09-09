@@ -5,12 +5,13 @@
 
 drop FUNCTION func_insert_new_icd10gm_bfarm();
 CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS TRIGGER AS $icd10gm_bfarm$
-    begin
-	    	
-	    
+    begin	    
 	    
 	       update icd_metainfo.icd10gm_history
-	         set verevent = 'RU'
+	         set 
+	           verevent = 'RU',
+	           ver = vermodif,
+	           vermodif = (select distinct ver from new_table n limit 1)	         
 	         where verevent = 'D' and code in (select code from new_table n);
 	        
 	        

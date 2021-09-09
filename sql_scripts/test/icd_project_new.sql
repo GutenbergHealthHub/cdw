@@ -11,7 +11,7 @@ TRUNCATE icd_metainfo.kodes CASCADE;
 
 select count(distinct code) quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'D'  group by vermodif order by quanty;
 
-select distinct code quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'RU'  order by quanty;
+select distinct ver, code quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'RU'  order by quanty;
 
 
 select count(code) from icd_metainfo.icd10gm_history igh where verevent = 'D'
