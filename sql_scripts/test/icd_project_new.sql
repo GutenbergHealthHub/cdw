@@ -13,6 +13,11 @@ select count(distinct code) quanty, vermodif from icd_metainfo.icd10gm_history i
 
 select distinct ver, code quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'RU'  order by quanty;
 
+select igh.ver, igh.vermodif, k.code, k.titel  from icd_metainfo.kodes k 
+join icd_metainfo.icd10gm_history igh 
+  on k.code = igh.code 
+where igh.verevent = 'RU'
+
 
 select count(code) from icd_metainfo.icd10gm_history igh where verevent = 'D'
 
@@ -78,6 +83,8 @@ and code not in (select code from icd_metainfo.icd10gm_history where verevent = 
 select count(distinct code), 'del_mod' modi from icd_metainfo.icd10gm_history igh 
 where code in (select code from icd_metainfo.icd10gm_history where verevent = 'D')
 and code in (select code from icd_metainfo.icd10gm_history where verevent = 'U')
+  union 
+select count(distinct code), 're' modi from icd_metainfo.icd10gm_history igh where verevent = 'RU'
   
 select code, kapnr, ver from icd_metainfo.icd10gm_history where ver not like '2007' and verevent = 'I' and kapnr in (
 select kapnr from icd_metainfo.icd10gm_history igh where ver not like '2007' and verevent = 'I' group by kapnr, ver having count(code) > 20
@@ -129,5 +136,12 @@ select code, verevent, vermodif from icd_metainfo.icd10gm_history igh where vere
 select code, titel from icd_metainfo.kodes k where code in (select code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D') order by code;
 
 
+COPY icd_metainfo.kapitel from '/home/abel/cdw/ICD/icd_versions/icd10gm2021syst-meta-20201111/Klassifikationsdateien/icd10gm2021syst_kapitel.txt' WITH DELIMITER E';' CSV QUOTE E'\b';
 
+
+select igh.*, k.kapti from icd_metainfo.icd10gm_history igh 
+join icd_metainfo.kapitel k 
+on k.kapnr = igh.kapnr where verevent = 'D' and vermodif = '2013' and igh.kapnr in(
+  select kapnr from icd_metainfo.icd10gm_history igh where verevent = 'D' and vermodif = '2013' group by kapnr having count(code) >  2
+);
   
