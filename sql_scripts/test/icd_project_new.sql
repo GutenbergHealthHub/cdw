@@ -11,12 +11,22 @@ TRUNCATE icd_metainfo.kodes CASCADE;
 
 select count(distinct code) quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'D'  group by vermodif order by quanty;
 
-select distinct ver, code quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'RU'  order by quanty;
+select distinct igh.kapnr, ver, code, titel, vermodif, verevent from icd_metainfo.icd10gm_history igh where code in (select code from icd_metainfo.icd10gm_history where verevent = 'RU') order by code;
 
-select igh.ver, igh.vermodif, k.code, k.titel  from icd_metainfo.kodes k 
+select igh.kapnr, igh.ver, igh.vermodif, k.code, k.titel  from icd_metainfo.kodes k 
 join icd_metainfo.icd10gm_history igh 
   on k.code = igh.code 
-where igh.verevent = 'RU'
+where igh.verevent = 'RU';
+
+select 
+ code, verevent 
+from icd_metainfo.icd10gm_history igh 
+group by code, verevent 
+having count(*) > 4;
+  
+  
+  
+  where exists (select code from icd_metainfo.icd10gm_history where verevent = 'RU')
 
 
 select count(code) from icd_metainfo.icd10gm_history igh where verevent = 'D'

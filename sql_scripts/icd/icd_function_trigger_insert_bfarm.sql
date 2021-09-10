@@ -7,12 +7,17 @@ drop FUNCTION func_insert_new_icd10gm_bfarm();
 CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS TRIGGER AS $icd10gm_bfarm$
     begin	    
 	    
-	       update icd_metainfo.icd10gm_history
-	         set 
-	           verevent = 'RU',
-	           ver = vermodif,
-	           vermodif = (select distinct ver from new_table n limit 1)	         
-	         where verevent = 'D' and code in (select code from new_table n);
+	       -- reused icd to history 
+	       insert into icd_metainfo.icd10gm_history
+	         select 
+				  n.*,
+				  n.ver vervodif,
+				  'RU' verevent
+				from new_table n 
+				join icd_metainfo.icd10gm_history igh
+				  on n.code = igh.code 
+				where igh.verevent = 'D' 
+			   and n.code not in (select distinct code from icd_metainfo.icd10gm_history where verevent like 'RU');
 	        
 	        
 	        -- old icd to history
@@ -47,7 +52,7 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
 				  ig.belegt,
 				  ig.ifsgmeldung,
 				  ig.ifsglabor,
-				  (select ver from icd_metainfo.kodes limit 1) vermodi, 
+				  (select ver from icd_metainfo.kodes limit 1) vermodif, 
 				  'D' verevent
 				FROM icd_metainfo.icd10gm ig 
 				left join new_table icd -- ok
