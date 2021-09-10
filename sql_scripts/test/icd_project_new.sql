@@ -1,15 +1,23 @@
 ALTER TABLE icd_metainfo.kodes DISABLE TRIGGER ALL;
-ALTER TABLE icd_metainfo.icd10gm_history DISABLE TRIGGER ALL;
+ALTER TABLE icd_metainfo.icd10gm_history enable TRIGGER ALL;
+ALTER TABLE icd_metainfo.icd10gm enable TRIGGER ALL;
 ALTER TABLE icd_metainfo.kodes ENABLE TRIGGER tr_icd10gm_insert_from_bfarm;
 
 
 TRUNCATE icd_metainfo.icd10gm CASCADE;
 truncate icd_metainfo.icd10gm_history cascade;
 
-COPY icd_metainfo.kodes FROM '/home/abel/cdw/ICD/icd_versions/codes/icd10gm2021.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
 TRUNCATE icd_metainfo.kodes CASCADE;
+COPY icd_metainfo.kodes FROM '/home/abel/cdw/ICD/icd_versions/codes/icd10gm2021.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
 
+select * from icd_metainfo.kodes k where code in (select code from icd_metainfo.icd10gm_history igh where verevent = 'D');
+
+select count(*) from icd_metainfo.icd10gm;
 select count(distinct code) quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'D'  group by vermodif order by quanty;
+
+select count(distinct code) quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'U'  group by vermodif order by quanty;
+
+select * from icd_metainfo.icd10gm_history igh where code like 'A49.0%';
 
 select distinct igh.kapnr, ver, code, titel, vermodif, verevent from icd_metainfo.icd10gm_history igh where code in (select code from icd_metainfo.icd10gm_history where verevent = 'RU') order by code;
 
@@ -17,7 +25,7 @@ select igh.kapnr, igh.ver, igh.vermodif, k.code, k.titel  from icd_metainfo.kode
 join icd_metainfo.icd10gm_history igh 
   on k.code = igh.code 
 where igh.verevent = 'RU';
-
+select * from icd_metainfo.icd10gm_history igh where verevent = 'I';
 select 
  code, verevent 
 from icd_metainfo.icd10gm_history igh 
