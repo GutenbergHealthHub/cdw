@@ -1,8 +1,8 @@
-\chapter{Installation und Konfiguration der Instanz des \ac{cDWH}}
+\chapter{Installation und Konfiguration der Instanz des \acs{csdwh}}
     
-    Die PostgreSQL-Instanz wurde mit Hilfe von PostgreSQL \ac{TDE} verschlüsselt. Das bedeutet, dass alle Dateien aus der PostgreSQL-Instanz sind auf dem Festplatte verschlüsselt gespeichert und bei lesen entschlüsselt.
-    \section{\ac{TDE}-Installion}    
-    Die Installation von PostgreSQL \ac{TDE} Version postgresql-12.3\_TDE\_1.0 verfolgte die Installation Guide des Software (\url{https://www.cybertec-postgresql.com/de/transparent-data-encryption-installation-guide/}) Davor waren die notwendige Bibliotheken und Software installiert:
+    Die PostgreSQL-Instanz wurde mit Hilfe von PostgreSQL \ac{tde} verschlüsselt. Das bedeutet, dass alle Dateien aus der PostgreSQL-Instanz sind auf dem Festplatte verschlüsselt gespeichert und bei lesen entschlüsselt.
+    \section{\acs{tde}-Installation}    
+    Die Installation von PostgreSQL \ac{tde} Version postgresql-12.3\_TDE\_1.0 verfolgte die Installation Guide des Software (\url{https://www.cybertec-postgresql.com/de/transparent-data-encryption-installation-guide/}) Davor waren die notwendige Bibliotheken und Software installiert:
     \begin{itemize}
     	\item zlib1g-dev   
     	\item libssl-dev
@@ -31,13 +31,13 @@
     /usr/local/pg12tde/bin/initdb -D /media/db/cdw\_database/clinic\_instance
     
 
-	\section{\ac{TDE}-Konfiguration} 
+	\section{\acs{tde}-Konfiguration} 
 	
-    \subsection{\ac{TDE}-Instanz-Dateien}
-    Auf dem Betriebssystem wurde den Benutzer clinicuser angelegt, der dient die Administration der \ac{DB}-Instanz und besitzt keine administrative rechte auf dem Betriebssystem.
-    Die Dateien der \ac{TDE}-Instanz befinden sich in dem Server unter /media/db/cdw\_database.
+    \subsection{\acs{tde}-Instanz-Dateien}
+    Auf dem Betriebssystem wurde den Benutzer clinicuser angelegt, der dient die Administration der \ac{db}-Instanz und besitzt keine administrative rechte auf dem Betriebssystem.
+    Die Dateien der \ac{tde}-Instanz befinden sich in dem Server unter /media/db/cdw\_database.
     \begin{itemize}
-    	\item clinic\_instance -- Ordner der Instanz der \ac{cDWH} mit \ac{DB}- und Konfigurationsdateien.
+    	\item clinic\_instance -- Ordner der Instanz der \ac{csdwh} mit \ac{db}- und Konfigurationsdateien.
     	%\item dbkeys -- Ordner der mit Schlüssel-Datei. Jede Schlüssel in der Datei hat 1000 Zufall-Zeichenketten, jede davon ist 1000 Charakter lang mit Buchstaben, Zahlen und Sonderzeichen, davon wird eine genommen, verschlüsselt und als Schlüssel für dem Start des PostgreSQL-\ac{TDE}-Services benützt.
     	\item sh\_scripts -- Shell-Skripts fürs Schlüssel-Manager.
     	\item dbBack -- Täglicher Backup der ganzen Instanz.

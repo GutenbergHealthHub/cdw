@@ -5,7 +5,7 @@ Die Schemata speichern die "rohe" \textbf{pseudonymisierte} Information der ursp
   \section{p21}
   Dieses Schema speichert die jährliche Information der \S21, die von Medizincontrolling in CSV-Dateien generiert wird. 
   
-  Der jährliche Rhythmus ist zu groß, als dass die Daten bspw. zur Rekrutierung von Patienten für Studien aber auch zu Forschung genutzt werden können. Auf diesem Grund wird diese Information in der Zukunft nicht mehr aus CSV-Dateien genommen sondern direkt aus dem \ac{KIS}.
+  Der jährliche Rhythmus ist zu groß, als dass die Daten bspw. zur Rekrutierung von Patienten für Studien aber auch zu Forschung genutzt werden können. Auf diesem Grund wird diese Information in der Zukunft nicht mehr aus CSV-Dateien genommen sondern direkt aus dem \ac{kis}.
 
   \subsection{Tabellen}
   \begin{table}[ht]
@@ -27,7 +27,7 @@ Die Schemata speichern die "rohe" \textbf{pseudonymisierte} Information der ursp
   \end{table}
   
 \subsection{Views}
-In diesem Schema befinden sich auch die Views für \ac{ETL}-Prozessen die, solche Information aus \S21 benötigen. Der Inhalt dieser Views entspricht die Formatierung der \ac{KHEntgG} \S 21 Übermittlung und Nutzung der Daten.
+In diesem Schema befinden sich auch die Views für \ac{etl}-Prozessen die, solche Information aus \S21 benötigen. Der Inhalt dieser Views entspricht die Formatierung der \ac{khentgg} \S 21 Übermittlung und Nutzung der Daten.
      	\begin{table}[ht]
      	\centering   
     	\caption{Views im Schema p21}
@@ -48,10 +48,10 @@ In diesem Schema befinden sich auch die Views für \ac{ETL}-Prozessen die, solch
     \end{table}
 
   \section{kis}
-   Hier werden die tagesaktuellen extrahierten Daten zu Patienten, Fällen, Bewegungen, Diagnosen und Prozeduren direkt aus dem Quellsystem \ac{KIS} gespeichert. Mit Hilfe diesem Schema lassen sich viele der Abbildungen für weitere Projekte realisieren.
+   Hier werden die tagesaktuellen extrahierten Daten zu Patienten, Fällen, Bewegungen, Diagnosen und Prozeduren direkt aus dem Quellsystem \ac{kis} gespeichert. Mit Hilfe diesem Schema lassen sich viele der Abbildungen für weitere Projekte realisieren.
   
    \subsection{Tabellen}
-  In diesem Schema behalten die Tabellen denselben Namen wie in \ac{KIS}. 
+  In diesem Schema behalten die Tabellen denselben Namen wie in \ac{kis}. 
    \begin{table}[ht]
    	\centering   
    	\caption{Tabellen im Schema kis}
@@ -97,9 +97,9 @@ In diesem Schema befinden sich auch die Views für \ac{ETL}-Prozessen die, solch
   \end{table}
 
   \section{gtds} 
-  Dieses Schema speichert die Daten der mainzenen Instanz des \ac{GTDS} und somit die Erfassung und Verarbeitung der Daten der revidierten Basisdokumentation klinischen Krebsregistern.
+  Dieses Schema speichert die Daten der mainzenen Instanz des \ac{gtds} und somit die Erfassung und Verarbeitung der Daten der revidierten Basisdokumentation klinischen Krebsregistern.
   \subsection{Tabellen}
-  Dieses Schema hat momentan nur eine Tabelle. Die ist auf eine View auf eine Auswertung auf die Daten des \ac{GTDS} basiert.
+  Dieses Schema hat momentan nur eine Tabelle. Die ist auf eine View auf eine Auswertung auf die Daten des \ac{gtds} basiert.
   \begin{table}[ht]
   	\centering   
   	\caption{Tabellen im Schema gtds}
@@ -107,7 +107,7 @@ In diesem Schema befinden sich auch die Views für \ac{ETL}-Prozessen die, solch
   		\hline
   		Tabelle & Beschreibung \\ [0.5ex]
   		\hline\hline
-  		\texttt{auswertung\_diz} & Auswertung auf Daten auf \ac{GTDS} \\
+  		\texttt{auswertung\_diz} & Auswertung auf Daten auf \ac{gtds} \\
   		\hline
   	\end{tabular}
   \end{table}

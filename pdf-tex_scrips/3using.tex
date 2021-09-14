@@ -1,5 +1,5 @@
 \chapter{Nutzung}
-	   \section{Start die \ac{DB}}
+	   \section{Start die \acs{db}}
 	   Die Instanz startet automatisch nach jedem Reboot des Server. Wenn die Instanz auf diese Weise nicht startet, sollte man folgendes machen / überprüfen:
 	   \begin{itemize}
 	   	\item \texttt{ssh IP des Server -l cdw} \# Login auf dem Server via ssh mit einem Benutzer mit sudo Rechten, unter Windows auch mit den Tools putty oder MobaXterm
@@ -21,10 +21,10 @@
 	   	    \item clinicuser\$ \texttt{/usr/local/pg12tde/bin/pg\_ctl -D clinic\_instance  restart} \#(Re)Start die Instanz
 	   	\end{itemize}
 	   \end{itemize}
-   \section{Arbeiten mit \ac{cDWH} via ssh/psql}
+   \section{Arbeiten mit \acs{csdwh} via ssh/psql}
    
    \begin{itemize}
    	\item \texttt{ssh Server\_IP -l tooluser} \# Login auf dem Server
    	\item tooluser\$ \texttt{/usr/local/pg12tde/bin/psql -p 5433 database\_name -U user\_name} \#Verbindung mit einer Datenbank der Instanz 
-   	\item database\_name\#\texttt{\textbackslash c another\_database\_name} -- Verbindung mit anderer \ac{DB}
+   	\item database\_name\#\texttt{\textbackslash c another\_database\_name} -- Verbindung mit anderer \ac{db}
    \end{itemize}

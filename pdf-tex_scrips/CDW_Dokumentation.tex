@@ -1,12 +1,33 @@
 \documentclass[12pt, a4paper]{report}
-  \usepackage[utf8]{inputenc}
-  \usepackage[ngerman]{babel}
-  \usepackage{graphicx}
-  \usepackage[nohyperlinks, printonlyused, withpage, smaller]{acronym}
-  \usepackage{url}
-  \usepackage{hyperref}
+%\documentclass[12pt, a4paper]{article}
+%\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+%\usepackage{math}
+%\usepackage{amsmath}
+\usepackage{version}
+\usepackage{hyperref}
+\usepackage{graphicx}
+%\usepackage{svg}
+\usepackage{longtable}
+\usepackage[printonlyused, withpage, nohyperlinks, smaller]{acronym}
+\usepackage{fancyhdr}
+\usepackage[type={CC}, modifier={by-sa},version={4.0},]{doclicense}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{xcolor}
+\usepackage{ccicons}
+\usepackage{array,multirow,graphicx}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{scalerel}
+%\usepackage{apacite}
+\usepackage{ragged2e}
+%\usepackage{orcidlink}
+\usepackage{pdflscape}
+\usepackage{booktabs}
   
-  \title{\acs{cDWH} Dokumentation} 
+  \title{\ac{csdwh} Dokumentation} 
   \author{Abel Hodelin Hernandez}
   \date{\today}
   
@@ -16,14 +37,16 @@
     	\end{titlepage}
     	\section*{Acronyms}
     \begin{acronym}[CDW]
-    	\acro{cDWH}{clinic Data Warehouse}
-    	\acro{DBMS}{Database Management System}
-    	\acro{DB}{Datenbank}
-    	\acro{TDE}{Transparent Data Encryption}
-    	\acro{ETL}{Extraction Tranformation Load}
-    	\acro{KIS}{Krankenhausinformationssystem}
-    	\acro{GTDS}{Gißener Tumordokumentationssystem}
-    	\acro{KHEntgG}{Krankenhausentgeltgesetz}
+    	\acro{diz}[DIZ]{Datenintegrationszentrum}
+    	\acro{csdwh}[csDWH]{clinic staging Data Warehouse}
+    	\acro{dbms}[DBMS]{Database Management System}
+    	\acro{db}[DB]{Datenbank}
+    	\acrodefplural{db}[DB]{Datenbanken}
+    	\acro{tde}[TDE]{Transparent Data Encryption}
+    	\acro{etl}[ETL]{Extraction Tranformation Load}
+    	\acro{kis}[KIS]{Krankenhausinformationssystem}
+    	\acro{gtds}[GTDS]{Gißener Tumordokumentationssystem}
+    	\acro{khentgg}[KHEntgG]{Krankenhausentgeltgesetz}
     \end{acronym}    
     \clearpage
     \tableofcontents{}
