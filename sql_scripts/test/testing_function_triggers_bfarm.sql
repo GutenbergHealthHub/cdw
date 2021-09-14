@@ -20,12 +20,13 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
               SELECT 
                 n.*,
                 null oldver, 
-                'I' verevent, 
-                false isdeleted 
+                'I' verevent
               FROM new_table n 
               left join icd_metainfo.icd10gm_history icd
                 on icd.code = n.code
-              where icd.code isnull;
+              where icd.code isnull
+              on conflict (code, ver, verevent) do nothing
+              ;
             
              -------------------------------
              update icd_metainfo.icd10gm ig
@@ -129,16 +130,16 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
                   ig.ifsgmeldung,
                   ig.ifsglabor, 
                   igh.ver, 
-                  'D' verevent,
-                  true isdeleted
+                  'D' verevent
                 from icd_metainfo.icd10gm ig
                 join icd_metainfo.icd10gm_history igh
                   on ig.code = igh.code
                 left join new_table n 
                   on n.code = ig.code 
                 where n.code isnull
-                and not igh.isdeleted
-                and 
+                and igh.code not in (select code from icd_metainfo.icd10gm_history where verevent = 'D')
+                --and not igh.isdeleted
+                --and 
                 on conflict (code, ver, verevent) do nothing
                 ;
                  

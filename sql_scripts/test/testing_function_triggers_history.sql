@@ -8,8 +8,7 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history() RETURN
 		    	SELECT 
 		    	  k.*,
 				  n.ver,
-				  'U' verevent,
-				  false isdeleted 
+				  'U' verevent 
 				FROM new_table n
 				join icd_metainfo.kodes k
 				  on n.code = k.code

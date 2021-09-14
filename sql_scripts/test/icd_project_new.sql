@@ -8,14 +8,16 @@ TRUNCATE icd_metainfo.icd10gm CASCADE;
 truncate icd_metainfo.icd10gm_history cascade;
 
 TRUNCATE icd_metainfo.kodes CASCADE;
-COPY icd_metainfo.kodes FROM '/home/abel/cdw/ICD/icd_versions/codes/icd10gm2021.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
+COPY icd_metainfo.kodes FROM '/home/abel/cdw/ICD/icd_versions/codes/icd10gm2007.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
 
+
+select * from icd_metainfo.icd10gm_history igh where verevent = 'U'; --F45.4, 2009, D
 select * from icd_metainfo.icd10gm_history where isdeleted order by code;
 select * from icd_metainfo.icd10gm_history where code in (
 
 select * from icd_metainfo.icd10gm_history igh where verevent = 'D' order by code, ver;
 
-select count(distinct code) q, oldver from icd_metainfo.icd10gm_history igh where verevent = 'D' group by oldver order by q;
+select count(distinct code) q, ver from icd_metainfo.icd10gm_history igh where verevent = 'D' group by ver order by q;
 
 select distinct on (code) * into icd_metainfo.icd_del from icd_metainfo.icd10gm_history igh where verevent = 'D' order by code, ver;
 drop table icd_metainfo.icd_del;
@@ -53,6 +55,8 @@ select * from icd_metainfo.icd10gm_history igh where code = 'A90';
 select * from icd_metainfo.icd10gm_history igh where verevent = 'D'
 
 select * from icd_metainfo.kodes k where code in (select code from icd_metainfo.icd10gm_history igh where verevent = 'D');
+
+select ver, code, verevent, oldver from icd_metainfo.icd10gm_history where code in (select code from icd_metainfo.icd10gm_history igh where verevent = 'D') and code in (select code from icd_metainfo.kodes k);
 
 select count(*) from icd_metainfo.icd10gm;
 select count(distinct code) quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'D'  group by vermodif order by quanty;
