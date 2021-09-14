@@ -1,6 +1,6 @@
 ALTER TABLE icd_metainfo.kodes DISABLE TRIGGER ALL;
-ALTER TABLE icd_metainfo.icd10gm_history enable TRIGGER ALL;
-ALTER TABLE icd_metainfo.icd10gm enable TRIGGER ALL;
+--ALTER TABLE icd_metainfo.icd10gm_history enable TRIGGER ALL;
+--ALTER TABLE icd_metainfo.icd10gm enable TRIGGER ALL;
 ALTER TABLE icd_metainfo.kodes ENABLE TRIGGER tr_icd10gm_insert_from_bfarm;
 
 
@@ -9,6 +9,48 @@ truncate icd_metainfo.icd10gm_history cascade;
 
 TRUNCATE icd_metainfo.kodes CASCADE;
 COPY icd_metainfo.kodes FROM '/home/abel/cdw/ICD/icd_versions/codes/icd10gm2021.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
+
+select * from icd_metainfo.icd10gm_history where isdeleted order by code;
+select * from icd_metainfo.icd10gm_history where code in (
+
+select * from icd_metainfo.icd10gm_history igh where verevent = 'D' order by code, ver;
+
+select count(distinct code) q, oldver from icd_metainfo.icd10gm_history igh where verevent = 'D' group by oldver order by q;
+
+select distinct on (code) * into icd_metainfo.icd_del from icd_metainfo.icd10gm_history igh where verevent = 'D' order by code, ver;
+drop table icd_metainfo.icd_del;
+
+select ver, code, oldver from icd_metainfo.icd_del order by oldver desc;
+
+select * from icd_metainfo.icd10gm_history where code in (
+select code from icd_metainfo.kodes k where code in (select distinct code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D')) order by code, ver;
+
+select count(code) q , ver from icd_metainfo.icd_del group by ver;
+
+select count(distinct code) q, ver from icd_metainfo.icd10gm_history igh where verevent = 'D' group by ver order by q;
+
+select * from icd_metainfo.icd10gm_history igh order by  code;
+
+select count(ver) q, code from icd_metainfo.icd10gm_history igh group by code having count(ver) > 2 order by q desc;
+
+select * from icd_metainfo.icd10gm_history igh where code like 'K62.8';
+
+--select count(distinct code) q, oldver from icd_metainfo.icd10gm_history igh where verevent = 'D' group by oldver order by q;
+
+
+select * from icd_metainfo.icd10gm_history igh where verevent = 'U' and ver = '2012';
+
+select * from icd_metainfo.icd10gm ig order by ver desc, code;
+
+select * from icd_metainfo.icd10gm ig where ver != '2021';
+
+select count(code), oldver from icd_metainfo.icd10gm_history igh group by oldver;
+
+select code from icd_metainfo.icd10gm_history igh where verevent = 'D' group by code having count(ver) > 2 order by code;
+
+select * from icd_metainfo.icd10gm_history igh where code = 'A90';
+
+select * from icd_metainfo.icd10gm_history igh where verevent = 'D'
 
 select * from icd_metainfo.kodes k where code in (select code from icd_metainfo.icd10gm_history igh where verevent = 'D');
 
@@ -163,3 +205,33 @@ on k.kapnr = igh.kapnr where verevent = 'D' and vermodif = '2013' and igh.kapnr 
   select kapnr from icd_metainfo.icd10gm_history igh where verevent = 'D' and vermodif = '2013' group by kapnr having count(code) >  2
 );
   
+
+
+--select count(*) from ( 
+SELECT 
+		    	  distinct on (igh.code)
+		    	  n.*,
+				  igh.ver,
+				  'U' verevent
+				FROM icd_metainfo.icd10gm n
+				join icd_metainfo.icd10gm_history igh
+				  on n.code = igh.code
+				order by igh.code, igh.ver desc
+			--) as t;
+
+select distinct
+                  (select distinct ver from icd_metainfo.kodes k limit 1) ver,
+                  ig.code,
+                  ig.ebene,
+                  ig.ver, 
+                  'D' verevent 
+                from icd_metainfo.icd10gm ig
+                join icd_metainfo.icd10gm_history igh
+                  on ig.code = igh.code
+                left join icd_metainfo.kodes n
+                  on n.code = ig.code 
+                where n.code isnull
+                and (igh.verevent = 'I' or igh.verevent = 'U')
+                
+select * from icd_metainfo.icd10gm_history igh where verevent = 'D';            
+                

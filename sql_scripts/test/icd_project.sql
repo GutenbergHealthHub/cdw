@@ -381,3 +381,14 @@ select * from icd_metainfo.icd10gm ig where code like 'U07%' and code not in (se
 
 
 select distinct code from icd_metainfo.icd_tmp it where ver = '2009' and code not in (select code from icd_metainfo.icd_tmp where ver = '2008')
+
+select count(code) from icd_metainfo.icd10gm_history igh ;
+
+
+select count(*) from (
+select distinct on (code) * from icd_metainfo.icd10gm_history igh order by code , ver desc) as t;
+
+
+
+
+
