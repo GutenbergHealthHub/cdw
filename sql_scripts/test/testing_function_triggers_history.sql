@@ -8,7 +8,11 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history() RETURN
 		    	SELECT 
 		    	  k.*,
 				  n.ver,
-				  'U' verevent 
+				  case 
+				    when k.code in (select code from icd_metainfo.icd10gm_history where verevent = 'D')
+				      then 'DI'
+				    else 'U' 
+				    end verevent 
 				FROM new_table n
 				join icd_metainfo.kodes k
 				  on n.code = k.code

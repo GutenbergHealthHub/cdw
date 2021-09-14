@@ -10,7 +10,7 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
 		
             INSERT INTO icd_metainfo.icd10gm
               SELECT 
-                n.*--, false 
+                n.*
               FROM new_table n 
               left join icd_metainfo.icd10gm icd
                 on icd.code = n.code
@@ -25,7 +25,7 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
               left join icd_metainfo.icd10gm_history icd
                 on icd.code = n.code
               where icd.code isnull
-              on conflict (code, ver, verevent) do nothing
+              --on conflict (code, ver, verevent) do nothing
               ;
             
              -------------------------------
@@ -61,40 +61,38 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
                  ifsglabor = n.ifsglabor
                  from new_table n 
                  where n.code = ig.code and (
-                   ig.ver = n.ver
-                 or ig.ebene = n.ebene
-                 or ig.ort = n.ort
-                 or ig.art = n.art
-                 or ig.kapnr = n.kapnr
-                 or ig.grvon = n.grvon
-                 or ig.normcode = n.normcode
-                 or ig.codeohnepunkt = n.codeohnepunkt
-                 or ig.titel = n.titel
-                 or ig.dreisteller = n.dreisteller
+                 ig.ebene != n.ebene
+                 or ig.ort != n.ort
+                 or ig.art != n.art
+                 or ig.kapnr != n.kapnr
+                 or ig.grvon != n.grvon
+                 or ig.normcode != n.normcode
+                 or ig.codeohnepunkt != n.codeohnepunkt
+                 or ig.titel != n.titel
+                 or ig.dreisteller != n.dreisteller
                  or (ig.dreisteller isnull and n.dreisteller notnull)
-                 or ig.viersteller = n.viersteller
+                 or ig.viersteller != n.viersteller
                  or (ig.viersteller isnull and n.viersteller notnull)
-                 or ig.fuenfsteller = n.fuenfsteller
+                 or ig.fuenfsteller != n.fuenfsteller
                  or (ig.fuenfsteller isnull and n.fuenfsteller notnull)
-                 or ig.p295 = n.p295
-                 or ig.p301 = n.p301
-                 or ig.mortl1code = n.mortl1code
-                 or ig.mortl2code = n.mortl2code
-                 or ig.mortl3code = n.mortl3code
-                 or ig.mortl4code = n.mortl4code
-                 or ig.morblcode = n.morblcode
-                 or ig.sexcode = n.sexcode
-                 or ig.sexfehlertyp = n.sexfehlertyp
-                 or ig.altunt = n.altunt
-                 or ig.altob = n.altob
-                 or ig.altfehlertyp = n.altfehlertyp
-                 or ig.exot = n.exot
-                 or ig.belegt = n.belegt
-                 or ig.ifsgmeldung = n.ifsgmeldung
-                 or ig.ifsglabor = n.ifsglabor
+                 or ig.p295 != n.p295
+                 or ig.p301 != n.p301
+                 or ig.mortl1code != n.mortl1code
+                 or ig.mortl2code != n.mortl2code
+                 or ig.mortl3code != n.mortl3code
+                 or ig.mortl4code != n.mortl4code
+                 or ig.morblcode != n.morblcode
+                 or ig.sexcode != n.sexcode
+                 or ig.sexfehlertyp != n.sexfehlertyp
+                 or ig.altunt != n.altunt
+                 or ig.altob != n.altob
+                 or ig.altfehlertyp != n.altfehlertyp
+                 or ig.exot != n.exot
+                 or ig.belegt != n.belegt
+                 or ig.ifsgmeldung != n.ifsgmeldung
+                 or ig.ifsglabor != n.ifsglabor
                  )
                  ;
-                
                 
                 ----------------------------------
                 insert into icd_metainfo.icd10gm_history 
@@ -129,18 +127,18 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
                   ig.belegt,
                   ig.ifsgmeldung,
                   ig.ifsglabor, 
-                  igh.ver, 
+                  ig.ver, 
                   'D' verevent
                 from icd_metainfo.icd10gm ig
-                join icd_metainfo.icd10gm_history igh
+                left join (select code from icd_metainfo.icd10gm_history where verevent = 'D') igh
                   on ig.code = igh.code
                 left join new_table n 
                   on n.code = ig.code 
                 where n.code isnull
-                and igh.code not in (select code from icd_metainfo.icd10gm_history where verevent = 'D')
+                and igh.code isnull 
                 --and not igh.isdeleted
                 --and 
-                on conflict (code, ver, verevent) do nothing
+                --on conflict (code, ver, verevent) do nothing
                 ;
                  
              
