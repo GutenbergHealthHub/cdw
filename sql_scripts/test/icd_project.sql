@@ -1,4 +1,12 @@
- 
+ drop table icd_metainfo.icd10gm_history;
+ drop table icd_metainfo.icd10gm cascade;
+drop table icd_metainfo.kodes cascade;
+
+
+
+
+
+
  select *, altunt||altob "alter" from icd_metainfo.icd_by_year iby;
  
  select count(code), ver from icd_metainfo.icd_by_year group by ver 

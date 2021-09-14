@@ -6,64 +6,46 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history() RETURN
 	    	-- updated icd to history
 			insert into icd_metainfo.icd10gm_history   
 		    	SELECT 
-				  icd.ver,
-				  icd.ebene,
-				  icd.ort,
-				  icd.art,
-				  icd.kapnr,
-				  icd.grvon,
-				  icd.code,
-				  icd.normcode,
-				  icd.codeohnepunkt,
-				  icd.titel,
-				  icd.dreisteller,
-				  icd.viersteller,
-				  icd.fuenfsteller,
-				  icd.p295,
-				  icd.p301,
-				  icd.mortl1code,
-				  icd.mortl2code,
-				  icd.mortl3code,
-				  icd.mortl4code,
-				  icd.morblcode,
-				  icd.sexcode,
-				  icd.sexfehlertyp,
-				  icd.altunt,
-				  icd.altob,
-				  icd.altfehlertyp,
-				  icd.exot,
-				  icd.belegt,
-				  icd.ifsgmeldung,
-				  icd.ifsglabor,
-				  ig.ver,
-				  'U' verevent
-				FROM new_table icd 
-				join icd_metainfo.kodes ig 
-				  on icd.code = ig.code
-				where (ig.ebene != icd.ebene
-				  or ig.ort != icd.ort
-				  or ig.art != icd.art
-				  or ig.kapnr != icd.kapnr
-				  or ig.grvon != icd.grvon
-				  or ig.normcode != icd.normcode
-				  or ig.codeohnepunkt != icd.codeohnepunkt
-				  or ig.titel != icd.titel
-				  or ig.p295 != icd.p295
-				  or ig.p301 != icd.p301
-				  or ig.mortl1code != icd.mortl1code
-				  or ig.mortl2code != icd.mortl2code
-				  or ig.mortl3code != icd.mortl3code
-				  or ig.mortl4code != icd.mortl4code
-				  or ig.morblcode != icd.morblcode
-				  or ig.sexcode != icd.sexcode
-				  or ig.sexfehlertyp != icd.sexfehlertyp
-				  or ig.altunt != icd.altunt
-				  or ig.altob != icd.altob
-				  or ig.altfehlertyp != icd.altfehlertyp
-				  or ig.exot != icd.exot
-				  or ig.belegt != icd.belegt
-				  or ig.ifsgmeldung != icd.ifsgmeldung
-				  or ig.ifsglabor != icd.ifsglabor)
+		    	  k.*,
+				  n.ver,
+				  case 
+				    when k.code in (select code from icd_metainfo.icd10gm_history where verevent = 'D')
+				      then 'DI'
+				    else 'U'
+				  end verevent 
+				FROM new_table n
+				join icd_metainfo.kodes k
+				  on n.code = k.code
+				  where (n.ebene != k.ebene
+				  or n.ort != k.ort
+				  or n.art != k.art
+				  or n.kapnr != k.kapnr
+				  or n.grvon != k.grvon
+				  or n.normcode != k.normcode
+				  or n.codeohnepunkt != k.codeohnepunkt
+				  or n.titel != k.titel
+				  or n.dreisteller != k.dreisteller
+                  or (n.dreisteller isnull and k.dreisteller notnull)
+                  or n.viersteller != k.viersteller
+                  or (n.viersteller isnull and k.viersteller notnull)
+                  or n.fuenfsteller != k.fuenfsteller
+                  or (n.fuenfsteller isnull and k.fuenfsteller notnull)
+				  or n.p295 != k.p295
+				  or n.p301 != k.p301
+				  or n.mortl1code != k.mortl1code
+				  or n.mortl2code != k.mortl2code
+				  or n.mortl3code != k.mortl3code
+				  or n.mortl4code != k.mortl4code
+				  or n.morblcode != k.morblcode
+				  or n.sexcode != k.sexcode
+				  or n.sexfehlertyp != k.sexfehlertyp
+				  or n.altunt != k.altunt
+				  or n.altob != k.altob
+				  or n.altfehlertyp != k.altfehlertyp
+				  or n.exot != k.exot
+				  or n.belegt != k.belegt
+				  or n.ifsgmeldung != k.ifsgmeldung
+				  or n.ifsglabor != k.ifsglabor)
 				 ;		
         RETURN NULL; 
     END;
@@ -74,5 +56,5 @@ $icd10gm_to_history$ LANGUAGE plpgsql;
 --trigger to update the history table with the old values
 CREATE TRIGGER tr_icd10gm_updated_to_history
     AFTER UPDATE ON icd_metainfo.icd10gm 
-    REFERENCING OLD TABLE AS new_table
+    REFERENCING old TABLE AS new_table
     FOR EACH STATEMENT EXECUTE FUNCTION icd_metainfo.func_updated_to_icd10gm_history();

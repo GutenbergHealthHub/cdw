@@ -8,11 +8,7 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history() RETURN
 		    	SELECT 
 		    	  k.*,
 				  n.ver,
-				  case 
-				    when k.code in (select code from icd_metainfo.icd10gm_history where verevent = 'D')
-				      then 'DI'
-				    else 'U' 
-				    end verevent 
+				  'U' verevent 
 				FROM new_table n
 				join icd_metainfo.kodes k
 				  on n.code = k.code
@@ -24,6 +20,12 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history() RETURN
 				  or n.normcode != k.normcode
 				  or n.codeohnepunkt != k.codeohnepunkt
 				  or n.titel != k.titel
+				  or ig.dreisteller != n.dreisteller
+                  or (ig.dreisteller isnull and n.dreisteller notnull)
+                  or ig.viersteller != n.viersteller
+                  or (ig.viersteller isnull and n.viersteller notnull)
+                  or ig.fuenfsteller != n.fuenfsteller
+                  or (ig.fuenfsteller isnull and n.fuenfsteller notnull)
 				  or n.p295 != k.p295
 				  or n.p301 != k.p301
 				  or n.mortl1code != k.mortl1code

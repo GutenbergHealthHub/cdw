@@ -1,135 +1,16 @@
-ALTER TABLE icd_metainfo.kodes DISABLE TRIGGER ALL;
---ALTER TABLE icd_metainfo.icd10gm_history enable TRIGGER ALL;
---ALTER TABLE icd_metainfo.icd10gm enable TRIGGER ALL;
-ALTER TABLE icd_metainfo.kodes ENABLE TRIGGER tr_icd10gm_insert_from_bfarm;
-
-
-TRUNCATE icd_metainfo.icd10gm CASCADE;
-truncate icd_metainfo.icd10gm_history cascade;
-
-TRUNCATE icd_metainfo.kodes CASCADE;
-COPY icd_metainfo.kodes FROM '/home/abel/cdw/ICD/icd_versions/codes/icd10gm2007.csv' WITH DELIMITER E';' CSV QUOTE E'\b';
-
-
-select * from icd_metainfo.icd10gm_history igh where verevent = 'U'; --F45.4, 2009, D
-select * from icd_metainfo.icd10gm_history where isdeleted order by code;
-select * from icd_metainfo.icd10gm_history where code in (
-
-select * from icd_metainfo.icd10gm_history igh where verevent = 'D' order by code, ver;
-
+-- old version delete
 select count(distinct code) q, oldver from icd_metainfo.icd10gm_history igh where verevent = 'D' group by oldver order by q;
 
-select distinct on (code) * into icd_metainfo.icd_del from icd_metainfo.icd10gm_history igh where verevent = 'D' order by code, ver;
-drop table icd_metainfo.icd_del;
+-- new version delete old icd
+select count(distinct code) q, ver from icd_metainfo.icd10gm_history igh where verevent = 'D' group by ver order by q;
 
-select ver, code, oldver from icd_metainfo.icd_del order by oldver desc;
-
+-- deleted and inserted
 select * from icd_metainfo.icd10gm_history where code in (
 select code from icd_metainfo.kodes k where code in (select distinct code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D')) order by code, ver;
 
-select count(code) q , ver from icd_metainfo.icd_del group by ver;
 
-select count(distinct code) q, ver from icd_metainfo.icd10gm_history igh where verevent = 'D' group by ver order by q;
-
-select * from icd_metainfo.icd10gm_history igh order by  code;
-
-select count(ver) q, code from icd_metainfo.icd10gm_history igh group by code having count(ver) > 2 order by q desc;
-
-select * from icd_metainfo.icd10gm_history igh where code like 'K62.8';
-
---select count(distinct code) q, oldver from icd_metainfo.icd10gm_history igh where verevent = 'D' group by oldver order by q;
-
-
-select * from icd_metainfo.icd10gm_history igh where verevent = 'U' and ver = '2012';
-
-select * from icd_metainfo.icd10gm ig order by ver desc, code;
-
-select * from icd_metainfo.icd10gm ig where ver != '2021';
-
-select count(code), oldver from icd_metainfo.icd10gm_history igh group by oldver;
-
-select code from icd_metainfo.icd10gm_history igh where verevent = 'D' group by code having count(ver) > 2 order by code;
-
-select * from icd_metainfo.icd10gm_history igh where code = 'K55.8'
-  union 
-select *, null, 'DI' from icd_metainfo.icd10gm ih where code = 'K55.8'
-order by ver;
-
-
-select ver, code, verevent, oldver from icd_metainfo.icd10gm_history where code in (select code from icd_metainfo.icd10gm_history igh where verevent = 'D') and code in (select code from icd_metainfo.kodes k) order by code, ver;
-
-select count(*) from icd_metainfo.icd10gm;
-select count(distinct code) quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'D'  group by vermodif order by quanty;
-
-select count(distinct code) quanty, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'U'  group by vermodif order by quanty;
-
-select * from icd_metainfo.icd10gm_history igh where code like 'A49.0%';
-
-select distinct igh.kapnr, ver, code, titel, vermodif, verevent from icd_metainfo.icd10gm_history igh where code in (select code from icd_metainfo.icd10gm_history where verevent = 'RU') order by code;
-
-select igh.kapnr, igh.ver, igh.vermodif, k.code, k.titel  from icd_metainfo.kodes k 
-join icd_metainfo.icd10gm_history igh 
-  on k.code = igh.code 
-where igh.verevent = 'RU';
-select * from icd_metainfo.icd10gm_history igh where verevent = 'I';
-select 
- code, verevent 
-from icd_metainfo.icd10gm_history igh 
-group by code, verevent 
-having count(*) > 4;
-
-select * from icd_metainfo.icd10gm ig where code = 'K55.8';
-  
-  
-  
-  
-
-
-select count(code) from icd_metainfo.icd10gm_history igh where verevent = 'D'
-
-select count(code) from icd_metainfo.icd10gm ig;
-
-select count(distinct code), verevent from icd_metainfo.icd10gm_history igh group by verevent
-  union 
-select count(code), 'NO U_D' from icd_metainfo.icd10gm where code not in (select code from icd_metainfo.icd10gm_history where verevent in ('D', 'U'));
- 
-select distinct code from icd_metainfo.icd10gm_history igh where verevent = 'D' order by code
-
-
-select count(code), vermodif 
-from icd_metainfo.icd10gm_history 
-where verevent = 'D' 
-and  code not in (select distinct code from icd_metainfo.icd10gm_history where verevent = 'U')
-group by vermodif;
-
-ALTER TABLE icd_metainfo.kodes ENABLE TRIGGER ALL;
-ALTER TABLE icd_metainfo.icd10gm_history ENABLE TRIGGER ALL;
-
-TRUNCATE icd_metainfo.kodes CASCADE;
---COPY $2 FROM '$1$file' WITH DELIMITER E';' CSV QUOTE E'\b';
--- Enable trigger to insert and management the new data
---/usr/local/pgtde/bin/psql -p 5433 -w -d $db -U db_user -c "ALTER TABLE $2 ENABLE TRIGGER $3;"
-
-select * from icd_metainfo.icd10gm_history igh where verevent like 'I' and ver = '2008';
-
-
-select distinct code 
-from icd_metainfo.icd10gm_history 
-where code in (select distinct code from icd_metainfo.icd10gm_history where verevent = 'D')
-and  code in (select distinct code from icd_metainfo.icd10gm_history where verevent = 'U')
-order by code 
---group by vermodif;
-
-
-
-
-select * from icd_metainfo.kodes k;
-
-select ig.code, ig.ver
-from icd_metainfo.icd10gm ig
-left join  icd_metainfo.kodes k 
-  on ig.code = k.code 
-where k.code isnull;
+-- icd with more modifications
+select count(distinct ver) q, code from icd_metainfo.icd10gm_history igh group by code having count(ver) > 3 order by q desc;
 
 
 select count(distinct code), 'only_mod' modi from icd_metainfo.icd10gm_history igh where verevent = 'U' and code not in (select code from icd_metainfo.icd10gm_history where verevent = 'D') 
@@ -150,19 +31,17 @@ select count(distinct code), 'del_mod' modi from icd_metainfo.icd10gm_history ig
 where code in (select code from icd_metainfo.icd10gm_history where verevent = 'D')
 and code in (select code from icd_metainfo.icd10gm_history where verevent = 'U')
   union 
-select count(distinct code), 're' modi from icd_metainfo.icd10gm_history igh where verevent = 'RU'
-  
+select count(distinct code), 're' modi from icd_metainfo.icd10gm_history igh where verevent = 'DI'
+
+
+-- kapitel with more modifications
 select code, kapnr, ver from icd_metainfo.icd10gm_history where ver not like '2007' and verevent = 'I' and kapnr in (
 select kapnr from icd_metainfo.icd10gm_history igh where ver not like '2007' and verevent = 'I' group by kapnr, ver having count(code) > 20
 ) order by code; 
   
 
-select * from icd_metainfo.icd10gm_history igh where verevent = 'D' and ver = '2013';
 
-
-select count(code), vermodif from icd_metainfo.icd10gm_history igh where verevent = 'D' group by vermodif; 
-
-
+-- deleted codes without dot in current version
 select 
 code, ver, titel
 from icd_metainfo.icd10gm ig 
@@ -170,7 +49,7 @@ where codeohnepunkt in (select igh.codeohnepunkt from icd_metainfo.icd10gm_histo
 and codeohnepunkt in (select codeohnepunkt from icd_metainfo.icd10gm ig group by codeohnepunkt having count(code) > 1 )
 order by code;
 
-
+-- deleted codes without dot not in current version
 select 
   distinct code
 from icd_metainfo.icd10gm ig 
@@ -179,62 +58,257 @@ and codeohnepunkt not in (select codeohnepunkt from icd_metainfo.icd10gm ig grou
 order by code;
 
 
-
+-- reuse code without dot
 select 
   count(code)
 from icd_metainfo.kodes k 
 where codeohnepunkt in (select igh.codeohnepunkt from icd_metainfo.icd10gm_history igh where igh.verevent = 'D' );
 
 
-
-and codeohnepunkt in (select codeohnepunkt from icd_metainfo.icd10gm ig group by codeohnepunkt having count(code) > 1 )
-order by code;
-
+-- used and not used code without dot 
 select count(distinct code), 'not used' used from icd_metainfo.icd10gm_history igh where verevent = 'D' and codeohnepunkt not in (select codeohnepunkt from icd_metainfo.kodes k)
   union
 select count(distinct code), 'used' from icd_metainfo.icd10gm_history igh where verevent = 'D' and codeohnepunkt in (select codeohnepunkt from icd_metainfo.kodes k)
   
 
 
-select code, verevent, vermodif from icd_metainfo.icd10gm_history igh where verevent = 'D' and codeohnepunkt in (select codeohnepunkt from icd_metainfo.kodes k) order by code;
-
-
-select code, titel from icd_metainfo.kodes k where code in (select code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D') order by code;
-
-
-select igh.*, k.kapti from icd_metainfo.icd10gm_history igh 
-join icd_metainfo.kapitel k 
-on k.kapnr = igh.kapnr where verevent = 'D' and vermodif = '2013' and igh.kapnr in(
-  select kapnr from icd_metainfo.icd10gm_history igh where verevent = 'D' and vermodif = '2013' group by kapnr having count(code) >  2
-);
   
-
-
---select count(*) from ( 
-SELECT 
-		    	  distinct on (igh.code)
-		    	  n.*,
-				  igh.ver,
-				  'U' verevent
-				FROM icd_metainfo.icd10gm n
-				join icd_metainfo.icd10gm_history igh
-				  on n.code = igh.code
-				order by igh.code, igh.ver desc
-			--) as t;
-
-select distinct
-                  (select distinct ver from icd_metainfo.kodes k limit 1) ver,
-                  ig.code,
-                  ig.ebene,
-                  ig.ver, 
-                  'D' verevent 
-                from icd_metainfo.icd10gm ig
-                join icd_metainfo.icd10gm_history igh
-                  on ig.code = igh.code
-                left join icd_metainfo.kodes n
-                  on n.code = ig.code 
-                where n.code isnull
-                and (igh.verevent = 'I' or igh.verevent = 'U')
-                
-select * from icd_metainfo.icd10gm_history igh where verevent = 'D';            
-                
+-- Modifications
+select 
+  count(distinct i.code) "Anzahl", 
+  'Klassifikationsebene' "Spalte" 
+  from (select code, ebene from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, ebene from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.ebene != u.ebene 
+  union
+select 
+  count(distinct i.code) "Anzahl", 
+  'Ort der Schlüsselnummer im Klassifikationsbaum' "Spalte" 
+  from (select code, ort from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, ort from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.ort != u.ort 
+  union
+/*select 
+  count(distinct i.code) "Anzahl", 
+  'Art der Vier- und Fünfsteller' "Spalte" 
+  from (select code, art from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, art from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.art != u.art 
+  union*/
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 1' "Spalte" 
+  from (select code, mortl1code from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, mortl1code from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.mortl1code != u.mortl1code
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 1 (definiert)' "Spalte" 
+  from (select code, mortl1code from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, mortl1code from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.mortl1code != u.mortl1code
+and i.mortl1code not like 'UNDEF%' and u.mortl1code not like 'UNDEF%'
+  union
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 2' "Spalte" 
+  from (select code, mortl2code from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, mortl2code from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.mortl2code != u.mortl2code 
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 2 (definiert)' "Spalte" 
+  from (select code, mortl2code from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, mortl2code from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.mortl2code != u.mortl2code
+and i.mortl2code not like 'UNDEF%' and u.mortl2code not like 'UNDEF%'
+  union
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 3' "Spalte" 
+  from (select code, mortl3code from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, mortl3code from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.mortl3code != u.mortl3code 
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 3 (definiert)' "Spalte" 
+  from (select code, mortl3code from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, mortl3code from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.mortl3code != u.mortl3code
+and i.mortl3code not like 'UNDEF%' and u.mortl3code not like 'UNDEF%'
+  union
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 4' "Spalte" 
+  from (select code, mortl4code from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, mortl4code from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.mortl4code != u.mortl4code 
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 4 (definiert)' "Spalte" 
+  from (select code, mortl4code from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, mortl4code from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.mortl4code != u.mortl4code
+and i.mortl4code not like 'UNDEF%' and u.mortl4code not like 'UNDEF%'
+  union
+select 
+  count(distinct i.code) "Anzahl", 
+  'Kapitelnummer' "Spalte" 
+  from (select code, kapnr from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, kapnr from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.kapnr != u.kapnr 
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Erster Dreisteller der Gruppe' "Spalte" 
+  from (select code, grvon from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, grvon from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.grvon != u.grvon
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Schlüsselnummer ohne Strich, Stern und  Ausrufezeichen' "Spalte" 
+  from (select code, normcode from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, normcode from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.normcode != u.normcode
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Schlüsselnummer ohne Punkt, Strich, Stern und Ausrufezeichen' "Spalte" 
+  from (select code, codeohnepunkt from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, codeohnepunkt from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.codeohnepunkt != u.codeohnepunkt
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Klassentitel' "Spalte" 
+  from (select code, titel from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, titel from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.titel != u.titel
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Paragraph 295' "Spalte" 
+  from (select code, p295 from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, p295 from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.p295 != u.p295
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Paragraph 301' "Spalte" 
+  from (select code, p301 from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, p301 from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.p301 != u.p301
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Morbiditätsliste' "Spalte" 
+  from (select code, morblcode from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, morblcode from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.morblcode != u.morblcode
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Morbiditätsliste (definiert)' "Spalte" 
+  from (select code, morblcode from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, morblcode from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.morblcode != u.morblcode
+and i.morblcode not like 'UNDEF%' and u.morblcode not like 'UNDEF%'
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Geschlechtsbezug' "Spalte" 
+  from (select code, sexcode from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, sexcode from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.sexcode != u.sexcode
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Untere Altersgrenze' "Spalte" 
+  from (select code, altunt from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, altunt from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.altunt != u.altunt
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Untere Altersgrenze (definiert)' "Spalte" 
+  from (select code, altunt from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, altunt from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.altunt != u.altunt and i.altunt not like '9%' and u.altunt not like '9%'
+union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Obere Altersgrenze' "Spalte" 
+  from (select code, altob from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, altob from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.altob != u.altob
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Obere Altersgrenze (definiert)' "Spalte" 
+  from (select code, altob from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, altob from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.altob != u.altob 
+and i.altob not like '9%' and u.altob not like '9%'
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Sehr seltene Krankheit in Mitteleuropa' "Spalte" 
+  from (select code, exot from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, exot from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.exot != u.exot
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Belegte Nummer' "Spalte" 
+  from (select code, belegt from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, belegt from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.belegt != u.belegt
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Arzt-Meldepflicht' "Spalte" 
+  from (select code, ifsgmeldung from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, ifsgmeldung from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.ifsgmeldung != u.ifsgmeldung
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Anwendung der Laborausschlussziffer des einheitlisches Bewertungsmaßstab' "Spalte" 
+  from (select code, ifsglabor from icd_metainfo.icd10gm_history where verevent = 'I') i 
+  join (select code, ifsglabor from icd_metainfo.icd10gm_history where verevent = 'U') u
+    on  i.code = u.code
+where i.ifsglabor != u.ifsglabor
+order by "Spalte";

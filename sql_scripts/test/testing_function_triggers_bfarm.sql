@@ -27,6 +27,19 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
               where icd.code isnull
               --on conflict (code, ver, verevent) do nothing
               ;
+             
+             /*INSERT INTO icd_metainfo.icd10gm_history 
+              SELECT 
+                n.*,
+                icd.ver oldver, 
+                'DI' verevent
+              FROM new_table n 
+              join icd_metainfo.icd10gm_history icd
+                on icd.code = n.code
+              where icd.verevent != 'D'
+              and exists (select h.code from icd_metainfo.icd10gm_history h where n.code = h.code and h.verevent = 'D')
+              on conflict (code, ver, verevent) do nothing
+              ;*/
             
              -------------------------------
              update icd_metainfo.icd10gm ig

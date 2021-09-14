@@ -6,131 +6,11 @@
 drop FUNCTION func_insert_new_icd10gm_bfarm();
 CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS TRIGGER AS $icd10gm_bfarm$
     begin	    
-	    
-	       -- reused icd to history 
-	       insert into icd_metainfo.icd10gm_history
-	         select 
-				  n.*,
-				  n.ver vervodif,
-				  'RU' verevent
-				from new_table n 
-				join icd_metainfo.icd10gm_history igh
-				  on n.code = igh.code 
-				where igh.verevent = 'D' 
-			   and n.code not in (select distinct code from icd_metainfo.icd10gm_history where verevent like 'RU');
-	        
-	        
-	        -- old icd to history
-	    	insert into icd_metainfo.icd10gm_history   
-		    	SELECT 
-				  ig.ver,
-				  ig.ebene,
-				  ig.ort,
-				  ig.art,
-				  ig.kapnr,
-				  ig.grvon,
-				  ig.code,
-				  ig.normcode,
-				  ig.codeohnepunkt,
-				  ig.titel,
-				  ig.dreisteller,
-				  ig.viersteller,
-				  ig.fuenfsteller,
-				  ig.p295,
-				  ig.p301,
-				  ig.mortl1code,
-				  ig.mortl2code,
-				  ig.mortl3code,
-				  ig.mortl4code,
-				  ig.morblcode,
-				  ig.sexcode,
-				  ig.sexfehlertyp,
-				  ig.altunt,
-				  ig.altob,
-				  ig.altfehlertyp,
-				  ig.exot,
-				  ig.belegt,
-				  ig.ifsgmeldung,
-				  ig.ifsglabor,
-				  (select ver from icd_metainfo.kodes limit 1) vermodif, 
-				  'D' verevent
-				FROM icd_metainfo.icd10gm ig 
-				left join new_table icd -- ok
-				  on icd.code = ig.code
-				--join icd_metainfo.icd10gm_history igh 
-				  --on igh.code = ig.code 
-				where icd.code isnull 
-			    and ig.code not in (select igh.code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D')
-			   ; --and igh.code isnull;
-			
-			-- update in normal table
-			update icd_metainfo.icd10gm ig
-		    	set 
-				  ver = icd.ver,
-				  ebene = icd.ebene,
-				  ort = icd.ort,
-				  art = icd.art,
-				  kapnr = icd.kapnr,
-				  grvon = icd.grvon,
-				  normcode = icd.normcode,
-				  codeohnepunkt = icd.codeohnepunkt,
-				  titel = icd.titel,
-				  dreisteller = icd.dreisteller,
-				  viersteller = icd.viersteller,
-				  fuenfsteller = icd.fuenfsteller,
-				  p295 = icd.p295,
-				  p301 = icd.p301,
-				  mortl1code = icd.mortl1code,
-				  mortl2code = icd.mortl2code,
-				  mortl3code = icd.mortl3code,
-				  mortl4code = icd.mortl4code,
-				  morblcode = icd.morblcode,
-				  sexcode = icd.sexcode,
-				  sexfehlertyp = icd.sexfehlertyp,
-				  altunt = icd.altunt,
-				  altob = icd.altob,
-				  altfehlertyp = icd.altfehlertyp,
-				  exot = icd.exot,
-				  belegt = icd.belegt,
-				  ifsgmeldung = icd.ifsgmeldung,
-				  ifsglabor = icd.ifsglabor
-				  from new_table icd 
-				where icd.code = ig.code and (
-				  ig.ebene != icd.ebene
-				  or ig.ort != icd.ort
-				  or ig.art != icd.art
-				  or ig.kapnr != icd.kapnr
-				  or ig.grvon != icd.grvon
-				  or ig.normcode != icd.normcode
-				  or ig.codeohnepunkt != icd.codeohnepunkt
-				  or ig.titel != icd.titel
-				  or ig.dreisteller != icd.dreisteller
-				  or (ig.dreisteller isnull and icd.dreisteller notnull)
-				  or ig.viersteller != icd.viersteller
-				  or (ig.viersteller isnull and icd.viersteller notnull)
-				  or ig.fuenfsteller != icd.fuenfsteller
-				  or (ig.fuenfsteller isnull and icd.fuenfsteller notnull)
-				  or ig.p295 != icd.p295
-				  or ig.p301 != icd.p301
-				  or ig.mortl1code != icd.mortl1code
-				  or ig.mortl2code != icd.mortl2code
-				  or ig.mortl3code != icd.mortl3code
-				  or ig.mortl4code != icd.mortl4code
-				  or ig.morblcode != icd.morblcode
-				  or ig.sexcode != icd.sexcode
-				  or ig.sexfehlertyp != icd.sexfehlertyp
-				  or ig.altunt != icd.altunt
-				  or ig.altob != icd.altob
-				  or ig.altfehlertyp != icd.altfehlertyp
-				  or ig.exot != icd.exot
-				  or ig.belegt != icd.belegt
-				  or ig.ifsgmeldung != icd.ifsgmeldung
-				  or ig.ifsglabor != icd.ifsglabor)
-				 ;
+	       
 		
             INSERT INTO icd_metainfo.icd10gm
               SELECT 
-                n.*, false 
+                n.*
               FROM new_table n 
               left join icd_metainfo.icd10gm icd
                 on icd.code = n.code
@@ -138,11 +18,142 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
              
              INSERT INTO icd_metainfo.icd10gm_history 
               SELECT 
-                n.*,n.ver, 'I'
+                n.*,
+                null oldver, 
+                'I' verevent
               FROM new_table n 
               left join icd_metainfo.icd10gm_history icd
                 on icd.code = n.code
-              where icd.code isnull;
+              where icd.code isnull
+              --on conflict (code, ver, verevent) do nothing
+              ;
+             
+             /*INSERT INTO icd_metainfo.icd10gm_history 
+              SELECT 
+                n.*,
+                icd.ver oldver, 
+                'DI' verevent
+              FROM new_table n 
+              join icd_metainfo.icd10gm_history icd
+                on icd.code = n.code
+              where icd.verevent != 'D'
+              and exists (select h.code from icd_metainfo.icd10gm_history h where n.code = h.code and h.verevent = 'D')
+              on conflict (code, ver, verevent) do nothing
+              ;*/
+            
+             -------------------------------
+             update icd_metainfo.icd10gm ig
+               set  
+                 ver = n.ver,
+                 ebene = n.ebene,
+                 ort = n.ort,
+                 art = n.art,
+                 kapnr = n.kapnr,
+                 grvon = n.grvon,
+                 normcode = n.normcode,
+                 codeohnepunkt = n.codeohnepunkt,
+                 titel = n.titel,
+                 dreisteller = n.dreisteller,
+                 viersteller = n.viersteller,
+                 fuenfsteller = n.fuenfsteller,
+                 p295 = n.p295,
+                 p301 = n.p301,
+                 mortl1code = n.mortl1code,
+                 mortl2code = n.mortl2code,
+                 mortl3code = n.mortl3code,
+                 mortl4code = n.mortl4code,
+                 morblcode = n.morblcode,
+                 sexcode = n.sexcode,
+                 sexfehlertyp = n.sexfehlertyp,
+                 altunt = n.altunt,
+                 altob = n.altob,
+                 altfehlertyp = n.altfehlertyp,
+                 exot = n.exot,
+                 belegt = n.belegt,
+                 ifsgmeldung = n.ifsgmeldung,
+                 ifsglabor = n.ifsglabor
+                 from new_table n 
+                 where n.code = ig.code and (
+                 ig.ebene != n.ebene
+                 or ig.ort != n.ort
+                 or ig.art != n.art
+                 or ig.kapnr != n.kapnr
+                 or ig.grvon != n.grvon
+                 or ig.normcode != n.normcode
+                 or ig.codeohnepunkt != n.codeohnepunkt
+                 or ig.titel != n.titel
+                 or ig.dreisteller != n.dreisteller
+                 or (ig.dreisteller isnull and n.dreisteller notnull)
+                 or ig.viersteller != n.viersteller
+                 or (ig.viersteller isnull and n.viersteller notnull)
+                 or ig.fuenfsteller != n.fuenfsteller
+                 or (ig.fuenfsteller isnull and n.fuenfsteller notnull)
+                 or ig.p295 != n.p295
+                 or ig.p301 != n.p301
+                 or ig.mortl1code != n.mortl1code
+                 or ig.mortl2code != n.mortl2code
+                 or ig.mortl3code != n.mortl3code
+                 or ig.mortl4code != n.mortl4code
+                 or ig.morblcode != n.morblcode
+                 or ig.sexcode != n.sexcode
+                 or ig.sexfehlertyp != n.sexfehlertyp
+                 or ig.altunt != n.altunt
+                 or ig.altob != n.altob
+                 or ig.altfehlertyp != n.altfehlertyp
+                 or ig.exot != n.exot
+                 or ig.belegt != n.belegt
+                 or ig.ifsgmeldung != n.ifsgmeldung
+                 or ig.ifsglabor != n.ifsglabor
+                 )
+                 ;
+                
+                ----------------------------------
+                insert into icd_metainfo.icd10gm_history 
+                select 
+                  --distinct on (code)
+                  (select distinct ver from icd_metainfo.kodes limit 1) ver,
+                  ig.ebene,
+                  ig.ort,
+                  ig.art,
+                  ig.kapnr,
+                  ig.grvon,
+                  ig.code,
+                  ig.normcode,
+                  ig.codeohnepunkt,
+                  ig.titel,
+                  ig.dreisteller,
+                  ig.viersteller,
+                  ig.fuenfsteller,
+                  ig.p295,
+                  ig.p301,
+                  ig.mortl1code,
+                  ig.mortl2code,
+                  ig.mortl3code,
+                  ig.mortl4code,
+                  ig.morblcode,
+                  ig.sexcode,
+                  ig.sexfehlertyp,
+                  ig.altunt,
+                  ig.altob,
+                  ig.altfehlertyp,
+                  ig.exot,
+                  ig.belegt,
+                  ig.ifsgmeldung,
+                  ig.ifsglabor, 
+                  ig.ver, 
+                  'D' verevent
+                from icd_metainfo.icd10gm ig
+                left join (select code from icd_metainfo.icd10gm_history where verevent = 'D') igh
+                  on ig.code = igh.code
+                left join new_table n 
+                  on n.code = ig.code 
+                where n.code isnull
+                and igh.code isnull 
+                --and not igh.isdeleted
+                --and 
+                --on conflict (code, ver, verevent) do nothing
+                ;
+                 
              
         RETURN NULL;
     END;
