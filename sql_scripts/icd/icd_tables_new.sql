@@ -117,15 +117,17 @@ create table icd_metainfo.icd10gm_history(
   ifsglabor varchar,
   oldver varchar,-- references icd_metainfo.icd10gm_release_info(icd10gm_version), -- new version
   verevent varchar check(verevent in ('D', 'I', 'U', 'DI')), --change in the new release
-  --isdeleted boolean default false,
+  isdeleted boolean default false,
   primary key (code, ver, verevent)
 );
 
-
-
+/*
+create table delicd10gm(
+  code varchar primary key references icd_metainfo.icd10gm(code)
+);
 --create unique index ix_code_history on icd_metainfo.icd10gm_history(code, verevent, oldver);
 
-/*
+
 alter table icd_metainfo.icd10gm_history 
   add constraint fk_version_history foreign key (ver) references icd_metainfo.icd10gm_release_info(icd10gm_version);
   

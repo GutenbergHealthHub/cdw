@@ -1,12 +1,14 @@
 -- Function to insert and management the current icd10gm
--- 1. insert removed ICDs into the history table
--- 2. update ICDs to the new version if needed
--- 3. insert new ICDs into the management table 
+-- 1. insert neue ICD into icd10gm 
+-- 2. insert neue ICD into history table and set it as inserted
+-- 3. update ICD to the new version if needed
+-- 4. insert deleted ICD into the history table and set it as 2xdeleted (verevent = D and isdeleted true)  
 
-drop FUNCTION func_insert_new_icd10gm_bfarm();
-CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS TRIGGER AS $icd10gm_bfarm$
-    begin	    
-	       
+CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
+    begin	   
 		
             INSERT INTO icd_metainfo.icd10gm
               SELECT 
@@ -20,7 +22,8 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
               SELECT 
                 n.*,
                 null oldver, 
-                'I' verevent
+                'I' verevent,
+                false isdeleted
               FROM new_table n 
               left join icd_metainfo.icd10gm_history icd
                 on icd.code = n.code
@@ -28,19 +31,6 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
               --on conflict (code, ver, verevent) do nothing
               ;
              
-             /*INSERT INTO icd_metainfo.icd10gm_history 
-              SELECT 
-                n.*,
-                icd.ver oldver, 
-                'DI' verevent
-              FROM new_table n 
-              join icd_metainfo.icd10gm_history icd
-                on icd.code = n.code
-              where icd.verevent != 'D'
-              and exists (select h.code from icd_metainfo.icd10gm_history h where n.code = h.code and h.verevent = 'D')
-              on conflict (code, ver, verevent) do nothing
-              ;*/
-            
              -------------------------------
              update icd_metainfo.icd10gm ig
                set  
@@ -141,24 +131,22 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_insert_new_icd10gm_bfarm() RETURNS 
                   ig.ifsgmeldung,
                   ig.ifsglabor, 
                   ig.ver, 
-                  'D' verevent
+                  'D' verevent,
+                   true isdeleted
                 from icd_metainfo.icd10gm ig
-                left join (select code from icd_metainfo.icd10gm_history where verevent = 'D') igh
+                left join (select code from icd_metainfo.icd10gm_history where isdeleted) igh
                   on ig.code = igh.code
                 left join new_table n 
                   on n.code = ig.code 
                 where n.code isnull
-                and igh.code isnull 
-                --and not igh.isdeleted
-                --and 
+                and igh.code isnull  
                 --on conflict (code, ver, verevent) do nothing
                 ;
-                 
              
         RETURN NULL;
     END;
-$icd10gm_bfarm$ LANGUAGE plpgsql;
-
+$function$
+;
 
 -- trigger in table icd_metainfo.kode to insert new icds
 CREATE TRIGGER tr_icd10gm_insert_from_bfarm

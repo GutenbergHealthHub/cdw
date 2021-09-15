@@ -12,17 +12,16 @@ insert into icd_metainfo.icd10gm_release_info
  */
 --select * from icd_metainfo.icd10gm_release_info;
 
--- temporary old icds from files 2007-2020
---drop table if exists icd_metainfo.icd_tmp cascade;
-
-/*create table icd_metainfo.icd_tmp(
-  ver varchar,
+-- all icd10gm from 2007 till now
+drop table if exists icd_metainfo.icd10gm cascade;
+create table icd_metainfo.icd10gm(
+  ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- current version
   ebene varchar,
   ort varchar,
   art varchar,
   kapnr varchar,
   grvon varchar,
-  code varchar,
+  code varchar primary key,
   normcode varchar,
   codeohnepunkt varchar,
   titel varchar,
@@ -45,48 +44,13 @@ insert into icd_metainfo.icd10gm_release_info
   belegt varchar,
   ifsgmeldung varchar,
   ifsglabor varchar
-);*/
-
--- all icd10gm from 2007 till now
---drop table if exists icd_metainfo.icd10gm cascade;
-create table icd_metainfo.icd10gm(
-  ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- current version
-  ebene varchar,
-  ort varchar,
-  art varchar,
-  kapnr varchar,
-  grvon varchar,
-  code varchar unique,
-  normcode varchar,
-  codeohnepunkt varchar,
-  titel varchar,
-  dreisteller varchar,
-  viersteller varchar,
-  fuenfsteller varchar, -- look off!! this column hat a strange character in the original name
-  p295 varchar,
-  p301 varchar,
-  mortl1code varchar,
-  mortl2code varchar,
-  mortl3code varchar,
-  mortl4code varchar,
-  morblcode varchar,
-  sexcode varchar,
-  sexfehlertyp varchar,
-  altunt varchar,
-  altob varchar,
-  altfehlertyp varchar,
-  exot varchar,
-  belegt varchar,
-  ifsgmeldung varchar,
-  ifsglabor varchar,
-  isused boolean default false -- if this icd is used in others tables
 );
 
 --table for history of icd10gm
 drop table if exists icd_metainfo.icd10gm_history cascade;
 create table icd_metainfo.icd10gm_history(
   --id bigserial primary key,
-  ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- version of insertion
+  ver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- insert/update version 
   ebene varchar,
   ort varchar,
   art varchar,
@@ -115,19 +79,8 @@ create table icd_metainfo.icd10gm_history(
   belegt varchar,
   ifsgmeldung varchar,
   ifsglabor varchar,
-  vermodif varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- new version
-  verevent varchar check(verevent in ('D', 'I', 'U', 'RU')) --change in the new release
+  oldver varchar references icd_metainfo.icd10gm_release_info(icd10gm_version), -- old version
+  verevent varchar check(verevent in ('D', 'I', 'U', 'DI')), --change in the new release
+  isdeleted boolean default false,
+  primary key (code, ver, verevent)
 );
-
-create index ix_code_history on icd_metainfo.icd10gm_history(code);
-
-/*
-alter table icd_metainfo.icd10gm_history 
-  add constraint fk_version_history foreign key (ver) references icd_metainfo.icd10gm_release_info(icd10gm_version);
-  
-alter table icd_metainfo.icd10gm_history 
-  add constraint fk_modif_version_history foreign key (vermodif) references icd_metainfo.icd10gm_release_info(icd10gm_version);
-  
-alter table icd_metainfo.icd10gm 
-  add constraint fk_version_icd10gm foreign key (ver) references icd_metainfo.icd10gm_release_info(icd10gm_version);
-*/

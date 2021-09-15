@@ -398,5 +398,3 @@ select distinct on (code) * from icd_metainfo.icd10gm_history igh order by code 
 
 
 
-
-

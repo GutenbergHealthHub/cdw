@@ -1,7 +1,11 @@
 -- Function to insert modified icd10gm into history table 
--- insert update ICDs into the history table
+-- 1. insert updated ICD into the history table and set as updated (U if not deleted and DI if deleted and reused)
+-- 2. set reused ICD in the history table as "not deleted" (isdeleted false)
 
-CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history() RETURNS TRIGGER AS $icd10gm_to_history$
+CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history()
+ RETURNS trigger
+ LANGUAGE plpgsql
+AS $function$
     begin
 	    	-- updated icd to history
 			insert into icd_metainfo.icd10gm_history   
@@ -9,7 +13,7 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history() RETURN
 		    	  k.*,
 				  n.ver,
 				  case 
-				    when k.code in (select code from icd_metainfo.icd10gm_history where verevent = 'D')
+				    when k.code in (select code from icd_metainfo.icd10gm_history where isdeleted)
 				      then 'DI'
 				    else 'U'
 				  end verevent 
@@ -46,14 +50,17 @@ CREATE OR REPLACE FUNCTION icd_metainfo.func_updated_to_icd10gm_history() RETURN
 				  or n.belegt != k.belegt
 				  or n.ifsgmeldung != k.ifsgmeldung
 				  or n.ifsglabor != k.ifsglabor)
-				 ;		
+				 ;
+				
+				update icd_metainfo.icd10gm_history 
+				  set isdeleted = false
+				  where code in (select code from icd_metainfo.kodes);
+				 
         RETURN NULL; 
     END;
-$icd10gm_to_history$ LANGUAGE plpgsql;
+$function$
+;
 
---drop trigger tr_icd10gm_updated_to_history on icd_metainfo.icd10gm;
-
---trigger to update the history table with the old values
 CREATE TRIGGER tr_icd10gm_updated_to_history
     AFTER UPDATE ON icd_metainfo.icd10gm 
     REFERENCING old TABLE AS new_table
