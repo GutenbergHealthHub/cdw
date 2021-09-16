@@ -2,7 +2,7 @@
  drop table icd_metainfo.icd10gm cascade;
 drop table icd_metainfo.kodes cascade;
 
-
+select * from icd_metainfo.icd10gm_history igh where code like 'K55.8%' order by code, ver;
 
 
 

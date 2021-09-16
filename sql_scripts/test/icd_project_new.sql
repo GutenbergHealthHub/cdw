@@ -5,7 +5,7 @@ select count(distinct code) q, oldver from icd_metainfo.icd10gm_history igh wher
 select count(distinct code) q, ver from icd_metainfo.icd10gm_history igh where verevent = 'D' group by ver order by q;
 
 -- deleted and inserted
-select * from icd_metainfo.icd10gm_history where code in (
+select ver, ort, code, titel, oldver, verevent from icd_metainfo.icd10gm_history where code in (
 select code from icd_metainfo.kodes k where code in (select distinct code from icd_metainfo.icd10gm_history igh where igh.verevent = 'D')) order by code, ver;
 
 
@@ -312,3 +312,9 @@ select
     on  i.code = u.code
 where i.ifsglabor != u.ifsglabor
 order by "Spalte";
+
+
+select ver, code, titel, oldver, verevent from icd_metainfo.icd10gm_history igh where code not in (select code from icd_metainfo.icd10gm_history where verevent = 'U') and code not in (select code from icd_metainfo.icd10gm_history where verevent = 'D') order by code, ver;
+
+select ver, code, titel, oldver, verevent from icd_metainfo.icd10gm_history igh where code  not in (select code from icd_metainfo.icd10gm_history where verevent = 'D') order by code, ver;
+
