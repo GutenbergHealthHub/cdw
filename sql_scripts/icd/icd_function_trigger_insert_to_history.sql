@@ -61,6 +61,8 @@ AS $function$
 $function$
 ;
 
+--drop TRIGGER if exists tr_icd10gm_updated_to_history ON icd_metainfo.icd10gm;
+
 CREATE TRIGGER tr_icd10gm_updated_to_history
     AFTER UPDATE ON icd_metainfo.icd10gm 
     REFERENCING old TABLE AS new_table

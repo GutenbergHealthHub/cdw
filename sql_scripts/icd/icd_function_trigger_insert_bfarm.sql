@@ -149,6 +149,7 @@ $function$
 ;
 
 -- trigger in table icd_metainfo.kode to insert new icds
+--drop trigger if exists tr_icd10gm_insert_from_bfarm on icd_metainfo.kodes;
 CREATE TRIGGER tr_icd10gm_insert_from_bfarm
     AFTER INSERT ON icd_metainfo.kodes 
     REFERENCING NEW TABLE AS new_table
