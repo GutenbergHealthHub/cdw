@@ -1,6 +1,6 @@
 \documentclass[12pt, a4paper]{report}
 %\documentclass[12pt, a4paper]{article}
-%\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 %\usepackage{math}
@@ -26,30 +26,26 @@
 %\usepackage{orcidlink}
 \usepackage{pdflscape}
 \usepackage{booktabs}
-  
-  \title{\ac{csdwh} Dokumentation} 
-  \author{Abel Hodelin Hernandez}
-  \date{\today}
+\usepackage{caption}
+
+
+\fancypagestyle{firstpage}
+{	
+    \pagestyle{fancy}
+	\fancyhf{}
+	\chead{ \includegraphics[width=\textwidth]{figures/ummz.png}}
+	\renewcommand{\headrulewidth}{0pt}
+}
   
     \begin{document}
-    	\begin{titlepage}
-    		\maketitle	
-    	\end{titlepage}
-    	\section*{Acronyms}
-    \begin{acronym}[CDW]
-    	\acro{diz}[DIZ]{Datenintegrationszentrum}
-    	\acro{csdwh}[csDWH]{clinic staging Data Warehouse}
-    	\acro{dbms}[DBMS]{Database Management System}
-    	\acro{db}[DB]{Datenbank}
-    	\acrodefplural{db}[DB]{Datenbanken}
-    	\acro{tde}[TDE]{Transparent Data Encryption}
-    	\acro{etl}[ETL]{Extraction Tranformation Load}
-    	\acro{kis}[KIS]{Krankenhausinformationssystem}
-    	\acro{gtds}[GTDS]{Gißener Tumordokumentationssystem}
-    	\acro{khentgg}[KHEntgG]{Krankenhausentgeltgesetz}
-    \end{acronym}    
-    \clearpage
-    \tableofcontents{}
+
+  \include{A0titel}  	
+  \clearpage
+  \tableofcontents{}
+  %\listoffigures
+  \listoftables
+  \include{Aacronyms}
+  \include{0intro}
   \include{1install}
   \include{2structcdw}
   \include{3using}
