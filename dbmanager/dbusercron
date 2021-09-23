@@ -1,0 +1,5 @@
+# Crontab of the data warehouse
+# m h  dom mon dow   command
+@reboot sleep 100 && /media/db/cdw_database/startDB.sh # start the instance after server reboot 
+0 1 * * * /media/db/cdw_database/backDB.sh # make a data warehouse backup every day at 01:00 a.m (it takes about 2 hours)
+

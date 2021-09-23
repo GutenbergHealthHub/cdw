@@ -1,0 +1,7 @@
+# Crontab of sudo user to show:
+# -  server updates
+# - log files of database 
+# - recent backup of database
+# - las date of reboot of server
+# m h  dom mon dow   command
+0 7 * * * /home/cdw/first_commands.sh > /home/$USER/first.txt
