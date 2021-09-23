@@ -1,10 +1,10 @@
 \chapter{Installation und Konfiguration der Instanz des \acs{csdwh}}
     
-    Das \ac{csdwh} für die Forschung Daten befindet sich in einem Ubuntu Server mit der Version Ubuntu 18.04 \ac{lts}. Diese \ac{db} wurde in PostgreSQL mit Hilfe von PostgreSQL \ac{tde} implementiert und verschlüsselt. Das bedeutet, dass alle Dateien aus der PostgreSQL-Instanz sind auf dem Festplatte verschlüsselt gespeichert und bei lesen entschlüsselt.
+    Das \ac{csdwh}, welches die Forschungsdaten beinhaltet, befindet sich in einem Ubuntu Server mit der Version Ubuntu 18.04 \ac{lts}. Diese \ac{db} wurde in PostgreSQL mit Hilfe von PostgreSQL \ac{tde} implementiert und verschlüsselt. Somit sind alle Datensätze der Datenbank verschlüsselt auf der Festplatte gespeichert und werden erst bei Zugriff entschlüsselt.
     
     \section{\acs{tde}-Installation}    
     
-    Die Installation von PostgreSQL \ac{tde} Version postgresql-12.3\_TDE\_1.0 verfolgte die Installation Guide des Software unter dem Link  (\url{https://www.cybertec-postgresql.com/de/transparent-data-encryption-installation-guide/}). Davor waren die notwendige Paketen in dem Ubuntu-Server installiert via \textsf{apt}:
+    Die Installation von PostgreSQL \ac{tde} Version postgresql-12.3\_TDE\_1.0 folgte dem Installation Guide Software unter dem Link  (\url{https://www.cybertec-postgresql.com/de/transparent-data-encryption-installation-guide/}). Davor wurden die notwendigen Pakete und Abhängigkeiten auf dem Ubuntu-Server via \textsf{apt} installiert:
     
     \begin{tabular}{ll}
     	\textsf{zlib1g-dev} & \textsf{libssl-dev} \\ 
@@ -18,11 +18,11 @@
     	\textsf{libxml2-utils} & \textsf{xsltproc} \\
     \end{tabular} \\
     
-    Der Install-Kommando lautet: 
+    Das Install-Kommando lautet: 
            
     sudo ./configure --prefix=/usr/local/pg12tde --with-openssl --with-perl --with-python --with-ldap --with-libxml --with-uuid=e2fs --with-systemd\\ \\
     
-    Der Start-Kommando für die Instanz lautet: 
+    Das Start-Kommando für die Instanz lautet: 
     
     /usr/local/pg12tde/bin/initdb -D /media/db/cdw\_database/clinic\_instance
     
@@ -30,16 +30,16 @@
 	\section{\acs{tde}-Konfiguration} 
 	
     \subsection{\acs{tde}-Instanz-Dateien}
-    Auf dem Betriebssystem wurde den Benutzer clinicuser angelegt, der dient die Administration der \ac{db}-Instanz und besitzt keine administrative rechte auf dem Betriebssystem.
-    Die Dateien der \ac{tde}-Instanz befinden sich in dem Server unter \textsf{/media/db/cdw\_database}.
+    Auf dem Betriebssystem wurde der Benutzer \textsf{clinicuser} angelegt, dieser ist für die Administration der \ac{db}-Instanz vorgesehen und besitzt keine administrative rechte auf dem Betriebssystem.
+    
+    Die Dateien der \ac{tde}-Instanz befinden sich auf dem Server unter \textsf{/media/db/cdw\_database}.
     \begin{itemize}
     	\item \textsf{clinic\_instance} -- Instanz der \ac{csdwh} mit \ac{db}- und Konfigurationsdateien.
-    	%\item dbkeys -- Ordner der mit Schlüssel-Datei. Jede Schlüssel in der Datei hat 1000 Zufall-Zeichenketten, jede davon ist 1000 Charakter lang mit Buchstaben, Zahlen und Sonderzeichen, davon wird eine genommen, verschlüsselt und als Schlüssel für dem Start des PostgreSQL-\ac{TDE}-Services benützt.
     	\item \textsf{sh\_scripts} -- Shell-Skripts.
     	\begin{itemize}
            \item \textsf{clinic\_instance\_key.sh} -- Skript fürs Schlüssel-Manager. Der Schlüssel der Instanz ist ein \ac{md5}-Hash.
     	\end{itemize}
-    	\item \textsf{dbBack} -- Täglicher Backup der ganzen Instanz. Hier werden die fünf letzte Backups der \ac{db} in verschlüsselten \ac{zip}-Dateien aufbewahren. Die Nomenklatur der Dateien ist \textsf{staging\_YYYY-MM-TT.all.zip}.
+    	\item \textsf{dbBack} -- Täglicher Backup der ganzen Instanz. Hier werden die fünf letzten Backups der \ac{db} in verschlüsselten \ac{zip}-Dateien aufbewahrt. Die Namenskonvention für die Backup Dateien ist \textsf{staging\_YYYY-MM-TT.all.zip}.
     \end{itemize}
 
     \subsection{Konfigurationsdateien}
