@@ -38,7 +38,23 @@ select count(distinct code), 're' modi from icd_metainfo.icd10gm_history igh whe
 select code, kapnr, ver from icd_metainfo.icd10gm_history where ver not like '2007' and verevent = 'I' and kapnr in (
 select kapnr from icd_metainfo.icd10gm_history igh where ver not like '2007' and verevent = 'I' group by kapnr, ver having count(code) > 20
 ) order by code; 
-  
+
+
+select code, kapnr, ver from icd_metainfo.icd10gm_history where ver not like '2007' and verevent = 'I' and kapnr in (
+select kapnr from icd_metainfo.icd10gm_history igh where ver not like '2007' and verevent = 'I' group by kapnr, ver having count(code) > 40
+) order by code; 
+
+
+drop table icd_metainfo.kapinsmore40;
+select * into icd_metainfo.kapinsmore40 from (
+select code, kapnr, ver from icd_metainfo.icd10gm_history igh where verevent = 'I' and ver = '2018' and kapnr = '13'
+  union 
+select code, kapnr, ver from icd_metainfo.icd10gm_history igh where verevent = 'I' and ver = '2021' and kapnr = '22'
+  union 
+select code, kapnr, ver from icd_metainfo.icd10gm_history igh where verevent = 'I' and ver = '2011' and kapnr = '02'
+  union 
+select code, kapnr, ver from icd_metainfo.icd10gm_history igh where verevent = 'I' and ver = '2017' and kapnr = '22'
+) as t;
 
 
 -- deleted codes without dot in current version
