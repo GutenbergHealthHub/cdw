@@ -19,8 +19,10 @@ AS SELECT p21_department.institutionmark AS "IK",
    
 -- p21.fall source
 
+DROP VIEW IF EXISTS p21.fall;
 CREATE OR REPLACE VIEW p21.fall
-AS SELECT p21_encounter.institutionmark AS "IK",
+AS 
+SELECT p21_encounter.institutionmark AS "IK",
     p21_encounter.dismissinglocation AS "Entlassender-Standort",
     p21_encounter.remunerationarea AS "Entgeltbereich",
     p21_encounter.id AS "KH-internes-Kennzeichen",
@@ -30,7 +32,11 @@ AS SELECT p21_encounter.institutionmark AS "IK",
     p21_encounter.yearbirth AS "Geburtsjahr",
     p21_encounter.monthbirth AS "Geburtsmonat",
     p21_encounter.gender AS "Geschlecht",
-    p21_encounter.zipcode AS "PLZ",
+        CASE 
+        	WHEN length(p21_encounter.zipcode) < 5 then lpad(p21_encounter.zipcode::text, 5, '0'::text)
+        	ELSE p21_encounter.zipcode
+        END "PLZ",
+    --p21_encounter.zipcode AS "PLZ",
     p21_encounter.placeresidence AS "Wohnort",
     to_char(p21_encounter.admissiondate, 'YYYYMMDDHH24MI'::text) AS "Aufnahmedatum",
         CASE
@@ -78,7 +84,7 @@ AS SELECT p21_encounter.institutionmark AS "IK",
     p21_encounter.isspecialcasemodelproject AS "Kennung-Besonderer-Fall-Modellvorhaben",
     p21_encounter.intensivedwelltime AS "Verweildauer-intensiv"
    FROM p21.p21_encounter;
-   
+      
 -- p21.icd source
 
 CREATE OR REPLACE VIEW p21.icd
