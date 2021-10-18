@@ -6,6 +6,11 @@ dbpass=`pass db_pass`
 export PGPASSWORD=$dbpass
 echo "Inserting into database..."
 
+
+# Insert into version and release date into table
+/usr/local/pgtde/bin/psql -p 5433 -w -d $db -U db_user -c "TRUNCATE $5 CASCADE;"
+/usr/local/pgtde/bin/psql -p 5433 -w -d $db -U db_user -c "COPY $5 FROM '$4' WITH DELIMITER E';' CSV QUOTE E'\b';"
+
 # Disable all triggers in the table kode to insert all info
 /usr/local/pgtde/bin/psql -p 5433 -w -d $db -U db_user -c "ALTER TABLE $2 DISABLE TRIGGER ALL;"
 

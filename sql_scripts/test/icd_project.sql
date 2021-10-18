@@ -396,5 +396,5 @@ select count(code) from icd_metainfo.icd10gm_history igh ;
 select count(*) from (
 select distinct on (code) * from icd_metainfo.icd10gm_history igh order by code , ver desc) as t;
 
-
+select * from icd_metainfo.kodes k where code like 'Q6%';
 
