@@ -80,99 +80,302 @@ select count(code) icd, ver from icd_metainfo.icd10gm ig group by ver
   union 
  select count(code), 'total' from icd_metainfo.icd10gm  order by ver;
 
-select count(distinct ig.code) "Anzahl", 'Klassifikationsebene' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on  igh.code = ig.code
-where ig.ebene != igh.ebene and igh.verevent like 'U'
+
+
+select * into icd_metainfo.insertions from icd_metainfo.icd10gm_history igh where igh.verevent = 'I';
+
+select * into icd_metainfo.updates from icd_metainfo.icd10gm_history igh where igh.verevent = 'U' or igh.verevent = 'DI';
+
+select 
+  count(distinct i.code) "Anzahl", 
+  'Klassifikationsebene' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.ebene != u.ebene
   union 
-select count(distinct ig.code) "Anzahl", 'Ort der Schlüsselnummer im Klassifikationsbaum' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.ort != igh.ort and igh.verevent like 'U' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Ort der Schlüsselnummer im Klassifikationsbaum' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.ort != u.ort 
   union 
-select count(distinct ig.code) "Anzahl", 'Art der Vier- und Fünfsteller' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.art != igh.art and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Art der Vier- und Fünfsteller' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.art != u.art
   union 
-select count(distinct ig.code) "Anzahl", 'Kapitelnummer' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.kapnr != igh.kapnr and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Kapitelnummer' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.kapnr != u.kapnr
   union
-select count(distinct ig.code) "Anzahl", 'Erster Dreisteller der Gruppe' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.grvon != igh.grvon and igh.verevent like 'U' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Erster Dreisteller der Gruppe' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.grvon != u.grvon 
   union 
-select count(distinct ig.code) "Anzahl", 'Schlüsselnummer ohne Strich, Stern und  Ausrufezeichen' "Spalte"from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.normcode != igh.normcode and igh.verevent like 'U' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Schlüsselnummer ohne Strich, Stern und  Ausrufezeichen' "Spalte"
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.normcode != u.normcode 
   union 
-select count(distinct ig.code) "Anzahl", 'Schlüsselnummer ohne Punkt, Strich, Stern und Ausrufezeichen' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.codeohnepunkt != igh.codeohnepunkt  and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Schlüsselnummer ohne Punkt, Strich, Stern und Ausrufezeichen' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.codeohnepunkt != u.codeohnepunkt
   union 
-select count(distinct ig.code) "Anzahl", 'Klassentitel' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.titel != igh.titel and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Klassentitel' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.titel != u.titel
   union 
-select count(distinct ig.code) "Anzahl", 'Paragraph 295' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.p295 != igh.p295 and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Paragraph 295' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.p295 != u.p295
   union 
-select count(distinct ig.code) "Anzahl", 'Paragraph 301' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.p301 != igh.p301 and igh.verevent like 'U' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Paragraph 301' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.p301 != u.p301 
   union 
-select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 1' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.mortl1code != igh.mortl1code and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 1' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.mortl1code != u.mortl1code
   union 
-select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 1 (definiert)' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.mortl1code != igh.mortl1code and igh.verevent like 'U' and ig.mortl1code  not like 'UNDEF%' and igh.mortl1code not like 'UNDEF%'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 1 (definiert)' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.mortl1code != u.mortl1code 
+and i.mortl1code not like 'UNDEF%' 
+and u.mortl1code not like 'UNDEF%'
   union 
-select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 2' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.mortl2code != igh.mortl2code and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 2' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.mortl2code != u.mortl2code
   union 
-select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 2 (definiert)' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.mortl2code != igh.mortl2code and igh.verevent like 'U' and ig.mortl2code not like 'UNDEF%' and  igh.mortl2code not like 'UNDEF%' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 2 (definiert)' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.mortl2code != u.mortl2code 
+and i.mortl2code not like 'UNDEF%' 
+and  u.mortl2code not like 'UNDEF%' 
   union 
-select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 3' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.mortl3code != igh.mortl3code and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 3' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.mortl3code != u.mortl3code
   union 
-select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 3 (definiert)' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.mortl3code != igh.mortl3code and igh.verevent like 'U' and ig.mortl3code not like 'UNDEF%' and igh.mortl3code not like 'UNDEF%'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 3 (definiert)' "Spalte"
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.mortl3code != u.mortl3code 
+and i.mortl3code not like 'UNDEF%' 
+and u.mortl3code not like 'UNDEF%'
   union 
-select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 4' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.mortl4code != igh.mortl4code and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 4' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.mortl4code != u.mortl4code
   union 
-select count(distinct ig.code) "Anzahl", 'Bezug zur Mortalitätsliste 4 (definiert)' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.mortl4code != igh.mortl4code and igh.verevent like 'U' and ig.mortl4code not like 'UNDEF%' and igh.mortl4code not like 'UNDEF%'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Mortalitätsliste 4 (definiert)' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.mortl4code != u.mortl4code 
+and i.mortl4code not like 'UNDEF%' 
+and u.mortl4code not like 'UNDEF%'
   union
-select count(distinct ig.code) "Anzahl", 'Bezug zur Morbiditätsliste' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.morblcode != igh.morblcode and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Morbiditätsliste' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.morblcode != u.morblcode
   union 
-select count(distinct ig.code) "Anzahl", 'Bezug zur Morbiditätsliste (definiert)' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.morblcode != igh.morblcode and igh.verevent like 'U' and ig.morblcode not like 'UNDEF%' and igh.morblcode not like 'UNDEF%'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Bezug zur Morbiditätsliste (definiert)' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.morblcode != u.morblcode 
+and i.morblcode not like 'UNDEF%' 
+and u.morblcode not like 'UNDEF%'
   union
-select count(distinct ig.code) "Anzahl", 'Geschlechtsbezug' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.sexcode != igh.sexcode and igh.verevent like 'U' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Geschlechtsbezug' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.sexcode != u.sexcode 
   union 
-select count(distinct ig.code) "Anzahl", 'Art des Fehlers bei Geschlechtsbezug' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.sexfehlertyp != igh.sexfehlertyp and igh.verevent like 'U' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Art des Fehlers bei Geschlechtsbezug' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.sexfehlertyp != u.sexfehlertyp 
   union 
-select count(distinct ig.code) "Anzahl", 'Untere Altersgrenze' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.altunt != igh.altunt and igh.verevent like 'U' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Untere Altersgrenze' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.altunt != u.altunt 
   union 
-select count(distinct ig.code) "Anzahl", 'Untere Altersgrenze (definiert)' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.altunt != igh.altunt and igh.verevent like 'U' and ig.altunt not like '9%' and igh.altunt not like '9%'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Untere Altersgrenze (definiert)' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.altunt != u.altunt 
+and i.altunt not like '9%' 
+and u.altunt not like '9%'
   union 
-select count(distinct ig.code) "Anzahl", 'Obere Altersgrenze' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.altob != igh.altob and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Obere Altersgrenze' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.altob != u.altob
   union 
-select count(distinct ig.code) "Anzahl", 'Obere Altersgrenze (definiert)' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.altob != igh.altob and igh.verevent like 'U' and ig.altob not like '9%' and igh.altob not like '9%'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Obere Altersgrenze (definiert)' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.altob != u.altob
+and i.altob not like '9%' 
+and u.altob not like '9%'
   union 
-select count(distinct ig.code) "Anzahl", 'Alter Fehlertyp' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.altfehlertyp != igh.altfehlertyp and igh.verevent like 'U' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Alter Fehlertyp' "Spalte"
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.altfehlertyp != u.altfehlertyp 
   union 
-select count(distinct ig.code) "Anzahl", 'Sehr seltene Krankheit in Mitteleuropa' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.exot != igh.exot and igh.verevent like 'U' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Sehr seltene Krankheit in Mitteleuropa' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.exot != u.exot 
   union 
-select count(distinct ig.code) "Anzahl", 'Belegt' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.belegt != igh.belegt and igh.verevent like 'U' 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Belegt' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.belegt != u.belegt 
   union 
-select count(distinct ig.code) "Anzahl", 'Arzt-Meldepflicht' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.ifsgmeldung != igh.ifsgmeldung  and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl",
+  'Arzt-Meldepflicht' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.ifsgmeldung != u.ifsgmeldung
   union 
-select count(distinct ig.code) "Anzahl", 'Anwendung der Laborausschlussziffer des einheitlisches Bewertungsmaßstab' "Spalte" from icd_metainfo.icd10gm ig join icd_metainfo.icd10gm_history igh on igh.code = ig.code
-where ig.ifsglabor != igh.ifsglabor and igh.verevent like 'U'
+select 
+  count(distinct i.code) "Anzahl", 
+  'Anwendung der Laborausschlussziffer des einheitlisches Bewertungsmaßstab' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.ifsglabor != u.ifsglabor
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Dritte Stelle' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.dreisteller isnull 
+and u.dreisteller notnull 
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Vierte Stelle' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.viersteller isnull 
+and u.viersteller notnull
+  union 
+select 
+  count(distinct i.code) "Anzahl", 
+  'Fünfte Stelle' "Spalte" 
+from icd_metainfo.insertions i 
+join icd_metainfo.updates u 
+  on  i.code = u.code
+where i.fuenfsteller isnull 
+and u.fuenfsteller notnull
 order by "Anzahl" desc, "Spalte";
+
 
 
 
@@ -397,4 +600,33 @@ select count(*) from (
 select distinct on (code) * from icd_metainfo.icd10gm_history igh order by code , ver desc) as t;
 
 select * from icd_metainfo.kodes k where code like 'Q6%';
+
+
+
+select I.code, I.ver, U.ver  from (
+select 
+  * 
+from icd_metainfo.icd10gm_history igh 
+where dreisteller isnull 
+or viersteller isnull 
+or fuenfsteller isnull 
+and ver in ('2007', '2008', '2009', '2010', '2011', '2012') 
+and verevent = 'I'
+) as I
+join 
+(
+select 
+  * 
+from icd_metainfo.icd10gm_history igh 
+where dreisteller notnull 
+or viersteller notnull 
+or fuenfsteller notnull 
+and ver in ('2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021') 
+and verevent = 'U'
+) as U
+  on I.code = U.code
+  order by I.code, I.ver
+;
+
+select count(distinct code) from icd_metainfo.icd10gm_history igh where verevent = 'U';
 
