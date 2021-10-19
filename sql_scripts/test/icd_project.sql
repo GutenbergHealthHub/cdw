@@ -80,7 +80,7 @@ select count(code) icd, ver from icd_metainfo.icd10gm ig group by ver
   union 
  select count(code), 'total' from icd_metainfo.icd10gm  order by ver;
 
-
+select count(*) from icd_metainfo.icd10gm_history igh where verevent = 'D'
 
 select * into icd_metainfo.insertions from icd_metainfo.icd10gm_history igh where igh.verevent = 'I';
 
