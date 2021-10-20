@@ -630,3 +630,11 @@ and verevent = 'U'
 
 select count(distinct code) from icd_metainfo.icd10gm_history igh where verevent = 'U';
 
+
+
+--copy icd_metainfo.icd10gm_history to '/home/abel/clinic_data_warehouse/icd10gm_history.csv' WITH DELIMITER E';' CSV QUOTE E'\b' header;
+
+--copy (select row_to_json(icdhistory) from (select * from icd_metainfo.icd10gm_history igh) icdhistory) to '/home/abel/clinic_data_warehouse/icd10gm_history.json';
+
+
+select * from icd_metainfo.icd10gm_history igh ;
