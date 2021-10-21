@@ -1,0 +1,7 @@
+#!/usr/bin/sh
+git add *
+echo "Name of commit: "
+read commit_name
+git commit -m "$commit_name"
+git fetch origin
+git push origin main
