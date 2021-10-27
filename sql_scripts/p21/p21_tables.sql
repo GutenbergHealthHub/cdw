@@ -132,3 +132,14 @@ CREATE TABLE p21.loinc_mapping_central_lab (
 	validfrom date, -- Gültig ab
 	source varchar(255) default 'LOINC-Zentrallabor-Liste Version 1.0'--Quelle-Datei
 );
+
+-- Table to management the cases numbers 
+
+create table p21.management(
+  casenumber varchar,
+  retrievaldate timestamp,
+  trigger_event varchar,
+  user_event varchar,
+  trigger_name varchar,
+  table_name varchar
+);
