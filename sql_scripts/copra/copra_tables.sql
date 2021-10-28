@@ -88,3 +88,11 @@ CREATE TABLE copra.CO6_Data_String(
 );
 create index if not exists ix_timestamp_data_string on copra.CO6_Data_String(Timestamp);
 
+
+-- table to management the new patients in copra
+create table copra.patient_management(
+  patid varchar,
+  modif_date timestamp,
+  user_name varchar,
+  trigger_event varchar
+);
