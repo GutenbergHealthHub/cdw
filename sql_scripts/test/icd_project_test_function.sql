@@ -145,7 +145,6 @@ as $$
 	  FROM new_table n 
 	  join icd_metainfo.icd10gm_history icd
 	    on icd.code = n.code
-	  where n.ver <> icd.oldver 
 	  order by icd.code, icd.ver desc
 	 ;
     return null;
