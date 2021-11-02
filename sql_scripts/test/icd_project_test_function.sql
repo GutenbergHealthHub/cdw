@@ -145,6 +145,7 @@ as $$
 	  FROM new_table n 
 	  join icd_metainfo.icd10gm_history icd
 	    on icd.code = n.code
+	  where icd.code not in (select code from icd_metainfo.icd10gm_history where verevent = 'D')
 	  order by icd.code, icd.ver desc
 	 ;
     return null;
