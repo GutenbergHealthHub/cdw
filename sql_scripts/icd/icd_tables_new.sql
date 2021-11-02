@@ -117,7 +117,7 @@ create table icd_metainfo.icd10gm_history(
   ifsglabor varchar,
   oldver varchar,-- references icd_metainfo.icd10gm_release_info(icd10gm_version), -- new version
   verevent varchar check(verevent in ('D', 'I', 'U', 'DI')), --change in the new release
-  isdeleted boolean default false,
+  --isdeleted boolean default false,
   primary key (code, ver, verevent)
 );
 
