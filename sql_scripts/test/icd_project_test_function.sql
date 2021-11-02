@@ -33,8 +33,7 @@ as $$
 	  SELECT 
 	    n.*,
 	    null oldver, 
-	    'I' verevent,
-	    false isdeleted
+	    'I' verevent
 	  FROM new_table n 
 	  left join icd_metainfo.icd10gm_history icd
 	    on icd.code = n.code
@@ -142,13 +141,11 @@ as $$
 	    distinct on (icd.code)
 	    n.*,
 	    icd.ver, 
-	    'U' verevent,
-	    false isdeleted
+	    'U' verevent
 	  FROM new_table n 
 	  join icd_metainfo.icd10gm_history icd
 	    on icd.code = n.code
-	  where not icd.isdeleted
-	  and icd.ver::int < n.ver::int
+	  where n.ver <> icd.oldver 
 	  order by icd.code, icd.ver desc
 	 ;
     return null;
@@ -156,7 +153,7 @@ as $$
  $$;
 
 -- management the update of icd10gm in icd_metainfo.icd10gm 
-drop trigger tr_updated_icd10gm_to_history on icd_metainfo.icd10gm ;
+--drop trigger tr_updated_icd10gm_to_history on icd_metainfo.icd10gm ;
 create trigger tr_updated_icd10gm_to_history
 after update on icd_metainfo.icd10gm 
 referencing new table as new_table 
@@ -169,19 +166,21 @@ returns trigger
 language plpgsql
 as $$
   begin 
-    INSERT INTO icd_metainfo.icd10gm_history (ver, code, oldver, verevent, isdeleted)
-	  select 
+    INSERT INTO icd_metainfo.icd10gm_history (ver, code, titel, oldver, verevent)
+	  select
 	    (select distinct ver from icd_metainfo.kodes limit 1) ver,
-	    h.code,
-	    h.ver,
-	    'D' verevent,
-	    true isdeleted
-	  from icd_metainfo.icd10gm_history h 
-	  left join new_table n
-	    on n.code = h.code
-	  where n.code isnull 
-	  and not h.isdeleted
-
+	    ig.code,
+	    ig.titel, 
+	    ig.ver,
+	    'D' verevent
+	  from icd_metainfo.icd10gm ig
+      left join (select code from icd_metainfo.icd10gm_history where verevent = 'D') igh
+        on ig.code = igh.code
+      left join new_table n 
+        on n.code = ig.code 
+      where n.code isnull
+      and igh.code isnull  
+	  ;
     return null;
   end;
  $$;
@@ -190,6 +189,42 @@ create trigger tr_deleted_icd10gm_to_history
 after insert on icd_metainfo.kodes 
 referencing new table as new_table 
 for each statement execute function icd_metainfo.func_insert_deleted_icd10gm_into_history();
+
+
+
+
+-- Delete insert
+create or replace function icd_metainfo.func_reused_icd10gm_into_history()
+returns trigger 
+language plpgsql
+as $$
+  begin 
+    INSERT INTO icd_metainfo.icd10gm_history
+	  select 
+	    n.*,
+	    h.ver,
+	    'DI' verevent
+	  from new_table n
+	  join icd_metainfo.icd10gm_history h
+	    on n.code = h.code
+	  left join (select code from icd_metainfo.icd10gm_history where verevent = 'DI') di
+	    on n.code = di.code
+	  where h.verevent = 'D'
+	  and di.code isnull
+    ;
+
+    return null;
+  end;
+ $$;
+
+create trigger tr_insert_reused_icd10gm_to_history
+after insert on icd_metainfo.kodes 
+referencing new table as new_table 
+for each statement execute function icd_metainfo.func_reused_icd10gm_into_history()
+
+
+
+
 
 
 
