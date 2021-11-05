@@ -143,9 +143,21 @@ as $$
 	    icd.ver, 
 	    'U' verevent
 	  FROM new_table n 
-	  join icd_metainfo.icd10gm_history icd
+	  left join (select code from icd_metainfo.icd10gm_history where verevent = 'D') icd
 	    on icd.code = n.code
-	  where icd.code not in (select code from icd_metainfo.icd10gm_history where verevent = 'D')
+	  where icd.code isnull
+	  order by icd.code, icd.ver desc
+	 ;
+	
+	INSERT INTO icd_metainfo.icd10gm_history 
+	  select
+	    distinct on (icd.code)
+	    n.*,
+	    icd.ver, 
+	    'U' verevent
+	  FROM new_table n 
+	  join (select code from icd_metainfo.icd10gm_history where verevent = 'DI') icd
+	    on icd.code = n.code
 	  order by icd.code, icd.ver desc
 	 ;
     return null;
