@@ -52,12 +52,12 @@ as $$
 	    icd.ver, 
 	    'U' verevent
 	  FROM new_table n 
-	  join (select code from icd_metainfo.icd10gm_history where verevent = 'DI') icd
+	  join (select code, ver from icd_metainfo.icd10gm_history where verevent = 'DI') icd
 	    on icd.code = n.code
 	  order by icd.code, icd.ver desc
 	 ;
 
-	DELETE FROM icd_metainfo.history 
+	DELETE FROM icd_metainfo.icd10gm_history 
 	  WHERE ver = oldver;
     return null;
   end;
