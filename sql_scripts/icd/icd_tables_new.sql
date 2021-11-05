@@ -69,3 +69,10 @@ create table icd_metainfo.icd10gm_history(
   verevent varchar check(verevent in ('D', 'I', 'U', 'DI')), --change in the new release
   primary key (code, ver, verevent)
 );
+
+create index if not exists ix_codes_history on icd_metainfo.icd10gm_history (code);
+create index if not exists ix_codes_norm_history on icd_metainfo.icd10gm_history(normcode);
+create index if not exists ix_codes_no_dot_history on icd_metainfo.icd10gm_history(codeohnepunkt);
+create index if not exists ix_version_history on icd_metainfo.icd10gm_history(ver);
+create index if not exists ix_old_version_history on icd_metainfo.icd10gm_history(oldver);
+create index if not exists ix_event_history on icd_metainfo.icd10gm_history(verevent);
