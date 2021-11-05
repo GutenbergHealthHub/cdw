@@ -1,7 +1,7 @@
 # Insert into db
 cd $1
-db="test_icd"
-#db=staging_test
+#db="test_icd"
+db=staging_test
 dbpass=`pass cdwadmin`
 #dbpass=`pass db_pass`
 db_user="clinicuser"

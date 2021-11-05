@@ -37,8 +37,10 @@ as $$
 	    icd.ver, 
 	    'U' verevent
 	  FROM new_table n 
-	  left join (select code from icd_metainfo.icd10gm_history where verevent = 'D') icd
+	  join (select code, ver from icd_metainfo.icd10gm_history where verevent <> 'D') icd
 	    on icd.code = n.code
+	  left join (select code from icd_metainfo.icd10gm_history where verevent = 'D') d
+	    on d.code = n.code
 	  where icd.code isnull
 	  order by icd.code, icd.ver desc
 	 ;
@@ -54,6 +56,9 @@ as $$
 	    on icd.code = n.code
 	  order by icd.code, icd.ver desc
 	 ;
+
+	DELETE FROM icd_metainfo.history 
+	  WHERE ver = oldver;
     return null;
   end;
  $$;
