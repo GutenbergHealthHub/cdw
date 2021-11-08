@@ -145,7 +145,10 @@ as $$
     INSERT INTO icd_metainfo.icd10gm_history
 	  select 
 	    n.*,
-	    h.ver,
+	    case 
+	      when h.oldver isnull then h.ver
+	      else h.oldver
+	    end ver,
 	    'DI' verevent
 	  from new_table n
 	  join icd_metainfo.icd10gm_history h
