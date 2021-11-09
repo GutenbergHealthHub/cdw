@@ -41,7 +41,7 @@ as $$
 	    on icd.code = n.code
 	  left join (select code from icd_metainfo.icd10gm_history where verevent = 'D') d
 	    on d.code = n.code
-	  where icd.code isnull
+	  where d.code isnull
 	  order by icd.code, icd.ver desc
 	 ;
 	

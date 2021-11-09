@@ -19,7 +19,7 @@ ver='icd10gm[0-9]{4}'
 #bash ../../utils/iso_2_utf8.sh $icdcodes # transform files from iso format to utf 8 
 #bash ../../utils/select_columns.sh $icdcodes # select columns to import in the database's table
 #awk -v y="2021" -F ';' '{OFS = ";"}{print y, $0}' ${icdversions}icd10gm2021syst-meta-20201111/Klassifikationsdateien/icd10gm2021syst_kodes.txt > ${icdcodes}icd10gm2021.csv # insert version in current version file
-bash ../../utils/insert_into_db.sh $icdcodes $tbicd $dat $tbrelease $tr_kode_newicd $tr_kode_update $tr_kode_delete $tr_kode_reused # insert into the database
+bash ../../utils/insert_into_db_test.sh $icdcodes $tbicd $dat $tbrelease $tr_kode_newicd $tr_kode_update $tr_kode_delete $tr_kode_reused # insert into the database
 cd
 echo "End!"
 exit
