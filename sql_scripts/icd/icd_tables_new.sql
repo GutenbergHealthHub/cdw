@@ -76,3 +76,7 @@ create index if not exists ix_codes_no_dot_history on icd_metainfo.icd10gm_histo
 create index if not exists ix_version_history on icd_metainfo.icd10gm_history(ver);
 create index if not exists ix_old_version_history on icd_metainfo.icd10gm_history(oldver);
 create index if not exists ix_event_history on icd_metainfo.icd10gm_history(verevent);
+
+ALTER TABLE icd_metainfo.icd10gm_history ADD CONSTRAINT icd10gm_history_oldver_fkey FOREIGN KEY (oldver) REFERENCES icd_metainfo.icd10gm_release_info(icd10gm_version);
+ALTER TABLE icd_metainfo.icd10gm_history ADD CONSTRAINT icd10gm_history_code_fkey FOREIGN KEY (code) REFERENCES icd_metainfo.icd10gm(code);
+
