@@ -1,0 +1,30 @@
+\chapter{\acs{kis}} \label{chp:kis}
+
+Hier werden die tagesaktuellen extrahierten Daten zu Patienten, Fällen, Bewegungen, Diagnosen und Prozeduren direkt aus dem Quellsystem \ac{kis} gespeichert. Mit Hilfe diesem Schema lassen sich viele der Abbildungen für weitere Projekte realisieren.
+
+In diesem Schema behalten die Tabellen denselben Namen wie in \ac{kis} . 
+\begin{table}[ht]
+	\centering   
+	\caption{Tabellen im Schema kis}
+	\begin{tabular}{||l|l||}   		
+		\hline
+		View & Beschreibung \\ [0.5ex]
+		\hline\hline
+		\texttt{nbew} & Bewegungen \\
+		\hline
+		\texttt{ndia} & Diagnosen \\
+		\hline
+		\texttt{nfal} & Fälle \\
+		\hline
+		\texttt{nicp} & Prozeduren \\
+		\hline
+		\texttt{npat} & Patienten \\
+		\hline
+		\texttt{norg} & Organisationseinheiten \\
+		\hline
+		\texttt{screencov} & COVID-19 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\section{Bewegungen}

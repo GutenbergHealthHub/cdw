@@ -832,7 +832,7 @@ group by orgau, orgna, jahr
 order by jahr desc, quantity desc
 ;
 
--- Behandlungskategorien
+-- Behandlungskategorien bei Jahren
 --drop view if exists kis.dqa_nbew_bekat_jahr;
 create or replace view kis.dqa_nbew_bekat_jahr
 as

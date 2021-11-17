@@ -1,0 +1,36 @@
+ \chapter{Struktur des \acs{csdwh}} \label{ch:strcsdwh} 
+ 
+    \section{Beschreibung}
+    
+    Das \ac{csdwh} besitzt zwei strukturell gleiche \acp{db}, \texttt{staging} für die Produktion und \texttt{staging\_test} zum testen. Die \acp{db} sind in verschiedenen Schemata geteilt, jede davon entspricht eine Quelle oder Zusammenfassung von Systemen. Die Information der Schemata liegt in Kapitel~\ref{ch: schema}.
+    
+    \section{Liste der vorhandenen Schemata}
+    
+    \begin{center}
+    	\captionof{table}{Schemata im \ac{csdwh}}
+    	\begin{tabular}{|| l | p{8cm} ||} 
+    		\hline
+    		Schema & Information \\ 
+    		\hline\hline
+    		\texttt{centrallab} & Information aus dem Zentral Labor \\ 
+    		\hline
+    		\texttt{copra} & Information aus COPRA-System (PDMS) \\
+    		\hline
+    		\texttt{gtds} & Information aus dem \ac{gtds}  \\
+    		\hline
+    		\texttt{icd\_metadatainfo} & \ac{icd10gm}  \\
+    		\hline
+    		\texttt{kis} & Information aus dem \ac{kis}  \\
+    		\hline
+        	\texttt{metadata\_repository} & Metadata \\
+        	\hline 
+        	\texttt{ops\_metadatainfo} & OPS  \\
+        	\hline
+        	\texttt{p21} & Information von \S 21  \\ 
+        	\hline
+        	\texttt{aktin} & Information des AKTIN-Projekts\\
+        	\hline
+        	\texttt{diz\_intern} & Administrative Information\\
+        	\hline
+    	\end{tabular}
+    \end{center}

@@ -1,0 +1,120 @@
+\chapter{\acs{kis}} \label{chp:kis}
+
+Hier werden die tagesaktuellen extrahierten Daten zu Patienten, Fällen, Bewegungen, Diagnosen und Prozeduren direkt aus dem Quellsystem \ac{kis} gespeichert. Mit Hilfe diesem Schema lassen sich viele der Abbildungen für weitere Projekte realisieren.
+
+In diesem Schema behalten die Tabellen denselben Namen wie in \ac{kis} (Tabelle \ref{tab:schemaKis}). Die Dokumentation der Tabellen in \ac{kis} befinden in der Confluence Seite von Medizin Informatik der Universitätsmedizin Mainz.
+
+\begin{table}[ht]
+	\centering   
+	\caption{Tabellen im Schema \acs{kis}}
+	\label{tab:schemaKis}
+	\begin{tabular}{||l|l||}   		
+		\hline
+		View & Beschreibung \\ [0.5ex]
+		\hline\hline
+		\texttt{nbew} & Bewegungen \\
+		\hline
+		\texttt{ndia} & Diagnosen \\
+		\hline
+		\texttt{nfal} & Fälle \\
+		\hline
+		\texttt{nicp} & Prozeduren \\
+		\hline
+		\texttt{npat} & Patienten \\
+		\hline
+		\texttt{norg} & Organisationseinheiten \\
+		\hline
+		\texttt{screencov} & COVID-19 \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\section{Bewegungen} \label{sec:beweg}
+
+Die Bewegungen der Fälle während des Hospitalisieren.
+
+\subsection{Behandlungskategorie} \label{subsec:behKat}
+
+\subsubsection{Insgesamt} \label{subsubsec:behKatI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bkat}
+	\label{tab:beweBkatAll}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Behandlungskategorie in der Tabelle \texttt{nbew} \\
+		\hline
+		bkat & varchar & Id der Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\
+		\hline
+		behandlungskategorie & varchar & Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:behKatJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bkat\_jahr}
+	\label{tab:beweBkatJahr}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Behandlungskategorie in der Tabelle \texttt{nbew} \\
+		\hline
+		bkat & varchar & Id der Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\
+		\hline
+		behandlungskategorie & varchar & Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+
+\subsection{Betten Belegung} \label{subsec:bett}
+
+\subsubsection{Insgesamt} \label{subsubsec:bettI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bett}
+	\label{tab:beweBettAll}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle an bestimmten Betten in der Tabelle \texttt{nbew} \\
+		\hline
+		bett & varchar & Id des Bettes (NULL bei nicht existierenden Bett)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bettJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bett\_jahr}
+	\label{tab:beweBettJahr}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle an bestimmten Betten in der Tabelle \texttt{nbew} \\
+		\hline
+		bett & varchar &  Id des Bettes (NULL bei nicht existierenden Bett) \\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline
+		
+	\end{tabular}
+\end{table}
+

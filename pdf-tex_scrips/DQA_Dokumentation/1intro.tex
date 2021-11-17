@@ -1,0 +1,9 @@
+\chapter{Einführung} \label{chp:intro}
+
+Im \ac{diz} werden Daten aus verschiedenen Fachabteilungen und Systemen zusammengeführt. Ein zentrales Puzzleteil für die Zwischenspeicherung der Information dieser Systemen ist das \acf{csdwh}. In dieser \ac{db} werden alle relevanten klinischen Systeme abgebildet. Diese Daten werden im Rahmen des Datenschutz sowie der Datenqualität aufbereitet und anschließend an weitere Komponenten des \ac{diz} übertragen.
+
+In diesem Dokument werden die Sichten für die Analyse der Datenqualität in dem \ac{csdwh} dokumentiert.
+
+\section{\ac{csdwh}}
+
+ Das \ac{csdwh}, welches die Forschungsdaten beinhaltet, befindet sich in einem Ubuntu Server mit der Version Ubuntu 18.04 \ac{lts}. Diese \ac{db} wurde in PostgreSQL mit Hilfe von PostgreSQL \ac{tde} implementiert und verschlüsselt. Somit sind alle Datensätze der Datenbank verschlüsselt auf der Festplatte gespeichert und werden erst bei Zugriff entschlüsselt.
