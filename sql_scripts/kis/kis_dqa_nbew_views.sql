@@ -318,6 +318,26 @@ group by n.bwart , bewegunsart
 order by quantity desc
 ;
 
+
+-- Bewegungsart Jahr
+--drop view if exists kis.dqa_nbew_bwart_jahr;
+create or replace view kis.dqa_nbew_bwart_jahr
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.bwart ~'\w' then n.bwart 
+    else null
+  end bwart,
+  date_part('year', bwidt) jahr
+  --bewegunsart
+from kis.nbew n
+left join metadata_repository.bewegunsart b
+  on n.bwart = b.bwart 
+group by n.bwart , bewegunsart, jahr
+order by jahr desc, quantity desc
+;
+
 -- Statu
 --drop view if exists kis.dqa_nbew_statu;
 create or replace view kis.dqa_nbew_statu

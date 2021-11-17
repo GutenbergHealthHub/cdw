@@ -33,6 +33,27 @@ In diesem Schema behalten die Tabellen denselben Namen wie in \ac{kis} (Tabelle 
 
 Die Bewegungen der Fälle während des Hospitalisieren.
 
+\subsubsection{Jährlich} \label{subsubsec:bewJahr}
+
+\clearpage
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bew\_jahr}
+	\label{tab:beweJahr}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		bewegungen & bigint & Menge an Bewegungen in einem Jahr\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+
 \subsection{Behandlungskategorie} \label{subsec:behKat}
 
 \subsubsection{Insgesamt} \label{subsubsec:behKatI}
@@ -76,8 +97,7 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 		
 	\end{tabular}
 \end{table}
-
-
+\newpage
 \subsection{Betten Belegung} \label{subsec:bett}
 
 \subsubsection{Insgesamt} \label{subsubsec:bettI}
@@ -113,8 +133,131 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 		bett & varchar &  Id des Bettes (NULL bei nicht existierenden Bett) \\
 		\hline
 		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Bewegungstyp} \label{subsec:bewtyp}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewtypI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bewty}
+	\label{tab:bewBtyI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Bewegungstyp in der Tabelle \texttt{nbew} \\
+		\hline
+		bewty & varchar & Id des Bewegungstyps (NULL bei nicht existierenden Bewegungstyp)\\
 		\hline
 		
 	\end{tabular}
 \end{table}
 
+\newpage
+
+\subsubsection{Jährlich} \label{subsubsec:bewtypJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bewty\_jahr}
+	\label{tab:bewBtyJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Bewegungstyp in der Tabelle \texttt{nbew}\\
+		\hline
+		bewty & varchar & Id des Bewegungstyps (NULL bei nicht existierenden Bewegungstyp)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Bewegungsart} \label{subsec:bewart}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewartI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bwart}
+	\label{tab:bewArtI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsart in der Tabelle \texttt{nbew} \\
+		\hline
+		bewty & varchar & Id der Bewegungsart (NULL bei nicht existierender Bewegungsart)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\subsubsection{Jährlich} \label{subsubsec:bewartJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bewart\_jahr}
+	\label{tab:bewArtJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsart in der Tabelle \texttt{nbew}\\
+		\hline
+		bewty & varchar & Id der Bewegungsart (NULL bei nicht existierender Bewegungsart)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+-----------
+\subsection{Bewegungsgrund 1. und 2. Stelle} \label{subsec:bewart}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewg1I}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bwart}
+	\label{tab:bewG1I}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsart in der Tabelle \texttt{nbew} \\
+		\hline
+		bewty & varchar & Id der Bewegungsart (NULL bei nicht existierender Bewegungsart)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\subsubsection{Jährlich} \label{subsubsec:bewg1J}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_nbew\_bewart\_jahr}
+	\label{tab:bewG1J}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsart in der Tabelle \texttt{nbew}\\
+		\hline
+		bewty & varchar & Id der Bewegungsart (NULL bei nicht existierender Bewegungsart)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
