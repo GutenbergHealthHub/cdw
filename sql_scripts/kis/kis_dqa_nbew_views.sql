@@ -1079,15 +1079,19 @@ order by jahr desc, quantity desc
 
 
 --Falche Datum
---drop view if exists kis.dqa_nbew_falsches_datum;
-create or replace view kis.dqa_nbew_falsches_datum
-as 
-  select 
-    falnr,
-    bwidt,
-    bwedt 
-  from kis.nbew n 
-  where bwidt > now()
-  or bwedt < bwidt
-;
+drop view if exists kis.dqa_nbew_datum_problem;
+create or replace view kis.dqa_nbew_datum_problem
+as
+select 
+ count(falnr) quantity,
+  case 
+    when (bwedt::varchar ||' '|| bwezt::varchar)::timestamp < (bwidt::varchar ||' '|| bwizt::varchar)::timestamp then 'star > end'
+    when bwedt = '9999-12-31' then 'no end date (date = 9999-12-31)'
+    when bwezt = '00:00:00' then 'no end time (time = 00:00:00)'
+    when bwidt > now() then 'start > now'  
+    else 'ok'
+  end problem
+from kis.nbew n
+group by problem
+order by quantity;
 
