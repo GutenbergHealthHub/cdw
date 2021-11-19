@@ -5,7 +5,7 @@
 create or replace view kis.dqa_nbew_null_values
 as
   select 
-    count(einri) null_value, 
+    count(einri) quantity, 
     'einri' "columns"
   from kis.nbew n 
   where einri isnull or einri !~'^\w'
@@ -279,7 +279,7 @@ as
     'retrievaldate' 
   from kis.nbew
   where retrievaldate isnull
-  order by null_value, "columns"
+  order by quantity, "columns"
 ; 
     
 -- Bewegungstyp
@@ -411,17 +411,17 @@ order by quantity desc
 ;
 
 -- Zimmer
---drop view if exists kis.dqa_nbew_zimmer;
-create or replace view kis.dqa_nbew_zimmer
+--drop view if exists kis.dqa_nbew_zimmr;
+create or replace view kis.dqa_nbew_zimmr
 as
 select 
   count(falnr) quantity,
   case
     when n.zimmr ~'\w' then n.zimmr 
     else null
-  end zimmer 
+  end zimmr 
 from kis.nbew n 
-group by zimmer 
+group by zimmr 
 order by quantity desc
 ;
 
@@ -802,18 +802,18 @@ order by jahr desc, quantity desc
 ;
 
 -- Zimmer
---drop view if exists kis.dqa_nbew_zimmer_jahr;
-create or replace view kis.dqa_nbew_zimmer_jahr
+drop view if exists kis.dqa_nbew_zimmr_jahr;
+create or replace view kis.dqa_nbew_zimmr_jahr
 as
 select 
   count(falnr) quantity,
   case
     when n.zimmr ~'\w' then n.zimmr 
     else null
-  end zimmer,
+  end zimmr,
   date_part('year', bwidt) jahr
 from kis.nbew n 
-group by zimmer, jahr
+group by zimmr, jahr
 order by jahr desc, quantity desc
 ;
 
