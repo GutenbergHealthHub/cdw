@@ -1,15 +1,15 @@
-\section{Bewegungen (nbew)} \label{sec:beweg}
+\section{Diagnosen (ndia)} \label{sec:diag}
 
-Die Bewegungen der Fälle während des Hospitalisieren.
+Die Diagnosen der Fälle während des Hospitalisieren.
 
-\subsubsection{Jährlich} \label{subsubsec:bewJahr}
+\subsubsection{Jährlich} \label{subsubsec:diagJahr}
 
 \clearpage
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bew\_jahr}
-	\label{tab:beweJahr}
+	\caption{View dqa\_ndia\_bew\_jahr}
+	\label{tab:diagJahr}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
@@ -29,13 +29,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bkat}
+	\caption{View dqa\_ndia\_bkat}
 	\label{tab:beweBkatAll}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Behandlungskategorie in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Behandlungskategorie in der Tabelle \texttt{ndia} \\
 		\hline
 		bkat & varchar & Id der Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\
 		\hline
@@ -49,13 +49,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bkat\_jahr}
+	\caption{View dqa\_ndia\_bkat\_jahr}
 	\label{tab:beweBkatJahr}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Behandlungskategorie in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Behandlungskategorie in der Tabelle \texttt{ndia} \\
 		\hline
 		bkat & varchar & Id der Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\
 		\hline
@@ -75,13 +75,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bett}
+	\caption{View dqa\_ndia\_bett}
 	\label{tab:beweBettAll}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit bestimmten BauId eine Bettenstellplatzes in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit bestimmten BauId eine Bettenstellplatzes in der Tabelle \texttt{ndia} \\
 		\hline
 		bett & varchar & Id des BauIds eine Bettenstellplatzes (NULL bei nicht existierenden BauId eine Bettenstellplatzes)\\
 		\hline
@@ -93,13 +93,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bett\_jahr}
+	\caption{View dqa\_ndia\_bett\_jahr}
 	\label{tab:beweBettJahr}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit bestimmten BauId eine Bettenstellplatzes in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit bestimmten BauId eine Bettenstellplatzes in der Tabelle \texttt{ndia} \\
 		\hline
 		bett & varchar &  Id des BauIds eine Bettenstellplatzes (NULL bei nicht existierendem BauId eine Bettenstellplatzes) \\
 		\hline
@@ -114,13 +114,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bewty}
+	\caption{View dqa\_ndia\_bewty}
 	\label{tab:bewBtyI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten Bewegungstyp in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einem bestimmten Bewegungstyp in der Tabelle \texttt{ndia} \\
 		\hline
 		bewty & varchar & Id des Bewegungstyps (NULL bei nicht existierenden Bewegungstyp)\\
 		\hline
@@ -134,13 +134,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bewty\_jahr}
+	\caption{View dqa\_ndia\_bewty\_jahr}
 	\label{tab:bewBtyJ}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten Bewegungstyp in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einem bestimmten Bewegungstyp in der Tabelle \texttt{ndia}\\
 		\hline
 		bewty & varchar & Id des Bewegungstyps (NULL bei nicht existierenden Bewegungstyp)\\
 		\hline
@@ -155,13 +155,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bwart}
+	\caption{View dqa\_ndia\_bwart}
 	\label{tab:bewArtI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsart in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsart in der Tabelle \texttt{ndia} \\
 		\hline
 		bewart & varchar & Id der Bewegungsart (NULL bei nicht existierender Bewegungsart)\\
 		\hline
@@ -175,13 +175,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bewart\_jahr}
+	\caption{View dqa\_ndia\_bewart\_jahr}
 	\label{tab:bewArtJ}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsart in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsart in der Tabelle \texttt{ndia}\\
 		\hline
 		bewart & varchar & Id der Bewegungsart (NULL bei nicht existierender Bewegungsart)\\
 		\hline
@@ -196,13 +196,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bwgr1}
+	\caption{View dqa\_ndia\_bwgr1}
 	\label{tab:bewG1I}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 1. und 2. Stelle in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 1. und 2. Stelle in der Tabelle \texttt{ndia} \\
 		\hline
 		bewgr1 & varchar & Id der Bewegungsgrund 1. und 2. Stelle (NULL bei nicht existierender Bewegungsgrund 1. und 2. Stelle)\\
 		\hline
@@ -216,13 +216,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bwgr1\_jahr}
+	\caption{View dqa\_ndia\_bwgr1\_jahr}
 	\label{tab:bewG1J}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 1. und 2. Stelle in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 1. und 2. Stelle in der Tabelle \texttt{ndia}\\
 		\hline
 		bewgr1 & varchar & Id der Bewegungsgrund 1. und 2. Stelle (NULL bei nicht existierender Bewegungsgrund 1. und 2. Stelle)\\
 		\hline
@@ -237,13 +237,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bwgr2}
+	\caption{View dqa\_ndia\_bwgr2}
 	\label{tab:bewG2I}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 3. und 4. Stelle in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 3. und 4. Stelle in der Tabelle \texttt{ndia} \\
 		\hline
 		bewgr2 & varchar & Id der Bewegungsgrund 3. und 4. Stelle (NULL bei nicht existierender Bewegungsgrund 3. und 4. Stelle)\\
 		\hline
@@ -257,13 +257,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_bwgr2\_jahr}
+	\caption{View dqa\_ndia\_bwgr2\_jahr}
 	\label{tab:bewG2J}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 3. und 4. Stelle in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 3. und 4. Stelle in der Tabelle \texttt{ndia}\\
 		\hline
 		bewgr1 & varchar & Id der Bewegungsgrund 3. und 4. Stelle (NULL bei nicht existierender Bewegungsgrund 3. und 4. Stelle)\\
 		\hline
@@ -278,13 +278,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_class}
+	\caption{View dqa\_ndia\_class}
 	\label{tab:bewClassI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Klasse in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Klasse in der Tabelle \texttt{ndia} \\
 		\hline
 		class & varchar & Id der Klasse (NULL bei nicht existierender Klasse)\\
 		\hline
@@ -296,13 +296,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_class\_jahr}
+	\caption{View dqa\_ndia\_class\_jahr}
 	\label{tab:bewClassJ}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Klasse in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Klasse in der Tabelle \texttt{ndia}\\
 		\hline
 		class & varchar & Id der Klasse (NULL bei nicht existierender Klasse)\\
 		\hline
@@ -319,13 +319,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_dspty}
+	\caption{View dqa\_ndia\_dspty}
 	\label{tab:bewDsptyI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten Dispositionstyp für die Besuchsdisposition in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einem bestimmten Dispositionstyp für die Besuchsdisposition in der Tabelle \texttt{ndia} \\
 		\hline
 		dspty & varchar & Id des Dispositionstyps (NULL bei nicht existierendem Dispositionstyp für die Besuchsdisposition)\\
 		\hline
@@ -337,13 +337,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_dspty\_jahr}
+	\caption{View dqa\_ndia\_dspty\_jahr}
 	\label{tab:bewDsptyJ}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten Dispositionstyp für die Besuchsdisposition in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einem bestimmten Dispositionstyp für die Besuchsdisposition in der Tabelle \texttt{ndia}\\
 		\hline
 		dspty & varchar & Id des Dispositionstyps (NULL bei nicht existierendem Dispositionstyp für die Besuchsdisposition)\\
 		\hline
@@ -358,13 +358,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_fachr}
+	\caption{View dqa\_ndia\_fachr}
 	\label{tab:bewFachrI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Fachrichtung der Ärzt:innen in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Fachrichtung der Ärzt:innen in der Tabelle \texttt{ndia} \\
 		\hline
 		fachr & varchar & Id der Fachrichtung der Ärzt:innen (NULL bei nicht existierender Fachrichtung der Ärzt:innen)\\
 		\hline
@@ -376,13 +376,13 @@ Die Bewegungen der Fälle während des Hospitalisieren.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_fachr\_jahr}
+	\caption{View dqa\_ndia\_fachr\_jahr}
 	\label{tab:bewFachrJ}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Fachrichtung der Ärzt:innen in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Fachrichtung der Ärzt:innen in der Tabelle \texttt{ndia}\\
 		\hline
 		fachr & varchar & Id der Fachrichtung der Ärzt:innen (NULL bei nicht existierender Fachrichtung der Ärzt:innen)\\
 		\hline
@@ -404,7 +404,7 @@ Dieses Sichten zeigt die Probleme mit den Datumsangaben. Die Problemen können f
                           
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_datum\_problem}
+	\caption{View dqa\_ndia\_datum\_problem}
 	\label{tab:bewFalDatI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
@@ -425,13 +425,13 @@ Dieses Sichten zeigt die Probleme mit den Datumsangaben. Die Problemen können f
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_insev}
+	\caption{View dqa\_ndia\_insev}
 	\label{tab:bewEreigI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten Ereignis in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einem bestimmten Ereignis in der Tabelle \texttt{ndia} \\
 		\hline
 		insev & varchar & Id des Ereignisses (NULL bei nicht existierendem Ereignis)\\
 		\hline
@@ -443,13 +443,13 @@ Dieses Sichten zeigt die Probleme mit den Datumsangaben. Die Problemen können f
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_insev\_jahr}
+	\caption{View dqa\_ndia\_insev\_jahr}
 	\label{tab:bewEreigJ}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten Ereignis in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einem bestimmten Ereignis in der Tabelle \texttt{ndia}\\
 		\hline
 		insev & varchar & Id des Ereignisses (NULL bei nicht existierendem Ereignis)\\
 		\hline
@@ -460,11 +460,11 @@ Dieses Sichten zeigt die Probleme mit den Datumsangaben. Die Problemen können f
 
 \subsection{Null Werte (null\_values)} \label{subsec:bewNull}
 
-Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew}.
+Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{ndia}.
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_null\_values}
+	\caption{View dqa\_ndia\_null\_values}
 	\label{tab:bewNull}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
@@ -483,13 +483,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_opart}
+	\caption{View dqa\_ndia\_opart}
 	\label{tab:bewOpartI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Art der Operation in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Art der Operation in der Tabelle \texttt{ndia} \\
 		\hline
 		opart & varchar & Id der Art der Operation (NULL bei nicht existierender Art der Operation)\\
 		\hline
@@ -500,13 +500,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_opart\_jahr}
+	\caption{View dqa\_ndia\_opart\_jahr}
 	\label{tab:bewOpartJ}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Art der Operation in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Art der Operation in der Tabelle \texttt{ndia}\\
 		\hline
 		opart & varchar & Id der Art der Operation (NULL bei nicht existierender Art der Operation)\\
 		\hline
@@ -521,13 +521,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_rfsrc}
+	\caption{View dqa\_ndia\_rfsrc}
 	\label{tab:bewRfsrcI}
 	\begin{tabular}{||p{5cm}|l|p{8cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Einweisungs-, Überweisungs,- Nachbehandlungsart in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Einweisungs-, Überweisungs,- Nachbehandlungsart in der Tabelle \texttt{ndia} \\
 		\hline
 		rfsrc & varchar & Id der Einweisungs-, Überweisungs,- Nachbehandlungsart (NULL bei nicht existierender Einweisungs-, Überweisungs,- Nachbehandlungsart)\\
 		\hline
@@ -540,13 +540,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_rfsrc\_jahr}
+	\caption{View dqa\_ndia\_rfsrc\_jahr}
 	\label{tab:bewRfsrcJ}
 	\begin{tabular}{||p{5cm}|l|p{8cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Einweisungs-, Überweisungs,- Nachbehandlungsart in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Einweisungs-, Überweisungs,- Nachbehandlungsart in der Tabelle \texttt{ndia}\\
 		\hline
 		rfsrc & varchar & Id der Einweisungs-, Überweisungs,- Nachbehandlungsart (NULL bei nicht existierender Einweisungs-, Überweisungs,- Nachbehandlungsart)\\
 		\hline
@@ -563,13 +563,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_statu}
+	\caption{View dqa\_ndia\_statu}
 	\label{tab:bewStatuI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten internen Status eines ambulanten Besuchs in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einem bestimmten internen Status eines ambulanten Besuchs in der Tabelle \texttt{ndia} \\
 		\hline
 		statu & varchar & Id des internen Status eines ambulanten Besuchs (NULL bei nicht existierendem internen Status eines ambulanten Besuchs)\\
 		\hline
@@ -582,13 +582,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_rfsrc\_jahr}
+	\caption{View dqa\_ndia\_rfsrc\_jahr}
 	\label{tab:bewStatuJ}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten internen Status eines ambulanten Besuchs in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einem bestimmten internen Status eines ambulanten Besuchs in der Tabelle \texttt{ndia}\\
 		\hline
 		statu & varchar & Id des internen Status eines ambulanten Besuchs (NULL bei nicht existierendem internen Status eines ambulanten Besuchs)\\
 		\hline
@@ -605,13 +605,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_stoid}
+	\caption{View dqa\_ndia\_stoid}
 	\label{tab:bewStoidI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten Stornogrund in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einem bestimmten Stornogrund in der Tabelle \texttt{ndia} \\
 		\hline
 		stoid & varchar & Id des Stornogrundes (NULL bei nicht existierendem Stornogrund)\\
 		\hline
@@ -626,13 +626,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_stoid\_jahr}
+	\caption{View dqa\_ndia\_stoid\_jahr}
 	\label{tab:bewStoidJ}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten Stornogrund in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einem bestimmten Stornogrund in der Tabelle \texttt{ndia}\\
 		\hline
 		stoid & varchar & Id des Stornogrundes (NULL bei nicht existierendem Stornogrund)\\
 		\hline
@@ -649,13 +649,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_stoid}
+	\caption{View dqa\_ndia\_stoid}
 	\label{tab:bewTpartI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Transportart in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Transportart in der Tabelle \texttt{ndia} \\
 		\hline
 		tpart & varchar & Id der Transportart (NULL bei nicht existierender Transportart)\\
 		\hline
@@ -670,13 +670,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_stoid\_jahr}
+	\caption{View dqa\_ndia\_stoid\_jahr}
 	\label{tab:bewTpartJ}
 	\begin{tabular}{||l|l|p{10cm}||}
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Transportart in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Transportart in der Tabelle \texttt{ndia}\\
 		\hline
 		stoid & varchar & Id der Transportart (NULL bei nicht existierender Transportart)\\
 		\hline
@@ -693,13 +693,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_unfav}
+	\caption{View dqa\_ndia\_unfav}
 	\label{tab:bewUnfavI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Einlieferungsart in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Einlieferungsart in der Tabelle \texttt{ndia} \\
 		\hline
 		unfav & varchar & Id der Einlieferungsart (NULL bei nicht existierender Einlieferungsart)\\
 		\hline
@@ -711,13 +711,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_unfav\_jahr}
+	\caption{View dqa\_ndia\_unfav\_jahr}
 	\label{tab:bewUnfavJ}
 	\begin{tabular}{||l|l|p{10cm}||}
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Einlieferungsart in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Einlieferungsart in der Tabelle \texttt{ndia}\\
 		\hline
 		unfav & varchar & Id der Einlieferungsart (NULL bei nicht existierender Einlieferungsart)\\
 		\hline
@@ -732,13 +732,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_unfkz}
+	\caption{View dqa\_ndia\_unfkz}
 	\label{tab:bewUnfkzI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Unfallart in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Unfallart in der Tabelle \texttt{ndia} \\
 		\hline
 		unfkz & varchar & Id der Unfallart (NULL bei nicht existierender Unfallart)\\
 		\hline
@@ -752,13 +752,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_unfkz\_jahr}
+	\caption{View dqa\_ndia\_unfkz\_jahr}
 	\label{tab:bewUnfkzJ}
 	\begin{tabular}{||l|l|p{10cm}||}
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einer bestimmten Unfallart in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einer bestimmten Unfallart in der Tabelle \texttt{ndia}\\
 		\hline
 		unfkz & varchar & Id der Unfallart (NULL bei nicht existierender Unfallart)\\
 		\hline
@@ -775,13 +775,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_unfrt}
+	\caption{View dqa\_ndia\_unfrt}
 	\label{tab:bewUnfrtI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten Rettungsdienst in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einem bestimmten Rettungsdienst in der Tabelle \texttt{ndia} \\
 		\hline
 		unfrt & varchar & Id des Rettungsdiensts (NULL bei nicht existierendem Rettungsdienst)\\
 		\hline
@@ -792,13 +792,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_unfrt\_jahr}
+	\caption{View dqa\_ndia\_unfrt\_jahr}
 	\label{tab:bewUnfrtJ}
 	\begin{tabular}{||l|l|p{10cm}||}
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten Rettungsdienst in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einem bestimmten Rettungsdienst in der Tabelle \texttt{ndia}\\
 		\hline
 		unfrt & varchar & Id des Rettungsdiensts (NULL bei nicht existierendem Rettungsdienst)\\
 		\hline
@@ -813,13 +813,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_zimmr}
+	\caption{View dqa\_ndia\_zimmr}
 	\label{tab:bewZimmrI}
 	\begin{tabular}{||l|l|p{10cm}||}   		
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten BauId eines Zimmers in der Tabelle \texttt{nbew} \\
+		quantity & bigint & Menge an Fälle mit einem bestimmten BauId eines Zimmers in der Tabelle \texttt{ndia} \\
 		\hline
 		zimmr & varchar & Id des BauIds eines Zimmers (NULL bei nicht existierendem BauId eines Zimmers)\\
 		\hline
@@ -830,13 +830,13 @@ Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{nbew
 
 \begin{table}[ht]
 	\centering   
-	\caption{View dqa\_nbew\_zimmr\_jahr}
+	\caption{View dqa\_ndia\_zimmr\_jahr}
 	\label{tab:bewZimmrJ}
 	\begin{tabular}{||l|l|p{10cm}||}
 		\hline
 		Spalte & Datentyp & Beschreibung \\ [0.5ex]
 		\hline\hline
-		quantity & bigint & Menge an Fälle mit einem bestimmten BauId eines Zimmers in der Tabelle \texttt{nbew}\\
+		quantity & bigint & Menge an Fälle mit einem bestimmten BauId eines Zimmers in der Tabelle \texttt{ndia}\\
 		\hline
 		zimmr & varchar & Id des BauIds eines Zimmers (NULL bei nicht existierendem Rettungsdienst)\\
 		\hline
