@@ -288,44 +288,524 @@ as
   order by quantity, "columns"
 ; 
 
+
+-- Diagnosekatalog 1. Diagnose
+--drop view if exists kis.dqa_ndia_dkat1;
+create or replace view kis.dqa_ndia_dkat1
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.dkat1 ~'^\w' then n.dkat1 
+    else null
+  end dkat1
+from kis.ndia n
+group by n.dkat1
+order by quantity desc
+;
+
+-- Diagnosekatalog 2. Diagnose
+--drop view if exists kis.dqa_ndia_dkat2;
+create or replace view kis.dqa_ndia_dkat2
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.dkat2 ~'^\w' then n.dkat2 
+    else null
+  end dkat2
+from kis.ndia n
+group by n.dkat2
+order by quantity desc
+;
+
+-- icd10gm 1. Diagnose
+--drop view if exists kis.dqa_ndia_dkey1;
+create or replace view kis.dqa_ndia_dkey1
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.dkey1 ~'^\w' then n.dkey1 
+    else null
+  end dkey1,
+  normcode icd10gm,
+  titel
+from kis.ndia n
+left join icd_metainfo.icd10gm ig
+  on n.dkey1 = ig.normcode 
+group by n.dkey1, titel, normcode 
+order by quantity desc
+;
+
+-- icd10gm 2. Diagnose
+--drop view if exists kis.dqa_ndia_dkey2;
+create or replace view kis.dqa_ndia_dkey2
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.dkey2 ~'^\w' then n.dkey2 
+    else null
+  end dkey2,
+  normcode icd10gm,
+  titel
+from kis.ndia n
+left join icd_metainfo.icd10gm ig
+  on n.dkey2 = ig.normcode 
+group by n.dkey2, titel, normcode 
+order by quantity desc
+;
+
+
+-- Katalog-ID des Referenzkatalogs
+create or replace view kis.dqa_ndia_dkat_ref
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.dkat_ref ~'^\w' then n.dkat_ref 
+    else null
+  end dkat_ref 
+from kis.ndia n
+group by n.dkat_ref 
+order by quantity desc
+;
+
+-- Schlüsselung einer Referenzdiagnose für Statistiken
+create or replace view kis.dqa_ndia_dkey_ref
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.dkey_ref ~'^\w' then n.dkey_ref 
+    else null
+  end dkey_ref ,
+  normcode icd10gm,
+  titel
+from kis.ndia n
+left join icd_metainfo.icd10gm ig
+  on n.dkey_ref = ig.normcode 
+group by n.dkey_ref , titel, normcode 
+order by quantity desc
+;
+
+-- Datum, an dem die Diagnose erstellt wurde
+create or replace view kis.dqa_ndia_diadt
+as
+select 
+  count(falnr) quantity, 
+  diadt
+from kis.ndia n
+group by n.diadt 
+order by quantity desc
+;
+
+-- Uhrzeit der Diagnoseerstellung
+create or replace view kis.dqa_ndia_diazt
+as
+select 
+  count(falnr) quantity, 
+  diazt
+from kis.ndia n
+group by n.diazt 
+order by quantity desc
+;
+
+-- Anzahl Operationen
+create or replace view kis.dqa_ndia_anzop
+as
+select 
+  count(falnr) quantity, 
+  anzop 
+from kis.ndia n
+group by n.anzop 
+order by quantity desc
+;
+
+-- Kennzeichen Einweisungs- bzw. Überweisungsdiagnose
+create or replace view kis.dqa_ndia_ewdia
+as
+select 
+  count(falnr) quantity, 
+  ewdia 
+from kis.ndia n
+group by n.ewdia 
+order by quantity desc
+;
+
+-- Kennzeichen Behandlungsdiagnose
+create or replace view kis.dqa_ndia_bhdia
+as
+select 
+  count(falnr) quantity, 
+  bhdia 
+from kis.ndia n
+group by n.bhdia 
+order by quantity desc
+;
+
+-- Kennzeichen Aufnahmediagnose
+create or replace view kis.dqa_ndia_afdia
+as
+select 
+  count(falnr) quantity, 
+  afdia 
+from kis.ndia n
+group by n.afdia 
+order by quantity desc
+;
+
+-- Kennzeichen Entlassungsdiagnose
+create or replace view kis.dqa_ndia_endia
+as
+select 
+  count(falnr) quantity, 
+  endia 
+from kis.ndia n
+group by n.endia 
+order by quantity desc
+;
+
+-- Kennzeichen Fachabteilungshauptdiagnose
+create or replace view kis.dqa_ndia_fhdia
+as
+select 
+  count(falnr) quantity, 
+  fhdia 
+from kis.ndia n
+group by n.fhdia 
+order by quantity desc
+;
+
+-- Kennzeichen Krankenhaus-Hauptdiagnose
+create or replace view kis.dqa_ndia_khdia
+as
+select 
+  count(falnr) quantity, 
+  khdia 
+from kis.ndia n
+group by n.khdia 
+order by quantity desc
+;
+
+-- Kennzeichen Operationsdiagnose
+create or replace view kis.dqa_ndia_opdia
+as
+select 
+  count(falnr) quantity, 
+  opdia 
+from kis.ndia n
+group by n.opdia 
+order by quantity desc
+;
+
+-- Sperrkennzeichen
+create or replace view kis.dqa_ndia_sperr
+as
+select 
+  count(falnr) quantity, 
+  sperr
+from kis.ndia n
+group by n.sperr 
+order by quantity desc
+;
+
+-- Grad der Sicherheit der Diagnose
+create or replace view kis.dqa_ndia_diasi
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.diasi ~'^\w' then n.diasi 
+    else null
+  end diasi 
+from kis.ndia n
+group by n.diasi 
+order by quantity desc
+;
+
+-- Datum, an dem der Satz hinzugefügt wurde
+create or replace view kis.dqa_ndia_erdat
+as
+select 
+  count(falnr) quantity, 
+  erdat 
+from kis.ndia n
+group by n.erdat 
+order by quantity desc
+;
+
+-- Änderungsdatum
+create or replace view kis.dqa_ndia_updat
+as
+select 
+  count(falnr) quantity, 
+  updat 
+from kis.ndia n
+group by n.updat 
+order by quantity desc
+;
+
+-- Stornokennzeichen
+create or replace view kis.dqa_ndia_storn
+as
+select 
+  count(falnr) quantity, 
+  storn 
+from kis.ndia n
+group by n.storn 
+order by quantity desc
+;
+
+-- Stornierungsdatum
+create or replace view kis.dqa_ndia_stdat
+as
+select 
+  count(falnr) quantity, 
+  stdat 
+from kis.ndia n
+group by n.stdat 
+order by quantity desc
+;
+
+-- Kennzeichen Arbeitsdiagnose
+create or replace view kis.dqa_ndia_ardia
+as
+select 
+  count(falnr) quantity, 
+  ardia 
+from kis.ndia n
+group by n.ardia 
+order by quantity desc
+;
+
+-- Kennzeichen Präoperative Diagnose
+create or replace view kis.dqa_ndia_podia
+as
+select 
+  count(falnr) quantity, 
+  podia 
+from kis.ndia n
+group by n.podia 
+order by quantity desc
+;
+
+-- Kennzeichen Todesursache
+create or replace view kis.dqa_ndia_tudia
+as
+select 
+  count(falnr) quantity, 
+  tudia 
+from kis.ndia n
+group by n.tudia 
+order by quantity desc
+;
+
+-- Diagnosenbezug
+create or replace view kis.dqa_ndia_diabz
+as
+select 
+  count(falnr) quantity, 
+  diabz 
+from kis.ndia n
+group by n.diabz 
+order by quantity desc
+;
+
+--  Kennzeichen Medizinische Nebendiagnose
+create or replace view kis.dqa_ndia_diapr
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.diapr ~'^\w' then n.diapr
+    else null
+  end diapr 
+from kis.ndia n
+group by n.diapr 
+order by quantity desc
+;
+
+
+-- Diagnostische Gewissheit ------------------------------------------------------------------------
+create or replace view kis.dqa_ndia_diagw
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.diagw ~'^\w' then n.diagw 
+    else null
+  end diagw
+from kis.ndia n
+group by n.diagw
+order by quantity desc
+;
+
+-- Diagnosenzusatz ----------------------------------------------------------
+create or replace view kis.dqa_ndia_diazs
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.diazs ~'^\w' then n.diazs 
+    else null
+  end diazs
+from kis.ndia n
+group by n.diazs
+order by quantity desc
+;
+
+-- Lokalisation einer Diagnose
+create or replace view kis.dqa_ndia_dialo
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.dialo ~'^\w' then n.dialo
+    else null
+  end dialo
+from kis.ndia n
+group by n.dialo
+order by quantity desc
+;
+
+-- Fallpauschale
+create or replace view kis.dqa_ndia_diafp
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.diafp ~'^\w' then n.diafp
+    else null
+  end diafp
+from kis.ndia n
+group by n.diafp
+order by quantity desc
+;
+
+-- Fortlaufende Nummer einer DRG-Diagnose
+create or replace view kis.dqa_ndia_drg_dia_seqno
+as
+select 
+  count(falnr) quantity, 
+  drg_dia_seqno 
+from kis.ndia n
+group by n.drg_dia_seqno 
+order by quantity desc
+;
+
+-- Kategorie einer DRG-Diagnose (Haupt- Neben) ------------------------------------------------------
+create or replace view kis.dqa_ndia_drg_category
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.drg_category ~'^\w' then n.drg_category 
+    else null
+  end drg_category 
+from kis.ndia n
+group by n.drg_category 
+order by quantity desc
+;
+
+-- Kennzeichen für DRG-Ermittlung verwendet
+create or replace view kis.dqa_ndia_drg_relvant
+as
+select 
+  count(falnr) quantity, 
+  drg_relvant 
+from kis.ndia n
+group by n.drg_relvant 
+order by quantity desc
+;
+
+-- Typ für ICD-10-Diagnosen 1. Diagnose
+create or replace view kis.dqa_ndia_dtyp1
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.dtyp1 in('!', '*', '+') then n.dtyp1 
+    else null
+  end dtyp1 
+from kis.ndia n
+group by n.dtyp1 
+order by quantity desc
+;
+
+-- Typ für ICD-10-Diagnosen 2. Diagnose
+create or replace view kis.dqa_ndia_dtyp2
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.dtyp2 in('!', '*', '+') then n.dtyp2 
+    else null
+  end dtyp2
+from kis.ndia n
+group by n.dtyp2 
+order by quantity desc
+;
+
+-- Typ für ICD-10-Diagnosen
+create or replace view kis.dqa_ndia_dtye_ref
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.dtype_ref in('!', '*', '+') then n.dtype_ref 
+    else null
+  end dtype_ref 
+from kis.ndia n
+group by n.dtype_ref 
+order by quantity desc
+;
+
+-- Verweis auf eine andere Diagnose
+create or replace view kis.dqa_ndia_dia_link
+as
+select 
+  count(falnr) quantity, 
+  dia_link 
+from kis.ndia n
+group by n.dia_link 
+order by quantity desc
+;
+
+-- Komplikationslevel der Diagnosen (für DRFs) --------------------------------------------------------------------------
+create or replace view kis.dqa_ndia_ccl
+as
+select 
+  count(falnr) quantity, 
+  ccl 
+from kis.ndia n
+group by n.ccl 
+order by quantity desc
+;
+
+-- Gültigkeit der Diagnose
+create or replace view kis.dqa_ndia_dia_valdt
+as
+select 
+  count(falnr) quantity, 
+  dia_valdt 
+from kis.ndia n
+group by n.dia_valdt 
+order by quantity desc
+;
+
+-- PIA – Somatische Diagnose
+create or replace view kis.dqa_ndia_dia_pia_som
+as
+select 
+  count(falnr) quantity, 
+  dia_pia_som 
+from kis.ndia n
+group by n.dia_pia_som 
+order by quantity desc
+;
 /*
--- Bewegungstyp
---drop view if exists kis.dqa_ndia_bewty;
-create or replace view kis.dqa_ndia_bewty
-as
-select 
-  count(falnr) quantity, 
-  case 
-    when n.bewty ~'\w' then n.bewty 
-    else null
-  end bewty,
-  bewegunstyp
-from kis.ndia n
-left join metadata_repository.bewegunstyp b
-  on n.bewty = b.bewty 
-group by n.bewty, bewegunstyp
-order by quantity desc
-;
-
--- Bewegungsart
---drop view if exists kis.dqa_ndia_bwart;
-create or replace view kis.dqa_ndia_bwart
-as
-select 
-  count(falnr) quantity, 
-  case 
-    when n.bwart ~'\w' then n.bwart 
-    else null
-  end bwart
-  --bewegunsart
-from kis.ndia n
-left join metadata_repository.bewegunsart b
-  on n.bwart = b.bwart 
-group by n.bwart , bewegunsart
-order by quantity desc
-;
-
-
 -- Bewegungsart Jahr
 --drop view if exists kis.dqa_ndia_bwart_jahr;
 create or replace view kis.dqa_ndia_bwart_jahr
