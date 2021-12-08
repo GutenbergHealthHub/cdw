@@ -964,7 +964,7 @@ group by n.diapr, jahr
 order by jahr desc, quantity desc
 ;
 
--- Diagnostische Gewissheit ------------------------------------------------------------------------
+-- Diagnostische Gewissheit
 create or replace view kis.dqa_ndia_diagw
 as
 select 
@@ -972,9 +972,12 @@ select
   case 
     when n.diagw ~'^\w' then n.diagw 
     else null
-  end diagw
+  end diagw,
+  diagnosis_certainty
 from kis.ndia n
-group by n.diagw
+left join metadata_repository.diagnosis_certainty dc 
+  on n.diagw = dc.sourceid
+group by n.diagw, diagnosis_certainty
 order by quantity desc
 ;
 
@@ -986,13 +989,16 @@ select
   case 
     when n.diagw ~'^\w' then n.diagw 
     else null
-  end diagw
+  end diagw,
+  dc.diagnosis_certainty
 from kis.ndia n
-group by n.diagw, jahr
+left join metadata_repository.diagnosis_certainty dc 
+  on n.diagw = dc.sourceid
+group by n.diagw, jahr, diagnosis_certainty
 order by jahr desc, quantity desc
 ;
 
--- Diagnosenzusatz ----------------------------------------------------------
+-- Diagnosenzusatz
 create or replace view kis.dqa_ndia_diazs
 as
 select 
@@ -1000,9 +1006,12 @@ select
   case 
     when n.diazs ~'^\w' then n.diazs 
     else null
-  end diazs
+  end diazs,
+  da.diagnosis_additive
 from kis.ndia n
-group by n.diazs
+left join metadata_repository.diagnosis_additive da 
+  on n.diazs = da.sourceid
+group by n.diazs, da.diagnosis_additive
 order by quantity desc
 ;
 
@@ -1014,9 +1023,12 @@ select
   case 
     when n.diazs ~'^\w' then n.diazs 
     else null
-  end diazs
+  end diazs,
+  da.diagnosis_additive
 from kis.ndia n
-group by n.diazs, jahr
+left join metadata_repository.diagnosis_additive da 
+  on n.diazs = da.sourceid
+group by n.diazs, jahr, diagnosis_additive
 order by jahr desc, quantity desc
 ;
 
@@ -1028,9 +1040,12 @@ select
   case 
     when n.dialo ~'^\w' then n.dialo
     else null
-  end dialo
+  end dialo,
+  bl.localisation 
 from kis.ndia n
-group by n.dialo
+left join metadata_repository.body_localisation bl 
+  on n.dialo = bl.sourceid 
+group by n.dialo, bl.localisation 
 order by quantity desc
 ;
 
@@ -1042,9 +1057,12 @@ select
   case 
     when n.dialo ~'^\w' then n.dialo
     else null
-  end dialo
+  end dialo,
+  bl.localisation
 from kis.ndia n
-group by jahr, n.dialo
+join metadata_repository.body_localisation bl 
+  on n.dialo = bl.sourceid 
+group by jahr, n.dialo, bl.localisation 
 order by jahr desc, quantity desc
 ;
 
@@ -1098,7 +1116,7 @@ group by jahr, n.drg_dia_seqno
 order by jahr desc, quantity desc
 ;
 
--- Kategorie einer DRG-Diagnose (Haupt- Neben) ------------------------------------------------------
+-- Kategorie einer DRG-Diagnose (Haupt- Neben)
 create or replace view kis.dqa_ndia_drg_category
 as
 select 
@@ -1106,9 +1124,12 @@ select
   case 
     when n.drg_category ~'^\w' then n.drg_category 
     else null
-  end drg_category 
+  end drg_category,
+  dt.diagnosis_type
 from kis.ndia n
-group by n.drg_category 
+left join metadata_repository.diagnosis_type dt
+  on n.drg_category = dt.sourceid
+group by n.drg_category, dt.diagnosis_type
 order by quantity desc
 ;
 
@@ -1120,9 +1141,12 @@ select
   case 
     when n.drg_category ~'^\w' then n.drg_category 
     else null
-  end drg_category 
+  end drg_category,
+  dt.diagnosis_type
 from kis.ndia n
-group by jahr, n.drg_category 
+left join metadata_repository.diagnosis_type dt 
+  on n.drg_category = dt.sourceid
+group by jahr, n.drg_category, dt.diagnosis_type
 order by jahr desc , quantity desc
 ;
 
@@ -1155,11 +1179,14 @@ as
 select 
   count(falnr) quantity, 
   case 
-    when n.dtyp1 in('!', '*', '+') then n.dtyp1 
+    when n.dtyp1 in('!', '*', '+', '#', 'M') then n.dtyp1 
     else null
-  end dtyp1 
+  end dtyp1,
+  dti.diagnosis_type_icd
 from kis.ndia n
-group by n.dtyp1 
+left join metadata_repository.diagnosis_type_icd dti
+  on n.dtyp1 = dti.sourceid
+group by n.dtyp1, diagnosis_type_icd 
 order by quantity desc
 ;
 
@@ -1169,11 +1196,14 @@ select
   date_part('year', erdat) jahr, 
   count(falnr) quantity, 
   case 
-    when n.dtyp1 in('!', '*', '+') then n.dtyp1 
+    when n.dtyp1 in('!', '*', '+', '#', 'M') then n.dtyp1 
     else null
-  end dtyp1 
+  end dtyp1,
+  dti.diagnosis_type_icd
 from kis.ndia n
-group by jahr, n.dtyp1 
+left join metadata_repository.diagnosis_type_icd dti
+  on n.dtyp1 = dti.sourceid
+group by n.dtyp1, diagnosis_type_icd, jahr
 order by jahr desc, quantity desc
 ;
 
@@ -1183,11 +1213,14 @@ as
 select 
   count(falnr) quantity, 
   case 
-    when n.dtyp2 in('!', '*', '+') then n.dtyp2 
+    when n.dtyp2 in('!', '*', '+', '#', 'M') then n.dtyp2 
     else null
-  end dtyp2
+  end dtyp2,
+  dti.diagnosis_type_icd
 from kis.ndia n
-group by n.dtyp2 
+left join metadata_repository.diagnosis_type_icd dti
+  on n.dtyp2 = dti.sourceid
+group by n.dtyp2, dti.diagnosis_type_icd 
 order by quantity desc
 ;
 
@@ -1197,11 +1230,14 @@ select
   date_part('year', erdat) jahr, 
   count(falnr) quantity, 
   case 
-    when n.dtyp2 in('!', '*', '+') then n.dtyp2 
+    when n.dtyp2 in('!', '*', '+', '#', 'M') then n.dtyp2 
     else null
-  end dtyp2
+  end dtyp2,
+  dti.diagnosis_type_icd
 from kis.ndia n
-group by jahr, n.dtyp2 
+left join metadata_repository.diagnosis_type_icd dti
+  on n.dtyp2 = dti.sourceid
+group by jahr, n.dtyp2, dti.diagnosis_type_icd 
 order by jahr desc, quantity desc
 ;
 
@@ -1211,11 +1247,14 @@ as
 select 
   count(falnr) quantity, 
   case 
-    when n.dtype_ref in('!', '*', '+') then n.dtype_ref 
+    when n.dtype_ref in('!', '*', '+', '#', 'M') then n.dtype_ref 
     else null
-  end dtype_ref 
+  end dtype_ref,
+  dti.diagnosis_type_icd
 from kis.ndia n
-group by n.dtype_ref 
+left join metadata_repository.diagnosis_type_icd dti
+  on n.dtype_ref = dti.sourceid
+group by n.dtype_ref, dti.diagnosis_type_icd 
 order by quantity desc
 ;
 
@@ -1225,11 +1264,14 @@ select
   date_part('year', erdat) jahr, 
   count(falnr) quantity, 
   case 
-    when n.dtype_ref in('!', '*', '+') then n.dtype_ref 
+    when n.dtype_ref in('!', '*', '+', '#', 'M') then n.dtype_ref 
     else null
-  end dtype_ref 
+  end dtype_ref,
+  dti.diagnosis_type_icd
 from kis.ndia n
-group by jahr, n.dtype_ref 
+left join metadata_repository.diagnosis_type_icd dti
+  on n.dtype_ref = dti.sourceid
+group by jahr, n.dtype_ref, dti.diagnosis_type_icd 
 order by jahr desc, quantity desc
 ;
 
@@ -1255,14 +1297,17 @@ group by n.dia_link, jahr
 order by jahr desc, quantity desc
 ;
 
--- Komplikationslevel der Diagnosen (für DRFs) --------------------------------------------------------------------------
+-- Komplikationslevel der Diagnosen (für DRFs) 
 create or replace view kis.dqa_ndia_ccl
 as
 select 
   count(falnr) quantity, 
-  ccl 
+  ccl,
+  cl.complication_level
 from kis.ndia n
-group by n.ccl 
+left join metadata_repository.complication_level cl
+  on n.ccl::varchar = cl.sourceid
+group by n.ccl, cl.complication_level
 order by quantity desc
 ;
 
@@ -1271,9 +1316,12 @@ as
 select 
   date_part('year', erdat) jahr, 
   count(falnr) quantity, 
-  ccl 
+  ccl,
+  cl.complication_level
 from kis.ndia n
-group by jahr, n.ccl 
+left join metadata_repository.complication_level cl
+  on n.ccl::varchar = cl.sourceid
+group by jahr, n.ccl, complication_level
 order by jahr desc, quantity desc
 ;
 
@@ -1319,6 +1367,17 @@ select
 from kis.ndia n
 group by jahr, n.dia_pia_som 
 order by jahr desc, quantity desc
+;
+
+-- Diagnosen bei Jahren
+create or replace view kis.dqa_ndia_jahr
+as
+  select
+    date_part('year', erdat) jahr,
+    count(falnr) quantity
+  from kis.ndia
+  group by jahr
+  order by jahr desc
 ;
 /*
 */
