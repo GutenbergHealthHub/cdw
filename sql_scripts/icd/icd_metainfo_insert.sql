@@ -22,6 +22,6 @@ COPY icd_metainfo.kodes from '/media/db/cdw_files/ICD/Klassifikationsdateien/icd
 
 
 
-call metadata_repository.newicd(2022);
-call metadata_repository.updicd(2022);
-call metadata_repository.oldicd(2022);
+--call metadata_repository.newicd(2022);
+--call metadata_repository.updicd(2022);
+--call metadata_repository.oldicd(2022);
