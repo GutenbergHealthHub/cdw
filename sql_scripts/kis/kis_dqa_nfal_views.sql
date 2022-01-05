@@ -228,7 +228,6 @@ as
   order by quantity, "columns"
 ; 
 
-------------------------------------------
 -- Einrichtung
 --drop view if exists kis.dqa_nfal_einri;
 create or replace view kis.dqa_nfal_einri
@@ -367,180 +366,174 @@ left join metadata_repository.behandlungskategorie b
 group by n.bekat, b.behandlungskategorie, jahr 
 order by jahr, quantity desc
 ;
----------------------------------------------------------------
--- Todesuhrzeit von
---drop view if exists kis.dqa_nfal_todzt;
-create or replace view kis.dqa_nfal_todzt
+
+-- Abrechnungskennzeichen
+--drop view if exists kis.dqa_nfal_abrkz;
+create or replace view kis.dqa_nfal_abrkz
 as
 select 
   count(falnr) quantity, 
-  todzt 
+  case 
+    when abrkz ~'^\w' then abrkz 
+    else null
+  end abrkz 
 from kis.nfal n 
-group by n.todzt 
+group by n.abrkz 
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_todzt_jahr
+create or replace view kis.dqa_nfal_abrkz_jahr
 as
 select 
-  date_part('year', erdat) jahr,
+  case 
+    when erdat isnull then date_part('year', updat)
+    else date_part('year', erdat)
+  end jahr,
   count(falnr) quantity, 
-  todzt 
+  case 
+    when abrkz ~'^\w' then abrkz 
+    else null
+  end abrkz 
 from kis.nfal n 
-group by jahr, n.todzt 
+group by jahr, n.abrkz 
 order by jahr, quantity desc
 ;
 
--- Todesdatum bis
---drop view if exists kis.dqa_nfal_toddb;
-create or replace view kis.dqa_nfal_toddb
+-- Kennzeichen für Sicherheitsverwahrung
+--drop view if exists kis.dqa_nfal_sichv;
+create or replace view kis.dqa_nfal_sichv
 as
 select 
   count(falnr) quantity, 
-  toddb 
+  sichv 
 from kis.nfal n 
-group by n.toddb 
+group by n.sichv 
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_toddb_jahr
+create or replace view kis.dqa_nfal_sichv_jahr
 as
 select 
-  date_part('year', erdat) jahr,
+  case 
+    when erdat isnull then date_part('year', updat)
+    else date_part('year', erdat)
+  end jahr,
   count(falnr) quantity, 
-  toddb 
+  sichv 
 from kis.nfal n 
-group by jahr, n.toddb 
+group by jahr, n.sichv 
 order by jahr, quantity desc
 ;
 
--- Todesuhrzeit bis
---drop view if exists kis.dqa_nfal_todzb;
-create or replace view kis.dqa_nfal_todzb
+-- Fallstatus
+--drop view if exists kis.dqa_nfal_statu;
+create or replace view kis.dqa_nfal_statu
 as
 select 
   count(falnr) quantity, 
-  todzb 
+  case 
+    when statu ~'^\w' then statu 
+    else null
+  end statu 
 from kis.nfal n 
-group by n.todzb 
+group by n.statu 
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_todzb_jahr
+create or replace view kis.dqa_nfal_statu_jahr
 as
 select
-  date_part('year', erdat) jahr,
+  case 
+    when erdat isnull then date_part('year', updat)
+    else date_part('year', erdat)
+  end jahr,
   count(falnr) quantity, 
-  todzb 
+  case 
+    when statu ~'^\w' then statu 
+    else null
+  end statu 
 from kis.nfal n 
-group by jahr, n.todzb 
+group by jahr, n.statu 
 order by jahr, quantity desc
 ;
 
--- Todesursache
---drop view if exists kis.dqa_nfal_todur;
-create or replace view kis.dqa_nfal_todur
+-- Notaufnahmekennzeichen
+--drop view if exists kis.dqa_nfal_notan;
+create or replace view kis.dqa_nfal_notan
 as
 select 
   count(falnr) quantity, 
-  case 
-    when n.todur ~'^\w' then n.todur 
-    else null
-  end todur,
-  d.deathcause 
-from kis.nfal n
-left join metadata_repository.deathcause d 
-  on n.todur = d.sourceid 
-group by n.todur, d.deathcause 
+  notan 
+from kis.nfal n 
+group by n.notan 
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_todur_jahr
+create or replace view kis.dqa_nfal_notan_jahr
 as
 select
-  date_part('year', erdat) jahr,
-  count(falnr) quantity, 
   case 
-    when n.todur ~'^\w' then n.todur 
-    else null
-  end todur,
-  d.deathcause 
+    when erdat isnull then date_part('year', updat)
+    else date_part('year', erdat)
+  end jahr,
+  count(falnr) quantity, 
+  notan 
 from kis.nfal n
-left join metadata_repository.deathcause d 
-  on n.todur = d.sourceid 
-group by jahr, n.todur, d.deathcause 
+group by jahr, n.notan 
 order by jahr, quantity desc
 ;
 
--- Land des Patientewohnortes
-create or replace view kis.dqa_nfal_land
+-- Kurzaufnahmekennzeichen
+create or replace view kis.dqa_nfal_krzan
 as
 select 
   count(falnr) quantity, 
-  case 
-    when n.land ~'^\w' then n.land
-    else null
-  end land, 
-  c.country
+  krzan 
 from kis.nfal n
-left join metadata_repository.country c 
-  on n.land = c.sourceid 
-group by n.land, c.country 
+group by n.krzan 
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_land_jahr
+create or replace view kis.dqa_nfal_krzan_jahr
 as
 select
-  date_part('year', erdat) jahr,
-  count(falnr) quantity, 
   case 
-    when n.land ~'^\w' then n.land
-    else null
-  end land, 
-  c.country
+    when erdat isnull then date_part('year', updat)
+    else date_part('year', erdat)
+  end jahr,
+  count(falnr) quantity, 
+  krzan 
 from kis.nfal n
-left join metadata_repository.country c 
-  on n.land = c.sourceid 
-group by jahr, n.land, c.country 
+group by jahr, krzan 
 order by jahr, quantity desc
 ;
 
--- Postleitzahl Patient
---drop view if exists kis.dqa_nfal_pstlz;
-create or replace view kis.dqa_nfal_pstlz
+-- Datum der Entbindung
+--drop view if exists kis.dqa_nfal_endat;
+create or replace view kis.dqa_nfal_endat
 as
 select 
   count(falnr) quantity, 
-  case 
-    when n.pstlz ~'^\w' then n.pstlz 
-    else null
-  end pstlz,
-  z.land bundesland
+  endat
 from kis.nfal n
-left join metadata_repository.zipcode z
-  on n.pstlz = z.zipcode
-group by pstlz, bundesland
+group by endat 
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_pstlz_jahr
+create or replace view kis.dqa_nfal_endat_jahr
 as
 select
-  date_part('year', erdat) jahr,
-  count(falnr) quantity, 
   case 
-    when n.pstlz ~'^\w' then n.pstlz 
-    else null
-  end pstlz,
-  z.land bundesland
+    when erdat isnull then date_part('year', updat)
+    else date_part('year', erdat)
+  end jahr,
+  count(falnr) quantity, 
+  endat 
 from kis.nfal n
-left join metadata_repository.zipcode z
-  on n.pstlz = z.zipcode
-group by jahr, pstlz, bundesland
+group by jahr, endat 
 order by jahr, quantity desc
 ;
-
+------------------------------------------------------------------------------------------
 -- Datum, an dem der Datensatz erstellt wurde
 --drop view if exists kis.dqa_nfal_erdat;
 create or replace view kis.dqa_nfal_erdat

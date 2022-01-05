@@ -654,11 +654,33 @@ select
   case
     when n.fachr ~'\w' then n.fachr 
     else null
-  end fachr 
-from kis.nbew n 
-group by fachr 
+  end fachr,
+  f.fachrichtung
+from kis.nbew n
+left join metadata_repository.fachrichtung f 
+  on n.fachr = f.sourceid
+group by fachr, fachrichtung
 order by quantity desc
 ;
+
+--drop view if exists kis.dqa_nbew_fachr_jahr;
+create or replace view kis.dqa_nbew_fachr_jahr
+as
+select
+  date_part('year', bwidt) jahr,
+  count(falnr) quantity,
+  case
+    when n.fachr ~'\w' then n.fachr 
+    else null
+  end fachr,
+  f.fachrichtung
+from kis.nbew n 
+left join metadata_repository.fachrichtung f 
+  on n.fachr = f.sourceid
+group by fachr, jahr, fachrichtung
+order by jahr, quantity desc
+;
+
 
 -- Rettungsdienst
 --drop view if exists kis.dqa_nbew_unfrt;
@@ -1025,22 +1047,6 @@ from kis.nbew n
 left join metadata_repository.einweisungs_ueberweisungs_nachbehandlungsart e
   on n.rfsrc = e.rfsrc 
 group by n.rfsrc , e.einweisungs_ueberweisungs_nachbehandlungsart, jahr
-order by jahr desc, quantity desc
-;
-
---Fachrichtung der Ärzte
---drop view if exists kis.dqa_nbew_fachr_jahr;
-create or replace view kis.dqa_nbew_fachr_jahr
-as
-select 
-  count(falnr) quantity,
-  case
-    when n.fachr ~'\w' then n.fachr 
-    else null
-  end fachr,
-  date_part('year', bwidt) jahr 
-from kis.nbew n 
-group by fachr, jahr
 order by jahr desc, quantity desc
 ;
 
