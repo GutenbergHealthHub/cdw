@@ -1379,5 +1379,39 @@ as
   group by jahr
   order by jahr desc
 ;
+
+-- Einrichtung
+--drop view if exists kis.dqa_ndia_einri;
+create or replace view kis.dqa_ndia_einri
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.einri ~'^\w' then n.einri 
+    else null
+  end einri
+from kis.ndia n
+left join metadata_repository.einrichtung e
+  on n.einri = e.sourceid 
+group by n.einri 
+order by quantity desc
+;
+
+create or replace view kis.dqa_ndia_einri_jahr
+as
+select 
+  date_part('year', erdat) jahr, 
+  count(falnr) quantity, 
+  case 
+    when n.einri ~'^\w' then n.einri 
+    else null
+  end einri
+from kis.ndia n
+left join metadata_repository.einrichtung e
+  on n.einri = e.sourceid 
+group by n.einri, jahr 
+order by jahr, quantity desc
+;
+
 /*
 */

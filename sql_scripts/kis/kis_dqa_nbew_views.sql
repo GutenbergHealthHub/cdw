@@ -458,8 +458,8 @@ group by orgau, orgna
 order by quantity desc
 ;
 
--- Behandlungskategorien
---drop view if exists kis.dqa_nbew_bekat;
+-- Behandlungskategorie
+drop view if exists kis.dqa_nbew_bekat;
 create or replace view kis.dqa_nbew_bekat
 as
 select 
@@ -467,13 +467,33 @@ select
   case
     when n.bekat ~'\w' then n.bekat 
     else null
-  end bkat, 
-  b.bltxt behandlungskategorien
+  end bekat, 
+  b.behandlungskategorie
 from kis.nbew n
 left join metadata_repository.behandlungskategorie b
-  on n.bekat = b.bekat and n.einri = b.einri 
-group by bkat, behandlungskategorien
+  on n.bekat = b.sourceid 
+group by bekat, behandlungskategorie
 order by quantity desc
+;
+
+
+-- Behandlungskategorien bei Jahren
+drop view if exists kis.dqa_nbew_bekat_jahr;
+create or replace view kis.dqa_nbew_bekat_jahr
+as
+select
+  date_part('year', bwidt) jahr,
+  count(falnr) quantity,
+  case
+    when n.bekat ~'\w' then n.bekat 
+    else null
+  end bekat, 
+  b.behandlungskategorie  
+from kis.nbew n
+left join metadata_repository.behandlungskategorie b
+  on n.bekat = b.sourceid 
+group by bekat, behandlungskategorie, jahr
+order by jahr, quantity desc
 ;
 
 
@@ -670,7 +690,6 @@ group by unfav
 order by quantity desc
 ;
 
- 
 ------------------------------------------------------------------------------------------------------
 
 -- Bei Jahren
@@ -851,26 +870,6 @@ left join kis.norg nor
 group by orgau, orgna, jahr
 order by jahr desc, quantity desc
 ;
-
--- Behandlungskategorien bei Jahren
---drop view if exists kis.dqa_nbew_bekat_jahr;
-create or replace view kis.dqa_nbew_bekat_jahr
-as
-select 
-  count(falnr) quantity,
-  case
-    when n.bekat ~'\w' then n.bekat 
-    else null
-  end bkat, 
-  b.bltxt behandlungskategorien,
-  date_part('year', bwidt) jahr
-from kis.nbew n
-left join metadata_repository.behandlungskategorie b
-  on n.bekat = b.bekat and n.einri = b.einri 
-group by bkat, behandlungskategorien, jahr
-order by jahr desc, quantity desc
-;
-
 
 -- Stornogund
 --drop view if exists kis.dqa_nbew_stoid_jahr;
@@ -1075,6 +1074,40 @@ select
 from kis.nbew n 
 group by unfav, jahr
 order by jahr desc, quantity desc
+;
+
+
+-- Einrichtung
+--drop view if exists kis.dqa_nbew_einri;
+create or replace view kis.dqa_nbew_einri
+as
+select 
+  count(falnr) quantity, 
+  case 
+    when n.einri ~'^\w' then n.einri 
+    else null
+  end einri
+from kis.nbew n
+left join metadata_repository.einrichtung e
+  on n.einri = e.sourceid 
+group by n.einri 
+order by quantity desc
+;
+
+create or replace view kis.dqa_bew_einri_jahr
+as
+select 
+  date_part('year', bwidt) jahr, 
+  count(falnr) quantity, 
+  case 
+    when n.einri ~'^\w' then n.einri 
+    else null
+  end einri
+from kis.nbew n
+left join metadata_repository.einrichtung e
+  on n.einri = e.sourceid 
+group by n.einri, jahr 
+order by jahr, quantity desc
 ;
 
 

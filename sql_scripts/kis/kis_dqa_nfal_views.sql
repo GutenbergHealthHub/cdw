@@ -229,110 +229,145 @@ as
 ; 
 
 ------------------------------------------
--- Geschlecht
---drop view if exists kis.dqa_nfal_gschl;
-create or replace view kis.dqa_nfal_gschl
+-- Einrichtung
+--drop view if exists kis.dqa_nfal_einri;
+create or replace view kis.dqa_nfal_einri
 as
 select 
   count(falnr) quantity, 
   case 
-    when n.gschl ~'^\w' then n.gschl 
+    when n.einri ~'^\w' then n.einri 
     else null
-  end gschl,
-  g.gender 
+  end einri
 from kis.nfal n
-left join metadata_repository.gender g
-  on n.gschl = g.sourceid 
-group by n.gschl, gender 
+left join metadata_repository.einrichtung e
+  on n.einri = e.sourceid 
+group by n.einri 
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_gschl_jahr
+create or replace view kis.dqa_nfal_einri_jahr
 as
 select 
-  date_part('year', erdat) jahr, 
+  case 
+    when erdat isnull then date_part('year', updat)
+    else date_part('year', erdat)
+  end jahr, 
   count(falnr) quantity, 
   case 
-    when n.gschl ~'^\w' then n.gschl 
+    when n.einri ~'^\w' then n.einri 
     else null
-  end gschl,
-  g.gender 
+  end einri 
 from kis.nfal n
-left join metadata_repository.gender g
-  on n.gschl = g.sourceid 
-group by n.gschl, gender, jahr 
+left join metadata_repository.einrichtung e
+  on n.einri = e.sourceid 
+group by n.einri, jahr 
 order by jahr, quantity desc
 ;
 
--- Geburtsdatum
---drop view if exists kis.dqa_nfal_gbdat;
-create or replace view kis.dqa_nfal_gbdat
+-- Fallart
+--drop view if exists kis.dqa_nfal_falar;
+create or replace view kis.dqa_nfal_falar
 as
 select 
   count(falnr) quantity, 
-  gbdat
+  case 
+    when falar ~'^\d' then falar
+    else null 
+  end falar
 from kis.nfal n
-group by n.gbdat 
+group by n.falar 
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_gbdat_jahr
+--drop view if exists kis.dqa_nfal_falar_jahr;
+create or replace view kis.dqa_nfal_falar_jahr
 as
 select 
-  date_part('year', erdat) jahr,
+  case 
+    when erdat isnull then date_part('year', updat)
+    else date_part('year', erdat)
+  end jahr, 
   count(falnr) quantity, 
-  gbdat
+  case 
+    when falar ~'^\d' then falar
+    else null 
+  end falar
 from kis.nfal n
-group by n.gbdat, jahr 
+group by n.falar, jahr 
 order by jahr, quantity desc
 ;
 
--- Kennzeichen Patient verstorben
---drop view if exists kis.dqa_nfal_todkz;
-create or replace view kis.dqa_nfal_todkz
+-- Patientennummer
+--drop view if exists kis.dqa_nfal_patnr;
+create or replace view kis.dqa_nfal_patnr
 as
 select 
   count(falnr) quantity, 
-  todkz
+  case 
+    when patnr ~'^\w' then patnr 
+    else null
+  end patnr 
 from kis.nfal n
-group by todkz 
+group by patnr 
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_todkz_jahr
+create or replace view kis.dqa_nfal_patnr_jahr
 as
 select 
-  date_part('year', erdat) jahr,
+  case 
+    when erdat isnull then date_part('year', updat)
+    else date_part('year', erdat)
+  end jahr, 
   count(falnr) quantity, 
-  todkz
+  case 
+    when patnr ~'^\w' then patnr 
+    else null
+  end patnr 
 from kis.nfal n
-group by todkz, jahr 
+group by patnr, jahr 
 order by jahr, quantity desc
 ;
 
--- Todesdatum von
---drop view if exists kis.dqa_nfal_toddt;
-create or replace view kis.dqa_nfal_toddt
+-- Behandlungskategorie
+--drop view if exists kis.dqa_nfal_bekat;
+create or replace view kis.dqa_nfal_bekat
 as
 select 
   count(falnr) quantity, 
-  toddt 
-from kis.nfal n 
-group by n.toddt 
+  case 
+    when bekat ~'^\w' then bekat 
+    else null
+  end bkat,
+  b.behandlungskategorie
+from kis.nfal n
+left join metadata_repository.behandlungskategorie b 
+  on n.bekat = b.sourceid
+group by n.bekat, b.behandlungskategorie
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_toddt_jahr
+create or replace view kis.dqa_nfal_bekat_jahr
 as
 select 
-  date_part('year', erdat) jahr,
+  case 
+    when erdat isnull then date_part('year', updat)
+    else date_part('year', erdat)
+  end jahr,
   count(falnr) quantity, 
-  toddt 
-from kis.nfal n 
-group by n.toddt, jahr 
+  case 
+    when bekat ~'^\w' then bekat 
+    else null
+  end bkat,
+  b.behandlungskategorie
+from kis.nfal n
+left join metadata_repository.behandlungskategorie b 
+  on n.bekat = b.sourceid
+group by n.bekat, b.behandlungskategorie, jahr 
 order by jahr, quantity desc
 ;
-
+---------------------------------------------------------------
 -- Todesuhrzeit von
 --drop view if exists kis.dqa_nfal_todzt;
 create or replace view kis.dqa_nfal_todzt

@@ -517,5 +517,38 @@ from kis.npat n
 group by jahr, race 
 order by jahr, quantity desc
 ;
+
+-- Einrichtung
+--drop view if exists kis.dqa_npat_einri;
+create or replace view kis.dqa_npat_einri
+as
+select 
+  count(patnr) quantity, 
+  case 
+    when n.einri ~'^\w' then n.einri 
+    else null
+  end einri
+from kis.npat n
+left join metadata_repository.einrichtung e
+  on n.einri = e.sourceid 
+group by n.einri 
+order by quantity desc
+;
+
+create or replace view kis.dqa_npat_einri_jahr
+as
+select 
+  date_part('year', erdat) jahr, 
+  count(patnr) quantity, 
+  case 
+    when n.einri ~'^\w' then n.einri 
+    else null
+  end einri
+from kis.npat n
+left join metadata_repository.einrichtung e
+  on n.einri = e.sourceid 
+group by n.einri, jahr 
+order by jahr, quantity desc
+;
 /*
 */
