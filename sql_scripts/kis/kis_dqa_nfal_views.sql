@@ -578,7 +578,7 @@ group by kzkom
 order by quantity desc
 ;
 
-create or replace view kis.dqa_nfal_updat_jahr
+create or replace view kis.dqa_nfal_kzkom_jahr
 as
 select
   case 
@@ -656,6 +656,7 @@ group by updat
 order by quantity desc
 ;
 
+--drop view if exists kis.dqa_nfal_updat_jahr;
 create or replace view kis.dqa_nfal_updat_jahr
 as
 select
@@ -821,22 +822,25 @@ order by jahr, quantity desc
 
 -- Art des Fallendes
 --drop view if exists kis.dqa_nfal_endtyp cascade;
---create or replace view kis.dqa_nfal_endtyp
---as
+create or replace view kis.dqa_nfal_endtyp
+as
 select
   count(falnr) quantity,
   case
     when n.endtyp ~'^\w' then n.endtyp
     else null
-  end endtyp
+  end endtyp,
+  f.fallendes 
 from kis.nfal n
-group by n.endtyp
+left join metadata_repository.fallendes f 
+  on n.endtyp = f.sourceid 
+group by n.endtyp, f.fallendes 
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_endtyp_jahr cascade;
---create or replace view kis.dqa_nfal_endtyp_jahr
---as
+create or replace view kis.dqa_nfal_endtyp_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
@@ -846,9 +850,12 @@ select
   case
     when n.endtyp ~'^\w' then n.endtyp
     else null
-  end endtyp
+  end endtyp,
+  f.fallendes
 from kis.nfal n
-group by jahr, n.endtyp
+left join metadata_repository.fallendes f
+  on f.sourceid = n.endtyp 
+group by jahr, n.endtyp, f.fallendes 
 order by jahr, quantity desc
 ;
 
@@ -908,19 +915,23 @@ order by jahr, quantity desc
 
 -- Maßeinheit Gewicht Patient
 --drop view if exists kis.dqa_nfal_gwein cascade;
---create or replace view kis.dqa_nfal_gwein
---as
+create or replace view kis.dqa_nfal_gwein
+as
 select
   count(falnr) quantity,
-  gwein
+  gwein,
+  wu.weight_id,
+  wu.weight_unity
 from kis.nfal n
-group by n.gwein
+left join metadata_repository.weight_unity wu
+  on n.gwein = wu.sourceid
+group by n.gwein, wu.weight_unity, wu.weight_id 
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_gwein_jahr cascade;
---create or replace view kis.dqa_nfal_gwein_jahr
---as
+create or replace view kis.dqa_nfal_gwein_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
@@ -930,63 +941,65 @@ select
   case
     when n.gwein ~'^\w' then n.gwein
     else null
-  end gwein
+  end gwein,
+  wu.weight_id,
+  wu.weight_unity
 from kis.nfal n
-group by jahr, n.gwein
+left join metadata_repository.weight_unity wu
+  on n.gwein = wu.sourceid
+group by jahr, n.gwein, wu.weight_unity, wu.weight_id 
 order by jahr, quantity desc
 ;
 
---patgro
+-- Größe des Patienten bei Aufnahme
 --drop view if exists kis.dqa_nfal_patgro cascade;
---create or replace view kis.dqa_nfal_patgro
---as
+create or replace view kis.dqa_nfal_patgro
+as
 select
   count(falnr) quantity,
-  case
-    when n.patgro ~'^\w' then n.patgro
-    else null
-  end patgro
+  patgro
 from kis.nfal n
 group by n.patgro
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_patgro_jahr cascade;
---create or replace view kis.dqa_nfal_patgro_jahr
---as
+create or replace view kis.dqa_nfal_patgro_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.patgro ~'^\w' then n.patgro
-    else null
-  end patgro
+  patgro
 from kis.nfal n
 group by jahr, n.patgro
 order by jahr, quantity desc
 ;
-
---grein
+-----------------------------------------------------------------------------
+-- Maßeinheit Größe Patient
 --drop view if exists kis.dqa_nfal_grein cascade;
---create or replace view kis.dqa_nfal_grein
---as
+create or replace view kis.dqa_nfal_grein
+as
 select
   count(falnr) quantity,
   case
     when n.grein ~'^\w' then n.grein
     else null
-  end grein
+  end grein,
+  hu.height_id,
+  hu.height_unity
 from kis.nfal n
-group by n.grein
+left join metadata_repository.height_unity hu 
+  on hu.sourceid = n.grein 
+group by n.grein, hu.height_unity, hu.height_id 
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_grein_jahr cascade;
---create or replace view kis.dqa_nfal_grein_jahr
---as
+create or replace view kis.dqa_nfal_grein_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
@@ -996,406 +1009,339 @@ select
   case
     when n.grein ~'^\w' then n.grein
     else null
-  end grein
+  end grein,
+  hu.height_id,
+  hu.height_unity 
 from kis.nfal n
-group by jahr, n.grein
+left join metadata_repository.height_unity hu 
+  on hu.sourceid = n.grein 
+group by jahr, n.grein, hu.height_id, hu.height_unity 
 order by jahr, quantity desc
 ;
 
---resp
+-- Beatmungsdauer in Stunden
 --drop view if exists kis.dqa_nfal_resp cascade;
---create or replace view kis.dqa_nfal_resp
---as
+create or replace view kis.dqa_nfal_resp
+as
 select
   count(falnr) quantity,
-  case
-    when n.resp ~'^\w' then n.resp
-    else null
-  end resp
+  resp
 from kis.nfal n
 group by n.resp
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_resp_jahr cascade;
---create or replace view kis.dqa_nfal_resp_jahr
---as
+create or replace view kis.dqa_nfal_resp_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.resp ~'^\w' then n.resp
-    else null
-  end resp
+  resp
 from kis.nfal n
 group by jahr, n.resp
 order by jahr, quantity desc
 ;
 
---delgw
+-- Schwangerschaftswoche bei Geburt
 --drop view if exists kis.dqa_nfal_delgw cascade;
---create or replace view kis.dqa_nfal_delgw
---as
+create or replace view kis.dqa_nfal_delgw
+as
 select
   count(falnr) quantity,
-  case
-    when n.delgw ~'^\w' then n.delgw
-    else null
-  end delgw
+  delgw
 from kis.nfal n
 group by n.delgw
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_delgw_jahr cascade;
---create or replace view kis.dqa_nfal_delgw_jahr
---as
+create or replace view kis.dqa_nfal_delgw_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.delgw ~'^\w' then n.delgw
-    else null
-  end delgw
+  delgw
 from kis.nfal n
 group by jahr, n.delgw
 order by jahr, quantity desc
 ;
 
---saps_c
+-- Schweregrad-Score (SAPS)
 --drop view if exists kis.dqa_nfal_saps_c cascade;
---create or replace view kis.dqa_nfal_saps_c
---as
+create or replace view kis.dqa_nfal_saps_c
+as
 select
   count(falnr) quantity,
-  case
-    when n.saps_c ~'^\w' then n.saps_c
-    else null
-  end saps_c
+  saps_c
 from kis.nfal n
 group by n.saps_c
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_saps_c_jahr cascade;
---create or replace view kis.dqa_nfal_saps_c_jahr
---as
+create or replace view kis.dqa_nfal_saps_c_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.saps_c ~'^\w' then n.saps_c
-    else null
-  end saps_c
+  saps_c
 from kis.nfal n
 group by jahr, n.saps_c
 order by jahr, quantity desc
 ;
 
---pim2_c
+-- Schweregrad-Score (PIM2)
 --drop view if exists kis.dqa_nfal_pim2_c cascade;
---create or replace view kis.dqa_nfal_pim2_c
---as
+create or replace view kis.dqa_nfal_pim2_c
+as
 select
   count(falnr) quantity,
-  case
-    when n.pim2_c ~'^\w' then n.pim2_c
-    else null
-  end pim2_c
+  pim2_c
 from kis.nfal n
 group by n.pim2_c
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_pim2_c_jahr cascade;
---create or replace view kis.dqa_nfal_pim2_c_jahr
---as
+create or replace view kis.dqa_nfal_pim2_c_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.pim2_c ~'^\w' then n.pim2_c
-    else null
-  end pim2_c
+  pim2_c
 from kis.nfal n
 group by jahr, n.pim2_c
 order by jahr, quantity desc
 ;
 
---crib_c
+-- Schweregrad-Score (CRIB)
 --drop view if exists kis.dqa_nfal_crib_c cascade;
---create or replace view kis.dqa_nfal_crib_c
---as
+create or replace view kis.dqa_nfal_crib_c
+as
 select
   count(falnr) quantity,
-  case
-    when n.crib_c ~'^\w' then n.crib_c
-    else null
-  end crib_c
+  crib_c
 from kis.nfal n
 group by n.crib_c
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_crib_c_jahr cascade;
---create or replace view kis.dqa_nfal_crib_c_jahr
---as
+create or replace view kis.dqa_nfal_crib_c_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.crib_c ~'^\w' then n.crib_c
-    else null
-  end crib_c
+  crib_c
 from kis.nfal n
 group by jahr, n.crib_c
 order by jahr, quantity desc
 ;
 
---nems_c
+-- Total aller Schichten (NEMS)
 --drop view if exists kis.dqa_nfal_nems_c cascade;
---create or replace view kis.dqa_nfal_nems_c
---as
+create or replace view kis.dqa_nfal_nems_c
+as
 select
   count(falnr) quantity,
-  case
-    when n.nems_c ~'^\w' then n.nems_c
-    else null
-  end nems_c
+  nems_c
 from kis.nfal n
 group by n.nems_c
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_nems_c_jahr cascade;
---create or replace view kis.dqa_nfal_nems_c_jahr
---as
+create or replace view kis.dqa_nfal_nems_c_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.nems_c ~'^\w' then n.nems_c
-    else null
-  end nems_c
+  nems_c
 from kis.nfal n
 group by jahr, n.nems_c
 order by jahr, quantity desc
 ;
 
---saps_imc
+-- Schweregrad-Score (SAPS) – Intermediate Care
 --drop view if exists kis.dqa_nfal_saps_imc cascade;
---create or replace view kis.dqa_nfal_saps_imc
---as
+create or replace view kis.dqa_nfal_saps_imc
+as
 select
   count(falnr) quantity,
-  case
-    when n.saps_imc ~'^\w' then n.saps_imc
-    else null
-  end saps_imc
+  saps_imc
 from kis.nfal n
 group by n.saps_imc
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_saps_imc_jahr cascade;
---create or replace view kis.dqa_nfal_saps_imc_jahr
---as
+create or replace view kis.dqa_nfal_saps_imc_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.saps_imc ~'^\w' then n.saps_imc
-    else null
-  end saps_imc
+  saps_imc
 from kis.nfal n
 group by jahr, n.saps_imc
 order by jahr, quantity desc
 ;
 
---pim2_imc
+-- Schweregrad-Score (PIM2) – Intermediate Care
 --drop view if exists kis.dqa_nfal_pim2_imc cascade;
---create or replace view kis.dqa_nfal_pim2_imc
---as
+create or replace view kis.dqa_nfal_pim2_imc
+as
 select
   count(falnr) quantity,
-  case
-    when n.pim2_imc ~'^\w' then n.pim2_imc
-    else null
-  end pim2_imc
+  pim2_imc
 from kis.nfal n
 group by n.pim2_imc
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_pim2_imc_jahr cascade;
---create or replace view kis.dqa_nfal_pim2_imc_jahr
---as
+create or replace view kis.dqa_nfal_pim2_imc_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.pim2_imc ~'^\w' then n.pim2_imc
-    else null
-  end pim2_imc
+  pim2_imc
 from kis.nfal n
 group by jahr, n.pim2_imc
 order by jahr, quantity desc
 ;
 
---crib_imc
+-- Schweregrad-Score (CRIB) – Intermedaite Care
 --drop view if exists kis.dqa_nfal_crib_imc cascade;
---create or replace view kis.dqa_nfal_crib_imc
---as
+create or replace view kis.dqa_nfal_crib_imc
+as
 select
   count(falnr) quantity,
-  case
-    when n.crib_imc ~'^\w' then n.crib_imc
-    else null
-  end crib_imc
+  crib_imc
 from kis.nfal n
 group by n.crib_imc
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_crib_imc_jahr cascade;
---create or replace view kis.dqa_nfal_crib_imc_jahr
---as
+create or replace view kis.dqa_nfal_crib_imc_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.crib_imc ~'^\w' then n.crib_imc
-    else null
-  end crib_imc
+  crib_imc
 from kis.nfal n
 group by jahr, n.crib_imc
 order by jahr, quantity desc
 ;
 
---nems_imc
+-- Total aller Schichten (NEMS) – Intermediate Care
 --drop view if exists kis.dqa_nfal_nems_imc cascade;
---create or replace view kis.dqa_nfal_nems_imc
---as
+create or replace view kis.dqa_nfal_nems_imc
+as
 select
   count(falnr) quantity,
-  case
-    when n.nems_imc ~'^\w' then n.nems_imc
-    else null
-  end nems_imc
+  nems_imc
 from kis.nfal n
 group by n.nems_imc
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_nems_imc_jahr cascade;
---create or replace view kis.dqa_nfal_nems_imc_jahr
---as
+create or replace view kis.dqa_nfal_nems_imc_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.nems_imc ~'^\w' then n.nems_imc
-    else null
-  end nems_imc
+  nems_imc
 from kis.nfal n
 group by jahr, n.nems_imc
 order by jahr, quantity desc
 ;
 
---respi_imc
+-- Beatmungsdauer in Stunden – Intermedaite Care
 --drop view if exists kis.dqa_nfal_respi_imc cascade;
---create or replace view kis.dqa_nfal_respi_imc
---as
+create or replace view kis.dqa_nfal_respi_imc
+as
 select
   count(falnr) quantity,
-  case
-    when n.respi_imc ~'^\w' then n.respi_imc
-    else null
-  end respi_imc
+  respi_imc
 from kis.nfal n
 group by n.respi_imc
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_respi_imc_jahr cascade;
---create or replace view kis.dqa_nfal_respi_imc_jahr
---as
+create or replace view kis.dqa_nfal_respi_imc_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.respi_imc ~'^\w' then n.respi_imc
-    else null
-  end respi_imc
+  respi_imc
 from kis.nfal n
 group by jahr, n.respi_imc
 order by jahr, quantity desc
 ;
 
---readm
+-- Kennzeichen möglicher Wiederkehrerfall
 --drop view if exists kis.dqa_nfal_readm cascade;
---create or replace view kis.dqa_nfal_readm
---as
+create or replace view kis.dqa_nfal_readm
+as
 select
   count(falnr) quantity,
-  case
-    when n.readm ~'^\w' then n.readm
-    else null
-  end readm
+  readm
 from kis.nfal n
 group by n.readm
 order by quantity desc
 ;
 
 --drop view if exists kis.dqa_nfal_readm_jahr cascade;
---create or replace view kis.dqa_nfal_readm_jahr
---as
+create or replace view kis.dqa_nfal_readm_jahr
+as
 select
   case
     when erdat isnull then date_part('year', updat)
     else date_part('year', erdat)
   end jahr,
   count(falnr) quantity,
-  case
-    when n.readm ~'^\w' then n.readm
-    else null
-  end readm
+  readm
 from kis.nfal n
 group by jahr, n.readm
 order by jahr, quantity desc
 ;
+
 /*
 */
