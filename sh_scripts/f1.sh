@@ -17,3 +17,5 @@ for i in {1..100000}; do bash script_to_execute.sh; done
 str=`</dev/urandom tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_\`{|}~' | head -c number`
 echo "$str" >> /dir/file
 
+# delete BOM
+sed -i '1s/^\xEF\xBB\xBF//' file
