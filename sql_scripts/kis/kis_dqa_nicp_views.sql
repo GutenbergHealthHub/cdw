@@ -22,7 +22,7 @@ select
   count(falnr) quantities,
   'lfdbew' "columns"
 from kis.nicp n
-where lfdbew isnull or lfdbew !~'^\w'
+where lfdbew isnull
   union
 select
   count(falnr) quantities,
@@ -40,31 +40,31 @@ select
   count(falnr) quantities,
   'icphc' "columns"
 from kis.nicp n
-where icphc isnull or icphc !~'^\w'
+where icphc isnull
   union
 select
   count(falnr) quantities,
   'anzop' "columns"
 from kis.nicp n
-where anzop isnull or anzop !~'^\w'
+where anzop isnull
   union
 select
   count(falnr) quantities,
   'bgdop' "columns"
 from kis.nicp n
-where bgdop isnull or bgdop !~'^\w'
+where bgdop isnull
   union
 select
   count(falnr) quantities,
   'bztop' "columns"
 from kis.nicp n
-where bztop isnull or bztop !~'^\w'
+where bztop isnull
   union
 select
   count(falnr) quantities,
   'eztop' "columns"
 from kis.nicp n
-where eztop isnull or eztop !~'^\w'
+where eztop isnull
   union
 select
   count(falnr) quantities,
@@ -82,19 +82,19 @@ select
   count(falnr) quantities,
   'updat' "columns"
 from kis.nicp n
-where updat isnull or updat !~'^\w'
+where updat isnull
   union
 select
   count(falnr) quantities,
   'storn' "columns"
 from kis.nicp n
-where storn isnull or storn !~'^\w'
+where storn isnull
   union
 select
   count(falnr) quantities,
   'stdat' "columns"
 from kis.nicp n
-where stdat isnull or stdat !~'^\w'
+where stdat isnull
   union
 select
   count(falnr) quantities,
@@ -106,7 +106,7 @@ select
   count(falnr) quantities,
   'drg_relevant' "columns"
 from kis.nicp n
-where drg_relevant isnull or drg_relevant !~'^\w'
+where drg_relevant isnull
   union
 select
   count(falnr) quantities,
@@ -124,7 +124,7 @@ select
   count(falnr) quantities,
   'endop' "columns"
 from kis.nicp n
-where endop isnull or endop !~'^\w'
+where endop isnull
   union
 select
   count(falnr) quantities,
@@ -136,7 +136,7 @@ select
   count(falnr) quantities,
   'quantity' "columns"
 from kis.nicp n
-where quantity isnull or quantity !~'^\w'
+where quantity isnull
   union
 select
   count(falnr) quantities,
@@ -154,8 +154,7 @@ select
   count(falnr) quantities,
   'oplebspen' "columns"
 from kis.nicp n
-where oplebspen isnull or oplebspen !~'^\w'
-  union
+where oplebspen isnull
 order by quantities, "columns"
 ;
 
