@@ -1,5 +1,8 @@
---create or replace view kis.dqa_nicp_null_values
---as
+-- DQA for NICP 
+
+-- all null values
+create or replace view kis.dqa_nicp_null_values
+as
 select
   count(falnr) quantities,
   'einri' "columns"
@@ -158,10 +161,10 @@ where oplebspen isnull
 order by quantities, "columns"
 ;
 
---einri
+-- Einrichtung
 --drop view if exists kis.dqa_nicp_einri cascade;
---create or replace view kis.dqa_nicp_einri
---as
+create or replace view kis.dqa_nicp_einri
+as
 select
   count(falnr) quantities,
   case
@@ -174,8 +177,8 @@ order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_einri_jahr cascade;
---create or replace view kis.dqa_nicp_einri_jahr
---as
+create or replace view kis.dqa_nicp_einri_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
@@ -188,10 +191,10 @@ group by jahr, n.einri
 order by jahr, quantities desc
 ;
 
---falnr
+-- Fallnummer
 --drop view if exists kis.dqa_nicp_falnr cascade;
---create or replace view kis.dqa_nicp_falnr
---as
+create or replace view kis.dqa_nicp_falnr
+as
 select
   count(falnr) quantities,
   case
@@ -204,8 +207,8 @@ order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_falnr_jahr cascade;
---create or replace view kis.dqa_nicp_falnr_jahr
---as
+create or replace view kis.dqa_nicp_falnr_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
@@ -218,10 +221,10 @@ group by jahr, n.falnr
 order by jahr, quantities desc
 ;
 
---lnric
+-- Laufende Nummer des Operationscodes
 --drop view if exists kis.dqa_nicp_lnric cascade;
---create or replace view kis.dqa_nicp_lnric
---as
+create or replace view kis.dqa_nicp_lnric
+as
 select
   count(falnr) quantities,
   case
@@ -234,8 +237,8 @@ order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_lnric_jahr cascade;
---create or replace view kis.dqa_nicp_lnric_jahr
---as
+create or replace view kis.dqa_nicp_lnric_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
@@ -248,280 +251,262 @@ group by jahr, n.lnric
 order by jahr, quantities desc
 ;
 
---lfdbew
+-- Laufende Nummer einer Bewegung
 --drop view if exists kis.dqa_nicp_lfdbew cascade;
---create or replace view kis.dqa_nicp_lfdbew
---as
+create or replace view kis.dqa_nicp_lfdbew
+as
 select
   count(falnr) quantities,
-  case
-    when n.lfdbew ~'^\w' then n.lfdbew
-    else null
-  end lfdbew
+  n.lfdbew 
 from kis.nicp n
 group by n.lfdbew
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_lfdbew_jahr cascade;
---create or replace view kis.dqa_nicp_lfdbew_jahr
---as
+create or replace view kis.dqa_nicp_lfdbew_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.lfdbew ~'^\w' then n.lfdbew
-    else null
-  end lfdbew
+  lfdbew
 from kis.nicp n
 group by jahr, n.lfdbew
 order by jahr, quantities desc
 ;
 
---icpmk
+-- Identifikation eines Operationsleistungskataloges
 --drop view if exists kis.dqa_nicp_icpmk cascade;
---create or replace view kis.dqa_nicp_icpmk
---as
+create or replace view kis.dqa_nicp_icpmk
+as
 select
   count(falnr) quantities,
   case
     when n.icpmk ~'^\w' then n.icpmk
     else null
-  end icpmk
+  end icpmk,
+  ok.operation_katalog
 from kis.nicp n
-group by n.icpmk
+left join metadata_repository.operation_katalog ok 
+  on ok.sourceid = n.icpmk 
+group by n.icpmk, ok.operation_katalog
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_icpmk_jahr cascade;
---create or replace view kis.dqa_nicp_icpmk_jahr
---as
+create or replace view kis.dqa_nicp_icpmk_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
   case
     when n.icpmk ~'^\w' then n.icpmk
     else null
-  end icpmk
+  end icpmk,
+  ok.operation_katalog
 from kis.nicp n
-group by jahr, n.icpmk
+left join metadata_repository.operation_katalog ok 
+  on ok.sourceid = n.icpmk 
+group by jahr, n.icpmk, ok.operation_katalog
 order by jahr, quantities desc
 ;
 
---icpml
+-- Identifikation eines Operationscodes (Leistung)
 --drop view if exists kis.dqa_nicp_icpml cascade;
---create or replace view kis.dqa_nicp_icpml
---as
+create or replace view kis.dqa_nicp_icpml
+as
 select
   count(falnr) quantities,
   case
     when n.icpml ~'^\w' then n.icpml
     else null
-  end icpml
+  end icpml,
+  o.titel 
 from kis.nicp n
-group by n.icpml
+left join ops_metainfo.ops o 
+  on upper(o.kode) = upper(n.icpml) 
+group by n.icpml, o.titel 
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_icpml_jahr cascade;
---create or replace view kis.dqa_nicp_icpml_jahr
---as
+create or replace view kis.dqa_nicp_icpml_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
   case
     when n.icpml ~'^\w' then n.icpml
     else null
-  end icpml
+  end icpml,
+  o.titel 
 from kis.nicp n
-group by jahr, n.icpml
+left join ops_metainfo.ops o 
+  on upper(o.kode) = upper(n.icpml)
+group by jahr, n.icpml, o.titel 
 order by jahr, quantities desc
 ;
 
---icphc
+-- Kennzeichen, ob Operation Hauptcode ist
 --drop view if exists kis.dqa_nicp_icphc cascade;
---create or replace view kis.dqa_nicp_icphc
---as
+create or replace view kis.dqa_nicp_icphc
+as
 select
   count(falnr) quantities,
-  case
-    when n.icphc ~'^\w' then n.icphc
-    else null
-  end icphc
+  icphc
 from kis.nicp n
 group by n.icphc
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_icphc_jahr cascade;
---create or replace view kis.dqa_nicp_icphc_jahr
---as
+create or replace view kis.dqa_nicp_icphc_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.icphc ~'^\w' then n.icphc
-    else null
-  end icphc
+  icphc
 from kis.nicp n
 group by jahr, n.icphc
 order by jahr, quantities desc
 ;
 
---anzop
+-- Anzahl weiterer Operationen
 --drop view if exists kis.dqa_nicp_anzop cascade;
---create or replace view kis.dqa_nicp_anzop
---as
+create or replace view kis.dqa_nicp_anzop
+as
 select
   count(falnr) quantities,
-  case
-    when n.anzop ~'^\w' then n.anzop
-    else null
-  end anzop
+  anzop
 from kis.nicp n
 group by n.anzop
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_anzop_jahr cascade;
---create or replace view kis.dqa_nicp_anzop_jahr
---as
+create or replace view kis.dqa_nicp_anzop_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.anzop ~'^\w' then n.anzop
-    else null
-  end anzop
+  anzop
 from kis.nicp n
 group by jahr, n.anzop
 order by jahr, quantities desc
 ;
 
---bgdop
+-- Datum, an dem der Operationscode erbracht wurde
 --drop view if exists kis.dqa_nicp_bgdop cascade;
---create or replace view kis.dqa_nicp_bgdop
---as
+create or replace view kis.dqa_nicp_bgdop
+as
 select
   count(falnr) quantities,
-  case
-    when n.bgdop ~'^\w' then n.bgdop
-    else null
-  end bgdop
+  bgdop
 from kis.nicp n
 group by n.bgdop
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_bgdop_jahr cascade;
---create or replace view kis.dqa_nicp_bgdop_jahr
---as
+create or replace view kis.dqa_nicp_bgdop_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.bgdop ~'^\w' then n.bgdop
-    else null
-  end bgdop
+  bgdop
 from kis.nicp n
 group by jahr, n.bgdop
 order by jahr, quantities desc
 ;
 
---bztop
+-- Beginnuhrzeit, zu der ein Operationscode erbracht wurde
 --drop view if exists kis.dqa_nicp_bztop cascade;
---create or replace view kis.dqa_nicp_bztop
---as
+create or replace view kis.dqa_nicp_bztop
+as
 select
   count(falnr) quantities,
-  case
-    when n.bztop ~'^\w' then n.bztop
-    else null
-  end bztop
+  bztop
 from kis.nicp n
 group by n.bztop
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_bztop_jahr cascade;
---create or replace view kis.dqa_nicp_bztop_jahr
---as
+create or replace view kis.dqa_nicp_bztop_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.bztop ~'^\w' then n.bztop
-    else null
-  end bztop
+  bztop
 from kis.nicp n
 group by jahr, n.bztop
 order by jahr, quantities desc
 ;
 
---eztop
+-- Endeuhrzeit, zu der ein Operationscode beendet wurde
 --drop view if exists kis.dqa_nicp_eztop cascade;
---create or replace view kis.dqa_nicp_eztop
---as
+create or replace view kis.dqa_nicp_eztop
+as
 select
   count(falnr) quantities,
-  case
-    when n.eztop ~'^\w' then n.eztop
-    else null
-  end eztop
+  eztop
 from kis.nicp n
 group by n.eztop
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_eztop_jahr cascade;
---create or replace view kis.dqa_nicp_eztop_jahr
---as
+create or replace view kis.dqa_nicp_eztop_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.eztop ~'^\w' then n.eztop
-    else null
-  end eztop
+  eztop
 from kis.nicp n
 group by jahr, n.eztop
 order by jahr, quantities desc
 ;
 
---lslok
+-- Lokalisation einer Prozedur
 --drop view if exists kis.dqa_nicp_lslok cascade;
---create or replace view kis.dqa_nicp_lslok
---as
+create or replace view kis.dqa_nicp_lslok
+as
 select
   count(falnr) quantities,
   case
     when n.lslok ~'^\w' then n.lslok
     else null
-  end lslok
+  end lslok,
+  bl.localisation 
 from kis.nicp n
-group by n.lslok
+left join metadata_repository.body_localisation bl 
+  on n.lslok = bl.sourceid 
+group by n.lslok, bl.localisation 
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_lslok_jahr cascade;
---create or replace view kis.dqa_nicp_lslok_jahr
---as
+create or replace view kis.dqa_nicp_lslok_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
   case
     when n.lslok ~'^\w' then n.lslok
     else null
-  end lslok
+  end lslok,
+  bl.localisation 
 from kis.nicp n
-group by jahr, n.lslok
+left join metadata_repository.body_localisation bl 
+  on bl.sourceid = n.lslok 
+group by jahr, n.lslok, bl.localisation 
 order by jahr, quantities desc
 ;
 
---opart
+-- Art der Operation
 --drop view if exists kis.dqa_nicp_opart cascade;
---create or replace view kis.dqa_nicp_opart
---as
+create or replace view kis.dqa_nicp_opart
+as
 select
   count(falnr) quantities,
   case
@@ -534,8 +519,8 @@ order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_opart_jahr cascade;
---create or replace view kis.dqa_nicp_opart_jahr
---as
+create or replace view kis.dqa_nicp_opart_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
@@ -548,157 +533,145 @@ group by jahr, n.opart
 order by jahr, quantities desc
 ;
 
---updat
+-- Änderungsdatum
 --drop view if exists kis.dqa_nicp_updat cascade;
---create or replace view kis.dqa_nicp_updat
---as
+create or replace view kis.dqa_nicp_updat
+as
 select
   count(falnr) quantities,
-  case
-    when n.updat ~'^\w' then n.updat
-    else null
-  end updat
+  updat
 from kis.nicp n
 group by n.updat
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_updat_jahr cascade;
---create or replace view kis.dqa_nicp_updat_jahr
---as
+create or replace view kis.dqa_nicp_updat_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.updat ~'^\w' then n.updat
-    else null
-  end updat
+  updat
 from kis.nicp n
 group by jahr, n.updat
 order by jahr, quantities desc
 ;
 
---storn
+-- Stornokennzeichen
 --drop view if exists kis.dqa_nicp_storn cascade;
---create or replace view kis.dqa_nicp_storn
---as
+create or replace view kis.dqa_nicp_storn
+as
 select
   count(falnr) quantities,
-  case
-    when n.storn ~'^\w' then n.storn
-    else null
-  end storn
+  storn
 from kis.nicp n
 group by n.storn
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_storn_jahr cascade;
---create or replace view kis.dqa_nicp_storn_jahr
---as
+create or replace view kis.dqa_nicp_storn_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.storn ~'^\w' then n.storn
-    else null
-  end storn
+  storn
 from kis.nicp n
 group by jahr, n.storn
 order by jahr, quantities desc
 ;
 
---stdat
+-- Stornierungsdatum
 --drop view if exists kis.dqa_nicp_stdat cascade;
---create or replace view kis.dqa_nicp_stdat
---as
+create or replace view kis.dqa_nicp_stdat
+as
 select
   count(falnr) quantities,
-  case
-    when n.stdat ~'^\w' then n.stdat
-    else null
-  end stdat
+  stdat
 from kis.nicp n
 group by n.stdat
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_stdat_jahr cascade;
---create or replace view kis.dqa_nicp_stdat_jahr
---as
+create or replace view kis.dqa_nicp_stdat_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.stdat ~'^\w' then n.stdat
-    else null
-  end stdat
+  stdat
 from kis.nicp n
 group by jahr, n.stdat
 order by jahr, quantities desc
 ;
 
---drg_category
+-- Kategorie einer DRG-Prozedur (Haupt- Nebenprozedur)
 --drop view if exists kis.dqa_nicp_drg_category cascade;
---create or replace view kis.dqa_nicp_drg_category
---as
+create or replace view kis.dqa_nicp_drg_category
+as
 select
   count(falnr) quantities,
   case
     when n.drg_category ~'^\w' then n.drg_category
     else null
-  end drg_category
+  end drg_category,
+  case 
+    when n.drg_category ~'^\w' then dp.drg_prozedur
+    else 'keine DRG-Prozedur'
+  end drg_prozedur
 from kis.nicp n
-group by n.drg_category
+left join metadata_repository.drg_prozedur dp 
+  on dp.sourceid = n.drg_category 
+group by n.drg_category, drg_prozedur
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_drg_category_jahr cascade;
---create or replace view kis.dqa_nicp_drg_category_jahr
---as
+create or replace view kis.dqa_nicp_drg_category_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
   case
     when n.drg_category ~'^\w' then n.drg_category
     else null
-  end drg_category
+  end drg_category,
+  case 
+    when n.drg_category ~'^\w' then dp.drg_prozedur
+    else 'keine DRG-Prozedur'
+  end drg_prozedur
 from kis.nicp n
-group by jahr, n.drg_category
+left join metadata_repository.drg_prozedur dp 
+  on dp.sourceid = n.drg_category 
+group by jahr, n.drg_category, drg_prozedur
 order by jahr, quantities desc
 ;
 
---drg_relevant
+-- Kennzeichen für DRG-Ermittlung verwendet
 --drop view if exists kis.dqa_nicp_drg_relevant cascade;
---create or replace view kis.dqa_nicp_drg_relevant
---as
+create or replace view kis.dqa_nicp_drg_relevant
+as
 select
   count(falnr) quantities,
-  case
-    when n.drg_relevant ~'^\w' then n.drg_relevant
-    else null
-  end drg_relevant
+  drg_relevant
 from kis.nicp n
 group by n.drg_relevant
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_drg_relevant_jahr cascade;
---create or replace view kis.dqa_nicp_drg_relevant_jahr
---as
+create or replace view kis.dqa_nicp_drg_relevant_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.drg_relevant ~'^\w' then n.drg_relevant
-    else null
-  end drg_relevant
+  drg_relevant
 from kis.nicp n
 group by jahr, n.drg_relevant
 order by jahr, quantities desc
 ;
-
---orgfa
+--------------------------------------------------------------------------------------------
+-- Fachliche Organisationseinheit der Prozedur
 --drop view if exists kis.dqa_nicp_orgfa cascade;
 --create or replace view kis.dqa_nicp_orgfa
 --as
