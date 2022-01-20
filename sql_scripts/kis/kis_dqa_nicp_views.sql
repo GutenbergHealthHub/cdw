@@ -670,98 +670,104 @@ from kis.nicp n
 group by jahr, n.drg_relevant
 order by jahr, quantities desc
 ;
---------------------------------------------------------------------------------------------
+
 -- Fachliche Organisationseinheit der Prozedur
 --drop view if exists kis.dqa_nicp_orgfa cascade;
---create or replace view kis.dqa_nicp_orgfa
---as
+create or replace view kis.dqa_nicp_orgfa
+as
 select
   count(falnr) quantities,
   case
     when n.orgfa ~'^\w' then n.orgfa
     else null
-  end orgfa
+  end orgfa,
+  ng.orgna
 from kis.nicp n
-group by n.orgfa
+left join kis.norg ng 
+  on n.orgfa = ng.orgid 
+group by n.orgfa, ng.orgna 
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_orgfa_jahr cascade;
---create or replace view kis.dqa_nicp_orgfa_jahr
---as
+create or replace view kis.dqa_nicp_orgfa_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
   case
     when n.orgfa ~'^\w' then n.orgfa
     else null
-  end orgfa
+  end orgfa,
+  ng.orgna 
 from kis.nicp n
-group by jahr, n.orgfa
+left join kis.norg ng 
+  on ng.orgid = n.orgfa 
+group by jahr, n.orgfa, ng.orgna 
 order by jahr, quantities desc
 ;
 
---orgpf
+-- Erbringende Organisationseinheit der Prozedur
 --drop view if exists kis.dqa_nicp_orgpf cascade;
---create or replace view kis.dqa_nicp_orgpf
---as
+create or replace view kis.dqa_nicp_orgpf
+as
 select
   count(falnr) quantities,
   case
     when n.orgpf ~'^\w' then n.orgpf
     else null
-  end orgpf
+  end orgpf,
+  ng.orgna 
 from kis.nicp n
-group by n.orgpf
+left join kis.norg ng 
+  on ng.orgid = n.orgpf 
+group by n.orgpf, ng.orgna 
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_orgpf_jahr cascade;
---create or replace view kis.dqa_nicp_orgpf_jahr
---as
+create or replace view kis.dqa_nicp_orgpf_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
   case
     when n.orgpf ~'^\w' then n.orgpf
     else null
-  end orgpf
+  end orgpf,
+  ng.orgna 
 from kis.nicp n
-group by jahr, n.orgpf
+left join kis.norg ng 
+  on ng.orgid = n.orgpf 
+group by jahr, n.orgpf, ng.orgna 
 order by jahr, quantities desc
 ;
 
---endop
+-- Datum, an dem der Operationscode beendet wurde
 --drop view if exists kis.dqa_nicp_endop cascade;
---create or replace view kis.dqa_nicp_endop
---as
+create or replace view kis.dqa_nicp_endop
+as
 select
   count(falnr) quantities,
-  case
-    when n.endop ~'^\w' then n.endop
-    else null
-  end endop
+  endop
 from kis.nicp n
 group by n.endop
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_endop_jahr cascade;
---create or replace view kis.dqa_nicp_endop_jahr
---as
+create or replace view kis.dqa_nicp_endop_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.endop ~'^\w' then n.endop
-    else null
-  end endop
+  endop
 from kis.nicp n
 group by jahr, n.endop
 order by jahr, quantities desc
 ;
-
---prtyp
+---------------------------------------------------------------
+-- Prozedurtyp
 --drop view if exists kis.dqa_nicp_prtyp cascade;
 --create or replace view kis.dqa_nicp_prtyp
 --as
@@ -790,38 +796,32 @@ from kis.nicp n
 group by jahr, n.prtyp
 order by jahr, quantities desc
 ;
-
---quantity
+------------------------------------------------------------------
+-- Prozedurenmenge
 --drop view if exists kis.dqa_nicp_quantity cascade;
---create or replace view kis.dqa_nicp_quantity
---as
+create or replace view kis.dqa_nicp_quantity
+as
 select
   count(falnr) quantities,
-  case
-    when n.quantity ~'^\w' then n.quantity
-    else null
-  end quantity
+  quantity
 from kis.nicp n
 group by n.quantity
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_quantity_jahr cascade;
---create or replace view kis.dqa_nicp_quantity_jahr
---as
+create or replace view kis.dqa_nicp_quantity_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.quantity ~'^\w' then n.quantity
-    else null
-  end quantity
+  quantity
 from kis.nicp n
 group by jahr, n.quantity
 order by jahr, quantities desc
 ;
-
---unit
+---------------------------------------------------------------
+-- Mengeneinheit der Prozedur
 --drop view if exists kis.dqa_nicp_unit cascade;
 --create or replace view kis.dqa_nicp_unit
 --as
@@ -850,62 +850,62 @@ from kis.nicp n
 group by jahr, n.unit
 order by jahr, quantities desc
 ;
-
---ccl
+-----------------------------------------------------------------
+-- Komplikationslevel der Prozedur (für DRGs)
 --drop view if exists kis.dqa_nicp_ccl cascade;
---create or replace view kis.dqa_nicp_ccl
---as
+create or replace view kis.dqa_nicp_ccl
+as
 select
   count(falnr) quantities,
   case
     when n.ccl ~'^\w' then n.ccl
     else null
-  end ccl
+  end ccl,
+  cl.complication_level 
 from kis.nicp n
-group by n.ccl
+left join metadata_repository.complication_level cl 
+  on cl.sourceid = n.ccl 
+group by n.ccl, cl.complication_level 
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_ccl_jahr cascade;
---create or replace view kis.dqa_nicp_ccl_jahr
---as
+create or replace view kis.dqa_nicp_ccl_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
   case
     when n.ccl ~'^\w' then n.ccl
     else null
-  end ccl
+  end ccl,
+  cl.complication_level 
 from kis.nicp n
-group by jahr, n.ccl
+left join metadata_repository.complication_level cl 
+  on cl.sourceid = n.ccl 
+group by jahr, n.ccl, cl.complication_level 
 order by jahr, quantities desc
 ;
 
---oplebspen
+-- OPS-Kz. Lebendspende
 --drop view if exists kis.dqa_nicp_oplebspen cascade;
---create or replace view kis.dqa_nicp_oplebspen
---as
+create or replace view kis.dqa_nicp_oplebspen
+as
 select
   count(falnr) quantities,
-  case
-    when n.oplebspen ~'^\w' then n.oplebspen
-    else null
-  end oplebspen
+  oplebspen
 from kis.nicp n
 group by n.oplebspen
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_oplebspen_jahr cascade;
---create or replace view kis.dqa_nicp_oplebspen_jahr
---as
+create or replace view kis.dqa_nicp_oplebspen_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
-  case
-    when n.oplebspen ~'^\w' then n.oplebspen
-    else null
-  end oplebspen
+  oplebspen
 from kis.nicp n
 group by jahr, n.oplebspen
 order by jahr, quantities desc
