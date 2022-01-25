@@ -914,22 +914,22 @@ order by jahr, quantity desc
 ;
 
 -- Maßeinheit Gewicht Patient
---drop view if exists kis.dqa_nfal_gwein cascade;
+drop view if exists kis.dqa_nfal_gwein cascade;
 create or replace view kis.dqa_nfal_gwein
 as
 select
   count(falnr) quantity,
   gwein,
-  wu.weight_id,
-  wu.weight_unity
+  u.unitid ,
+  u.unitname
 from kis.nfal n
-left join metadata_repository.weight_unity wu
-  on n.gwein = wu.sourceid
-group by n.gwein, wu.weight_unity, wu.weight_id 
+left join metadata_repository.units u
+  on n.gwein = u.sourceid
+group by n.gwein, u.unitid, u.unitname 
 order by quantity desc
 ;
 
---drop view if exists kis.dqa_nfal_gwein_jahr cascade;
+drop view if exists kis.dqa_nfal_gwein_jahr cascade;
 create or replace view kis.dqa_nfal_gwein_jahr
 as
 select
@@ -942,12 +942,12 @@ select
     when n.gwein ~'^\w' then n.gwein
     else null
   end gwein,
-  wu.weight_id,
-  wu.weight_unity
+  u.unitid,
+  u.unitname
 from kis.nfal n
-left join metadata_repository.weight_unity wu
-  on n.gwein = wu.sourceid
-group by jahr, n.gwein, wu.weight_unity, wu.weight_id 
+left join metadata_repository.units u
+  on n.gwein = u.sourceid
+group by jahr, n.gwein, u.unitid, u.unitname  
 order by jahr, quantity desc
 ;
 
@@ -979,7 +979,7 @@ order by jahr, quantity desc
 ;
 -----------------------------------------------------------------------------
 -- Maßeinheit Größe Patient
---drop view if exists kis.dqa_nfal_grein cascade;
+--drop view if exists kis.dqa_nfal_grein;
 create or replace view kis.dqa_nfal_grein
 as
 select
@@ -988,12 +988,12 @@ select
     when n.grein ~'^\w' then n.grein
     else null
   end grein,
-  hu.height_id,
-  hu.height_unity
+  u.unitid,
+  u.unitname 
 from kis.nfal n
-left join metadata_repository.height_unity hu 
-  on hu.sourceid = n.grein 
-group by n.grein, hu.height_unity, hu.height_id 
+left join metadata_repository.units u 
+  on u.sourceid = n.grein 
+group by n.grein, u.unitid ,u.unitname 
 order by quantity desc
 ;
 
@@ -1010,12 +1010,12 @@ select
     when n.grein ~'^\w' then n.grein
     else null
   end grein,
-  hu.height_id,
-  hu.height_unity 
+  u.unitid,
+  u.unitname 
 from kis.nfal n
-left join metadata_repository.height_unity hu 
-  on hu.sourceid = n.grein 
-group by jahr, n.grein, hu.height_id, hu.height_unity 
+left join metadata_repository.units u
+  on u.sourceid = n.grein 
+group by jahr, n.grein, u.unitid, u.unitname  
 order by jahr, quantity desc
 ;
 

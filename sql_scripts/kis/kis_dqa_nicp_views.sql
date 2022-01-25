@@ -766,37 +766,43 @@ from kis.nicp n
 group by jahr, n.endop
 order by jahr, quantities desc
 ;
----------------------------------------------------------------
+
 -- Prozedurtyp
 --drop view if exists kis.dqa_nicp_prtyp cascade;
---create or replace view kis.dqa_nicp_prtyp
---as
+create or replace view kis.dqa_nicp_prtyp
+as
 select
   count(falnr) quantities,
   case
     when n.prtyp ~'^\w' then n.prtyp
     else null
-  end prtyp
+  end prtyp,
+  pt.prozedur_typ 
 from kis.nicp n
-group by n.prtyp
+left join metadata_repository.prozedur_typ pt
+  on pt.sourceid = n.prtyp 
+group by n.prtyp, pt.prozedur_typ 
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_prtyp_jahr cascade;
---create or replace view kis.dqa_nicp_prtyp_jahr
---as
+create or replace view kis.dqa_nicp_prtyp_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
   case
     when n.prtyp ~'^\w' then n.prtyp
     else null
-  end prtyp
+  end prtyp,
+  pt.prozedur_typ 
 from kis.nicp n
-group by jahr, n.prtyp
+left join metadata_repository.prozedur_typ pt
+  on pt.sourceid = n.prtyp 
+group by jahr, n.prtyp, pt.prozedur_typ 
 order by jahr, quantities desc
 ;
-------------------------------------------------------------------
+
 -- Prozedurenmenge
 --drop view if exists kis.dqa_nicp_quantity cascade;
 create or replace view kis.dqa_nicp_quantity
@@ -820,37 +826,45 @@ from kis.nicp n
 group by jahr, n.quantity
 order by jahr, quantities desc
 ;
----------------------------------------------------------------
+
 -- Mengeneinheit der Prozedur
 --drop view if exists kis.dqa_nicp_unit cascade;
---create or replace view kis.dqa_nicp_unit
---as
+create or replace view kis.dqa_nicp_unit
+as
 select
   count(falnr) quantities,
   case
     when n.unit ~'^\w' then n.unit
     else null
-  end unit
+  end unit,
+  u.unitid,
+  u.unitname
 from kis.nicp n
-group by n.unit
+left join metadata_repository.units u 
+  on u.sourceid = n.unit 
+group by n.unit, u.unitid, u.unitname 
 order by quantities desc
 ;
 
 --drop view if exists kis.dqa_nicp_unit_jahr cascade;
---create or replace view kis.dqa_nicp_unit_jahr
---as
+create or replace view kis.dqa_nicp_unit_jahr
+as
 select
   date_part('year', updat) jahr,
   count(falnr) quantities,
   case
     when n.unit ~'^\w' then n.unit
     else null
-  end unit
+  end unit,
+  u.unitid,
+  u.unitname
 from kis.nicp n
-group by jahr, n.unit
+left join metadata_repository.units u 
+  on u.sourceid = n.unit 
+group by jahr, n.unit, u.unitid, u.unitname 
 order by jahr, quantities desc
 ;
------------------------------------------------------------------
+
 -- Komplikationslevel der Prozedur (für DRGs)
 --drop view if exists kis.dqa_nicp_ccl cascade;
 create or replace view kis.dqa_nicp_ccl
