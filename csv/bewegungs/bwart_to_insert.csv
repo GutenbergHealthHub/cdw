@@ -1,0 +1,120 @@
+id;bwart
+1H;ASK-Erkrankung
+2H;F+L ohne Überw.
+AB;Abw.-Beginn
+AE;Abw.-Ende
+AG;Aufklärunsgesp.
+AH;DA allg.Heilbeh
+AO;amb. Operation
+AS;amb. Selbstzah.
+BA;Blutabrechnung
+BD;Betriebsarzt
+B;Entbind./Geburt
+BG;stat. BG
+BK;Blut (KRH+SON)
+BP;Begleitperson
+BS;bes. Selbstzah.
+BS;bes. Sz. PIA
+BV;Begleitp. Verl.
+BZ;Blut(Kasse,SZ.)
+B;Zimmerwechsel
+DA;DA bes.Heilbeh.
+DM;Diagn.Maßnahme
+EB;Entlassung BGP
+E;Einweisung
+E;Entlassung reg.
+EN;Einw./Notfall
+ER;Entlassung REHA
+ET;Wechsel S/T-T/S
+EÜ;Entl.Überg.pfl.
+EV;Einw.n.vorstat.
+EW;auf eig. Wunsch
+F;Fachr.-Wechsel
+GF;Garantiefall
+GU;Gutachten
+HB;Anschl.Heilbeh.
+IM;BÄD Impfstudent
+IP;Physikal. Ther.
+IV;Integr.Versorg.
+KB;künstl.Befrucht
+KE;Konsil.Extern
+KI;Konsil.Intern
+KS;Knochenm.Spend.
+LA;Labor-Tageskl.
+M;Totgeburt
+NG;Neugeborenes
+NO;KV:Notfall
+NO;Notfall
+NP;PKV/SZ: Notfall
+NS;Nierenspender
+NT;Nachstat.Beha.
+NT;Nachstationär
+NV;n. versichert
+OE;Ohne Einweisung
+OT;OP Termin
+OÜ;ohne Überw(MVZ)
+PC;Profit Center
+PK;Pflegekl.wechs.
+PL;Privatliquidat.
+PO;Postbeamten
+PS;Phys.Therap.SZ
+PT;Phys.Therap.son
+S1;sozialpäd.Zentr
+SE;SE
+SF;Sonderfall
+SF;Sonderfall amb
+SO;Operation
+SO;Stat.Operation
+SP;Spender allg.
+SP;Spender allgem.
+S;Stat.-Wechsel
+ST;Sprechstunde
+TD;Thrombosedienst
+T;Einweis. Teilst
+TF;Teilst.Folgebes
+TS;Termin Service
+T;Teilstationär
+T;verstorben
+T;Z-Teilstationär
+UF;Unters./Funkt.
+ÜK;Überweisung(KV)
+ÜP;Übergangspflege
+ÜS;Überw.sonst+Dia
+ÜS;Überw.sonst.Dia
+US;USA Überweisung
+ÜZ;n. abrechenbar
+V;Aufn.Ext.Krhs.
+VP;int.E. PM/PS/PT
+VP;int.V. PM/PS/PT
+VT;vorstat.Behandl
+VT;Vorstat.Behandl
+V;Verlegung ext.
+WI;Wissenschaft
+W;Wiederaufnahme
+Z1;ASV UM-Mainz
+Z2;ASV-Extern
+Z9;Covid-Test UM
+ZA;KV:Überw.Auftr
+ZB;P116b SGB V
+ZC;Case-Management
+ZD;k. Pat. Kontakt
+ZE;Ermächtig. F&L
+ZF;ZF Human/DRM
+ZF;ZF WI/Human/DRM
+ZG;Human.Entb.Geb.
+ZH;KV:Überw.M1PSP
+ZK;KV:Überw.Konsil
+ZL;KV:Überw.Labor
+ZM;Zahnmedizin
+ZN;Human.Neugeb.
+ZP;Apothekenleist.
+ZS;Ausland o.Absch
+ZS;SPZ
+ZT;teilstat.Pausch
+ZT;Testzentrum MZ
+ZU;Zuschl./Ausland
+ZV;Z VT Spender
+ZW;n. abr.bar KiWu
+ZX;Hotel Kooperat.
+ZY;Studienkennz.
+ZZ;n. abrechenbar

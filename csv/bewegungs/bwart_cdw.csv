@@ -1,0 +1,102 @@
+id;bewegungsart
+1H;ASK-Erkrankung
+2H;F+L ohne Überw.
+AB;Abw.-Beginn
+AE;Abw.-Ende
+AG;Aufklärunsgesp.
+AH;DA allg.Heilbeh
+AO;amb. Operation
+AS;amb. Selbstzah.
+B;Entbind./Geburt | Zimmerwechsel
+BA;Blutabrechnung
+BD;Betriebsarzt
+BG;stat. BG
+BK;Blut (KRH+SON)
+BP;Begleitperson
+BS;bes. Selbstzah. | bes. Selbstzah. PIA
+BV;Begleitp. Verl.
+BZ;Blut(Kasse,SZ.)
+DA;DA bes.Heilbeh.
+DM;Diagn.Maßnahme
+E;Einweisung | Entlassung reg.
+EB;Entlassung BGP
+EN;Einw./Notfall
+ER;Entlassung REHA
+ET;Wechsel S/T-T/S
+EÜ;Entl.Überg.pfl.
+EV;Einw.n.vorstat.
+EW;auf eig. Wunsch
+F;Fachr.-Wechsel
+GF;Garantiefall
+GU;Gutachten
+HB;Anschl.Heilbeh.
+IM;BÄD Impfstudent
+IP;Physikal. Ther.
+IV;Integr.Versorg.
+KB;künstl.Befrucht
+KE;Konsil.Extern
+KI;Konsil.Intern
+KS;Knochenm.Spend.
+LA;Labor-Tageskl.
+M;Totgeburt
+NG;Neugeborenes
+NO;Notfall | KV:Notfall
+NP;PKV/SZ: Notfall
+NS;Nierenspender
+NT;Nachstat.Beha. | Nachstationär
+NV;n. versichert
+OE;Ohne Einweisung
+OT;OP Termin
+OÜ;ohne Überw(MVZ)
+PC;Profit Center
+PK;Pflegekl.wechs.
+PL;Privatliquidat.
+PO;Postbeamten
+PS;Phys.Therap.SZ
+PT;Phys.Therap.son
+S;Stat.-Wechsel
+S1;sozialpäd.Zentr
+SE;SE
+SF;Sonderfall amb | Sonderfall
+SO;Stat. Operation | Operation
+SP;Spender allgem.
+ST;Sprechstunde
+T;Eiweis. Teilst | Z-Teilstationär | Teilstationär | verstorben
+TD;Thrombosedienst
+TF;Teilst.Folgebes
+TS;Termin Service
+UF;Unters./Funkt.
+ÜK;Überweisung(KV)
+ÜP;Übergangspflege
+US;USA Überweisung
+ÜS;Überw.sonst.Dia
+ÜZ;n. abrechenbar
+V;Aufn.Ext.Krhs. | Verlegung ext.
+VP;int.E. PM/PS/PT | int.V. PM/PS/PT
+VT;vorstat.Behandl
+W;Wiederaufnahme
+WI;Wissenschaft
+Z1;ASV UM-Mainz
+Z2;ASV-Extern
+Z9;Covid-Test UM
+ZA;KV:Überw.Auftr
+ZB;P116b SGB V
+ZC;Case-Management
+ZD;k. Pat. Kontakt
+ZE;Ermächtig. F&L
+ZF;ZF Human/DRM | ZF WI/Human/DRM
+ZG;Human.Entb.Geb.
+ZH;KV:Überw.M1PSP
+ZK;KV:Überw.Konsil
+ZL;KV:Überw.Labor
+ZM;Zahnmedizin
+ZN;Human.Neugeb.
+ZP;Apothekenleist.
+ZS;Ausland o.Absch | SPZ
+ZT;teilstat.Pausch | Testzentrum MZ
+ZU;Zuschl./Ausland
+ZV;Z VT Spender
+ZW;n. abr.bar KiWu
+ZX;Hotel Kooperat.
+ZY;Studienkennz.
+ZZ;n. abrechenbar
