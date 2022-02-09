@@ -1,0 +1,422 @@
+MII_extrakorporales_Verfahren
+Profile on Procedure
+Procedure
+Active
+7.2.2022
+MII_Herzfrequenz
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Koerpergewicht
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Koerpergroesse
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Kopfumfang
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Atemfrequenz
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Beatmung
+Profile on Procedure
+Procedure
+Active
+7.2.2022
+MII_Blutdruck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_DeviceMetric_eingestellte_gemessene_Parameter_extrakorporale_Verfahren
+Profile on DeviceMetric
+DeviceMetric
+Active
+7.2.2022
+MII_Periphere_Artierielle_Sauerstoffsaettigung_ICU
+Profile on Observation
+Observation
+Active
+7.2.2022
+VitalSignDE
+Profile on Observation
+Observation
+Active
+5.2.2022
+VitalSignDE_Koerpergroesse
+Profile on Observation
+Observation
+Active
+7.2.2022
+Observation - VitalSignDE - Kopfumfang
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_DeviceMetric_eingestellte_gemessene_Parameter_Beatmung
+Profile on DeviceMetric
+DeviceMetric
+Active
+7.2.2022
+MII_Arterieller_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Atemwegsdruck_Mittlerem_Expiratorischem_Gasfluss
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Atemwegsdruck_Null_Expiratorischem_Gasfluss
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Atemzugvolumen_Einstellung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Atemzugvolumen_Waehrend_Beatmung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Beatmungsvolumen_Pro_Minute_Machineller_Beatmung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Beatmungszeit_Hohem_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Beatmungszeit_niedriegem_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Blutdruck_Generisch
+Profile on Observation
+Observation
+Draft
+7.2.2022
+MII_Blutfluss_Cardiovasculaeres_Geraet
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Blutfluss_Extrakoporaler_Gasaustausch
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Blutflussindex_Extrakoporaler_Gasaustausch
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Dauer_extrakoporaler_Gasaustausch
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Dauer_Haemodialysesitzung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Druckdifferenz_Beatmung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Dynamische_Kompliance
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Eingestellter_Inspiratorischer_Gasfluss
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Einstellung_Ausatmungszeit_Beatmung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Einstellung_Einatmungszeit_Beatmung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Endexpiratorischer_Kohlendioxidpartialdruck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Exspiratorischer_Gasfluss
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Exspiratorischer_Sauerstoffpartialdruck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Haemodialyse_Blutfluss
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Herzzeitvolumen
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Horowitz_In_Arteriellem_Blut
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_ICU_Device
+Profile on Device
+Device
+Active
+7.2.2022
+MII_Ideales_Koerpergewicht
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Inspiratorischer_Gasfluss
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Intrakranieller_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Ionisiertes_Kalzium_Nierenersatzverfahren
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Koerpergewicht_Percentil_Altersabhaengig
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Koerpergroesse_Percentil
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Koerpertemperatur_Kern
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Linksatrialer_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Linksventrikulaerer_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Linksventrikulaerer_Herzindex
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Linksventrikulaerer_Herzindex_durch_Indikatorverduennung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Linksventrikulaerer_Schlagvolumenindex
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Linksventrikulaerer_Schlagvolumenindex_durch_Indikatorverduennung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Linksventrikulaeres_Herzzeitvolumen_durch_Indikatorverduennung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Linksventrikulaeres_Schlagvolumen
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Linksventrikulaeres_Schlagvolumen_durch_Indikatorverduennung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Maximaler_Beatmungsdruck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Mechanische_Atemfrequenz_Beatmet
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Mittlerer_Beatmungsdruck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Positv_Endexpiratorischer_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Pulmonalarterieller_Blutdruck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Pulmonalarterieller_Wedge_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Pulmonalvaskulaerer_Widerstandsindex
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Rechtsatrialer_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Rechtsventrikulaerer_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Sauerstofffraktion
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Sauerstofffraktion_Eingestellt
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Sauerstoffgasfluss
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Sauerstoffsaettigung_im_arteriellen_Blut_Per_Pulsoxymetrie
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Sauerstoffsaettigung_im_Blut_postduktal_durch_Pulsoxymetrie
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Sauerstoffsaettigung_im_Blut_preductal_durch_Pulsoxymetrie
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Spontane_Atemfrequenz_Beatmet
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Spontane_Mechanische_Atemfrequenz_Beatmet
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Spontanes_Atemzugvolumen
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Spontanes_Mechanisches_Atemzugvolumen_Waehrend_Beatmung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Substituatfluss
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Substituatvolumen
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Systemischer_Vaskulaerer_Widerstandsindex
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Unterstuzungsdruck_Beatmung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Venoeser_Druck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Zeitverhaeltnis_Ein_Ausatmung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Zentralvenoeser_Blutdruck
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Monitoring_und_Vitaldaten
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Parameter_von_Beatmung
+Profile on Observation
+Observation
+Active
+7.2.2022
+MII_Parameter_von_extrakorporalen_Verfahren
+Profile on Observation
