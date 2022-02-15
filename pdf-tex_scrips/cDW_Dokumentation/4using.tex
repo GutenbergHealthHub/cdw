@@ -24,7 +24,8 @@
    \section{Arbeiten mit \acs{csdwh} via ssh/psql}
    
    \begin{itemize}
-   	\item \texttt{ssh Server\_IP -l tooluser} \# Login auf dem Server
-   	\item tooluser\$ \texttt{/usr/local/pg12tde/bin/psql -p 5433 database\_name -U user\_name} \#Verbindung mit einer Datenbank der Instanz 
+   	\item \texttt{ssh Server\_IP -l server\_user} \# Login auf dem Server
+   	\item server\_user\$ \texttt{/usr/local/pg12tde/bin/psql -p 5433 database\_name -U database\_user\_name} \#Verbindung mit einer Datenbank der Instanz 
    	\item database\_name\#\texttt{\textbackslash c another\_database\_name} -- Verbindung mit anderer \ac{db}
    \end{itemize}
+In der Datenbank ist ein Benutzer \texttt{clinicuser} angelegt. Dieser ist der Administrator der Datenbank, aber nicht mit dem Benutzer \texttt{clinicuser} des Systems verwechselt.

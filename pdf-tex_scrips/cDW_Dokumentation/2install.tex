@@ -6,6 +6,16 @@
     
     Die Installation von PostgreSQL \ac{tde} Version postgresql-12.3\_TDE\_1.0 folgte dem Installation Guide Software unter dem Link  (\url{https://www.cybertec-postgresql.com/de/transparent-data-encryption-installation-guide/}). Davor wurden die notwendigen Pakete und Abhängigkeiten auf dem Ubuntu-Server via \textsf{apt} installiert:
     
+    Schritte um Paketen in Ubuntu zu installieren:
+    \begin{itemize}
+    	\item sudo apt update \# liest alle eingetragenen Paketquellen neu ein
+    	\item sudo apt list --upgradable \# List neuer Pakete
+    	\item sudo apt upgrade \#  bringt die installierten Pakete auf den neuesten in den Paketquellen verfügbaren Stand
+    	\item sudo apt install pakete\_name \# installiert pakete\_name.
+    \end{itemize}
+    
+    Liste der notwendigen Paketen und Abhängigkeiten
+    
     \begin{tabular}{ll}
     	\textsf{zlib1g-dev} & \textsf{libssl-dev} \\ 
     	\textsf{libldb-dev} & \textsf{libldap2-dev} \\
@@ -18,9 +28,11 @@
     	\textsf{libxml2-utils} & \textsf{xsltproc} \\
     \end{tabular} \\
     
-    Das Install-Kommando lautet: 
+    Das Install-Kommando für den Server lautet: 
            
     sudo ./configure --prefix=/usr/local/pg12tde --with-openssl --with-perl --with-python --with-ldap --with-libxml --with-uuid=e2fs --with-systemd\\ \\
+    
+    Wobei /user/local/pg12tde ist den Ordner, wo die Befehlen zur Steuerung der Server sich befinden.
     
     Das Start-Kommando für die Instanz lautet: 
     
@@ -35,11 +47,11 @@
     Die Dateien der \ac{tde}-Instanz befinden sich auf dem Server unter \textsf{/media/db/cdw\_database}.
     \begin{itemize}
     	\item \textsf{clinic\_instance} -- Instanz der \ac{csdwh} mit \ac{db}- und Konfigurationsdateien.
-    	\item \textsf{sh\_scripts} -- Shell-Skripts.
+    	\item \textsf{sh\_scripts} -- Shell-Skript mit Schlüssel-Manager Datei
     	\begin{itemize}
-           \item \textsf{clinic\_instance\_key.sh} -- Skript fürs Schlüssel-Manager. Der Schlüssel der Instanz ist ein \ac{md5}-Hash.
+           \item \textsf{clinic\_instance\_key.sh} -- Skript fürs Schlüssel-Manager. Der Schlüssel der Instanz wird in einem \ac{md5}-Hash umgewandelt.
     	\end{itemize}
-    	\item \textsf{dbBack} -- Täglicher Backup der ganzen Instanz. Hier werden die fünf letzten Backups der \ac{db} in verschlüsselten \ac{zip}-Dateien aufbewahrt. Die Namenskonvention für die Backup Dateien ist \textsf{staging\_YYYY-MM-TT.all.zip}.
+    	\item \textsf{dbBack} -- Täglicher Backup der ganzen Instanz. Hier werden die sieben letzten Backups der \ac{db} in verschlüsselten \ac{zip}-Dateien aufbewahrt. Die Namenskonvention für die Backup Dateien ist \textsf{staging\_YYYY-MM-TT.all.zip}.
     \end{itemize}
 
     \subsection{Konfigurationsdateien}
@@ -51,7 +63,7 @@
     	\item \textsf{encryption\_key\_command = '/media/db/cdw\_database/sh\_scripts/clinic\_instance\_key.sh'} \# Datei mit dem Schlüssel der Instanz
     \end{itemize}
 
-	In der Datei \textsf{pg\_hba.conf} wurden die Benutzer der Instanz definiert.
+	In der Datei \textsf{pg\_hba.conf} wurden die Zugangsprotokoll der Instanz definiert.
 	\begin{itemize}
 		\item \textsf{local   all     all                      scram-sha-256} \# lokale Verbindungen
 		\item \textsf{host    all             all              0.0.0.0/0         scram-sha-256} \# externe Verbindungen

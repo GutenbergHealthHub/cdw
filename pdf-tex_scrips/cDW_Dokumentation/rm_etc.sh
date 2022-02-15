@@ -1,3 +1,8 @@
 # delete extra created files
 # cd $1
-rm *.aux *.l* *.o* *.sy* *.to* *.b* *.r*
+rm *.aux 
+rm *.l* 
+rm *.o* 
+rm *.sy* 
+rm *.to* 
+rm *.gz
