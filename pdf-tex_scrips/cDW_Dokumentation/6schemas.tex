@@ -142,6 +142,7 @@ In diesem Schema behalten die Tabellen denselben Namen wie im IMAGIC-System.
 \begin{table}[ht]
 	\centering   
 	\caption{Tabellen im Schema imagic}
+	\label{tb:ima}
 	\begin{tabular}{||l|l||}   		
 		\hline
 		Tabelle & Beschreibung \\ [0.5ex]
@@ -161,8 +162,9 @@ In diesem Schema behalten die Tabellen denselben Namen wie im IMAGIC-System.
   Dieses Schema speichert die Information der Metadaten aller anderen Schemata.
   
   \subsection{Tabellen}
-  
-  \begin{longtable}{||p{6cm}|p{7.8cm}||}
+  \label{tb:metarepo}
+  \begin{longtable}{||p{5.3cm}|p{8.5cm}||}  	
+  	\caption{Tabellen in Schema metadata\_repository}\\  	
   	\hline Table & Beschreibung \\ \hline \hline
   	abschluss\_grund & Auswahlliste - Abschluss Grund (\ac{gtds}) \\ \hline
   	ann\_arbor\_allgemein & Ann-Arbor Allgemeinsymptomatik (\ac{gtds}) \\ \hline
@@ -181,30 +183,29 @@ In diesem Schema behalten die Tabellen denselben Namen wie im IMAGIC-System.
   	copra\_biosignal & Biosignalen (\ac{pdms}) \\ \hline
   	copra\_variables & Konfiguration Variablen (\ac{pdms}) \\ \hline
   	country & Länder (\ac{kis}) \\ \hline
-  	deathcause & Todesursache (\ac{kis}) \\ \hline
-  	department & Fachabteilung (\ac{kis}, \S 301 Abs. 3 \acs{sgb} V ) \\ \hline
-  	department\_prefix & Prefix der Fachabteilung (\S 301 Abs. 3 \acs{sgb} V)\\ \hline
-  	departmentkis & departmentkis\\ \hline
-  	diagnosis\_additive & diagnosis\_additive\\ \hline
-  	diagnosis\_certainty & diagnosis\_certainty\\ \hline
-  	diagnosis\_type & diagnosis\_type\\ \hline
-  	diagnosis\_type\_icd & diagnosis\_type\_icd\\ \hline
-  	diagsich\_hoechste & diagsich\_hoechste\\ \hline
-  	drg\_prozedur & drg\_prozedur\\ \hline
+  	todesursache & Todesursache (\ac{kis}) \\ \hline
+  	fachabteilung & Fachabteilung (\ac{kis}, \S 301 Abs. 3 \acs{sgb} V ) \\ \hline
+  	fachabteilung\_prefix & Prefix der Fachabteilung (\S 301 Abs. 3 \acs{sgb} V)\\ \hline
+  	diagnosenzusatz & Diagnosenzusatz (\ac{kis}) \\ \hline
+  	diag\_gewissheit & Diagnostische Gewissheit (\ac{kis}) \\ \hline
+  	diagnosis\_type & Art der Diagnose (\ac{kis}, \S 21) \\ \hline
+  	diagnosis\_type\_icd & Art der \acs{icd10gm}-Diagnose (\ac{kis}, \acs{bfarm})\\ \hline
+  	diagsich\_hoechste & Höchste Diagnosesicherung (\ac{gtds})\\ \hline
+  	drg\_prozedur & Kategorie einer DRG-Prozedur (\ac{kis})\\ \hline
   	einrichtung & Einrichtung (\ac{kis})\\ \hline
-  	einweisungs\_ueberweisungs \_nachbehandlungsart & einweisungs\_ueberweisungs \_nachbehandlungsart\\ \hline
-  	einwilligung & einwilligung\\ \hline
-  	erfassungsanlass & erfassungsanlass\\ \hline
-  	fachrichtung & fachrichtung\\ \hline
-  	fallendes & fallendes\\ \hline
-  	fallstatus & fallstatus\\ \hline
-  	falltyp & falltyp\\ \hline
-  	gender & gender\\ \hline
-  	gtds\_datenart & gtds\_datenart\\ \hline
-  	herkunft & herkunft\\ \hline
-  	histo\_diagnose & histo\_diagnose\\ \hline
-  	histo\_grading & histo\_grading\\ \hline
-  	histo\_haupt\_neben & histo\_haupt\_neben\\ \hline
+  	einweisungs\_ueberweisungs \_nachbehandlungsart & Einweisungs-, Überweisungs,- Nachbehandlungsart (\ac{kis})\\ \hline
+  	einwilligung & Einwilligung (\ac{gtds})\\ \hline
+  	erfassungsanlass & Erfassungsanlass (\ac{gtds}) \\ \hline
+  	fachrichtung & Fachrichtung (\ac{kis})\\ \hline
+  	fallendes & Art des Fallendes (\ac{kis})\\ \hline
+  	fallstatus & Fallstatus (\ac{kis})\\ \hline
+  	falltyp & Falltyp (\ac{kis})\\ \hline
+  	gender & Geschlecht (\ac{kis}, \ac{gtds}, \ac{pdms}, \S 21)\\ \hline
+  	gtds\_datenart & \ac{gtds}-Datenart (\ac{gtds})\\ \hline
+  	herkunft & Herkunft (\ac{gtds})\\ \hline
+  	histo\_diagnose & Genkennzeichnung der Auswertungsrelevanz der Histologie  (\ac{gtds})\\ \hline
+  	histo\_grading & Histologisches Grad (\ac{gtds})\\ \hline
+  	histo\_haupt\_neben & Haupt- oder Nebenhistologie (\ac{gtds})\\ \hline
   	icd & icd\\ \hline
   	icdhistory & icdhistory\\ \hline
   	inter\_status\_amb\_besu & inter\_status\_amb\_besu\\ \hline
@@ -255,6 +256,5 @@ In diesem Schema behalten die Tabellen denselben Namen wie im IMAGIC-System.
   	tumortod & tumortod\\ \hline
   	unfallart & Unfallart (\ac{kis})\\ \hline
   	units & Einheiten (\ac{kis})\\ \hline
-  	zipcode & Postleihzahl (\ac{kis})\\ \hline
-  
+  	zipcode & Postleihzahl (\ac{kis})\\ \hline  
   \end{longtable}
