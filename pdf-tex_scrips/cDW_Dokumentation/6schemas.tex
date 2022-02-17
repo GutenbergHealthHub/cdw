@@ -163,8 +163,8 @@ In diesem Schema behalten die Tabellen denselben Namen wie im IMAGIC-System.
   
   \subsection{Tabellen}
   \label{tb:metarepo}
-  \begin{longtable}{||p{5.3cm}|p{8.5cm}||}  	
-  	\caption{Tabellen in Schema metadata\_repository}\\  	
+  \begin{longtable}{||p{5.3cm}|p{9cm}||}  	
+  	\caption{Tabellen in Schema metadata\_repository} \\  	
   	\hline Table & Beschreibung \\ \hline \hline
   	abschluss\_grund & Auswahlliste - Abschluss Grund (\ac{gtds}) \\ \hline
   	ann\_arbor\_allgemein & Ann-Arbor Allgemeinsymptomatik (\ac{gtds}) \\ \hline
@@ -177,7 +177,7 @@ In diesem Schema behalten die Tabellen denselben Namen wie im IMAGIC-System.
   	behandlungsanlass & Auswahlliste - Tumor Ausprägung (\ac{gtds}) \\ \hline
   	behandlungskategorie & Behandlungskategorie (\ac{kis}) \\ \hline
   	bewegunsart & Bewegunsart (\ac{kis})\\ \hline
-  	bewegunstyp & Bewegungstyp (\ac{kis}) \\ \hline
+  	bewegungstyp & Bewegungstyp (\ac{kis}) \\ \hline
   	body\_localisation & Lokalisation im Körper (\ac{khentgg})\\ \hline
   	complication\_level & Komplication Ebene (\ac{kis}) \\ \hline
   	copra\_biosignal & Biosignalen (\ac{pdms}) \\ \hline
@@ -206,19 +206,14 @@ In diesem Schema behalten die Tabellen denselben Namen wie im IMAGIC-System.
   	histo\_diagnose & Genkennzeichnung der Auswertungsrelevanz der Histologie  (\ac{gtds})\\ \hline
   	histo\_grading & Histologisches Grad (\ac{gtds})\\ \hline
   	histo\_haupt\_neben & Haupt- oder Nebenhistologie (\ac{gtds})\\ \hline
-  	icd & icd\\ \hline
-  	icdhistory & icdhistory\\ \hline
-  	inter\_status\_amb\_besu & inter\_status\_amb\_besu\\ \hline
-  	lok\_haupt\_neben & lok\_haupt\_neben\\ \hline
-  	lok\_rezidivart & lok\_rezidivart\\ \hline
-  	lok\_seite & lok\_seite\\ \hline
-  	lokalisation & lokalisation\\ \hline
-  	movementtype & movementtype\\ \hline
-  	op\_intention & op\_intention\\ \hline
-  	operation\_katalog & operation\_katalog\\ \hline
-  	ops & ops\\ \hline
-  	opshistory & opshistory\\ \hline
-  	orgtype & orgtype\\ \hline
+  	inter\_status\_amb\_besu & Interner Status eines ambulanten Besuchs (\ac{kis})\\ \hline
+  	lok\_haupt\_neben & Kennzeichnung ob Haupt- oder Nebenlokalisation (\ac{gtds}) \\ \hline
+  	lok\_rezidivart & Art des Rezidives (\ac{gtds})\\ \hline
+  	lok\_seite & Seitenangabe zur Lokalisation (\ac{gtds}) \\ \hline
+  	lokalisation & Lokalisationsschlüssel (\ac{gtds}) \\ \hline
+  	op\_intention & Intention der Operation (\ac{gtds})\\ \hline
+  	operation\_katalog & Identifikation eines Operationsleistungskataloges (\ac{kis})\\ \hline
+  	orgtype & Typ der Organisationseinheit (\ac{kis})\\ \hline
   	p21\_admission\_cause & p21\_admission\_cause\\ \hline
   	p21\_admission\_reason & p21\_admission\_reason\\ \hline
   	p21\_admission\_reason\_1\_2 & p21\_admission\_reason\_1\_2\\ \hline
@@ -246,13 +241,11 @@ In diesem Schema behalten die Tabellen denselben Namen wie im IMAGIC-System.
   	status\_color & status\_color\\ \hline
   	status\_datenart & status\_datenart\\ \hline
   	sterbedatum\_exakt & sterbedatum\_exakt\\ \hline
-  	stornierungsgrund & stornierungsgrund\\ \hline
-  	strahlenart & strahlenart\\ \hline
-  	tmp\_icd & tmp\_icd\\ \hline
-  	tmp\_ops & tmp\_ops\\ \hline
+  	stornierungsgrund & Stornierungsgrund (\ac{kis})\\ \hline
+  	strahlenart & Strahlenart (\ac{gtds})\\ \hline
   	tn24 & tn24\\ \hline
-  	transportart & transportart\\ \hline
-  	tumorauspraegung & tumorauspraegung\\ \hline
+  	transportart & Transportart (\ac{kis})\\ \hline
+  	tumorauspraegung & Tumorausprägung (\ac{gtds}) \\ \hline
   	tumortod & tumortod\\ \hline
   	unfallart & Unfallart (\ac{kis})\\ \hline
   	units & Einheiten (\ac{kis})\\ \hline

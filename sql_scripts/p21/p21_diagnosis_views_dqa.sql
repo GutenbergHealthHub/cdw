@@ -171,6 +171,7 @@ as
 ;
 
 -- Krankheiten bestimmter Geschlechter
+drop view p21.dqa_diagnosis_geschlechter_krankheiten;
 create or replace view p21.dqa_diagnosis_geschlechter_krankheiten
 as
   select 
@@ -181,11 +182,11 @@ as
   from p21.p21_encounter pe 
   join p21.p21_diagnosis pd 
     on pe.id = pd.encounterid 
-  left join metadata_repository.icd im
-    on im.codenormal = pd.icdcode 
-  where icdcode ~'C5[1-8]|N7[0-7]|N8|N9[0-8]|^O|N99\.[2-3]|A34|Z3[2-7|9]|Z31\.[123]|Z30\.[135]'
+  join icd_metainfo.icd10gm im
+    on im.code = pd.icdcode 
+  where im.sexcode = 'W'--icdcode ~'C5[1-8]|N7[0-7]|N8|N9[0-8]|^O|N99\.[2-3]|A34|Z3[2-7|9]|Z31\.[123]|Z30\.[135]'
   and pe.gender like 'm'
-  group by icdcode, im.titel 
+  group by icdcode, im.titel
     union
   select 
     count(distinct patientid) quantity, 
@@ -195,9 +196,9 @@ as
   from p21.p21_encounter pe 
   join p21.p21_diagnosis pd 
     on pe.id = pd.encounterid 
-  left join metadata_repository.icd im
-    on im.codenormal = pd.icdcode 
-  where icdcode2 ~'C5[1-8]|N7[0-7]|N8|N9[0-8]|^O|N99\.[2-3]|A34|Z3[2-7|9]|Z31\.[123]|Z30\.[135]'
+  join icd_metainfo.icd10gm im
+    on im.code  = pd.icdcode2
+  where im.sexcode = 'W' --icdcode2 ~'C5[1-8]|N7[0-7]|N8|N9[0-8]|^O|N99\.[2-3]|A34|Z3[2-7|9]|Z31\.[123]|Z30\.[135]'
   and pe.gender like 'm'
   group by icdcode2, im.titel
     union 
@@ -209,9 +210,9 @@ as
   from p21.p21_encounter pe 
   join p21.p21_diagnosis pd 
     on pe.id = pd.encounterid 
-  left join metadata_repository.icd ifr
-    on ifr.codenormal = pd.icdcode 
-  where icdcode ~'C6[0-3]|N4[0-9]|N5[0-1]|D29|D07\.[4-5]'
+  left join icd_metainfo.icd10gm ifr
+    on ifr.code = pd.icdcode 
+  where ifr.sexcode = 'M' --icdcode ~'C6[0-3]|N4[0-9]|N5[0-1]|D29|D07\.[4-5]'
   and pe.gender like 'w'
   group by icdcode, ifr.titel 
     union
@@ -223,12 +224,12 @@ as
   from p21.p21_encounter pe 
   join p21.p21_diagnosis pd 
     on pe.id = pd.encounterid 
-  left join metadata_repository.icd ifr
-    on ifr.codenormal = pd.icdcode 
-  where icdcode2 ~'C6[0-3]|N4[0-9]|N5[0-1]|D29|D07\.[4-5]'
+  join icd_metainfo.icd10gm ifr
+    on ifr.code = pd.icdcode2 
+  where ifr.sexcode = 'M'--icdcode2 ~'C6[0-3]|N4[0-9]|N5[0-1]|D29|D07\.[4-5]'
   and pe.gender like 'w'
   group by icdcode2, ifr.titel
-    union 
+    union
   select 
     count(distinct patientid), 
     'divers_unbekannt_null',
@@ -237,12 +238,12 @@ as
   from p21.p21_encounter pe 
   join p21.p21_diagnosis pd 
     on pe.id = pd.encounterid 
-  left join metadata_repository.icd ifr
-    on ifr.codenormal = pd.icdcode 
-  where icdcode ~'C5[1-8]|N7[0-7]|N8|N9[0-8]|^O|N99\.[2-3]|A34|Z3[2-7|9]|Z31\.[123]|Z30\.[135]|C6[0-3]|N4[0-9]|N5[0-1]|D29|D07\.[4-5]'
+  join icd_metainfo.icd10gm ifr
+    on ifr.code = pd.icdcode 
+  where ifr.sexcode in ('M', 'W') --icdcode ~'C5[1-8]|N7[0-7]|N8|N9[0-8]|^O|N99\.[2-3]|A34|Z3[2-7|9]|Z31\.[123]|Z30\.[135]|C6[0-3]|N4[0-9]|N5[0-1]|D29|D07\.[4-5]'
   and pe.gender not in ('w', 'm') 
   group by icdcode, ifr.titel
-    union 
+    union
   select 
     count(distinct patientid), 
     'divers_unbekannt_null',
@@ -251,9 +252,9 @@ as
   from p21.p21_encounter pe 
   join p21.p21_diagnosis pd 
     on pe.id = pd.encounterid 
-  left join metadata_repository.icd ifr
-    on ifr.codenormal = pd.icdcode 
-  where icdcode2 ~'C5[1-8]|N7[0-7]|N8|N9[0-8]|^O|N99\.[2-3]|A34|Z3[2-7|9]|Z31\.[123]|Z30\.[135]|C6[0-3]|N4[0-9]|N5[0-1]|D29|D07\.[4-5]'
+  left join icd_metainfo.icd10gm ifr
+    on ifr.code = pd.icdcode2 
+  where ifr.sexcode in ('M', 'W') --icdcode2 ~'C5[1-8]|N7[0-7]|N8|N9[0-8]|^O|N99\.[2-3]|A34|Z3[2-7|9]|Z31\.[123]|Z30\.[135]|C6[0-3]|N4[0-9]|N5[0-1]|D29|D07\.[4-5]'
   and pe.gender not in ('w', 'm') 
   group by icdcode2, ifr.titel
   order by quantity desc

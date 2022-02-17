@@ -162,9 +162,9 @@ create or replace view gtds.problems
       'Wert: '||icd10||' - Keine oder ungültig Angabe' problem_beschreibung, 
       ad.* 
     from gtds.auswertung_diz ad
-    left join metadata_repository.icd i 
-      on ad.icd10 = i.codenormal 
-    where i.codenormal isnull or ad.icd10 isnull
+    left join icd_metainfo.icd10gm i 
+      on ad.icd10 = i.normcode
+    where i.normcode isnull or ad.icd10 isnull
       union
     select 
       'lokalisation' problem, 
@@ -433,9 +433,9 @@ create or replace view gtds.problems
       'Wert: '||ad.op_schluessel||' - Ungültige Angabe' problem_beschreibung,
       ad.* 
     from gtds.auswertung_diz ad 
-    left join metadata_repository.ops o
-      on ad.op_schluessel = o.code 
-    where op_schluessel notnull and anzahl_operationen > 0 and o.code isnull and op_schluessel not like ''
+    left join ops_metainfo.ops o
+      on ad.op_schluessel = o.kode 
+    where op_schluessel notnull and anzahl_operationen > 0 and o.kode isnull and op_schluessel not like ''
       union
     select 
       'op_schluessel_auflage' problem, 
@@ -1345,4 +1345,7 @@ create or replace view gtds.problems
     from gtds.auswertung_diz 
     where sekmetloks ...*/
 ;
+
+
+
 
