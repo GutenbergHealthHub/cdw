@@ -163,91 +163,86 @@ In diesem Schema behalten die Tabellen denselben Namen wie im IMAGIC-System.
   
   \subsection{Tabellen}
   \label{tb:metarepo}
-  \begin{longtable}{||p{5.3cm}|p{9cm}||}  	
+  \begin{longtable}{||p{5cm}|p{7cm}|p{4cm}||}  	
   	\caption{Tabellen in Schema metadata\_repository} \\  	
-  	\hline Table & Beschreibung \\ \hline \hline
-  	abschluss\_grund & Auswahlliste - Abschluss Grund (\ac{gtds}) \\ \hline
-  	ann\_arbor\_allgemein & Ann-Arbor Allgemeinsymptomatik (\ac{gtds}) \\ \hline
-  	ann\_arbor\_extra & Ann-Arbor extralymphatischer Befall (\ac{gtds}) \\ \hline
-  	ann\_arbor\_stadium & Auswahlliste - Ann-Arbor Stadium (\ac{gtds}) \\ \hline
-  	applikationsart & Applikationsart der (Teil-)Bestrahlung (\ac{gtds}) \\ \hline
-  	applikationstechnik & Applikationstechnik der (Teil-)Bestrahlung\\ \hline
-  	arzt\_anlass & Auswahlliste - Arzt Anlass (\ac{gtds})\\ \hline
-  	autopsie & Autopsie (\ac{gtds}) \\ \hline
-  	behandlungsanlass & Auswahlliste - Tumor Ausprägung (\ac{gtds}) \\ \hline
-  	behandlungskategorie & Behandlungskategorie (\ac{kis}) \\ \hline
-  	bewegunsart & Bewegunsart (\ac{kis})\\ \hline
-  	bewegungstyp & Bewegungstyp (\ac{kis}) \\ \hline
-  	body\_localisation & Lokalisation im Körper (\ac{khentgg})\\ \hline
-  	complication\_level & Komplication Ebene (\ac{kis}) \\ \hline
-  	copra\_biosignal & Biosignalen (\ac{pdms}) \\ \hline
-  	copra\_variables & Konfiguration Variablen (\ac{pdms}) \\ \hline
-  	country & Länder (\ac{kis}) \\ \hline
-  	todesursache & Todesursache (\ac{kis}) \\ \hline
-  	fachabteilung & Fachabteilung (\ac{kis}, \S 301 Abs. 3 \acs{sgb} V ) \\ \hline
-  	fachabteilung\_prefix & Prefix der Fachabteilung (\S 301 Abs. 3 \acs{sgb} V)\\ \hline
-  	diagnosenzusatz & Diagnosenzusatz (\ac{kis}) \\ \hline
-  	diag\_gewissheit & Diagnostische Gewissheit (\ac{kis}) \\ \hline
-  	diagnosis\_type & Art der Diagnose (\ac{kis}, \S 21) \\ \hline
-  	diagnosis\_type\_icd & Art der \acs{icd10gm}-Diagnose (\ac{kis}, \acs{bfarm})\\ \hline
-  	diagsich\_hoechste & Höchste Diagnosesicherung (\ac{gtds})\\ \hline
-  	drg\_prozedur & Kategorie einer DRG-Prozedur (\ac{kis})\\ \hline
-  	einrichtung & Einrichtung (\ac{kis})\\ \hline
-  	einweisungs\_ueberweisungs \_nachbehandlungsart & Einweisungs-, Überweisungs,- Nachbehandlungsart (\ac{kis})\\ \hline
-  	einwilligung & Einwilligung (\ac{gtds})\\ \hline
-  	erfassungsanlass & Erfassungsanlass (\ac{gtds}) \\ \hline
-  	fachrichtung & Fachrichtung (\ac{kis})\\ \hline
-  	fallendes & Art des Fallendes (\ac{kis})\\ \hline
-  	fallstatus & Fallstatus (\ac{kis})\\ \hline
-  	falltyp & Falltyp (\ac{kis})\\ \hline
-  	gender & Geschlecht (\ac{kis}, \ac{gtds}, \ac{pdms}, \S 21)\\ \hline
-  	gtds\_datenart & \ac{gtds}-Datenart (\ac{gtds})\\ \hline
-  	herkunft & Herkunft (\ac{gtds})\\ \hline
-  	histo\_diagnose & Genkennzeichnung der Auswertungsrelevanz der Histologie  (\ac{gtds})\\ \hline
-  	histo\_grading & Histologisches Grad (\ac{gtds})\\ \hline
-  	histo\_haupt\_neben & Haupt- oder Nebenhistologie (\ac{gtds})\\ \hline
-  	inter\_status\_amb\_besu & Interner Status eines ambulanten Besuchs (\ac{kis})\\ \hline
-  	lok\_haupt\_neben & Kennzeichnung ob Haupt- oder Nebenlokalisation (\ac{gtds}) \\ \hline
-  	lok\_rezidivart & Art des Rezidives (\ac{gtds})\\ \hline
-  	lok\_seite & Seitenangabe zur Lokalisation (\ac{gtds}) \\ \hline
-  	lokalisation & Lokalisationsschlüssel (\ac{gtds}) \\ \hline
-  	op\_intention & Intention der Operation (\ac{gtds})\\ \hline
-  	operation\_katalog & Identifikation eines Operationsleistungskataloges (\ac{kis})\\ \hline
-  	orgtype & Typ der Organisationseinheit (\ac{kis})\\ \hline
-  	p21\_admission\_cause & p21\_admission\_cause\\ \hline
-  	p21\_admission\_reason & p21\_admission\_reason\\ \hline
-  	p21\_admission\_reason\_1\_2 & p21\_admission\_reason\_1\_2\\ \hline
-  	p21\_admission\_reason\_3 & p21\_admission\_reason\_3\\ \hline
-  	p21\_admission\_reason\_4 & p21\_admission\_reason\_4\\ \hline
-  	p21\_admission\_reason\_tmp & p21\_admission\_reason\_tmp\\ \hline
-  	p21\_department & p21\_department\\ \hline
-  	p21\_department\_code\_mean & p21\_department\_code\_mean\\ \hline
-  	p21\_department\_prefix & p21\_department\_prefix\\ \hline
-  	p21\_discharge & p21\_discharge\\ \hline
-  	p21\_merging\_reason & p21\_merging\_reason\\ \hline
-  	p21\_remission\_reason & p21\_remission\_reason\\ \hline
-  	p21\_remission\_relocation\_1\_2 & p21\_remission\_relocation\_1\_2\\ \hline
-  	p21\_remission\_relocation\_3 & p21\_remission\_relocation\_3\\ \hline
-  	p21\_remuneration\_area & p21\_remuneration\_area\\ \hline
-  	protokoll\_typ & protokoll\_typ\\ \hline
-  	prozedur\_typ & prozedur\_typ\\ \hline
-  	pupille\_reaction & pupille\_reaction\\ \hline
-  	pupille\_width & pupille\_width\\ \hline
-  	r\_klassifikation & r\_klassifikation\\ \hline
-  	release\_version & release\_version\\ \hline
-  	rezidiv & rezidiv\\ \hline
-  	sources & System- Datenquellen\\ \hline
-  	status & status\\ \hline
-  	status\_color & status\_color\\ \hline
-  	status\_datenart & status\_datenart\\ \hline
-  	sterbedatum\_exakt & sterbedatum\_exakt\\ \hline
-  	stornierungsgrund & Stornierungsgrund (\ac{kis})\\ \hline
-  	strahlenart & Strahlenart (\ac{gtds})\\ \hline
-  	tn24 & tn24\\ \hline
-  	transportart & Transportart (\ac{kis})\\ \hline
-  	tumorauspraegung & Tumorausprägung (\ac{gtds}) \\ \hline
-  	tumortod & tumortod\\ \hline
-  	unfallart & Unfallart (\ac{kis})\\ \hline
-  	units & Einheiten (\ac{kis})\\ \hline
-  	zipcode & Postleihzahl (\ac{kis})\\ \hline  
+  	\hline Table & Beschreibung & Schemata/Quellen\\ \hline \hline
+  	abschluss\_grund & Auswahlliste - Abschluss Grund & \ac{gtds} \\ \hline
+  	ann\_arbor\_allgemein & Ann-Arbor Allgemeinsymptomatik & \ac{gtds} \\ \hline
+  	ann\_arbor\_extra & Ann-Arbor extralymphatischer Befall &  \ac{gtds} \\ \hline
+  	ann\_arbor\_stadium & Auswahlliste - Ann-Arbor Stadium & \ac{gtds} \\ \hline
+  	applikationsart & Applikationsart der (Teil-)Bestrahlung & \ac{gtds} \\ \hline
+  	applikationstechnik & Applikationstechnik der (Teil-)Bestrahlung & \ac{gtds} \\ \hline
+  	arzt\_anlass & Auswahlliste - Arzt Anlass & \ac{gtds}\\ \hline
+  	autopsie & Autopsie & \ac{gtds} \\ \hline
+  	behandlungsanlass & Auswahlliste - Tumor Ausprägung & \ac{gtds} \\ \hline
+  	behandlungskategorie & Behandlungskategorie & \ac{kis} \\ \hline
+  	bewegunsart & Bewegunsart  & \ac{kis} \\ \hline
+  	bewegungstyp & Bewegungstyp  & \ac{kis} \\ \hline
+  	body\_localisation & Lokalisation im Körper & \S 21 \ac{khentgg} \\ \hline
+  	complication\_level & Komplication Ebene & \ac{kis} \\ \hline
+  	copra\_biosignal & Biosignalen & \ac{pdms} \\ \hline
+  	copra\_variables & Konfiguration Variablen & \ac{pdms} \\ \hline
+  	country & Länder & \ac{kis} \\ \hline
+  	todesursache & Todesursache & \ac{kis} \\ \hline
+  	fachabteilung & Fachabteilung & \ac{kis}, \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	fachabteilung\_prefix & Präfix der Fachabteilung  & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg}  \\ \hline
+  	diagnosenzusatz & Diagnosenzusatz & \ac{kis} \\ \hline
+  	diag\_gewissheit & Diagnostische Gewissheit & \ac{kis} \\ \hline
+  	diagnosis\_type & Art der Diagnose & \ac{kis}, \S 21 \ac{khentgg} \\ \hline
+  	diagnosis\_type\_icd & Art der \acs{icd10gm}-Diagnose & \ac{kis}, \acs{bfarm} \\ \hline
+  	diagsich\_hoechste & Höchste Diagnosesicherung & \ac{gtds} \\ \hline
+  	drg\_prozedur & Kategorie einer DRG-Prozedur & \ac{kis} \\ \hline
+  	einrichtung & Einrichtung & \ac{kis} \\ \hline
+  	einweisungs\_ueberweisungs \_nachbehandlungsart & Einweisungs-, Überweisungs,- Nachbehandlungsart & \ac{kis}\\ \hline
+  	einwilligung & Einwilligung & \ac{gtds}\\ \hline
+  	erfassungsanlass & Erfassungsanlass & \ac{gtds} \\ \hline
+  	fachrichtung & Fachrichtung & \ac{kis} \\ \hline
+  	fallendes & Art des Fallendes & \ac{kis} \\ \hline
+  	fallstatus & Fallstatus & \ac{kis} \\ \hline
+  	falltyp & Falltyp & \ac{kis} \\ \hline
+  	gender & Geschlecht & \ac{kis}, \ac{gtds}, \ac{pdms}, \S 21 \ac{khentgg} \\ \hline
+  	gtds\_datenart & \ac{gtds}-Datenart & \ac{gtds} \\ \hline
+  	herkunft & Herkunft & \ac{gtds} \\ \hline
+  	histo\_diagnose & Genkennzeichnung der Auswertungsrelevanz der Histologie & \ac{gtds} \\ \hline
+  	histo\_grading & Histologisches Grad & \ac{gtds} \\ \hline
+  	histo\_haupt\_neben & Haupt- oder Nebenhistologie & \ac{gtds} \\ \hline
+  	inter\_status\_amb\_besu & Interner Status eines ambulanten Besuchs & \ac{kis} \\ \hline
+  	lok\_haupt\_neben & Kennzeichnung ob Haupt- oder Nebenlokalisation & \ac{gtds} \\ \hline
+  	lok\_rezidivart & Art des Rezidives & \ac{gtds} \\ \hline
+  	lok\_seite & Seitenangabe zur Lokalisation & \ac{gtds} \\ \hline
+  	lokalisation & Lokalisationsschlüssel & \ac{gtds} \\ \hline
+  	op\_intention & Intention der Operation & \ac{gtds} \\ \hline
+  	operation\_katalog & Identifikation eines Operationsleistungskataloges & \ac{kis} \\ \hline
+  	orgtype & Typ der Organisationseinheit & \ac{kis} \\ \hline
+  	p21\_admission\_cause & Aufnahmeanlass & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	p21\_admission\_reason & Aufnahmegrund & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	p21\_admission\_reason\_1\_2 & Aufnahmegrund 1. und 2. Stellen & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg}\\ \hline
+  	p21\_admission\_reason\_3 & Aufnahmegrund 3. Stelle & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	p21\_admission\_reason\_4 & Aufnahmegrund 4. Stelle & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	p21\_department & Fachabteilung & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	p21\_department\_code\_mean & Bedeutung der Ziffer im Code der Fachabteilungen & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+   	p21\_merging\_reason & Fallzusammenführungsgrund & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	p21\_remission\_reason & Entlassungs-/Verlegungsgrund & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	p21\_remission\_reason\_1\_2 & Entlassungs-/Verlegungsgrund 1. und 2. Stellen & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	p21\_remission\_reason\_3 & Entlassungs-/Verlegungsgrund 3. Stelle & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	p21\_remuneration\_area & Entgeltbereich & \S 301 Abs. 3 \acs{sgb} V, \S 21 \ac{khentgg} \\ \hline
+  	protokoll\_typ & Protokoll-Typ & \ac{gtds}\\ \hline
+  	prozedur\_typ & Prozedurtyp & \ac{kis}\\ \hline
+  	pupille\_reaction & Reaktion der Pupille & \ac{pdms}, \acsu{aktin}-Projekt \\ \hline
+  	pupille\_width & Erweiterung der Pupille & \ac{pdms}, \acs{aktin}-Projekt \\ \hline
+  	r\_klassifikation & R Klassifikation & \ac{gtds} \\ \hline
+  	rezidiv & Rezidiv & \ac{gtds}\\ \hline
+  	sources & Information der System- Datenquellen & System- Datenquellen\\ \hline
+  	status\_color & Status Farbe & \ac{pdms}, \acs{aktin}-Projekt \\ \hline
+  	status\_datenart & \ac{gtds}-Datenart zu einer Status & \ac{gtds} \\ \hline
+  	sterbedatum\_exakt & sterbedatum\_exakt & \\ \hline
+  	stornierungsgrund & Stornierungsgrund & \ac{kis}\\ \hline
+  	strahlenart & Strahlenart & \ac{gtds} \\ \hline
+  	tn24 & Tabelle TN24 in \ac{kis} (\acsu{ish}: Behandlungskategorien) & \ac{kis} \\ \hline
+  	transportart & Transportart & \ac{kis} \\ \hline
+  	tumorauspraegung & Tumorausprägung & \ac{gtds} \\ \hline
+  	tumortod & Tumortod & \ac{gtds} \\ \hline
+  	unfallart & Unfallart & \ac{kis} \\ \hline
+  	units & Einheiten & \ac{kis} \\ \hline
+  	zipcode & Postleihzahl & \ac{kis} \\ \hline  
   \end{longtable}

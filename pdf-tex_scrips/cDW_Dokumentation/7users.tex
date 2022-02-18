@@ -1,14 +1,14 @@
 \chapter{Benutzer}
 \label{ch: usr}
 
-Das \ac{csdwh} hat auch verschiedene Benutzer mit unterschiedlichen Aufgaben.
+Der Benutzer clinicuser ist der Administrator der Server. Jede Schema hat mindesten ein Benutzer, einer davon darf lesen und Operationen der Insertion, Modifikation, und Löschen/Truncate durchführen. Momentan hat das System ein Benutzer (onlyreader), der nur Lesen-Zugriff in allen Schemata hat. 
 
 \begin{table}[ht]
 	\centering   
 	\caption{Benutzer im \ac{csdwh}}
 	\begin{tabular}{||l|l|p{3.4cm}|l||}
 		\hline
-		Benutzer & Schema & Berechtigungen & Anwendung\\ [0.5ex]
+		Benutzer & Schema & Berechtigungen & Anwendung\\ 
 		\hline\hline
 		\texttt{centrallabcdwuser} & \texttt{centrallab} & \texttt{select, insert, update, delete, truncate} & - \\
 		\hline
