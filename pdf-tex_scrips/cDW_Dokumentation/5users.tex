@@ -1,0 +1,15 @@
+\chapter{Benutzer \& Zugang} \label{ch:usr}
+
+Die PostgreSOL-Instanz des \ac{csdwh} hat einen Administrator, der keine administrative Rechte auf dem Server besitzt. Die Instanz hat verschiedene Benutzer mit unterschiedlichen Aufgaben. Dadurch das System unterschiedliche Schemas und zwei \ac{db} besitzt, nämlich für Testen und Produktion, werden die Benutzer von jeder \ac{db} getrennt. Das bedeutet, dass die Benutzer beider Systeme nicht dieselbe sind. 
+
+Als Benutzernamen in dem \ac{csdwh} werden dieselbe Kürzel wie an der \ac{um} in dem produktiven System und mit dem Suffix \texttt{\_test} in dem Testsystem benutzt. Die Benutzernamen in dem \ac{csdwh} werden wie folgt definiert:
+\begin{itemize}
+	\item Produktives System: \texttt{Kürzel}. z.B. \texttt{her11a}
+	\item Testsystem: \texttt{Kürzel\_test}. z.B. \texttt{her11a\_test}
+\end{itemize}
+
+Die Datenlieferanten haben nur Zugriffsrechte zu ihren Schemas. Dazu können sie in dem Testsystem Tabellen und Sichten kreieren, ändern und löschen, und Daten einfügen, lesen, ändern und löschen. In der Zeit der Umsetzung eines Schemas auf dem produktiven System dürfen die Datenlieferanten auch Tabellen oder Sichten kreieren, ändern und löschen. Nach dieser Zeit dürfen die Datenlieferanten keine strukturelle Änderungen mehr in dem zugewiesenen Schemas übernehmen. In dem produktiven Systemen dürfen die Datenlieferanten weiter Daten einfügen und lesen.
+
+Der Zugang zu dem \ac{csdwh} und dessen Verschlüsselung werden technisch auf die höchste Stufe gesetzt.
+
+Um mit der Daten des \ac{csdwh} zu arbeiten, sollten die Personen oder Anwendungen via \ac{uac} eine Genehmigung für Lesezugriff beantragen.

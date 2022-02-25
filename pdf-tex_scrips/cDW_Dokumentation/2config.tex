@@ -1,0 +1,7 @@
+\chapter{Konfiguration der Instanz des \acs{csdwh}}
+    
+    Das \ac{csdwh}, welches die Forschungsdaten beinhaltet, wird sich in einem Linux Server im klinik-Netz mit der letzten, stabilen Ubuntu Version (\ac{lts}) befinden. Diese \ac{db} wird in PostgreSQL implementiert und administriert.  
+    
+    Auf dem Server wird ein Benutzer ohne administrative rechte auf dem Betriebssystem angelegt. Dieser ist für die Administration der \ac{db}-Instanz vorgesehen.
+    
+    Das \ac{csdwh} besitzt zwei strukturell gleiche \ac{db}, \texttt{staging} für die Produktion und \texttt{staging\_test} zum testen. Die \ac{db} sind in verschiedenen Schemata geteilt, jede davon entspricht eine Quelle, Zusammenfassung von Systemen oder Anwendung. Die Information der Schemata liegt in Kapitel~\ref{ch:schema}.
