@@ -1,30 +1,30 @@
-\chapter{Schemas}
+\chapter{Schemata}
 \label{ch:schema}
 
-	Die Schemata speichern die "rohe" \textbf{pseudonymisierte} Information der ursprünglichen Systeme oder die Metadaten. Diese Daten werden in Tabellen gespeichert. Wichtige Hinweis ist, dass die Daten in dem \ac{csdwh} unverändert bleiben sollen. Deswegen werden (materialisierten) Sichten für weitere Uses Cases bereitgestellt. 
+	Die Schemata speichern die "rohe" \textbf{pseudonymisierte} Information der ursprünglichen Systeme oder die Metadaten. Diese Daten werden in Tabellen gespeichert. Wichtige Hinweis ist, dass die Daten in dem \ac{csdwh} unverändert bleiben sollen. Deswegen werden (materialisierte) Sichten für weitere Uses Cases bereitgestellt. 
 
   \section{p21} \label{sc:p21}
-  Dieses Schema speichert die jährliche Information der \S21, die von Medizincontrolling generiert wird. 
+  Dieses Schema speichert die jährliche Information der \S21, die durch das Medizincontrolling generiert wird. 
   
-  Der jährliche Rhythmus ist zu groß, als dass die Daten bspw. zur Rekrutierung von Patienten für Studien aber auch zu Forschung genutzt werden können. Auf diesem Grund wird diese Information in näherer Zukunft nicht mehr von Medizincontrolling genommen, sondern direkt aus dem \ac{kis}.
+  Der jährliche Rhythmus ist zu groß, als dass die Daten bspw. zur Rekrutierung von Patienten für Studien aber auch zu Forschung genutzt werden können. Aus diesem Grund wird diese Information in näherer Zukunft nicht mehr vom Medizincontrolling genommen, sondern direkt aus den Daten des \ac{kiss}.
   
-  In diesem Schema befinden sich auch die Sichten für \ac{etl}-Prozessen die, solche Information aus \S21 benötigen. Der Inhalt dieser Sichten entspricht die Formatierung der \ac{khentgg} \S 21 Übermittlung und Nutzung der Daten.
+  In diesem Schema befinden sich auch die Sichten für \ac{etl}-Prozessen, die solche Informationen aus \S21 benötigen. Der Inhalt dieser Sichten entspricht der Formatierung des \ac{khentgg} \S 21 Übermittlung und Nutzung der Daten.
 
   \section{kis} \label{sc:kis}
-   Hier werden die tagesaktuellen extrahierten Daten zu Patienten, Fällen, Bewegungen, Diagnosen und Prozeduren direkt aus dem Quellsystem \ac{kis} gespeichert. Mit Hilfe diesem Schema lassen sich viele der Abbildungen für weitere Projekte realisieren.
+   Hier werden die tagesaktuellen extrahierten Daten zu Patienten, Fällen, Bewegungen, Diagnosen und Prozeduren direkt aus dem Quellsystem \ac{kis} gespeichert. Mit diesem Daten lassen sich viele der Abbildungen für weitere Projekte realisieren.
   
   \section{copra} \label{sc:copra}
   Hier wird die tagesaktuelle Information aus \ac{pdms}, in unserm Fall das COPRA-System, gespeichert. Dieses Schema beinhaltet Biosignalparameter, Befunde, ärztliche Anweisungen und Überblick über Behandlungsschritte.
 
 
   \section{gtds} \label{sc:gtds}
-  Dieses Schema speichert die Daten der mainzenen Instanz des \acf{gtds} und somit die Erfassung und Verarbeitung der Daten der revidierten Basisdokumentation klinischen Krebsregistern.
+  Dieses Schema speichert die Daten der Instanz von der \ac{um} des \acf{gtdss} und somit die Erfassung und Verarbeitung der Daten der revidierten Basisdokumentation klinischen Krebsregistern.
 
   	\section{centrallab} \label{sc:centrallab}
-  Dieses Schema dient die Speicherung der Daten aus dem Zentrallabor (Institut für Klinische Chemie und Laboratoriumsmedizin) gespeichert.
+  Dieses Schema dient die Speicherung der Daten aus dem Zentrallabor (Institut für Klinische Chemie und Laboratoriumsmedizin).
 
 	\section{imagic} \label{sc:imagic}
-	Hier wird die Information aus dem IMAGIC-System gespeichert. Dieses Schema beinhaltet Information aus der Hautklinik. Davon Metadaten der Bilder sowie Befunde anhand der Bilder.
+	Hier wird die Information aus dem IMAGIC-System gespeichert. Dieses Schema beinhaltet Information aus der Hautklinik. Darunter befinden sich Metadaten der Bilder sowie Befunde anhand der Bilder.
 
 	\section{metadata\_repository} \label{sc:metadata}
  	Dieses Schema speichert die Information der Metadaten aller anderen Schemata.
