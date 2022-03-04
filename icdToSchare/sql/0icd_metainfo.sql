@@ -29,13 +29,13 @@ CREATE TABLE icd_metainfo.MorbL (
 );
 
 CREATE TABLE icd_metainfo.MortL1Grp (
-      MortL1GrpCode VARCHAR(6) PRIMARY KEY,
+      MortL1GrpCode VARCHAR(12) PRIMARY KEY,
       MortL1GrpTi   VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE icd_metainfo.MortL1 (
-      MortL1Code     VARCHAR(6) PRIMARY KEY,
-      MortL1GrpCode  VARCHAR(6) REFERENCES icd_metainfo.MortL1Grp(MortL1GrpCode),
+      MortL1Code     VARCHAR(12) PRIMARY KEY,
+      MortL1GrpCode  VARCHAR(12) REFERENCES icd_metainfo.MortL1Grp(MortL1GrpCode),
       MortL1Ti       VARCHAR(255) NOT NULL
 );
 
@@ -45,13 +45,13 @@ CREATE TABLE icd_metainfo.MortL2 (
 );
 
 CREATE TABLE icd_metainfo.MortL3Grp (
-      MortL3GrpCode VARCHAR(6) PRIMARY KEY,
+      MortL3GrpCode VARCHAR(12) PRIMARY KEY,
       MortL3GrpTi   VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE icd_metainfo.MortL3 (
-      MortL3Code     VARCHAR(6) PRIMARY KEY,
-      MortL3GrpCode  VARCHAR(6) REFERENCES icd_metainfo.MortL3Grp(MortL3GrpCode),
+      MortL3Code     VARCHAR(12) PRIMARY KEY,
+      MortL3GrpCode  VARCHAR(12) REFERENCES icd_metainfo.MortL3Grp(MortL3GrpCode),
       MortL3Ti       VARCHAR(255) NOT NULL
 );
 
