@@ -1,0 +1,36 @@
+\babel@toc {ngerman}{}
+\contentsline {chapter}{\numberline {1}Dokumentationsinformationen}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Beteiligte Personen und Status}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Änderungshistorie}{5}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Einführung}{6}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Installation und Konfiguration der Instanz des \acs {csdwh}}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}\acs {tde}-Installation}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}\acs {tde}-Konfiguration}{8}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}\acs {tde}-Instanz-Dateien}{8}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Konfigurationsdateien}{9}{subsection.3.2.2}%
+\contentsline {chapter}{\numberline {4}Nutzung}{10}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Start die \acs {db}}{10}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Arbeiten mit \acs {csdwh} via ssh/psql}{11}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Struktur des \acs {csdwh}}{12}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Beschreibung}{12}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Liste der vorhandenen Schemata}{12}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Backup}{14}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Konzept}{14}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Technische Aspekte}{14}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Schemata}{15}{chapter.7}%
+\contentsline {section}{\numberline {7.1}p21}{15}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Tabellen}{15}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Views für Tools}{16}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}kis}{16}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}Tabellen}{16}{subsection.7.2.1}%
+\contentsline {section}{\numberline {7.3}\ac {pdms}}{17}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Tabellen}{17}{subsection.7.3.1}%
+\contentsline {section}{\numberline {7.4}gtds}{17}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Tabellen}{17}{subsection.7.4.1}%
+\contentsline {section}{\numberline {7.5}centrallab}{18}{section.7.5}%
+\contentsline {subsection}{\numberline {7.5.1}Tabellen}{18}{subsection.7.5.1}%
+\contentsline {section}{\numberline {7.6}imagic}{18}{section.7.6}%
+\contentsline {subsection}{\numberline {7.6.1}Tabellen}{18}{subsection.7.6.1}%
+\contentsline {section}{\numberline {7.7}metadata\_repository}{18}{section.7.7}%
+\contentsline {subsection}{\numberline {7.7.1}Tabellen}{19}{subsection.7.7.1}%
+\contentsline {chapter}{\numberline {8}Benutzer}{22}{chapter.8}%

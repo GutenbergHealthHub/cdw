@@ -6,7 +6,7 @@
 	   	\item Die Partition der Instanz sollte automatisch gemountet werden, da es in fstab konfiguriert ist. Falls die Partition nicht gemountet ist, sollte man die folgende Schritte durchführen:
 	   	\begin{itemize}
 	   	 \item cdw\$ \texttt{lsblk} \# Überprüfen ob die Partition /dev/sdb1 gemountet ist.
-	   	 \item cdw\$ \texttt{sudo mount /dev/sdb1 /media/db} \#Falls die Partition /dev/sdb1 nicht gemountet ist
+	   	 \item cdw\$ \texttt{sudo mount /dev/sda1 /media/db} \#Falls die Partition /dev/sdb1 nicht gemountet ist
 	   	\end{itemize}	   	  
 	   	\item Die PostgreSQL-Instanz startet automatisch nach 100 Sekunden nach jedem Neu Start des Servers, da das Script zum Starten via cron-daemon abgerufen wird:
 	   	\begin{itemize}
@@ -18,14 +18,14 @@
 	   	\begin{itemize}
 	   		\item cdw\$ \texttt{sudo su - clinicuser} \#Benutzer ändern
 	   		\item clinicuser\$ \texttt{cd /media/db/database} \# Gehe zum Ordner der  Instanz
-	   	    \item clinicuser\$ \texttt{/usr/local/pg12tde/bin/pg\_ctl -D clinic\_instance  restart} \#(Re)Start die Instanz
+	   	    \item clinicuser\$ \texttt{/usr/local/pg14tde/bin/pg\_ctl -D clinic\_instance  restart} \#(Re)Start die Instanz
 	   	\end{itemize}
 	   \end{itemize}
    \section{Arbeiten mit \acs{csdwh} via ssh/psql}
    
    \begin{itemize}
    	\item \texttt{ssh Server\_IP -l server\_user} \# Login auf dem Server
-   	\item server\_user\$ \texttt{/usr/local/pg12tde/bin/psql -p 5433 database\_name -U database\_user\_name} \#Verbindung mit einer Datenbank der Instanz 
+   	\item server\_user\$ \texttt{/usr/local/pg14tde/bin/psql -p 5433 database\_name -U database\_user\_name} \#Verbindung mit einer Datenbank der Instanz 
    	\item database\_name\#\texttt{\textbackslash c another\_database\_name} -- Verbindung mit anderer \ac{db}
    \end{itemize}
 In der Datenbank ist ein Benutzer \texttt{clinicuser} angelegt. Dieser ist der Administrator der Datenbank, aber nicht mit dem Benutzer \texttt{clinicuser} des Systems verwechselt.

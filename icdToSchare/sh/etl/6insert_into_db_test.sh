@@ -27,11 +27,13 @@ for trunc in mortl4 mortl3 mortl3grp mortl2 mortl1 mortl1grp morbl gruppen kapit
 done
 
 # Insert into metadata tables
-for meta in kapitel gruppen morbl mortl1grp mortl1 mortl2 mortl3grp mortl3 mortl4; do
+for meta in kapitel gruppen morbl mortl1grp mortl1_ mortl2 mortl3grp mortl3_ mortl4; do
   for fileMeta in `ls -1 $metadata`; do
     if [[ $fileMeta =~ $meta ]];then
-       #echo "/usr/local/pgtde/bin/psql -p 5433 -w -d $db -U $db_user -c COPY $schema$meta from '$metadata$fileMeta' WITH DELIMITER E';' CSV QUOTE E'\b';"
-       /usr/local/pgtde/bin/psql -p 5433 -w -d $db -U $db_user -c "COPY $schema$meta from '$metadata$fileMeta' WITH DELIMITER E';' CSV QUOTE E'\b';"
+      metaCopy=`echo $meta | sed -e 's/_//'`
+      echo $metaCopy
+      # echo "/usr/local/pgtde/bin/psql -p 5433 -w -d $db -U $db_user -c COPY $schema$metaCopy from '$metadata$fileMeta' WITH DELIMITER E';' CSV QUOTE E'\b';"
+      /usr/local/pgtde/bin/psql -p 5433 -w -d $db -U $db_user -c "COPY $schema$metaCopy from '$metadata$fileMeta' WITH DELIMITER E';' CSV QUOTE E'\b';"
     fi
   done
 done
