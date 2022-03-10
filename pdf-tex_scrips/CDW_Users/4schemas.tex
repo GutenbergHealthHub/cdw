@@ -1,42 +1,31 @@
 \chapter{Schemata}
 \label{ch:schema}
 
-	Die Schemata haben die folgende Funktionen:
-	\begin{itemize}
-		\item Die Speicherung und Abbildung der verschiedenen Quellsysteme: "rohe" pseudo- nymisierte Information der ursprünglichen Systeme
-		\item Die Speicherung von Metadaten: Information über die, in anderen Schemata vorhandenen Merkmale und Daten 
-		\item Die Speicherung der Information der Projekte: Verarbeitete Information aus der Quellsysteme für bestimmte Projekte.
-		\item Speicherung der Information für Anwendungen oder Use Cases: Verarbeitete Information aus der Quellsysteme für bestimmte Anwendungen oder Use Cases.
-	\end{itemize}
-	Die Daten in dem \ac{csdwh} werden in Tabellen gespeichert. Wichtige Hinweis ist, dass die Daten aus der Quellsysteme in dem \ac{csdwh} unverändert bleiben sollen. Deswegen werden neue Tabellen, (materialisierte) Sichten oder Funktionen für Projekte und weitere Uses Cases bereitgestellt.
-	
-	\section{Schemata für Quellsysteme} \label{sc:sqs}
+	Die Schemata speichern die "rohe" \textbf{pseudonymisierte} Information der ursprünglichen Systeme oder die Metadaten. Diese Daten werden in Tabellen gespeichert. Wichtige Hinweis ist, dass die Daten in dem \ac{csdwh} unverändert bleiben sollen. Deswegen werden (materialisierte) Sichten für weitere Uses Cases bereitgestellt. 
 
-  \subsection{p21} \label{subsec:p21}
+  \section{p21} \label{sc:p21}
   Dieses Schema speichert die jährliche Information der \S21, die durch das Medizincontrolling generiert wird. 
   
   Der jährliche Rhythmus ist zu groß, als dass die Daten bspw. zur Rekrutierung von Patienten für Studien aber auch zu Forschung genutzt werden können. Aus diesem Grund wird diese Information in näherer Zukunft nicht mehr vom Medizincontrolling genommen, sondern direkt aus den Daten des \ac{kiss}.
   
   In diesem Schema befinden sich auch die Sichten für \ac{etl}-Prozessen, die solche Informationen aus \S21 benötigen. Der Inhalt dieser Sichten entspricht der Formatierung des \ac{khentgg} \S 21 Übermittlung und Nutzung der Daten.
 
-  \subsection{kis} \label{subsec:kis}
+  \section{kis} \label{sc:kis}
    Hier werden die tagesaktuellen extrahierten Daten zu Patienten, Fällen, Bewegungen, Diagnosen und Prozeduren direkt aus dem Quellsystem \ac{kis} gespeichert. Mit diesem Daten lassen sich viele der Abbildungen für weitere Projekte realisieren.
   
-  \subsection{copra} \label{subsec:copra}
+  \section{copra} \label{sc:copra}
   Hier wird die tagesaktuelle Information aus \ac{pdms}, in unserm Fall das COPRA-System, gespeichert. Dieses Schema beinhaltet Biosignalparameter, Befunde, ärztliche Anweisungen und Überblick über Behandlungsschritte.
 
 
-  \subsection{gtds} \label{subsec:gtds}
+  \section{gtds} \label{sc:gtds}
   Dieses Schema speichert die Daten der Instanz von der \ac{um} des \acf{gtdss} und somit die Erfassung und Verarbeitung der Daten der revidierten Basisdokumentation klinischen Krebsregistern.
 
-  	\subsection{centrallab} \label{subsec:centrallab}
+  	\section{centrallab} \label{sc:centrallab}
   Dieses Schema dient die Speicherung der Daten aus dem Zentrallabor (Institut für Klinische Chemie und Laboratoriumsmedizin).
 
-	\subsection{imagic} \label{subsec:imagic}
+	\section{imagic} \label{sc:imagic}
 	Hier wird die Information aus dem IMAGIC-System gespeichert. Dieses Schema beinhaltet Information aus der Hautklinik. Darunter befinden sich Metadaten der Bilder sowie Befunde anhand der Bilder.
 
-	\section{Schema für Metadaten} \label{sc:metadata}
-	
-	\subsection{metadata\_repository} \label{subsec:metarep}
+	\section{metadata\_repository} \label{sc:metadata}
  	Dieses Schema speichert die Information der Metadaten aller anderen Schemata.
   

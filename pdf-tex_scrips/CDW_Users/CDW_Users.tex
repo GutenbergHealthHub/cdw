@@ -1,0 +1,55 @@
+\documentclass[12pt, a4paper]{report}
+%\documentclass[12pt, a4paper]{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+%\usepackage{math}
+%\usepackage{amsmath}
+\usepackage{version}
+\usepackage{hyperref}
+\usepackage{graphicx}
+%\usepackage{svg}
+\usepackage{longtable}
+\usepackage[printonlyused]{acronym}
+\usepackage{fancyhdr}
+\usepackage[type={CC}, modifier={by-sa},version={4.0},]{doclicense}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{xcolor}
+\usepackage{ccicons}
+\usepackage{array,multirow,graphicx}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{scalerel}
+%\usepackage{apacite}
+\usepackage{ragged2e}
+%\usepackage{orcidlink}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+\usepackage{caption}
+
+
+\fancypagestyle{firstpage}
+{	
+    \pagestyle{fancy}
+	\fancyhf{}
+	\chead{ \includegraphics[width=\textwidth]{figures/ummz.png}}
+	\renewcommand{\headrulewidth}{0pt}
+}
+  
+    \begin{document}
+
+  \include{Atitel}  
+  \include{Bacronyms}	
+  \clearpage
+  \tableofcontents{}
+  %\listoffigures
+  %\listoftables
+  
+  \include{0info}
+  \include{1intro}
+  \include{2config}  
+  \include{3backup}
+  \include{4schemas}
+  \include{5users}  
+    \end{document}
