@@ -32,8 +32,12 @@
            
     sudo ./configure --prefix=/usr/local/pg14tde --with-openssl --with-perl --with-python --with-ldap --with-libxml --with-uuid=e2fs --with-systemd\\ \\
     
-    Wobei /user/local/pg14tde ist den Ordner, wo die Befehlen zur Steuerung der Server sich befinden.
     
+    Wobei /user/local/pg14tde ist den Ordner, wo die Befehlen zur Steuerung der Server sich befinden. \\ \\
+   make install \\
+   cd contrib \\
+   make install \\ \\
+
     Das Start-Kommando für die Instanz lautet: 
     
     /usr/local/pg14tde/bin/initdb -D /media/db/cdw\_database/clinic\_instance
