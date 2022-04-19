@@ -8,7 +8,8 @@ create table diz_intern.phone(
 insert into diz_intern.phone(phone)
   values
     ('7222'),
-    ('7463')
+    ('7463'),
+    ('8571')
 ;
 --select * from diz_intern.phone;
 
@@ -23,7 +24,8 @@ create table diz_intern.department(
 insert into diz_intern.department (department_id, department)
   values 
     ('ghh', 'Gutenberg Health Hub'),
-    ('imbei', 'Institut für Medizinische Biometrie, Epidemiologie und Informatik')
+    ('imbei', 'Institut für Medizinische Biometrie, Epidemiologie und Informatik'),
+    ('pdms', 'SC6 (KIS - PDMS)')
 ;
 
 --select * from diz_intern.department;
@@ -43,7 +45,8 @@ insert into diz_intern.person(person_id, firstname, lastname, mail, alternate_ma
     ('her11a', 'Abel', 'Hodelin Hernandez', 'abel.hodelin-hernandez@unimedizin-mainz.de', 'ahodelin@uni-mainz.de'),
     ('scm14d', 'Daniel', 'Schmitz', 'daniel.schmitz@unimedizin-mainz.de', 'daniel.schmitz@uni-mainz.de'),
     ('hab0s', 'Sami', 'Habib', 'sami.habib@unimedizin-mainz.de', 'samhabib@uni-mainz.de'),
-    ('mac0p', 'Philipp', 'Macho', 'philipp.macho@unimedizin-mainz.de', 'philipp.macho@uni-mainz.de')
+    ('mac0p', 'Philipp', 'Macho', 'philipp.macho@unimedizin-mainz.de', 'philipp.macho@uni-mainz.de'),
+    ('scu0e', 'Eric', 'Schultheis', 'eric.schultheis@unimedizin-mainz.de', null)
 ;
 
 --select * from diz_intern.person;
@@ -53,19 +56,23 @@ drop table if exists diz_intern.users cascade;
 
 create table diz_intern.users(
   username varchar primary key,
+  description varchar not null,
   active boolean default true
 );
 
-insert into diz_intern.users (username)
-  select usename from pg_catalog.pg_user pu; 
-/*
-insert into diz_intern.users(username)
+--insert into diz_intern.users (username)
+--  select usename from pg_catalog.pg_user pu; 
+
+insert into diz_intern.users(username, description)
   values
-    ('her11a_admin'),
-    ('her11a_test'),
-    ('scm14d_test')
+    ('her11a_admin', 'Server Administrator'),
+    ('her11a_test', 'Database Manager, Data provider (icd_metainfo, metadata_repository, ops_metainfo)'),
+    ('scm14d_test', 'Database Manager, Data provider (p21, kis, gtds, centrallab)'),
+    ('hab0s_test', 'Data use (kis, aktin)'),
+    ('scu0e_test', 'Data provider (copra, aktin)'),
+    ('mac0p_test', 'Data use (imagic)')
 ;
-*/
+
 --select * from diz_intern.users;
 
 drop table if exists diz_intern.person_phone cascade;
@@ -81,7 +88,8 @@ insert into diz_intern.person_phone
     ('her11a', '7222'),
     ('hab0s', '7222'),
     ('scm14d', '7463'),
-    ('mac0p', '7463')
+    ('mac0p', '7463'),
+    ('scu0e', '8571')
 ;
 
 --select * from diz_intern.person_phone;
@@ -100,7 +108,8 @@ insert into diz_intern.person_department
     ('her11a', 'ghh'),
     ('hab0s', 'ghh'),
     ('scm14d', 'imbei'),
-    ('mac0p', 'imbei')
+    ('mac0p', 'imbei'),
+    ('scu0e', 'pdms')
 ;
 
 --select * from diz_intern.person_department;
@@ -116,10 +125,14 @@ create table diz_intern.person_users(
 insert into diz_intern.person_users
   values 
     ('her11a', 'her11a_admin'),
-    --('her11a', 'her11a_test'),
-    --('scm14d', 'scm14d_test')
+    ('her11a', 'her11a_test'),
+    ('scm14d', 'scm14d_test'),
+    ('hab0s', 'hab0s_test'),
+    ('scu0e', 'scu0e_test'),
+    ('mac0p', 'mac0p_test')
 ;
 
+--select usename from pg_catalog.pg_user where usename like '%test%' or usename like '%admin%';
 --select * from diz_intern.person_users;
 
 drop view if exists diz_intern.user_management;
@@ -132,7 +145,8 @@ select
   p.firstname ||' '||  p.lastname person, 
   ph.phone, 
   upper(d.department_id) department_id, 
-  d.department
+  --d.department,
+  u.description 
 from diz_intern.person p 
 join diz_intern.person_users pu 
   on p.person_id = pu.person_id 
