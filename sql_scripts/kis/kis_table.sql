@@ -54,6 +54,10 @@ CREATE TABLE kis.nbew (
 	CONSTRAINT pk_einri_falnr_lfdbew PRIMARY KEY (einri, falnr, lfdbew)
 );
 
+alter table kis.nbew 
+  add column bwpdt date,
+  add bwpzt time
+;
 
 -- kis.ndia definition
 
@@ -161,6 +165,12 @@ CREATE TABLE kis.nfal (
 	CONSTRAINT pk_einri_falnr PRIMARY KEY (einri, falnr)
 );
 
+alter table kis.nfal 
+  add column einzg varchar(10),
+  add column infkz  boolean,
+  add column entim time
+;
+
 -- kis.nicp definition
 
 -- Drop table
@@ -198,6 +208,10 @@ CREATE TABLE kis.nicp (
 	CONSTRAINT pk_einri_falnr_lnric PRIMARY KEY (einri, falnr, lnric)
 );
 
+alter table kis.nicp 
+  add column lnric_ref varchar(11)
+;
+
 -- kis.npat definition
 
 -- Drop table
@@ -224,4 +238,51 @@ CREATE TABLE kis.npat (
 	race varchar NULL,
 	retrievaldate timestamp NULL,
 	CONSTRAINT pk_einri_patnr PRIMARY KEY (einri, patnr)
+);
+
+alter table kis.npat 
+  add column statu varchar(2),
+  add column gebie varchar(10),
+  add column rfpat varchar,
+  add column unknown_gbdat boolean,
+  add column sex_special varchar(2)
+;
+
+
+create table kis.nv_period(
+  einri varchar(5) not null,
+  patnr varchar(11) not null,
+  falnr varchar not null,
+  fname varchar(31) not null,
+  lfdnr int not null,      
+  value varchar,  
+  declare_date date,     
+  period_begdt date,     
+  period_enddt date,     
+  period_bem varchar(30),
+  erdat date,     
+  updat date,     
+  storn boolean,  
+  stdat date,     
+  retrievaldate timestamp,
+  primary key (einri, patnr, fname, lfdnr)
+);
+
+
+
+create table kis.nper(
+  pernr varchar(11) primary key,
+  makz boolean,  
+  arzt boolean,  
+  pfleg boolean,  
+  barzt boolean,  
+  begdt date,     
+  enddt date,     
+  loekz boolean,  
+  lodat date,     
+  erdat date,     
+  updat date,     
+  fachr varchar(5),
+  sptyp varchar(4),
+  retrievaldate timestamp
 );
