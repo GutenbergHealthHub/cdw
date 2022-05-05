@@ -19,3 +19,6 @@ echo "$str" >> /dir/file
 
 # delete BOM
 sed -i '1s/^\xEF\xBB\xBF//' file
+
+# substitution with exeptions
+sed -e '/\(add\|CONSTRAINT\|class\)/! s/^\(\s\+\)\([A-Z_a-z0-9]*\)/\1"\2" /' -e 's/\(\.\)\([A-Z_a-z]*\)/\1"\2"/' -e 's/\(.*\)/\U\1/' input_file > output_file
