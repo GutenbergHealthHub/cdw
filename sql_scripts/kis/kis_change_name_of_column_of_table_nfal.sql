@@ -1,0 +1,47 @@
+-- SELECT 'alter table '|| table_schema||'."'||table_name|| '" rename column '||column_name|| ' to "' || upper(column_name)|| '";' FROM INFORMATION_SCHEMA.columns where table_schema = 'kis' and table_name = 'NFAL';
+
+-- change name of column of table kis.NFAL
+
+alter table kis."NFAL" rename column einri to "EINRI";                
+alter table kis."NFAL" rename column falnr to "FALNR";                
+alter table kis."NFAL" rename column falar to "FALAR";                
+alter table kis."NFAL" rename column patnr to "PATNR";                
+alter table kis."NFAL" rename column bekat to "BEKAT";                
+alter table kis."NFAL" rename column abrkz to "ABRKZ";                
+alter table kis."NFAL" rename column sichv to "SICHV";                
+alter table kis."NFAL" rename column statu to "STATU";                
+alter table kis."NFAL" rename column notan to "NOTAN";                
+alter table kis."NFAL" rename column krzan to "KRZAN";                
+alter table kis."NFAL" rename column endat to "ENDAT";                
+alter table kis."NFAL" rename column fgtyp to "FGTYP";                
+alter table kis."NFAL" rename column kzkom to "KZKOM";                
+alter table kis."NFAL" rename column enddt to "ENDDT";                
+alter table kis."NFAL" rename column erdat to "ERDAT";                
+alter table kis."NFAL" rename column updat to "UPDAT";                
+alter table kis."NFAL" rename column storn to "STORN";                
+alter table kis."NFAL" rename column stdat to "STDAT";                
+alter table kis."NFAL" rename column begdt to "BEGDT";                
+alter table kis."NFAL" rename column fatyp to "FATYP";                
+alter table kis."NFAL" rename column fachr to "FACHR";                
+alter table kis."NFAL" rename column endtyp to "ENDTYP";              
+alter table kis."NFAL" rename column patw to "PATW";                  
+alter table kis."NFAL" rename column patgew to "PATGEW";              
+alter table kis."NFAL" rename column gwein to "GWEIN";                
+alter table kis."NFAL" rename column patgro to "PATGRO";              
+alter table kis."NFAL" rename column grein to "GREIN";                
+alter table kis."NFAL" rename column resp to "RESP";                  
+alter table kis."NFAL" rename column delgw to "DELGW";                
+alter table kis."NFAL" rename column saps_c to "SAPS_C";              
+alter table kis."NFAL" rename column pim2_c to "PIM2_C";              
+alter table kis."NFAL" rename column crib_c to "CRIB_C";              
+alter table kis."NFAL" rename column nems_c to "NEMS_C";              
+alter table kis."NFAL" rename column saps_imc to "SAPS_IMC";          
+alter table kis."NFAL" rename column pim2_imc to "PIM2_IMC";          
+alter table kis."NFAL" rename column crib_imc to "CRIB_IMC";          
+alter table kis."NFAL" rename column nems_imc to "NEMS_IMC";          
+alter table kis."NFAL" rename column respi_imc to "RESPI_IMC";        
+alter table kis."NFAL" rename column readm to "READM";                
+alter table kis."NFAL" rename column retrievaldate to "RETRIEVALDATE";
+alter table kis."NFAL" rename column einzg to "EINZG";                
+alter table kis."NFAL" rename column infkz to "INFKZ";                
+alter table kis."NFAL" rename column entim to "ENTIM";                
