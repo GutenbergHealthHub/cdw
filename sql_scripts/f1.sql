@@ -8,5 +8,5 @@ join information_schema."tables" t
 where t.table_schema = 'kis'
 and t.table_type = 'BASE TABLE'
 and c.udt_name = 'varchar'
-and c.column_name <> 'FALNR';
+and c.column_name <> 'FALNR'
 ) to '/path/file.csv' with delimiter E';' csv;
