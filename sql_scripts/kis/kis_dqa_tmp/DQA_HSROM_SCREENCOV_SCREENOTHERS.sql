@@ -1,14 +1,14 @@
 -- DQA_/HSROM/SCREENCOV_SCREENOTHERS
 CREATE OR REPLACE VIEW kis."DQA_/HSROM/SCREENCOV_SCREENOTHERS"
   AS
-  SELECT count(n.FALNR) AS "QUANTITY",
+  SELECT count("RetrievalDate") AS "QUANTITY",
     CASE
       WHEN n."SCREENOTHERS" ~ '\w' THEN n."SCREENOTHERS"
         ELSE NULL
-    END AS "SCREENOTHERS",
-    m.long_name
+    END AS "SCREENOTHERS"/*,
+    m.long_name*/
   FROM kis."/HSROM/SCREENCOV" n
-  LEFT JOIN metadata_repository.TABLE m ON n."SCREENOTHERS" = m.sourceid
-  GROUP BY n."SCREENOTHERS", m.long_name
-  ORDER BY (count(n."FALNR")) DESC;
+  --LEFT JOIN metadata_repository.TABLE m ON n."SCREENOTHERS" = m.sourceid
+  GROUP BY n."SCREENOTHERS"--, m.long_name
+  ORDER BY "QUANTITY" DESC;
 

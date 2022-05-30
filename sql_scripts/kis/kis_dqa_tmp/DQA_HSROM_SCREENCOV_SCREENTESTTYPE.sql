@@ -1,14 +1,14 @@
 -- DQA_/HSROM/SCREENCOV_SCREENTESTTYPE
 CREATE OR REPLACE VIEW kis."DQA_/HSROM/SCREENCOV_SCREENTESTTYPE"
   AS
-  SELECT count(n.FALNR) AS "QUANTITY",
+  SELECT count("RetrievalDate") AS "QUANTITY",
     CASE
       WHEN n."SCREENTESTTYPE" ~ '\w' THEN n."SCREENTESTTYPE"
         ELSE NULL
-    END AS "SCREENTESTTYPE",
-    m.long_name
+    END AS "SCREENTESTTYPE"/*,
+    m.long_name*/
   FROM kis."/HSROM/SCREENCOV" n
-  LEFT JOIN metadata_repository.TABLE m ON n."SCREENTESTTYPE" = m.sourceid
-  GROUP BY n."SCREENTESTTYPE", m.long_name
-  ORDER BY (count(n."FALNR")) DESC;
+  --LEFT JOIN metadata_repository.TABLE m ON n."SCREENTESTTYPE" = m.sourceid
+  GROUP BY n."SCREENTESTTYPE"--, m.long_name
+  ORDER BY "QUANTITY" DESC;
 

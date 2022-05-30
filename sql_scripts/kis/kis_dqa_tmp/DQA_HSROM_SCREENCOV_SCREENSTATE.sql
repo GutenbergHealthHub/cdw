@@ -1,14 +1,14 @@
 -- DQA_/HSROM/SCREENCOV_SCREENSTATE
 CREATE OR REPLACE VIEW kis."DQA_/HSROM/SCREENCOV_SCREENSTATE"
   AS
-  SELECT count(n.FALNR) AS "QUANTITY",
+  SELECT count("RetrievalDate") AS "QUANTITY",
     CASE
       WHEN n."SCREENSTATE" ~ '\w' THEN n."SCREENSTATE"
         ELSE NULL
-    END AS "SCREENSTATE",
-    m.long_name
+    END AS "SCREENSTATE"/*,
+    m.long_name*/
   FROM kis."/HSROM/SCREENCOV" n
-  LEFT JOIN metadata_repository.TABLE m ON n."SCREENSTATE" = m.sourceid
-  GROUP BY n."SCREENSTATE", m.long_name
-  ORDER BY (count(n."FALNR")) DESC;
+  --LEFT JOIN metadata_repository.TABLE m ON n."SCREENSTATE" = m.sourceid
+  GROUP BY n."SCREENSTATE"--, m.long_name
+  ORDER BY "QUANTITY" DESC;
 
