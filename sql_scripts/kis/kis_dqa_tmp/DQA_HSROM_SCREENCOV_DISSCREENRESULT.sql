@@ -1,12 +1,12 @@
 -- DQA_/HSROM/SCREENCOV_DISSCREENRESULT
 CREATE OR REPLACE VIEW kis."DQA_/HSROM/SCREENCOV_DISSCREENRESULT"
   AS
-  SELECT count("RetrievalDate") AS "QUANTITY",
+  SELECT count(n."RetrievalDate") AS "QUANTITY",
     CASE
       WHEN n."DISSCREENRESULT" ~ '\w' THEN n."DISSCREENRESULT"
         ELSE NULL
-    END AS "DISSCREENRESULT"--,
-    --m.long_name
+    END AS "DISSCREENRESULT"/*,
+    m.long_name*/
   FROM kis."/HSROM/SCREENCOV" n
   --LEFT JOIN metadata_repository.TABLE m ON n."DISSCREENRESULT" = m.sourceid
   GROUP BY n."DISSCREENRESULT"--, m.long_name
