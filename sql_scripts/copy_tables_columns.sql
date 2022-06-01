@@ -16,5 +16,3 @@ select * from information_schema."tables" t;
 
 select table_schema, table_name, column_name from information_schema."columns" c where table_schema = 'kis' and udt_name like 'varchar';
 select * from information_schema."columns" c where table_schema = 'kis' and udt_name like 'varchar';
-
-drop table copra.co6_config_variables_tmp;
