@@ -1,0 +1,5 @@
+patient
+general
+cases
+cases_by_years
+diagnosis_by_years
