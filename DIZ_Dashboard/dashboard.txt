@@ -1,5 +1,7 @@
-patient
 general
+patients
 cases
 cases_by_years
 diagnosis_by_years
+movements_by_years
+procedures_by_years

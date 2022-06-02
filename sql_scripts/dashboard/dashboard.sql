@@ -79,6 +79,15 @@ group by y
 order by "Jahr"
 ;
 
+create or replace view diz_intern.dashboard_movements_by_years
+as
+select 
+  count(distinct ("FALNR", "LFDNR")) "Anzahl",
+  date_part('year', "BWIDT") "Jahr"
+from kis."NBEW" n 
+group by "Jahr"
+order by "Jahr"
+;
 
 create or replace view diz_intern.dashboard_diagnosis_by_years
 as
@@ -90,4 +99,19 @@ group by "Jahr"
 order by "Jahr"
 ;
 
+
+create or replace view diz_intern.dashboard_procedures_by_years
+as
+select 
+  count(distinct "LNRIC") "Anzahl",
+  case
+  	when "BGDOP" isnull and "ENDOP" notnull then date_part('year', "ENDOP") 
+  	when "BGDOP" notnull and "ENDOP" isnull then date_part('year', "BGDOP")
+  	when "BGDOP" isnull and "ENDOP" isnull then null
+  	else date_part('year', "ENDOP")
+  end "Jahr"
+from kis."NICP" p
+group by "Jahr"
+order by "Jahr"
+;
 

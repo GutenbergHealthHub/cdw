@@ -41,6 +41,12 @@ do
   elif [[ $report == "diagnosis_by_years"  ]]
   then 
     echo "\\section{Diagnosen}" > $dirtex/$texfile
+  elif [[ $report == "movements_by_years"  ]]
+  then
+    echo "\\section{Bewegungen}" > $dirtex/$texfile
+  elif [[ $report == "procedures_by_years"  ]]
+  then
+    echo "\\section{Prozeduren}" > $dirtex/$texfile
   else
     echo "" > $dirtex/$texfile
   fi
