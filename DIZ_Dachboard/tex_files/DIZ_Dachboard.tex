@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper]{report}
+\documentclass[12pt, a4paper]{article}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
@@ -32,12 +32,16 @@
   
 \begin{document}
 
-  \include{Atitel}  
+  \input{Atitel}  
   %\include{Bacronyms}	
   \clearpage
 %  \tableofcontents{}
   
- % \include{general}
-  \include{patients}
-  %\include{cases}  
+  \input{general}
+  \input{patient}
+  \input{cases} 
+  Bei Rückfragen stehen Ihnen folgende Ansprechpartner gerne zur Verfügung:\\ \\
+  Abel Hodelin Hernandez \\
+  E-Mail: \href{mailto:abel.hodelin-hernandez@unimedizin-mainz.de}{abel.hodelin-hernandez@unimedizin-mainz.de} \\
+  Tel. +49 (0) 6131 17-8517
 \end{document}

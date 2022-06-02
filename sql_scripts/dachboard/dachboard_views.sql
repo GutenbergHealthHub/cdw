@@ -4,11 +4,11 @@ select count(*) "Anzahl", 'Patienten' "Tabelle" from kis."NPAT" p
   union 
 select count(*), 'Fälle' from kis."NFAL" f
   union
-select count(*), 'Prozedure' from kis."NICP" pr
+select count(*), 'Prozeduren' from kis."NICP" pr
   union
 select count(*), 'Diagnosen' from kis."NDIA" d
   union
-select count(*), 'Einwiligungen' from kis."/HSROM/NV_PERIOD" np
+select count(*), 'Einwilligungen' from kis."/HSROM/NV_PERIOD" np
   union
 select count(*), 'Personen' from kis."NPER" pe
   union 
@@ -32,10 +32,14 @@ left join metadata_repository.gender g
 where g."source" = 'kis' or g."source" isnull
 group by "GSCHL", g.gender;
 
+drop view diz_intern.dachboard_cases;
 create or replace view diz_intern.dachboard_cases
 as
 select count(*) "Anzahl", 
-"BEKAT",
+case
+	when "BEKAT" !~'^\w' then null
+	else "BEKAT"
+end "BEKAT",
 "FALAR",
 t.bltxt "Fall Art"
 from kis."NFAL" n 
