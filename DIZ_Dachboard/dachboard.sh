@@ -34,7 +34,7 @@ do
     echo "\\section{Zusammenfassung}" > $dirtex/$texfile
   elif [[ $report == "patient" ]]
   then
-    echo "\\section{Patienten und Patientinnen in KIS}" > $dirtex/$texfile
+    echo "\\section{Patienten und Patientinnen}" > $dirtex/$texfile
   elif [[ $report == "cases" ]]
   then
     echo "\\section{Fälle}" > $dirtex/$texfile
