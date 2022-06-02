@@ -21,8 +21,8 @@ select count("ORGID"), 'Organisatorische Einheiten' from kis."NORG" o
 order by "Anzahl"
 ;
 
-drop view diz_intern.dashboard_patient;
-create or replace view diz_intern.dashboard_patient
+drop view diz_intern.dashboard_patients;
+create or replace view diz_intern.dashboard_patients
 as
 select 
   count("PATNR") "Anzahl", 

@@ -58,8 +58,8 @@ do
   cat $dirtex/tex_end >> $dirtex/$texfile
 done
 
-pdflatex DIZ_Dashboard.tex
-#pdflatex --interaction=batchmode DIZ_Dashboard.tex 2>&1 /dev/null
+# pdflatex DIZ_Dashboard.tex
+pdflatex --interaction=batchmode DIZ_Dashboard.tex 2>&1 /dev/null
 
 rm *.log *.aux *.out
 cd 
