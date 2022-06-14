@@ -5,10 +5,10 @@ CREATE OR REPLACE VIEW kis."DQA_NBEW_BWART"
     CASE
       WHEN n."BWART" ~ '\w' THEN n."BWART"
         ELSE NULL
-    END AS "BWART"/*,
-    m.long_name*/
+    END AS "BWART",
+    m.bewegunsart bewegungsart
   FROM kis."NBEW" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."BWART" = m.sourceid
-  GROUP BY n."BWART"--, m.long_name
+  LEFT JOIN metadata_repository.bewegunsart m ON n."BWART" = m.bwart
+  GROUP BY n."BWART", m.bewegunsart
   ORDER BY "QUANTITY" DESC;
 

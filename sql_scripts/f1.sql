@@ -10,3 +10,14 @@ and t.table_type = 'BASE TABLE'
 and c.udt_name = 'varchar'
 and c.column_name <> 'FALNR'
 ) to '/path/file.csv' with delimiter E';' csv;
+
+
+-- function to convert a string in md5-hash and it in a big integer.
+create function f_hash_to_bigint(text) returns bigint as $$
+ select ('x'||substr(md5($1),1,16))::bit(64)::bigint;
+$$ language sql;
+
+-- create extensions
+create extension pgcrypto;
+create extension "uuid-ossp";
+--\q

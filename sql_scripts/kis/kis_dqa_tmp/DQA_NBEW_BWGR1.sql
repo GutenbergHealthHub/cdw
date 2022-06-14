@@ -1,6 +1,6 @@
 -- DQA_NBEW_BWGR1
-CREATE OR REPLACE VIEW kis."DQA_NBEW_BWGR1"
-  AS
+--CREATE OR REPLACE VIEW kis."DQA_NBEW_BWGR1"
+--  AS
   SELECT count(n."RetrievalDate") AS "QUANTITY",
     CASE
       WHEN n."BWGR1" ~ '\w' THEN n."BWGR1"
