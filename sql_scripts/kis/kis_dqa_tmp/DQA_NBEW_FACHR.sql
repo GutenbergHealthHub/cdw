@@ -5,10 +5,10 @@ CREATE OR REPLACE VIEW kis."DQA_NBEW_FACHR"
     CASE
       WHEN n."FACHR" ~ '\w' THEN n."FACHR"
         ELSE NULL
-    END AS "FACHR"/*,
-    m.long_name*/
+    END AS "FACHR",
+    m.fachrichtung "Fachrichtung"
   FROM kis."NBEW" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."FACHR" = m.sourceid
-  GROUP BY n."FACHR"--, m.long_name
+  LEFT JOIN metadata_repository.fachrichtung m ON n."FACHR" = m.sourceid
+  GROUP BY n."FACHR", m.fachrichtung
   ORDER BY "QUANTITY" DESC;
 

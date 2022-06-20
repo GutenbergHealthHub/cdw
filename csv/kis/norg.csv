@@ -1,0 +1,1514 @@
+einri;orgid;orgty;orgna;orgkb;okurz;fachr;fachr2;aufkz;inten;fachr9;paedkz;fachr1
+0002;2AP;F;Apotheke;2AP;2AP;0001;0319;f;f;U060;f;0191
+0002;2APO;LS;Apotheke;2APO Apothek;2APO;;;f;f;;f;
+0002;2AT;F;Anästhesiologie PC;2AT;2AT;0020;0930;f;f;;f;3600
+0002;2ATD;LS;Anästhesie Diagnostik;2AT Diagn.;2ATD;;;f;f;;f;
+0002;2AU;F;Augenklinik;2AU;2AU;0010;0120;f;f;;f;2700
+0002;2AUADC;LS;Augenklinik Diagnostik Centrum;2 AU ADC;AUDAC;;;f;f;;f;
+0002;2AUD;LS;Augenklinik Diagnostik;2AU Diagn.;2AU;;;f;f;;f;
+0002;2AUHH;LS;Augenklinik Hornhautverkauf;2AU Hornhaut;2AUHH;;;f;f;;f;
+0002;2AULAB;LS;AU Serumaugentropfen;2AU Serum;2AULA;;;f;f;;f;
+0002;2BA;F;Betriebsarzt;2BA;2BA;0001;0310;f;f;;f;0100
+0002;2BAD;LS;Betriebsarzt Diagnostik;2BA Diagn.;2BA;;;f;f;;f;
+0002;2BADMB;LS;Betriebsarzt Mikrobiologie;2BA Mikrobio;2BAMB;;;f;f;;f;
+0002;2BADVIR;LS;Betriebsarzt Virologie;2BA Virologi;2BAVI;;;f;f;;f;
+0002;2CH;F;Allgem. Chirurgie;2CH;2CH;0003;0150;f;f;;f;1500
+0002;2CHD;LS;Allgem. Chirurgie Diagnostik;2CH Diagn.;2CH;;;f;f;;f;
+0002;2DE;F;Hautklinik;2DE;2DE;0011;0250;f;f;;f;3400
+0002;2DED;LS;Hautklinik Diagnostik;2DE Diagn.;2DE;;;f;f;;f;
+0002;2EN;F;Endokrinologie;2EN;2EN;0001;0313;f;f;;f;0600
+0002;2END;LS;Endokrinologie Diagnostik;2EN Diagn.;2EN;;;f;f;;f;
+0002;2GY;F;Frauenklinik;2GY;2GY;0008;0190;f;f;;f;2400
+0002;2GYD;LS;Frauenklinik Diagnostik;2GY Diagn.;2GY;;;f;f;;f;
+0002;2HC;F;Herzchirurgie;2HC;2HC;0160;0150;f;f;;f;1500
+0002;2HCD;LS;Herzchirurgie Diagnostik;2HC Diagn.;2HC;;;f;f;;f;
+0002;2HCEX;LS;Herzchirurgie Explantation;2HC Explant.;2HCEX;;;f;f;;f;
+0002;2HN;F;HNO-Klinik;2HN;2HN;0230;0220;f;f;;f;2600
+0002;2HND;LS;HNO_Klinik Diagnostik;2HN Diagn.;2HND;;;f;f;;f;
+0002;2IPT;A;2IPT PhysikalischeTherapie;2IPT;2IPT;;;f;f;;f;
+0002;2IPTPR;F;2IPTPR Instit.f.Phys.Therapie;2IPTPR;2IPTP;0040;0930;f;f;;f;9999
+0002;2JOHO;S;St.Jos.- Hospital Wiesb. HLM;2JOHO HLM;2JOHO;0160;0153;f;f;U160;f;2100
+0002;2KC;F;Kinderchirurgie;2KC;2KC;0002;0360;f;f;;f;1000
+0002;2KC-KH;LS;KC-ÄrzteLeistungen KH Diakonie;2KC-KH;2KCKH;;;f;f;;f;
+0002;2KI;F;Kinderklinik;2KI;2KI;0002;0360;f;f;;f;1000
+0002;2KID;LS;Kinderklinik Diagnostik;2KI Diagn.;2KI;;;f;f;;f;
+0002;2KINEO;LS;Kinderklinik Neonatologie;2KI neonat;2KINE;;;f;f;;f;
+0002;2M1;F;1.Med.;2M1;2M1;0001;0310;f;f;;f;0100
+0002;2M1D;LS;1.Med. Diagnostik;2M1 Diagn.;2M1;;;f;f;;f;
+0002;2M2;F;2.Med.;2M2;2M2;0001;0310;f;f;;f;0190
+0002;2M2CPKK;LS;2.Med. Cardiopraxis KKM;2M2 CPKKM;2M2CP;;;f;f;;f;
+0002;2M2D;LS;2.Med. Diagnostik;2M2 Diagn.;2M2;;;f;f;;f;
+0002;2M2K2SM;LS;2.Med. K.II Schrittmacher;2M2 KII SM;2M2K2;;;f;f;;f;
+0002;2M2LHK;LS;2.Med. Linksherzkath.Meßplatz;2M2 LHKM;2M2LH;;;f;f;;f;
+0002;2M3;F;3.Med.Klinik;2M3;2M3;0001;0319;f;f;U060;f;0191
+0002;2M3HB;LS;3.Med.Häma.Blutst.zelltranspl.;2M3 Diagn.;2M3HB;;;f;f;;f;
+0002;2M3HD;LS;3. Med. Hämatologie Diagnostik;2M3 Diagn.;2M3HD;;;f;f;;f;
+0002;2M3HDLI;LS;3. Med. Donorlymphozyten;2M3 Donorly;2M3DL;;;f;f;;f;
+0002;2M3LSFAC;LS;2M3 Durchflusszytometrie;2LS FACS;2M3FA;;;f;f;;f;
+0002;2M3P;LS;3.Med. Pneumologie Diagnostik;2M3 Diagn.;2M3P;;;f;f;;f;
+0002;2MIKRO;F;Institut f. Mikrobiologie;Mikrobiolog.;2MIKR;0005;0900;f;f;;f;2200
+0002;2NC;F;Neurochirurgie;2NC;2NC;0006;0540;f;f;;f;1700
+0002;2NCD;LS;Neurochirurgie Diagnostik;2NC Diagn.;2NC;;;f;f;;f;
+0002;2NE;F;Neurologie;2NE;2NE;0014;0570;f;f;;f;2800
+0002;2NED;LS;Neurologie Diagnostik;2NE Diagn.;2NE;;;f;f;;f;
+0002;2NR;F;Neuroradiologie;2NR;2NR;0012;0870;f;f;;f;3751
+0002;2NRD;LS;Neuroradiologie Diagnostik;2NR Diagn.;2NR;;;f;f;;f;
+0002;2NRD2;LS;Neuroradiologie Diag. Telemed.;2NR telem.;;;;f;f;;f;
+0002;2NU;F;Nuklearmed.;2NU;2NU;0013;0630;f;f;;f;3200
+0002;2NUD;LS;Nuklearmed. Diagnostik;2NU Diagn.;2NU;;;f;f;;f;
+0002;2OR;F;Orthopädie;2OR;2OR;0004;0690;f;f;U180;f;2300
+0002;2ORD;LS;Orthopädie Diagnostik;2OR Diagn.;2OR;;;f;f;;f;
+0002;2PATHALL;LS;Pathologie allgemein;2 PATHALL;2PATA;;;f;f;;f;
+0002;2PATHO;F;Pathologie;2Patho;;0040;0930;f;f;;f;9999
+0002;2PS;F;Psychiatrie;2PS;2PS;0017;0780;f;f;;f;2900
+0002;2PSD;LS;Psychiatrie Diagnostik;2PS Diagn.;2PS;;;f;f;;f;
+0002;2PSPT;LS;Psychotherapie;2PS Psychoth;2PSPT;;;f;f;;f;
+0002;2RA;F;Radiologie;2RA;2RA;0012;0870;f;f;U030;f;3751
+0002;2RAD;LS;Radiologie Diagnostik;2RA Diagn.;2RA;;;f;f;;f;
+0002;2STD;LS;Strahlentherapie Diagnostik;2RA Diagn.;2ST;;;f;f;;f;
+0002;2TC;F;Transplantationschirurgie;2TC;2TC;0003;0150;f;f;U170;f;0080
+0002;2TCD;LS;Transplantationschir. Diagn.;2TC Diagn.;2TCD;;;f;f;;f;
+0002;2TCEX;LS;Transplantationschir. Expl.;2TC Expl.;2TCEX;;;f;f;;f;
+0002;2TOD;LS;Techn.Orthopädie;2TO Ext.;2TO;;;f;f;;f;
+0002;2TR;F;Transfusionszentrale;2TR;2TR;0017;0930;f;f;;f;0100
+0002;2TRB;LS;Transf.zentr. Blutverk.an Drit;2TR Blutverk;2TRB;;;f;f;;f;
+0002;2TRL;LS;Transf.zentr. Labor Diagnostik;2TR Diagn.;2TRL;;;f;f;;f;
+0002;2TRLAT;LS;Trafu.Serumaugentropfen;2TR SerAugTr;2TRLA;;;f;f;;f;
+0002;2TZM;F;2Testzentrum Mainz;2Testz.MZ;2TZM;0040;0930;f;f;;f;3700
+0002;2TZMP;LS;2Ambulanz Testzentrum;2AmbTestz.MZ;2TZMP;;;f;f;;f;
+0002;2UR;F;Urologie;2UR;2UR;0005;0900;f;f;;f;2200
+0002;2URD;LS;Urologie Diagnostik;2UR Diagn.;2UR;;;f;f;;f;
+0002;2UREX;LS;Urologie Explamtation;2UR Explant;2UREX;;;f;f;;f;
+0002;2VIR;F;Institut. f. Virologie;Virologie;2VIR;0005;0900;f;f;;f;2200
+0002;2ZL;F;Zentrallabor;2ZL;2ZL;0017;0930;f;f;;f;0100
+0002;2ZLD;LS;Zentrallabor Diagnostik;2ZL Diagn.;2ZL;;;f;f;;f;
+0002;2ZLDN;LS;Zentrallabor Neuroch.Labor;2ZL Diagn.NC;2ZLDN;;;f;f;;f;
+0002;2ZM;F;Zahn- Mund- und Kieferklinik;2ZM;2ZM;0010;0120;f;f;;f;3500
+0002;2ZMP;LS;Poliklinik der MKG-Chirurgie;ZM Polikl.;2ZMP;;;f;f;;f;
+0002;2ZMPCHIR;A;2 Polikl. Zahnärztl. Chirurgie;2 ZMPCHIR;2ZMCH;;;f;f;;f;
+0002;2ZMPKOA;A;2 Polikl. Kieferorthopädie;2 Kieferort;2ZMOA;;;f;f;;f;
+0002;2ZMPKONS;A;2 ZMPKONS;2 ZMPKONS;2ZMKO;;;f;f;;f;
+0002;2ZMPMKG;A;2 Kl.Polikl.Mund,Kief.,Gesicht;2 ZMPMKG;2ZMMK;;;f;f;;f;
+0002;2ZMPPROA;A;2 Prothetik Ambulanz;2 Prothetik;2ZMPA;;;f;f;;f;
+0002;2ZMPWS;A;2 Zahnärztl.Werkstoffkunde;2 Werkstoffk;2ZMWS;;;f;f;;f;
+0003;3PS;F;Psychiatrie;3Psychiatrie;3PS;0100;0820;f;f;U100;f;2900
+0003;3PSPIA;A;Psychiatrische Institutsamb.;3PIA;3PIA;;;f;f;;f;
+0003;3PSPIAG;A;Gerontopsychiatrie-PIA;3PIA G;3PIAG;;;f;f;;f;
+0004;4AT;F;Anästhesie;Anä;4ANAE;0020;0930;f;f;;f;3600
+0004;4ATA01;A;Ambulanz Anästhesie;Amb. Anä;4ATAM;;;f;f;;f;
+0004;4ATOP;LS;OP Anästhesie;OP AT;4ATOP;;;f;f;;f;
+0004;4ATP01;A;Hr. Dr. Ademi;Dr. Ademi;4ATP1;;;f;f;;f;
+0004;4ATS01;S;Intensivstation;Intensiv;4ATIN;;;f;t;;f;
+0004;4BGY01OP;LS;OP Blöhbaum GY;OP Blöhbaum;4GOP1;;;f;f;;f;
+0004;4BGY1;F;BA Frauenheilkunde Dr.Blöhbaum;Bel.arzt GY1;4BGY1;0040;0193;f;f;;f;2400
+0004;4BGY1A01;A;Amb. Belegarzt Dr. Blöhbaum;Amb. BA GY1;4G1A1;;;f;f;;f;
+0004;4BGY1S01;S;GY Station 4B;GY 4B;4GYS1;;;f;f;;f;
+0004;4BUR01OP;LS;OP Schwab Urologie;OP Schwab;4UOP1;;;f;f;;f;
+0004;4BUR02OP;LS;OP Cudovic Urologie;OP Cudovic;4UOP2;;;f;f;;f;
+0004;4BUR1;F;Belegarzt Urologie Dr. Schwab;Bel.arzt UR1;4BUR1;0190;0900;f;f;;f;2200
+0004;4BUR1A01;A;Amb. Belegarzt Dr. Schwab;Amb. BA UR1;4U1A1;;;f;f;;f;
+0004;4BUR1S01;S;UR Station 4B;UR 4B;4URS1;;;f;f;;f;
+0004;4BUR2;F;Belegarzt Urologie Dr. Cudovic;Bel.arzt UR2;4BUR2;0190;0900;f;f;;f;2200
+0004;4BUR2A01;A;Amb. Belegarzt Dr. Cudovic;Amb. BA UR2;4U2A1;;;f;f;;f;
+0004;4CH;F;Allg.- Viszeralchirurgie;AVC;4AVCH;0130;0169;f;f;;f;1500
+0004;4CHA01;A;Ambulanz Chirurgie;Amb. CH;4CHAM;;;f;f;;f;
+0004;4CHOP;LS;OP Chirurgie;OP CH;4CHOP;;;f;f;;f;
+0004;4CHP01;A;Hr. DR. Brammer;DR. Brammer;4CHP1;;;f;f;;f;
+0004;4CHS01;S;CH Station 3B;CH 3B;4CH3B;;;f;f;;f;
+0004;4CHS02;S;CH Station 3C;CH 3 C;4CH3C;;;f;f;;f;
+0004;4GA;F;Gastroenterologie;GA;4GA;0040;0339;f;f;;f;0100
+0004;4GAA01;A;Ambulanz Gastroenterologie;Amb. GA;4GAA1;;;f;f;;f;
+0004;4GAOP;LS;OP Gastroenterologie;OP GA;4GAOP;;;f;f;;f;
+0004;4GAP01;A;Hr. Dr. Griemert;Dr. Griemert;4GAP1;;;f;f;;f;
+0004;4GAS01;S;GA Station 2A;GA 2A;4GAS1;;;f;f;;f;
+0004;4GAS02;S;GA Station 4A;GA 4A;4GAS2;;;f;f;;f;
+0004;4GAS03;S;GA Station 3C;GA 3C;4GAS3;;;f;f;;f;
+0004;4HO01;F;Honorararzt Dr. Grimm;Honorararzt1;4HO01;0040;0930;f;f;;f;1500
+0004;4HO01A01;A;Ambulanz Dr. Grimm;Amb. Grimm;4H1A1;;;f;f;;f;
+0004;4HO01OP;LS;OP Grimm;OP Grimm;4H1OP;;;f;f;;f;
+0004;4HO02;F;Honorararzt  Dr. Becker;Honorararzt2;4HO02;0040;0930;f;f;;f;1500
+0004;4HO02A01;A;Ambulanz Dr. Becker;Amb. Becker;4H2A1;;;f;f;;f;
+0004;4HO02OP;LS;OP Becker;OP Becker;4H2OP;;;f;f;;f;
+0004;4HO03;F;Honorararzt Dr. Helfen;Honorararzt3;4HO03;0040;0930;f;f;;f;1500
+0004;4HO03A01;A;Ambulanz Dr. Helfen;Amb. Helfen;4H3A1;;;f;f;;f;
+0004;4HO03OP;LS;OP Helfen;OP Helfen;4H3OP;;;f;f;;f;
+0004;4HO04;F;Honorararzt Hr. Odendahl;Honorararzt4;4HO04;0040;0930;f;f;;f;1500
+0004;4HO04A01;A;Ambulanz Hr. Odendahl;Amb.Odendahl;4H4A1;;;f;f;;f;
+0004;4HO04OP;LS;OP Odendahl;OP Odendahl;4H4OP;;;f;f;;f;
+0004;4HO05;F;Honorararzt Dr. Brill;Honorararzt5;4HO05;0040;0930;f;f;;f;1500
+0004;4HO05A01;A;Ambulanz Dr. Brill;Amb. Brill;4H5A1;;;f;f;;f;
+0004;4HO05OP;LS;OP Brill;OP Brill;4H5OP;;;f;f;;f;
+0004;4HO06;F;Honorararzt Dr. Schäfer;Honorararzt6;4HO06;0040;0930;f;f;;f;1500
+0004;4HO06A01;A;Ambulanz Dr. Schäfer;Amb. Schäfer;4H6A1;;;f;f;;f;
+0004;4HO06OP;LS;OP Schäfer;OP Schäfer;4H6OP;;;f;f;;f;
+0004;4HO07;F;Honorararzt Dr. Krieger;Honorararzt7;4HO07;0040;0930;f;f;;f;1500
+0004;4HO07A01;A;Ambulanz Dr. Krieger;Amb. Krieger;4H7A1;;;f;f;;f;
+0004;4HO07OP;LS;OP Krieger;OP Krieger;4H7OP;;;f;f;;f;
+0004;4HO08;F;Honorararzt Dr. Küttner;Honorararzt8;4HO08;0040;0930;f;f;;f;1500
+0004;4HO08A01;A;Ambulanz Dr. Küttner;Amb. Küttner;4H8A1;;;f;f;;f;
+0004;4HO08OP;LS;OP Küttner;OP Küttner;4H8OP;;;f;f;;f;
+0004;4HO09;F;Honorararzt Dr. Buch;Honorararzt9;4HO09;0040;0930;f;f;;f;1500
+0004;4HO09A01;A;Ambulanz Dr. Buch;Amb. Buch;4H9A1;;;f;f;;f;
+0004;4HO09OP;LS;OP Buch;OP Buch;4H9OP;;;f;f;;f;
+0004;4KA;F;Kardiologie;Kardiologie;4KA;0040;0339;f;f;;f;0100
+0004;4KAA01;A;Ambulanz Kardiologie;Amb. KA;4KAA1;;;f;f;;f;
+0004;4KAP01;A;Fr. Dr. Hellbauer;Dr.Hellbauer;4KAP1;;;f;f;;f;
+0004;4KAP02;A;Hr. Dr. Ostad;Dr. Ostad;4KAP2;;;f;f;;f;
+0004;4KAS01;S;KA Station 2A;KA 2A;4KAS1;;;f;f;;f;
+0004;4KAS02;S;KA Station 2B;KA 2B;4KAS2;;;f;f;;f;
+0004;4KAS03;S;KA Station 4A;KA 4A;4KAS3;;;f;f;;f;
+0004;4KAS04;S;KA Station 3C;KA 3C;4KAS4;;;f;f;;f;
+0004;4LA;F;Labor;Labor;4LA;0040;0930;f;f;;f;3700
+0004;4LSEKG;LS;EKG LS;EKG LS;4EKG;;;f;f;;f;
+0004;4LSENDO;LS;Endoskopie LS;Endoskopie;4ENDO;;;f;f;;f;
+0004;4LSLA;LS;Labor;Labor;4LSLA;;;f;f;;f;
+0004;4LSPT;LS;Physikalische Therapie;Phy. Therap.;4LSPT;;;f;f;;f;
+0004;4LSRA;LS;Radiologie;Radiologie;4LSRA;;;f;f;;f;
+0004;4LSSO;LS;Sozialdienst;Sozialdienst;4LSSO;;;f;f;;f;
+0004;4LSSONO;LS;Sonographie LS;Sonographie;4SONO;;;f;f;;f;
+0004;4MEDEINR;ME;Medizinische Einrichtungen;MEDEINR;4MEEI;;;f;f;;f;
+0004;4MEDKO;MK;Medizinische Kooperationen;ed. Koop.;4MEKO;;;f;f;;f;
+0004;4MEDLS;MZ;Medizinische Leistungsstelle;Med. LS;4MELS;;;f;f;;f;
+0001;AT03;S;AT03 IMC;AT03 IMC;AT03;;;f;f;;f;
+0004;4NC;F;Neurochirurgie/Wirbelsäule;Neurochir.;4NC;0130;0169;f;f;;f;1500
+0004;4NCA01;A;Ambulanz Neurochirurgie;Amb. NC;4NCA1;;;f;f;;f;
+0004;4NCOP;LS;OP Neurochirurgie;OP NC;4NCOP;;;f;f;;f;
+0004;4NCP01;A;unbekannt Name folgt;unbekannt;4NCP1;;;f;f;;f;
+0004;4NCS01;S;NC Station 4B;NC 4B;4NCS1;;;f;f;;f;
+0004;4NCS02;S;NC Station 3C;NC 3C;4NCS2;;;f;f;;f;
+0001;CH04;S;C 7 B;C 7 B;CH04;;;f;f;;f;
+0004;4NO;F;Notfallambulanz;Not. Amb.;4NOT;0140;0930;f;f;;f;3700
+0004;4NOACH;A;Notfallambulanz Chirurgie;Not.amb. CH;4NOAC;;;f;f;;f;
+0004;4NOAIN;A;Notfallambulanz Innere;Not.amb. IN;4NOAI;;;f;f;;f;
+0004;4NOOP;LS;OP Notfallaufnahme;OP Not;OPNOT;;;f;f;;f;
+0004;4OR;F;Orthopädie;Orthopädie;4OR;0130;0169;f;f;;f;1500
+0004;4ORA01;A;Ambulanz Orthopädie;Amb. OR;4ORA1;;;f;f;;f;
+0004;4OROP;LS;OP Orthopädie;OP OR;4OROP;;;f;f;;f;
+0004;4ORP01;A;unbekannt Name folgt;unbekannt;4ORP1;;;f;f;;f;
+0004;4ORS01;S;OR Station 3A;OR 3A;4ORS1;;;f;f;;f;
+0004;4ORS02;S;OR Station 4B;OR 4B;4ORS2;;;f;f;;f;
+0004;4ORS03;S;OR Station 3C;OR 3C;4ORS3;;;f;f;;f;
+0004;4PT;F;Physikalische Therapie;Phy. Therap.;4PT;0040;0930;f;f;;f;3700
+0004;4RA;F;Radiologie;Radiologie;4RA;0040;0930;f;f;;f;3700
+0004;4SO;F;Sozialdienst;Sozialdienst;4SO;0040;0930;f;f;;f;3700
+0004;4UC;F;Unfallchirurgie;Unfall;4UC;0130;0169;f;f;;f;1500
+0004;4UCA01;A;Ambulanz Unfallchirurgie;Amb. Unfall;4UCA1;;;f;f;;f;
+0004;4UCBG;A;BG Ambulanz Hub;BG Amb. Hub;4UCBG;;;f;f;;f;
+0004;4UCOP;LS;OP Unfallchirurgie;OP Unfall;4UCOP;;;f;f;;f;
+0004;4UCP01;A;Hr. Dr. Hub;Dr. Hub;4UCP1;;;f;f;;f;
+0004;4UCS01;S;UC Station 3B;UC 3B;4UCS1;;;f;f;;f;
+0004;4UCS02;S;UC Station 4B;UC 4B;4UCS2;;;f;f;;f;
+0004;4UCS03;S;UC Station 3c;UC 3c;4UC3C;;;f;f;;f;
+0004;4ZOP;F;Zentral-OP Ingelheim;Zentral-OP;4ZOP;0130;0930;f;f;;f;9999
+0004;4ZOP01;OL;Zentral-OP Ingelheim;Zentral-OP;ZOP01;0130;;f;f;;f;
+0001;505OP;LS;505 OP AN-Pflege(CH TC ZOU KC);505 OP / AN;505OP;;;f;f;;f;
+0001;AG;F;Zentr.f.Allg.Med.und Geriatrie;ZAG;AG;0035;0336;f;f;U035;f;0200
+0001;AMB-AG;KA;Amb-ZAG;Ambulanzen;AAG;;;f;f;;f;
+0001;AMB-AT;KA;Amb-AT;Ambulanzen;KAAT;;;f;f;;f;
+0001;AMB-AU;KA;Amb-AU;Ambulanzen;KAAU;;;f;f;;f;
+0001;AMB-CC;KA;Amb-UCT;Ambulanzen;CCAMB;;;f;f;;f;
+0001;AMB-CH;KA;Amb-CH;Ambulanzen;KACH;;;f;f;;f;
+0001;AMB-DE;KA;Amb-DE;Ambulanzen;KADE;;;f;f;;f;
+0001;AMB-EN;KA;Amb-EN;Ambulanzen;KAEN;;;f;f;;f;
+0001;AMB-GA;KA;Amb-ZAG;Ambulanzen;AGA;;;f;f;;f;
+0001;AMB-GY;KA;Amb-GY;Ambulanzen;KAGY;;;f;f;;f;
+0001;AMB-HC;KA;Amb-HC;Ambulanzen;KAHC;;;f;f;;f;
+0001;AMB-HN;KA;Amb-HN;Ambulanzen;KAHN;;;f;f;;f;
+0001;AMB-IAGI;KA;Ambulanzen IAGI;Ambulanzen;KIAGI;;;f;f;;f;
+0001;AMB-IARH;KA;Ambulanzen IARH;Ambulanzen;KIARH;;;f;f;;f;
+0001;AMB-ITC;KA;Ambulanzen ITC;Ambulanzen;KAITC;;;f;f;;f;
+0001;AMB-KC;KA;Amb-KC;Ambulanzen;KAKC;;;f;f;;f;
+0001;AMB-KI;KA;Amb-KI;Ambulanzen;KAKI;;;f;f;;f;
+0001;AMB-KO;KA;Ambulanzen KO;Ambulanzen;KAKO;;;f;f;;f;
+0001;AMB-M1;KA;Amb-M1;Ambulanzen;KAM1;;;f;f;;f;
+0001;AMB-M2;KA;Amb-M2;Ambulanzen;KAM2;;;f;f;;f;
+0001;AMB-M3;KA;AMB-M3;Ambulanzen;KAM3;;;f;f;;f;
+0001;AMB-NC;KA;Amb-NC;Ambulanzen;KANC;;;f;f;;f;
+0001;AMB-NE;KA;Amb-NE;Ambulanzen;KANE;;;f;f;;f;
+0001;AMB-NR;KA;Amb-NR;Ambulanzen;ANR;;;f;f;;f;
+0001;AMB-NU;KA;Amb-NU;Ambulanzen;KANU;;;f;f;;f;
+0001;AMB-OR;KA;Amb-OR;Ambulanzen;KAOR;;;f;f;;f;
+0001;AMB-PS;KA;Amb-PS;Ambulanzen;KAPS;;;f;f;;f;
+0001;AMB-PT;KA;Amb-PT;Ambulanzen;KAPT;;;f;f;;f;
+0001;AMB-RA;KA;Amb-RA;Ambulanzen;KARA;;;f;f;;f;
+0001;AMB-RAD;KA;Amb-Radiologie;Ambulanzen;KARAD;;;f;f;;f;
+0001;AMB-STR;KA;Amb-STR;Ambulanzen;KASTR;;;f;f;;f;
+0001;AMB-TC;KA;Amb-TC;Ambulanzen;KATC;;;f;f;;f;
+0001;AMB-TEST;KA;Ambulanzen-TEST;Ambul.Test;KATES;;;f;f;;f;
+0001;AMB-TH;KA;Amb-TH;Ambulanzen;THAMB;;;f;f;;f;
+0001;AMB-TX;KA;Ambulanzen TX;Ambul. TX;AMBTX;;;f;f;;f;
+0001;AMB-UC;KA;Amb-ZOU;Ambulanzen;KAZOU;;;f;f;;f;
+0001;AMB-UR;KA;Amb-UR;Ambulanzen;KAUR;;;f;f;;f;
+0001;AMB-ZAG;KA;Amb-ZAG;Ambulanzen;;;;f;f;;f;
+0001;AMB-ZLAB;KA;Ambulanzen ZLAB;Ambulanzen;AMBZL;;;f;f;;f;
+0001;AMB-ZM;KA;Amb-ZM;Ambulanzen;KAZM;;;f;f;;f;
+0001;APO;F;Apotheke Unimed;Apotheke;APO;0060;0930;f;f;;f;3700
+0001;APOT;LS;Apotheke;Apotheke;APOT;;;f;f;;f;
+0001;APOTVERK;LS;Apothekenverkauf;Apoth.-Verk.;APOVE;;;f;f;;f;
+0001;APOTZ;LS;Apotheke Zytostatika;Apotheke ZYT;APOTZ;;;f;f;;f;
+0001;ARCH-505;LS;Krankenaktenarchiv 505;Archiv 505;A-505;;;f;f;;f;
+0001;ARCH-CH;LS;CH Archiv 505 UG;CH Arch. 505;AR-CH;;;f;f;;f;
+0001;ARCH-GY;LS;GY Archiv 505 GY;GY Arch. 102;ARCGY;;;f;f;;f;
+0001;ARCH-HC;LS;HC Archiv 505 UG;HC Arch. 505;AR-HC;;;f;f;;f;
+0001;ARCH-KC;LS;KC Archiv 109;KC Arch. 109;AR-KC;;;f;f;;f;
+0001;ARCH-KI;LS;KI Archiv 109;KI Arch. 109;AR-KI;;;f;f;;f;
+0001;ARCH-KT;LS;KT Archiv 505 UG;KT Arch. 505;AR-KT;;;f;f;;f;
+0001;ARCH-M1;LS;Krankenaktenarchiv  1. Med.;M1 Archiv;M1ARC;;;f;f;;f;
+0001;ARCH-OR;LS;OR Archiv 505 EG;OR Arch. 505;;;;f;f;;f;
+0001;ARCH-TC;LS;TC Archiv 505 UG;TC Arch. 505;AR-TC;;;f;f;;f;
+0001;ARCH-UC;LS;ZOU Archiv 505 UG;ZOU Arch.505;ARZOU;;;f;f;;f;
+0001;ARCH-UR;LS;Krankenaktenarchiv  Urologie;UR Archiv;AR-UR;;;f;f;;f;
+0001;ARCHIVE;F;Krankenaktenarchive;KA-Archive;ARCHI;;;f;f;;f;
+0001;AT;F;Anästhesie;Anästhesie;AT;0020;0930;f;f;U020;f;3600
+0001;AT02;S;AT C 1 IB;AT C 1 IB;AT02;;;f;t;;f;
+0001;AT04;S;AT AWR 505 1. OG Aufwachraum;AT AWR 505;AT04;;;f;f;;f;
+0001;AT05;S;AT 505 ZOP1;AT 505 ZOP1;AT05;;;f;t;;f;
+0001;AT06;S;AT 505 ZOP2;AT 505 ZOP2;AT06;;;f;t;;f;
+0001;AT07;S;AT 102 1. OG;AT 102 1. OG;AT07;;;f;t;;f;
+0001;AT08;S;AT 102 2. OG;AT 102 2. OG;AT08;;;f;t;;f;
+0001;AT09;S;AT 604 OP;AT 604 OP;AT09;;;f;t;;f;
+0001;AT10;S;AT 503 OP;AT 503 OP;AT10;;;f;t;;f;
+0001;AT11;S;AT 11 (HC);AT 11 (HC);AT11;;;f;t;;f;
+0001;ATFD;LS;Funktionsdiagnostik AT;FD AT;ATFD;;;f;f;;f;
+0001;ATLS;LS;LS Anästhesiologie;LS AT;ATLS;;;f;f;;f;
+0001;ATLS102;LS;LS Anästhesie Sprechstunde 102;AT LSSP 102;AT102;;;f;f;;f;
+0001;ATLS505;LS;LS Anästhesie Sprechstunde 505;AT LSSP 505;AT505;;;f;f;;f;
+0001;ATLSSP;LS;LS Anästhesie Sprechstunde;AT Sprechst.;ATSP1;;;f;f;;f;
+0001;ATOP;LS;Operieren Anästhesiologie;ATOP;AT-OP;;;f;f;;f;
+0001;ATOPAU;LS;ATOP Augenklinik;ATOP AU;ATOAU;;;f;f;;f;
+0001;ATOPCH;LS;ATOP Allgemeinchirurgie;ATOP CH;ATCH;;;f;f;;f;
+0001;ATOPGY;LS;ATOP Frauenklinik;ATOP GY;ATGY;;;f;f;;f;
+0001;ATOPHA;LS;ATOP HNO- und Augenklinik;ATOP HA;ATHA;;;f;f;;f;
+0001;ATOPHC;LS;ATOP Herzchirurgie;ATOP HC;ATHC;;;f;f;;f;
+0001;ATOPKC;LS;ATOP Kinderchirurgie;ATOP KC;ATKC;;;f;f;;f;
+0001;ATOPKM;LS;ATOP konservative Medizin;ATOP KM;ATKM;;;f;f;;f;
+0001;ATOPM2;LS;ATOP Kardiologie - Atzent;ATOP Kardio;ATOPM;;;f;f;;f;
+0001;ATOPNC;LS;ATOP Neurochirurgie;ATOP NC;ATNC;;;f;f;;f;
+0001;ATOPOR;LS;ATOP Orthopädie;ATOP OR;ATOR;;;f;f;;f;
+0001;ATOPTC;LS;ATOP Transplantationschirurgie;ATOP TC;ATTC;;;f;f;;f;
+0001;ATOPUK;LS;ATOP ZOU;ATOP ZOU;ATZOU;;;f;f;;f;
+0001;ATOPUR;LS;ATOP Urologie;ATOP UR;ATUR;;;f;f;;f;
+0001;ATOPZM;LS;ATOP ZMK;ATOP ZM;ATZM;;;f;f;;f;
+0001;ATP;A;Poliklinik der Anästhesiologie;AT Polikl.;ATP;;;f;f;;f;
+0001;ATPAO;A;Amb. Operieren Anästhesiologie;AT amb. OP;ATOP;;;f;f;;f;
+0001;ATPCH;A;ATP Allgemeinchirurgie;ATP CH;ATPCH;;;f;f;;f;
+0001;ATPGY;A;ATP Frauenklinik;ATP GY;ATPGY;;;f;f;;f;
+0001;ATPHA;A;ATP HNO- und Augenklinik;ATP HN AU;ATPHA;;;f;f;;f;
+0001;ATPHC;A;ATP Herzchirurgie;ATP HC;ATPHC;;;f;f;;f;
+0001;ATPIN;A;ATP Innere Kliniken;ATP IN;ATPIN;;;f;f;;f;
+0001;ATPKM;A;ATP konservative Medizin;ATP kons.Med;ATPKM;;;f;f;;f;
+0001;ATPNC;A;ATP Neurochirurgie;ATP NC;ATPNC;;;f;f;;f;
+0001;ATPOR;A;ATP Orthopädie;ATP OR;ATPOR;;;f;f;;f;
+0001;ATPPRI;A;AT Privatsprechstunde;AT Privatsp.;ATPPR;;;f;f;;f;
+0001;ATPPRI1;A;AT Schmerzambulanz Privat;AT SA-Privat;ATPR1;;;f;f;;f;
+0001;ATPSA;A;AT Schmerzambulanz;AT Schmerz;ATPSA;;;f;f;;f;
+0001;ATPST;A;Studienamb. Anästhesiologie;AT Studie;ATPST;;;f;f;;f;
+0001;ATPTC;A;ATP Transplantationschirurgie;ATP TC;ATPTC;;;f;f;;f;
+0001;ATPUK;A;ATP Unfall- u. Kinderchirurgie;ATP UC KC;ATPUK;;;f;f;;f;
+0001;ATPUR;A;ATP Urologie;ATP UR;ATPUR;;;f;f;;f;
+0001;ATPZMK;A;ATPZMK;ATPZMK;ATPZM;;;f;f;;f;
+0001;AU;F;Augenklinik;Augenklinik;AU;0220;0120;f;f;U220;f;2700
+0001;AU01;S;101 / A 4;101 / A 4;AU01;;;f;f;;f;
+0001;AU02;S;101 / A 2;101 / A 2;AU02;;;f;f;;f;
+0001;AU03;S;101 / A 3;101 / A 3;AU03;;;f;f;;t;
+0001;AU04;S;AUGEN 4;AUGEN 4;AU04;;;f;f;;t;
+0001;AU05;S;AU 406 I;AU 406 I;AU05;;;f;f;;f;
+0001;AU06;S;AU 401 / 4 A;AU 401 / 4 A;AU06;;;f;f;;f;
+0001;AU97104;LS;AU-Studie 97104;AU-St 97104;AUS01;;;f;f;;f;
+0001;AULSAMD;LS;AULSAMD Leistungsst. Makuladeg;AULSAMD;AULAM;;;f;f;;f;
+0001;AULSEP;LS;Elektrophysiologie;Elektrophys.;AULSE;;;f;f;;f;
+0001;AULSFD;LS;Foto + US Augenklinik;Sonst. Diagn;AULSF;;;f;f;;f;
+0001;AULSFLA;LS;AU Fluroszentangiographie;FLA;AULFL;;;f;f;;f;
+0001;AULSGL;LS;Gesichtsfeld;Diagnostik;AULSG;;;f;f;;f;
+0001;AULSKONS;LS;AULSKONS Digitale Konsile;AULSKONS;AULSK;;;f;f;;f;
+0001;AULSLAS;LS;AULSLAS Leistungsstelle Laser;AULSLAS;AULSL;;;f;f;;f;
+0001;AUOP;LS;OP Augenkl.;AUOP;AUOP;;;f;f;;f;
+0001;AUOPBRA;LS;AU amb. OP Tageskl. am Brand;AUOPBRA;AUOPB;;;f;f;;f;
+0001;AUP;A;Poliklinik der Augenklinik;Allg. Amb.;AUP;;;f;f;;f;
+0001;AUPAMD;A;AUP altersabhängige Makuladeg.;AMD;AUPAM;;;f;f;;f;
+0001;AUPAUF;A;Patientenkoordination Augen;AUPAUF;AUPAU;;;f;f;;f;
+0001;AUPGLAU;A;AUP Glaukomsprechstunde;Glaukom;AUPGL;;;f;f;;f;
+0001;AUPHORN;A;AUP Hornhautsprechstunde;Hornhaut;AUPHH;;;f;f;;f;
+0001;AUPKON;A;Polikl. AU / Kontaktlinsen;KL;AUPKO;;;f;f;;f;
+0001;AUPLAS;A;AUP Lasersprechstunde;Laser;AUPLA;;;f;f;;f;
+0001;AUPLID;A;AUP Lidsprechstunde;Lid;AUPLI;;;f;f;;f;
+0001;AUPMT;A;AUP Makula u.Tumorsprechstunde;Mak und Tu;AUPMT;;;f;f;;f;
+0001;AUPONKO;A;AU onkologische Ambulanz;AU onkol.Amb;AUPON;;;f;f;;f;
+0001;AUPOPCI;A;Augenklinik OP Check In;AU OP-Check;AUOPC;;;f;f;;f;
+0001;AUPORB;A;AUP Orbitasprechstunde;Orbita;AUPOR;;;f;f;;f;
+0001;AUPPDT;A;Poliklinik AU Photodyn.Therap;PDT;AUPDT;;;f;f;;f;
+0001;AUPPRI;A;AU Privatsprechstunde;AU Privatsp.;AUPPR;;;f;f;;f;
+0001;AUPRET;A;Poliklinik AU Retinologie;Retinologie;AUPRE;;;f;f;;f;
+0001;AUPSEH;A;AUP Orthoptik;Orthoptik;AUPSE;;;f;f;;f;
+0001;AUPST;A;Studienzentrum Augenklinik;Studien;AUPST;;;f;f;;f;
+0001;AUS00001;A;AU-Studie 97104;Studie 97104;AU001;;;f;f;;f;
+0001;BA;F;Betriebsärztliche Dienststelle;Betriebsarzt;BA;0040;0930;f;f;;f;3700
+0001;BAD;LS;Betriebsärztliche Dienststelle;Betriebsarzt;BAD;;;f;f;;f;
+0001;BADP;A;Betriebsärztliche Ambulanz;BA-Ambulanz;BADP;;;f;f;;f;
+0001;BADPCPM;A;CPM Studie Betriebsarzt;BA-CPM Stud.;BADCP;;;f;f;;f;
+0001;BLUT;LS;Bluttransporte;Bluttranspor;;;;f;f;;f;
+0001;BOARDS;F;BOARD interdisziplinäre Boards;BOARDS;BOARD;0060;0930;f;f;;f;3700
+0001;CC;F;UCT;UCT;UCT;0060;0930;f;f;;f;3700
+0001;CC-TUDO;A;TumorDokumentation;UCT TuDo;TUDO;;;f;f;;f;
+0001;CCP-HAEM;A;Hämatologie UCT;UCT Häma;CCPHA;;;f;f;;f;
+0001;CCP-IHB;A;Dermatologie UCT;UCT Derma;CCPIH;;;f;f;;f;
+0001;CCP-INOF;A;Neurochirurgie UCT;UCT Neuroch.;CCPIN;;;f;f;;f;
+0001;CCP-KHT;A;HNO + MKG;UCT HNO+MKG;CCPKH;;;f;f;;f;
+0001;CCP-PAST;A;Palliativmed.u.Schmerzther.UCT;UCT PAST;CCPAS;;;f;f;;f;
+0001;CCP-SARK;A;Sarkomsprechstunde UCT;UCT Sarkom;CCPSA;;;f;f;;f;
+0001;CCP-STR;A;Radioonkologie UCT;UCT Radioonk;CCPST;;;f;f;;f;
+0001;CCP-UIT;A;Urologie UCT;UCT Urologie;CCPUI;;;f;f;;f;
+0001;CCPTH;A;Therapieambulanz UCT;Therapieamb.;CCPTH;;;f;f;;f;
+0001;CH;F;Allg.-, Viszeral u.Transpl. CH;AVTC;CH;0130;0169;f;f;U130;f;1500
+0001;CH02;S;C 8 B;C 8 B;CH02;;;f;f;;f;
+0001;CH03;S;C 7 A;C 7 A;CH03;;;f;f;;f;
+0001;CH05;S;C 6 A IÜ;C 6 A IÜ;CH05;;;f;f;;f;
+0001;CH06;S;Chir.1 Int. IB;Chir.1 IB;CH06;;;f;f;;f;
+0001;CH07;S;C 7 B IÜ;C 7 B IÜ;CH07;;;f;f;;f;
+0001;CH08;S;C 7 A IÜ;C 7 A IÜ;CH08;;;f;f;;f;
+0001;CH09;S;C 6 B;C 6 B;CH09;;;f;f;;f;
+0001;CHLSCM;LS;CHLS Case-Management;CHLS Case-Ma;CHLSC;;;f;f;;f;
+0001;CHLSKONS;LS;CHLSKONS Konsile;CHLSKONS Kon;CHLSK;;;f;f;;f;
+0001;CHOP;LS;OP Allg.Chirurgie;OP Allg.Ch.;CHOP;;;f;f;;f;
+0001;CHOP503;LS;OP Allg.Chirurgie 503;OP CH 503;CH503;;;f;f;;f;
+0001;CHP;A;Poliklinik der Abdominalchir.;CH Polikl.;CHP;;;f;f;;f;
+0001;CHPADI;A;CH proktologische Sprechstunde;proktol.;CHPAD;;;f;f;;f;
+0001;CHPEN;A;CH Sprechst. Endokrine Chirurg;Endokrine CH;CHPEN;;;f;f;;f;
+0001;CHPHEP;A;CH Sprechstunde hepatobiliär;CH HEP;CHPHE;;;f;f;;f;
+0001;CHPHI;A;CH HIPEC-Sprechstunde;HIPEC-Sprech;CHPHI;;;f;f;;f;
+0001;CHPKOL;A;CH Kolon / Rektum;Kolon/Rektum;CHPKO;;;f;f;;f;
+0001;CHPLGP;A;CH Sprechst. Leber/Galle/Pankr;Leb/Galle/Pa;CHPLG;;;f;f;;f;
+0001;CHPLTX;A;CH Sprechstunde Lebertransplan;CH LTX;CHPLX;;;f;f;;f;
+0001;CHPMÖ;A;CH Magen / Ösophagus;Magen/Ösopha;CHPMÖ;;;f;f;;f;
+0001;CHPNPTX;A;Sprechstunde Nieren/PankreasTR;CH NPTX;CHPNX;;;f;f;;f;
+0001;CHPON;A;Chir.Onkologische Ambulanz;CH / Onko;CHPON;;;f;f;;f;
+0001;CHPPRI;A;CH Privatsprechstunde;CH Privatsp.;CHPPR;;;f;f;;f;
+0001;CHPPRO;A;CH proktologische Sprechstunde;Proktol.;CHPRO;;;f;f;;f;
+0001;CHREKTO;LS;Allg.Chirurgie Kolorektale FD;AVTC Rekto;CHREK;;;f;f;;f;
+0001;CO-M2;F;M2 Kooperationen;M2 Kooperat.;COM2;0050;0323;f;f;U050;f;0190
+0001;COM2LS01;LS;M2 Kooperation Abujarour;M2 Koop.Abuj;CO001;;;f;f;;f;
+0001;CP;F;Cardiopraxis;Cardiopraxis;CP;0050;0930;f;f;;f;3700
+0001;CP401C;A;CP-Herzkatheter Anlage;CP HK-Anlage;CPHKA;;;f;f;;f;
+0001;CP605C;A;CP-Herzkatheter Labor;CP HK-Labor;CPHKL;;;f;f;;f;
+0001;CPM;F;Zentrum für Präventivmedizin;CPM;CPM;0060;0930;f;f;;f;3700
+0001;CPMC;F;CPMC Prevac-Studie;CPMC Prevac;CPMC;0060;0930;f;f;;f;3700
+0001;CPMCV;A;CV NCOV 005 Studie;CV NOC 005;CPMCV;;;f;f;;f;
+0001;CPMP;A;Ambulanz für Präventivmedizin;Präv.med.amb;CPMP;;;f;f;;f;
+0001;CPMPR;A;CPMPR Prevac Studie;CPMPR-Studie;CPMPR;;;f;f;;f;
+0001;CRC-AU;KA;CRC-AU Studienzentrum;AU-Studien;CRCAU;;;f;f;;f;
+0001;CTH;F;Centrum Thrombose u. Hämostase;CTH;CTH;0050;0930;f;f;;f;0190
+0001;CTHGEPRI;A;CTH Gerinnungsambulanz Privat;CTH Privat;CTHPR;;;f;f;;f;
+0001;CTHGERKV;A;CTH Gerinnungsambulanz;CTH Gerinn;CTHGA;;;f;f;;f;
+0001;CTHLSKON;LS;LS CTH Konsile;CTH Konsile;CTHKO;;;f;f;;f;
+0001;CTHPG;A;CTH Gerinnungsambulanz;CTH Gerinn;CTHP;;;f;f;;f;
+0001;CTHPHAEM;A;CTH interdisz.Gerinnungsamb.;CTH Gerinn.;CTHPH;;;f;f;;f;
+0001;CTHPLE;A;CTH Lungenembolie Ambulanz;CTH Lungenem;CTHLE;;;f;f;;f;
+0001;CTHPPRIG;A;CTH Gerinnungsambulanz Privat;CTH Privat;CTHPP;;;f;f;;f;
+0001;CTHPST;A;CTH Studienambulanz Myovask;CTHPST Myova;CTHPS;;;f;f;;f;
+0001;CTM;F;Covid Testzentrum Mainz;CTM Mainz;CTM;0060;0930;f;f;;f;3700
+0001;DAVINCI;LS;Da-Vinci UR-OP;Da-Vinci;DAVIN;;;f;f;;f;
+0001;DE;F;Hautklinik;Hautklinik;DE;0090;0250;f;f;U090;f;3400
+0001;DE02;S;D 2 A;D 2 A;DE02;;;f;f;;f;
+0001;DE03;S;D 3 B;D 3 B;DE03;;;f;f;;f;
+0001;DE04;S;D 4 B;D 4 B;DE04;;;f;f;;f;
+0001;DEFD;LS;Funktionsdiagnostik Hautkl.;FD DE;DEFD;;;f;f;;f;
+0001;DELSAL;LS;DELS Allgergie;DELS Allerge;DELSA;;;f;f;;f;
+0001;DELSAN;LS;DELS Andrologie;DELS Androlo;DELSN;;;f;f;;f;
+0001;DELSCM;LS;DELS Case-Management;DELS Case-Ma;DELSC;;;f;f;;f;
+0001;DELSHI;LS;DELS Histologie;DELS Histolo;DELSH;;;f;f;;f;
+0001;DELSLT;LS;DELS Lichttherapie;DELSLT;DELT;;;f;f;;f;
+0001;DELSMY;LS;DELS Mykologie;DELS Mykolog;DELSM;;;f;f;;f;
+0001;DELSTGLT;LS;DELS Tagesklinik Lichttherapie;DELSTG LT;DETGL;;;f;f;;f;
+0001;DELSUSHL;LS;DELS Ultraschall Haut/Lymphkn.;DELSUSHL;DELSL;;;f;f;;f;
+0001;DELSUSPV;LS;DELS Ultraschall Phleb./Venen;DELSUSPV;DELSU;;;f;f;;f;
+0001;DEOP;LS;OP Hautklinik;OP DE;DEOP;;;f;f;;f;
+0001;DEOPLAS;LS;OP Laser Hautklinik EG Polikli;OP Laser EG;DEOPL;;;f;f;;f;
+0001;DEP;A;Poliklinik der Hautklinik;DE Polikl.;DEP;;;f;f;;f;
+0001;DEPAK;A;Akutsprechstunde Hautklinik;DE Akutspr.;DEPAK;;;f;f;;f;
+0001;DEPALL;A;Poliklinik Hautklinik Allergie;DE Allergie;DEPAL;;;f;f;;f;
+0001;DEPAN;A;Sprechstunde Andrologie;Andrologie;DEPAN;;;f;f;;f;
+0001;DEPAT;A;Sprechstunde Atopiker;Atopiker;DEPAT;;;f;f;;f;
+0001;DEPAUIM;A;Autoimmunsprechstunde EG Poli;DE Autoimmun;DEPAU;;;f;f;;f;
+0001;DEPBDA;A;Berufsdermatologische Ambulanz;BDS Ambulanz;DEBDA;;;f;f;;f;
+0001;DEPBDS;A;Berufsdermatolog.Gutachten;BDS Gutachte;DEPBD;;;f;f;;f;
+0001;DEPEPP;A;Erythropoet. Protoporphyrie;Eryth.Protop;DEPEP;;;f;f;;f;
+0001;DEPFK;A;Poliklinik Hautklinik Frauen;DE Poli. Fr.;DEPFK;;;f;f;;f;
+0001;DEPHY;A;Sprechstunde Hyperhidrosis;Hyperhidrosi;DEPHY;;;f;f;;f;
+0001;DEPINF;A;DEPINF ambulante Infusionen;Infusion/CRC;DEPIN;;;f;f;;f;
+0001;DEPLIP;A;Tagesklinik Liposuktion;DETK Lipos.;DEPLI;;;f;f;;f;
+0001;DEPMAZ;A;Sprechstunde Mastozytose;Mastozytose;DEPMA;;;f;f;;f;
+0001;DEPMK;A;Poliklinik Hautklinik Männer;DE Poli.Män.;DEPMK;;;f;f;;f;
+0001;DEPON;A;Poliklinik Hautklinik Onkolog.;Onkologie;DEPON;;;f;f;;f;
+0001;DEPPE;A;Hautklinik PE Sprechstunde;PE Sprechstd;DEPPE;;;f;f;;f;
+0001;DEPPHL;A;Sprechstunde Phleblogie;Phleblogie;DEPPH;;;f;f;;f;
+0001;DEPPRI;A;DE Privatsprechstunde;DE Privatsp.;DEPPR;;;f;f;;f;
+0001;DEPPRO;A;Proktologische Sprechstunde;DE Proktolog;DEPRO;;;f;f;;f;
+0001;DEPPS;A;Psoriasis Sprechstunde;Psoriasis;DEPPS;;;f;f;;f;
+0001;DEPSO;A;Sprechstunde Sono;Sono;DEPSO;;;f;f;;f;
+0001;DEPSTUON;A;DE Studie Onkologie;DEP StudieON;DEPST;;;f;f;;f;
+0001;DEPUSS;A;Sprechstunde Urtikaria;Urtikaria;DEPUS;;;f;f;;f;
+0001;DEPWSP;A;Wundsprechstunde;Wundsprechst;DEPWS;;;f;f;;f;
+0001;DESTERI;LS;Sterilisation Hautklinik;DE Steri;DESTE;;;f;f;;f;
+0001;DETAG;F;- Hautklinik Tagklinik;Hautkl.Tag.;DETAG;0090;0250;f;f;U090;f;3460
+0001;DETG;S;Haut-Tagesklinik;DE Tageskl.;DETG;0090;0250;f;f;U090;t;3460
+0001;DETGLT;S;Haut Tagesklinik Lichttherapie;DETG Lichtth;;0090;0250;f;f;U090;t;3460
+0001;DIALYSE;F;Dialyse;Dialyse;DIAL;0040;0310;f;f;U040;f;0194
+0001;DRM90711;LS;DRM Neuropathischer Schmerz NE;DRM90711 NE;90711;;;f;f;;f;
+0001;DRM92077;LS;DRM GDCM - Studie M2;DRM92077 M2;92077;;;f;f;;f;
+0001;DRM92145;LS;DRM Anaesthesiologie AT;DRM92145 AT;92145;;;f;f;;f;
+0001;DRM92195;LS;DRM Schrittmacher M2;DRM92195 M2;92195;;;f;f;;f;
+0001;DRM92976;LS;DRM Biomarin KI;DRM92976 KI;92976;;;f;f;;f;
+0001;DRM93939;LS;DRM Gaucher Disease KI;DRM93939 KI;93939;;;f;f;;f;
+0001;DRM94125;LS;DRM CRPS NE;DRM94125 NE;94125;;;f;f;;f;
+0001;DRM94478;LS;DRM Allergie Worshop;DRM94478 DE;94478;;;f;f;;f;
+0001;DRM94980;LS;DRM Asthma Bronchiale;DRM94980 M3;94980;;;f;f;;f;
+0001;DRM96980;LS;DRM Asthma Bronchiale;DRM96980 M3;96980;;;f;f;;f;
+0001;DRM97544;LS;DRM Atraction M1;DRM Atractio;DRATR;;;f;f;;f;
+0001;DRM98700;LS;DRM Chronic Urticaria;DRM98700 DE;98700;;;f;f;;f;
+0001;DRMAPO;LS;Drittmittel APO;Dritt. APO;DRMAP;;;f;f;;f;
+0001;DRMAT;LS;Drittmittel AT;Dritt. AT;DRMAT;;;f;f;;f;
+0001;DRMAU;LS;Drittmittel AU;Dritt. AU;DRMAU;;;f;f;;f;
+0001;DRMBA;LS;Drittmittel BA;Dritt. BA;DRMBA;;;f;f;;f;
+0001;DRMCH;LS;Drittmittel CH;Dritt. CH;DRMCH;;;f;f;;f;
+0001;DRMDE;LS;Drittmittel DE;Dritt. DE;DRMDE;;;f;f;;f;
+0001;DRMEEN;LS;Drittmittel EEN;Dritt. EEN;DRMEN;;;f;f;;f;
+0001;DRMGY;LS;Drittmittel GY;Dritt. GY;DRMGY;;;f;f;;f;
+0001;DRMHC;LS;Drittmittel HC;Dritt. HC;DRMHC;;;f;f;;f;
+0001;DRMHG;LS;Drittmittel HG;Dritt. HG;DRMHG;;;f;f;;f;
+0001;DRMHN;LS;Drittmittel HN;Dritt. HN;DRMHN;;;f;f;;f;
+0001;DRMKC;LS;Drittmittel KC;Dritt. KC;DRMKC;;;f;f;;f;
+0001;DRMKHYG;LS;Drittmittel AGKHYG;Dritt. AGKHY;DRMKH;;;f;f;;f;
+0001;DRMKI;LS;Drittmittel Kinderklinik;Dritt. KI;DRMKI;;;f;f;;f;
+0001;DRMKORTH;LS;Drittmittel KORTHO;Dritt. KORTH;KORTH;;;f;f;;f;
+0001;DRMKPAT;LS;Drittmittel KPAT;Dritt. KPAT;DRMKP;;;f;f;;f;
+0001;DRMM1;LS;Drittmittel M1;Dritt. M1;DRMM1;;;f;f;;f;
+0001;DRMM2;LS;Drittmittel M2;Dritt. M2;DRMM2;;;f;f;;f;
+0001;DRMM3;LS;Drittmittel M3;Dritt. M3;DRMM3;;;f;f;;f;
+0001;DRMMKG;LS;Drittmittel MKG;Dritt. MKG;DRMMK;;;f;f;;f;
+0001;DRMNC;LS;Drittmittel NC;Dritt. NC;DRMNC;;;f;f;;f;
+0001;DRMNE;LS;Drittmittel NE;Dritt. NE;DRMNE;;;f;f;;f;
+0001;DRMNPAT;LS;Drittmittel NPAT;Dritt. NPAT;DRMNP;;;f;f;;f;
+0001;DRMNRAD;LS;Drittmittel NRAD;Dritt. NRAD;DRMNR;;;f;f;;f;
+0001;DRMNU;LS;Drittmittel NU;Dritt. NU;DRMNU;;;f;f;;f;
+0001;DRMOR;LS;Drittmittel OR;Dritt. OR;DRMOR;;;f;f;;f;
+0001;DRMPAT;LS;Drittmittel PAT;Dritt. PAT;DRMPA;;;f;f;;f;
+0001;DRMPRO;LS;Drittmittel PRO;Dritt. PRO;DRMPR;;;f;f;;f;
+0001;DRMPS;LS;Drittmittel PS;Dritt. PS;DRMPS;;;f;f;;f;
+0001;DRMPT;LS;Drittmittel PT;Dritt. PT;DRMPT;;;f;f;;f;
+0001;DRMRAD;LS;Drittmittel RAD;Dritt. RAD;DRMRA;;;f;f;;f;
+0001;DRMSTR;LS;Drittmittel STR;Dritt. STR;DRMST;;;f;f;;f;
+0001;DRMTC;LS;Drittmittel TC;Dritt. TC;DRMTC;;;f;f;;f;
+0001;DRMTR;LS;Drittmittel TR;Dritt. TR;DRMTR;;;f;f;;f;
+0001;DRMUC;LS;Drittmittel ZUOU;Dritt. ZOU;DRZOU;;;f;f;;f;
+0001;DRMUR;LS;Drittmittel UR;Dritt. UR;DRMUR;;;f;f;;f;
+0001;DRMZCHIR;LS;Drittmittel ZCHIR;Dritt. ZCHIR;ZCHIR;;;f;f;;f;
+0001;DRMZKD;LS;Drittmittel ZKD;Dritt. ZKD;DRMZK;;;f;f;;f;
+0001;DRMZL;LS;Drittmittel ZL;Dritt. ZL;DRMZL;;;f;f;;f;
+0001;DRMZMKAL;LS;Drittmittel ZMKALLG;Dritt. ZMKAL;DRMZM;;;f;f;;f;
+0001;DRMZWT;LS;Drittmittel ZWT;Dritt. ZWT;DRMZW;;;f;f;;f;
+0001;EEN;LS;Experiment. Endokrinologie;Exp.Endo;EEN;;;f;f;;f;
+0001;EN;F;Endokrinologie;Endokrinol.;EN;0070;0313;f;f;U070;f;0600
+0001;EN01;S;303 EG;303 EG;EN01;;;f;f;;f;
+0001;EN02;S;303 1;303 1;EN02;;;f;f;;f;
+0001;ENFD;LS;Funktionsdiagnostik Endokrin.;FD EN;ENFD;;;f;f;;f;
+0001;ENLS;LS;LS Endokrinologie;LS EN;ENLS;;;f;f;;f;
+0001;ENP;A;Allgemeine Ambulanz EN;ENP Allgem.;ENP;;;f;f;;f;
+0001;ENPD1;A;Diabetes Ambulanz;Diabetes EN;ENPD1;;;f;f;;f;
+0001;ENPD2;A;Endokrine Tumore EN;Endo.Tumore;ENPD2;;;f;f;;f;
+0001;ENPF;A;Fußambulanz EN;Fußambulanz;ENPF;;;f;f;;f;
+0001;ENPH;A;EO / PGA   Endo.;EO / PGA;ENPH;;;f;f;;f;
+0001;ENPNUK;A;ENDO-NUK Ambulanz;ENPNUK;ENPNU;;;f;f;;f;
+0001;ENPPRI;A;EN Privatsprechstunde 303;M1 -EN Weber;ENPPR;;;f;f;;f;
+0001;ERNBERAT;LS;LS Ernährungs- u. Diätberatung;Ernähr.Berat;ERNBE;;;f;f;;f;
+0001;EXTERNE;LS;Externe Leistungsstellen;Externe;EXTER;;;f;f;;f;
+0001;EXTPS;LS;Externe Leistungsstellen PS;Externe PS;EXTPS;;;f;f;;f;
+0001;GA;F;Zentr.f.Allg.Med.und Geriatrie;ZAG;GA;0035;0336;f;f;U035;f;0200
+0001;GA01;S;ZAG 505 6A;ZAG 505 6A;GA01;;;f;f;;f;
+0001;GA02;S;ZAG 302R 1.OG;ZAG 302R 1.O;GA02;;;f;f;;f;
+0001;GALSKONS;LS;GA-Konsile;GA-Konsile;GALSK;;;f;f;;f;
+0001;GAP;A;ZAG Ambulanz;ZAG Ambulanz;GAP;;;f;f;;f;
+0001;GAPPRI;A;ZAG Privatsprechstunde;ZAG Privatsp;GAPPR;;;f;f;;f;
+0001;GY;F;Frauenklinik;Frauenklinik;GY;0210;0196;f;f;U210;t;2400
+0001;GY01;S;102/C1F3;102/C1F3;GY01;;;f;f;;f;
+0001;GY03;S;102/A1 F1;102/A1 F1;GY03;;;f;f;;f;
+0001;GY05;S;102/B1 F2;102/B1 F2;GY05;;;f;f;;f;
+0001;GY06;S;102/G1 i.Ü.;102/G1 i.Ü.;GY06;;;f;f;;f;
+0001;GY07;S;GY 406 I;GY 406 I;GY07;;;f;f;;f;
+0001;GY08;S;102/E1 F4;102 E1 F4;GY08;;;f;f;;f;
+0001;GYKS;S;Kreißsaal;Kreißsaal;GYKS;;;f;f;;f;
+0001;GYLSKLCH;LS;GY Klin.Chemie Untersuchung;GYLS Kli.Ch.;GYLSK;;;f;f;;f;
+0001;GYLSKONS;LS;LS GY Konsile;GY Konsile;GYKON;;;f;f;;f;
+0001;GYLSRM;LS;Reproduktion und Endokrin.GYN;GYLS-Rep.med;GYLSR;;;f;f;;f;
+0001;GYLSUL;LS;Ultraschall  Frauenklinik;GYLS-Ultras.;GYLSU;;;f;f;;f;
+0001;GYNG;S;Ki.-Zimmer;Ki.Zimmer;GYNG;;;f;f;;f;
+0001;GYOP;LS;OP Frauenkl.;OP GY;GYOP;;;f;f;;f;
+0001;GYOPBRA;LS;GY amb. OP Tageskl. am Brand;GY amb.OPBra;GYOPB;;;f;f;;f;
+0001;GYP;A;Poliklinik der Frauenklinik;GY Polikl.;GYP;;;f;f;;f;
+0001;GYPAUF;A;Patientenkoordination Gyn;GYP PatKo;GYPAU;;;f;f;;f;
+0001;GYPBZ;A;Poliklinik GY - Brustzentrum;GY Poli BZ;GYPBZ;;;f;f;;f;
+0001;GYPCS;A;Frauenkl. Chemosprechstunde;GY Poli CS;GYPCS;;;f;f;;f;
+0001;GYPDS;A;Frauenkl.Dysplasiesprechstunde;GY Poli DS;GYPDS;;;f;f;;f;
+0001;GYPFBREK;A;GY - FBREK-Zentrum;GY FBREK;GYFBR;;;f;f;;f;
+0001;GYPGS;A;Frauenkl. Genitalsprechstunde;GY Poli GS;GYPGS;;;f;f;;f;
+0001;GYPHS;A;Frauenkl. Hormonsprechstunde;GY Poli HS;GYPHS;;;f;f;;f;
+0001;GYPKB;A;GY-Ambulanz Künstl.Befruchtung;GYPKB;GYPKB;;;f;f;;f;
+0001;GYPKI;A;Frauenkl. Kindergynäkologie;GY Poli KI;GYPKI;;;f;f;;f;
+0001;GYPKRYO;A;Polikl. GY Kryokonservierung;GY Poli KRYO;GYPKR;;;f;f;;f;
+0001;GYPNEO;A;Frauenkl. Neo-Patienten;GY Poli Neo;GYPNE;;;f;f;;f;
+0001;GYPON;A;Frauenkl.Onkologiesprechstunde;Gynonko;GYPON;;;f;f;;f;
+0001;GYPPRI;A;GY Privatsprechstunde;GY Privatsp.;GYPPR;;;f;f;;f;
+0001;GYPRE;A;Poliklinik GY - Reproduktionsm;GY Poli Repr;GYPRE;;;f;f;;f;
+0001;GYPREAO;A;Poliklinik GY - Reprodukt. AO;GYP Rep.AO;GYPRA;;;f;f;;f;
+0001;GYPSCH;A;Frauenkl. Schwangerenvorsorge;GY Poli SCHW;GYPSC;;;f;f;;f;
+0001;GYPT;LS;Phys. Therapie Frauenklinik;GYPT;GYPT;;;f;f;;f;
+0001;GYPUL;A;GYPUL Ambulanz Ultraschall;GY Polikl.UL;GYPUL;;;f;f;;f;
+0001;GYPUR;A;Poliklinik GY - Urologie;GY Poli UR;GYPUR;;;f;f;;f;
+0001;HC;F;Herz-/Thorax-/Gefäßchirurgie;Herzchirurg.;HC;0160;0269;f;f;U160;f;2100
+0001;HC01;S;C 5 A;C 5 A;HC01;;;f;f;;f;
+0001;HC02;S;C 5 A IÜ;C 5 A IÜ;HC02;;;f;f;;f;
+0001;HC03;S;C 5 B;C 5 B;HC03;;;f;f;;f;
+0001;HC04;S;C 5 B IÜ;C 5 B IÜ;HC04;;;f;f;;f;
+0001;HC05;S;HC 1 Int. IB;HC 1 IB;HC05;;;f;t;;f;2100
+0001;HC06;S;HC 2 A;HC 2 A;HC06;;;f;f;;f;
+0001;HCLSCM;LS;HCLS Case-Management;HCLS Case-Ma;HCLSC;;;f;f;;f;
+0001;HCLSKARD;LS;HCLS Kardiotechnik;HCLS Kardio.;HCLSK;;;f;f;;f;
+0001;HCLSKONS;LS;HCLS Konsile;HCLS Konsile;LSKON;;;f;f;;f;
+0001;HCOP;LS;OP HG-Chir.;OP HGC;HCOP;;;f;f;;f;
+0001;HCOP503;LS;OP HTG-Chir. 503;OP HTG 503;HC503;;;f;f;;f;
+0001;HCP;A;Poliklinik der HTG-Chirurgie;HC Polikl.;HCP;;;f;f;;f;
+0001;HCPPRI;A;HC Privatsprechstunde;HC Privatsp.;HCPPR;;;f;f;;f;
+0001;HCTAG;F;- HC Tagklinik;HC Tagklinik;HCTAG;0160;0260;f;f;U160;f;2100
+0001;HCTG;S;HC 505 TK;HC 505 TK;HCTG;;;f;f;;f;
+0001;HG;F;Institut für Humangenetik;Humangenetik;HG;0040;0930;f;f;;f;3700
+0001;HGFBREK;A;HG - FBREK-Zentrum;HG - FBREK;HGFBR;;;f;f;;f;
+0001;HGFLAL;LS;HG F+L Allgemein;HG F+L;HGFLA;;;f;f;;f;
+0001;HGGB;LS;Genetische Beratungsstelle;Gen.Berat.;HGGB;;;f;f;;f;
+0001;HGGBPC;LS;Genetische Berat.Fremdeinsend.;Gen.Berat.PC;HCGBP;;;f;f;;f;
+0001;HGLSLAB;LS;HG Labor Diagnostik;HG Labor Dia;HGLSL;;;f;f;;f;
+0001;HGNR;LS;HG Dr. Kohlschmidt;Dr. Kohlschm;HGNR;;;f;f;;f;
+0001;HGPRI;LS;HG Privatsprechstunde;HG Privatsp.;HGPRI;;;f;f;;f;
+0001;HGPRI1;LS;HG Privatsprechstunde 1(Haaf);HG Privatsp1;HGPR1;;;f;f;;f;
+0001;HGTR;LS;HG Dr. Bartsch;Dr. Bartsch;HGTR;;;f;f;;f;
+0001;HN;F;HNO-Klinik;HNO-Klinik;HN;0230;0220;f;f;U230;f;2600
+0001;HN01;S;HNO 1 KI;HNO 1 KI;HN01;;;f;f;;t;
+0001;HN02;S;HNO 5 A;HNO 5 A;HN02;;;f;f;;f;
+0001;HN03;S;HNO 02;HNO 02;HN03;;;f;f;;f;
+0001;HN04;S;HNO 6 A;HNO 6 A;HN04;;;f;f;;f;
+0001;HN05;S;HNO AIDAH;HNO AIDAH;HN05;;;f;f;;f;
+0001;HN06;S;HNO 03;HNO 03;HN06;;;f;f;;f;
+0001;HN07;S;HNO IÜ;HNO IÜ;HN07;;;f;f;;f;
+0001;HN08;S;HNO H2;HNO H2;HN08;;;f;f;;f;
+0001;HN09;S;HNO A1;HNO A1;HN09;;;f;f;;f;
+0001;HNLSAL;LS;HNLS Allergie;LS Allergie;HNALL;;;f;f;;f;
+0001;HNLSAU;LS;HNLS Audio;LS Audio;HNLSA;;;f;f;;f;
+0001;HNLSCM;LS;HNLS Case-Management;HNLS Case-Ma;HNLSC;;;f;f;;f;
+0001;HNLSLA;LS;HNLS Labor;LS Labor;HNLSL;;;f;f;;f;
+0001;HNLSPT;LS;HNLS Physiotherapie;LS Physio;HNLSP;;;f;f;;f;
+0001;HNLSRO;LS;HNLS Röntgen;LS Röntgen;HNLSR;;;f;f;;f;
+0001;HNLSVE;LS;HNLS VEST;LS VEST;HNLSV;;;f;f;;f;
+0001;HNOP;LS;OP HNO;OP HNO;HNOP;;;f;f;;f;
+0001;HNP;A;Poliklinik der HNO-Klinik;HN Polikl.;HNP;;;f;f;;f;
+0001;HNPAL;A;HN Polikl. Allergiesprechst.;HNP Allergie;HNPAL;;;f;f;;f;
+0001;HNPCI;A;HN Polikl. CI-Sprechst.;HNP CI-Sprec;HNPCI;;;f;f;;f;
+0001;HNPKI;A;HN Polikl.Kindersprechst.;HNP Kinder;HNPKI;;;f;f;;f;
+0001;HNPOH;A;HN Polikl. Ohrsprechst.;HNP Ohrsprec;HNPOH;;;f;f;;f;
+0001;HNPOT;A;HN Polikl.Otoneurol.Sprechst.;HNP Otoneuro;HNPOT;;;f;f;;f;
+0001;HNPPL;A;HN Polikl. Plastische Sprechst;HNP Plast.Sp;HNPPL;;;f;f;;f;
+0001;HNPPRI;A;HN Privatsprechstunde;HN Privatsp.;HNPPR;;;f;f;;f;
+0001;HNPRI;A;HN Polikl. Riechsprechst.;HNP Riech;HNPRI;;;f;f;;f;
+0001;HNPSL;A;HN Polikl. Schlaflaborsprechst;HNP Schl.Lab;HNPSL;;;f;f;;f;
+0001;HNPTU;A;HN Polikl.Tumornachsorge;HNP Tumorn.;HNPTU;;;f;f;;f;
+0001;HUB;LS;Hol- und Bringedienst;Ho. u.Bringe;;;;f;f;;f;
+0001;IAGI;F;Interdiszipl.AG Infektionsmed.;IAGI Inf.Med;IAGI;0060;0930;f;f;;f;3700
+0001;IAGI-INF;A;IAGI Infektiologisches Board;IAGI INF;INF;;;f;f;;f;
+0001;IARH;F;Interdiszipl.AG Rheumatologie;IARH Rheumat;IARH;0060;0930;f;f;;f;3700
+0001;IARH-RHB;A;IARH Rheumatologisches Board;IARH RHB;RHB;;;f;f;;f;
+0001;IAUM;F;Inst.f.Arb.Soz.u.Umwelt Medizi;Arb.Soz.Umw.;IAUM;0040;0930;f;f;;f;3700
+0001;IAUMLSAM;LS;Arbeitsmedizinische Sprechstun;Arb.Med.Spre;IALSA;;;f;f;;f;
+0001;IAUMLSUM;LS;Umweltmedizinische Sprechstund;Umw.Med.Spre;IALSU;;;f;f;;f;
+0001;IB-BOARD;F;BOARD interdisziplinäre Boards;IB-BOARDS;IBBOR;0040;0930;f;f;;f;0100
+0001;IBL-OE;IB;IBL - OE's  für Controlling;IBL-OE's;IBLOE;0250;0930;f;f;;f;9999
+0001;IBLSHAEM;LS;Hämostaseologieboard;IB-LSHAEM;IBHAE;;;f;f;;f;
+0001;IBLSHRT;LS;Heart-Team;IB-LSHRT;IBHRT;;;f;f;;f;
+0001;IBLSPERT;LS;PERT-Board CTH/AT;PERT CTH/AT;PERT;;;f;f;;f;
+0001;IFL;A;Inst.f.Lehre u.Gesundh.Labor;IFL-Labor;IFL;;;f;f;;f;
+0001;IIAUSOZ;LS;Institut f. Arbeit und Soziale;Inst.f.Arb.S;IIAUS;;;f;f;;f;
+0001;IIMPFZ;LS;Impfzentrum des Hygieneinst.;Impfz.d.Hyg.;IIMPF;;;f;f;;f;
+0001;IIPHARMA;LS;Institut f. Pharmakologie;Inst.f.Pharm;IIPHA;;;f;f;;f;
+0001;IIREMED;LS;Institut f. Rechsmedizin;Inst.f.ReMed;IIREM;;;f;f;;f;
+0001;ILG;F;Institut f.Lehre u.Gesundheit;Lehre u.Ges.;ILG;0040;0930;f;f;;f;3700
+0001;IMH;F;Inst.für med. Mikrobiologie;Mikrobiolog.;IMH;0040;0930;f;f;;f;3700
+0001;IMHDISQ;A;IMH IV DISQVER;IMH DISQVER;IMHDI;;;f;f;;f;
+0001;IMHEXT;A;IMH Externe Abrechnung;IMH ext.Abr.;IMHEX;;;f;f;;f;
+0001;IMHLSLAB;LS;Mikrobiologisches Labor;Mikrob.Labor;IMLAB;;;f;f;;f;
+0001;IMHPRI;A;IMH Privatambulanz;IMH Privat;;;;f;f;;f;
+0001;INTPRIV;LS;Intern Privat;Intern Priv.;INTPR;;;f;f;;f;
+0001;IPT;F;Institut für Phys.Therapie;IPT;IPT;0040;0930;f;f;;f;3700
+0001;IPTAMB;LS;Phys. Therapie ambulant;IPT ambulant;IPTAM;;;f;f;;f;
+0001;IPTBAD;LS;Phys. Therapie Bewegungsbad;IPT Bew.bad;IPTBA;;;f;f;;f;
+0001;IPTP1;LS;IPTP1 AT/CH/HC/OR/TC/ZOU;IPTP1;IPTP1;;;f;f;;f;
+0001;IPTP2;LS;IPTP2 NC/NE/PS/PT;IPTP2;IPTP2;;;f;f;;f;
+0001;IPTP3;LS;IPTP3 DE/M1/M2/M3/RA/ST;IPTP3;IPTP3;;;f;f;;f;
+0001;IPTP4;LS;IPTP4 GY/HN/KC/KI/ZM/UR;IPTP4;IPTP4;;;f;f;;f;
+0001;IPTSTAT;LS;Phys. Therapie stationär;IPT station.;IPTST;;;f;f;;f;
+0001;IRM;F;Institut für Rechtsmedizin;Rechtsmed.;IRM;0040;0930;f;f;;f;3700
+0001;IRMLSLAB;LS;Labor Rechtsmedizin;Lab.Rechtsme;RMLSL;;;f;f;;f;
+0001;IRMPDRIT;A;Rechtsmed.Leistungen an Dritte;IRM LS Dritt;IRMPD;;;f;f;;f;
+0001;IRMPPRI;A;Privatambulanz Rechtsmedizin;IRM Privat;IRMPP;;;f;f;;f;
+0001;ISTRSCH;LS;Strahlenschutz;Strahlensch.;ISTR;;;f;f;;f;
+0001;ITC;F;Interdisziplinäres Tumorboard;ITC Tumorb.;ITC;0060;0930;f;f;;f;3700
+0001;ITC-GI;A;UCT GI Gastrointestinales TuBo;UCT GI;GI;;;f;f;;f;
+0001;ITC-GIWT;A;ITC-GI-/WT;ITC-GI-/WT;GI-WT;;;f;f;;f;
+0001;ITC-GY;A;UCT GY gynäkologisches TuBo;UCT GY;GYN;;;f;f;;f;
+0001;ITC-HAEM;A;UCT HAEM Hämatologisches Forum;UCT HAEM;HAEM;;;f;f;;f;
+0001;ITC-HCC;A;UCT HCC Hepatozelluläres Karz.;UCT HCC;HCC;;;f;f;;f;
+0001;ITC-IENE;A;UCT int. endo. und neuro. TuBo;UCT IENET;IENET;;;f;f;;f;
+0001;ITC-IHB;A;UCT IHB Hauttumor-Board;UCT IHB;IHB;;;f;f;;f;
+0001;ITC-INOF;A;UCT INOF neuroonkolog. Forum;UCT INOF;INOF;;;f;f;;f;
+0001;ITC-IOF;A;UCT IOF onkologisches Forum;UCT IOF;IOF;;;f;f;;f;
+0001;ITC-IST;A;UCT IST senolog.Tumorboard;UCT IST;IST;;;f;f;;f;
+0001;ITC-KHT;A;UCT KHT TuBo Kopf-Hals-Tumore;UCT KHT;KHT;;;f;f;;f;
+0001;ITC-KRT;A;UCT KRT Kolorektale TuBo;UCT KRT;KRT;;;f;f;;f;
+0001;ITC-M3;KA;Knoten ITC - Ambulanz;Ambulanzen;ITCM3;;;f;f;;f;
+0001;ITC-MOL;A;UCT MOL Molekulares Tumorboard;UCT MOL;MOL;;;f;f;;f;
+0001;ITC-PAE;A;UCT PAED Pädiatrisches TuBo;UCT PAED;PAED;;;f;f;;f;
+0001;ITC-SZT;A;UCT SZT Stammzell-TX TuBo;UCT SZT;SZT;;;f;f;;f;
+0001;ITC-TOB;A;UCT TOB Thorax-onkol. Board;UCT TOB;TOB;;;f;f;;f;
+0001;ITC-TOP;A;ITC-TOB;ITC-TOB;TOB;;;f;f;;f;
+0001;ITC-UIT;A;UCT UIT Urologisches TuBo;UCT UIT;UIT;;;f;f;;f;
+0001;ITC-WT;A;UCT WT Weichteil TuBo;UCT WT;WT;;;f;f;;f;
+0001;ITCAMB;A;ITC-Tumorambulanz;ITC-Ambulanz;ITCAM;;;f;f;;f;
+0001;IVEXT;A;IV Externe Abrechnung;IV ext.Abr.;IVEXT;;;f;f;;f;
+0001;IVIR;F;Inst.für Virologie;Inst.f.Viro.;IVIRO;0040;0930;f;f;;f;3700
+0001;IVLS;LS;LS Institut für Virologie;LS Virologie;IVLS;;;f;f;;f;
+0001;IVPRI;A;IV Privatambulanz;IV Privatam;IVPRI;;;f;f;;f;
+0001;JHC01;S;jhc01;jhc01;JHC01;;;f;f;;f;
+0001;JOHO;F;Joho;Joho;JOHO;0160;0270;f;f;U160;f;2190
+0001;KC;F;Kinderchirurgie;Kinderchir.;KC;0150;0350;f;f;U150;f;1300
+0001;KC01;S;KC 109 A3;KC 109 A3;109A3;;;f;f;;t;
+0001;KC02;S;505 C 8 B;505 C 8 B;KC02;;;f;f;;t;
+0001;KC03;S;505 C 8B IÜ;505 C 8B IÜ;KC03;;;f;f;;t;
+0001;KC04;S;505 C 8A IÜ;KC 8 A IÜ;KC8AI;;;f;f;;t;
+0001;KCOP;LS;OP Kinderchir.;OP KC;KCOP;;;f;f;;f;
+0001;KCP;A;Poliklinik der Kinderchirurgie;KC Polikl.;KCP;;;f;f;;f;
+0001;KCPOA;A;KC Anästhesie;KC Anästh.;KCPOA;;;f;f;;f;
+0001;KCPPRI;A;KC Privatsprechstunde;KC Privatsp.;KCPPR;;;f;f;;f;
+0001;KCPVB;A;KC Verbrennungs-Sprechstunde;KC Verbr.Spr;KCPVB;;;f;f;;f;
+0001;KFH;F;KFH;KFH;KFHKN;0040;0930;f;f;;f;3700
+0001;KFH-DIAL;LS;KFH - Dialyse;KFH-Dialyse;KFHDI;;;f;f;;f;
+0001;KH;F;Krankenhaushygiene;Krh-Hygiene;KH;0040;0930;f;f;;f;3700
+0001;KI;F;Kinderklinik;Kinderklinik;KI;0080;0369;f;f;U080;f;1000
+0001;KI01;S;109 A1;109 A 1;KI01;;;f;f;;t;
+0001;KI02;S;109 A4;109 A4;KI02;;;f;f;;t;
+0001;KI04;S;109 A3;109 A3;KI04;;;f;f;;t;
+0001;KI05;S;109 A2;109 A2;KI05;;;f;f;;t;
+0001;KI06;S;109 A2 IÜ ON;109 A2 IÜ ON;KI06;;;f;f;;t;
+0001;KI07;S;109 B3;109 B3;KI07;;;f;f;;t;
+0001;KI08;S;109 B4;109 B4;KI08;;;f;f;;t;
+0001;KI09;S;109 B3;109 B3;KI09;;;f;f;;t;
+0001;KI11;S;KI11 AE2 A;KI11 AE2 A;KI11;;;f;t;;t;
+0001;KI12;S;109 AE1 FH I.B.;109 AE1 FHIB;KI12;;;f;f;;t;
+0001;KI13;S;109 B1 IÜ;109 B1 IÜ;KI13;;;f;f;;t;
+0001;KI14;S;109 A1 IÜ;109 A 1 IÜ;KI14;;;f;f;;t;
+0001;KI15;S;KI PNI 109 i.B.;KI PNI 109IB;KI15;;;f;t;;t;
+0001;KI16;S;KI PNI 102 I.Ü.;KI PNI 102IÜ;KI16;;;f;f;;t;
+0001;KI17;S;109 AE1 FH I.Ü.;109 AE1 FHIÜ;KI17;;;f;f;;t;
+0001;KI18;S;109 AE1 FH SGL;109 AE1 FHSG;KI18;;;f;f;;t;
+0001;KI19;S;109 A 3 IÜ;109 A 3 IÜ;KI19;;;f;f;;t;
+0001;KI20;S;109 B2 Päd Notaufnahme;109 B2 P.Not;KI20;;;f;f;;t;
+0001;KI21;S;KI 21AE2 B;KI 21AE2 B;KI21;;;f;f;;t;
+0001;KI22;S;KI 22 AE2 B;KI 22 AE2 B;KI22;;;f;t;;t;
+0001;KIJUPS;LS;LS Kinder u. Jugendpsychiatrie;LS kI-Jgd PS;KIJUP;;;f;f;;f;
+0001;KILS;LS;LS Kinderklinik;LS Ki;KILS;;;f;f;;f;
+0001;KILSBL;LS;LS KI Biochem.-Labor;LS Biochem.;KIBL;;;f;f;;f;
+0001;KILSCYTO;LS;LS KI Cytogen. Labor;LS Cytogen.;KILSC;;;f;f;;f;
+0001;KILSD;LS;LS KI Diabetesberatung;LS DiabetesB;KILSD;;;f;f;;f;
+0001;KILSENDO;LS;LS KI Endoskopie;LS Endoskopi;KLSEN;;;f;f;;f;
+0001;KILSERGO;LS;LS KI Ergotherapie;LS ERGO;KIERG;;;f;f;;f;
+0001;KILSERN;LS;LS KI Ernährungstherapie;LS Ernährung;KIERN;;;f;f;;f;
+0001;KILSFOTO;LS;LS KI Fotolabor;LS Fotolabor;KIFOT;;;f;f;;f;
+0001;KILSHAST;LS;LS KI Hämatol.-Stoffw.-Labor;LS Häm.-Stof;KIHAS;;;f;f;;f;
+0001;KILSHC;LS;LS Kinderkardiologie;LS KI Kardio;KILSH;;;f;f;;f;
+0001;KILSHK;LS;LS KI Herzkatheterlabor;LS KI  HerzK;KILSK;;;f;f;;f;
+0001;KILSHL;LS;LS KI Hämatol.-Labor;LS HämaLab;KIHL;;;f;f;;f;
+0001;KILSIMMO;LS;LS KI Immunolog. Labor;LS Immunol.;KIIMM;;;f;f;;f;
+0001;KILSINFE;LS;LS KI Infektiolog. Labor;LS Infektio.;KIINF;;;f;f;;f;
+0001;KILSLUFU;LS;LS Lungenfunktion;LS KI  LUFU;KILLU;;;f;f;;f;
+0001;KILSMPF;LS;LS KI multiprof.Fallbespr.;LS Fallbespr;KIMPF;;;f;f;;f;
+0001;KILSNEP;LS;LS KI Neuropädiatrie;LS Neuropäd.;KILSE;;;f;f;;f;
+0001;KILSNP;LS;LS KI Neuropädiatrie;LS Neuropäd.;KILSN;;;f;f;;f;
+0001;KILSPHYS;LS;LS KI Physiotherapie;LS Physioth.;KIPHY;;;f;f;;f;
+0001;KILSPNEU;LS;LS KI Pneumologie;LS Pneumolog;KIPNE;;;f;f;;f;
+0001;KILSPSY;LS;LS KI Psychologischer Dienst;Psych.Dienst;KILSP;;;f;f;;f;
+0001;KILSPSYC;LS;LS KI Psycholog.Dienst;LS Psycholog;KIPSD;;;f;f;;f;
+0001;KILSPSYS;LS;LS KI Physiotherapie;LS Physioth.;KIPSY;;;f;f;;f;
+0001;KILSROE;LS;LS KI Roentgen;Roentgen;KIROE;;;f;f;;f;
+0001;KILSSL;LS;LS KI Stoffw.-Labor;LS Stoffw.;KISL;;;f;f;;f;
+0001;KILSUSO;LS;LS KI Ultraschall Onkologie;LS US onko;KILSU;;;f;f;;f;
+0001;KILSUSR;LS;LS KI Ultraschall Radiologie;Ultraschall;KILSR;;;f;f;;f;
+0001;KIOP;LS;OP Kinderklinik;OP KInderkl.;KIOP;;;f;f;;f;
+0001;KIP;A;Poliklinik der Kinderklinik;KI Polikl.;KIP;;;f;f;;f;
+0001;KIPAM;A;KI Allergie und Mukoviszidose;KI All. Muko;KIPAM;;;f;f;;f;
+0001;KIPAMSTU;A;Allerg./ Pulmo. Studie;KIPAM Studie;KIPAS;;;f;f;;f;
+0001;KIPAUF;A;KI Aufnahmekoordination B3;Aufn.Ko.B3;KIPAU;;;f;f;;f;
+0001;KIPCF;A;KI Cystische Fibrose Sprechst.;KI Cyst.Fibr;KIPCF;;;f;f;;f;
+0001;KIPD;A;KI Diabetes;KI Diabetes;KIPD;;;f;f;;f;
+0001;KIPEN;A;KI Endokrinologie;KI Endo.;KIPEN;;;f;f;;f;
+0001;KIPGA;A;KI Gastroenterologie;KI Gastro.;KIPGA;;;f;f;;f;
+0001;KIPGE;A;KI Genetik Privatambulanz;KI Genetik A;KIPGE;;;f;f;;f;
+0001;KIPHC;A;KI Herzsprechstunde;KI Herz;KIPHC;;;f;f;;f;
+0001;KIPIG;A;KI Immunologie;KI Immun.;KIPIG;;;f;f;;f;
+0001;KIPNEO;A;KI Neonatologie;KI Neonatol.;KINEO;;;f;f;;f;
+0001;KIPNM;A;KI Neuropädiatrie und Muskel.;KI Neurom;KIPNM;;;f;f;;f;
+0001;KIPNP;A;KI Neuropädiatrie;KI Neuropäd.;KIPNP;;;f;f;;f;
+0001;KIPON;A;KI Onkologie;KI Onko.;KIPON;;;f;f;;f;
+0001;KIPONST;A;KI Onko-Studie;KI ON-Studie;KIPOS;;;f;f;;f;
+0001;KIPPRI;A;KI Privatsprechstunde;KI Privatsp.;KIPPR;;;f;f;;f;
+0001;KIPSPZ;A;KI Sozialpädiatr. Zentrum;Soz.päd.Zent;KISPZ;;;f;f;;f;
+0001;KIPSPZCF;A;KI Sozialpäd.Zentrum Pneumo.;KIPSPZ CF;SPZCF;;;f;f;;f;
+0001;KIPSPZD;A;KI Sozialpäd.Zentrum Diab.;KIPSPZ Diab.;SPZD;;;f;f;;f;
+0001;KIPSPZEN;A;KI Sozialpäd.Zentrum EN;KIPSPZ EN;SPZEN;;;f;f;;f;
+0001;KIPSPZGA;A;KI Sozialpäd.Zentrum Gastro.;KIPSPZ GA;SPZGA;;;f;f;;f;
+0001;KIPSPZHC;A;KI Sozialpäd.Zentrum Kardio.;KIPSPZ HC;SPZHC;;;f;f;;f;
+0001;KIPSPZIG;A;KI Sozialpäd.Zentrum Immun.;KIPSPZ IG;SPZIG;;;f;f;;f;
+0001;KIPSPZNE;A;KI Sozialpäd.Zentrum Neoantol.;KIPSPZ Neo;SPZNE;;;f;f;;f;
+0001;KIPSPZON;A;KI Sozialpäd.Zentrum Onkologie;KIPSPZ ON;SPZON;;;f;f;;f;
+0001;KIPSPZSF;A;KI Sozialpäd.Zentrum Stoffw.;KIPSPZ SW;;;;f;f;;f;
+0001;KIPSPZSW;A;KI Sozialpäd.Zentrum Stoffw.;KIPSPZ SW;SPZSW;;;f;f;;f;
+0001;KIPSPZUR;A;KI Sozialpäd.Zentrum Nephrol.;KIPSPZ UR;SPZUR;;;f;f;;f;
+0001;KIPSW;A;KI Stoffwechselsprechstunde;KI Stoffw.;KIPSW;;;f;f;;f;
+0001;KIPSWF;A;KI Stoffwechsel Fabry;KI SW Fabry;KISWF;;;f;f;;f;
+0001;KIPSWG;A;KI Stoffwechsel Gaucher;KI SWGaucher;KISWG;;;f;f;;f;
+0001;KIPSWM;A;KI Stoffwechsel MPS;KI SW MPS;KISWM;;;f;f;;f;
+0001;KIPSWMA;A;KI Stoffwechsel Mannosidose;KI SW MAN;KISMA;;;f;f;;f;
+0001;KIPSWN;A;KI Stoffw. Niemann-Pick;SW Niem-Pick;KIPSN;;;f;f;;f;
+0001;KIPSWP;A;KI Stoffwechsel M. Pompe;KI SWPompe;KISWP;;;f;f;;f;
+0001;KIPUR;A;KI Urologie;KI Urologie;KIPUR;;;f;f;;f;
+0001;KIPVM;A;Ambulanz Villa Metabolica;Villa Metab.;KIPVM;;;f;f;;f;
+0001;KISPZD;A;KI Sozialpäd.Zentrum Diab.;KISPZ Diab.;;;;f;f;;f;
+0001;KISPZEN;A;KI Sozialpäd.Zentrum EN;KISPZ EN;;;;f;f;;f;
+0001;KISPZGA;A;KI Sozialpäd.Zentrum Gastro.;KISPZ Gastro;;;;f;f;;f;
+0001;KISPZIG;A;KI Sozialpäd.Zentrum Immun.;KISPZ Immun.;;;;f;f;;f;
+0001;KITAG;F;- Kinderklinik Tagklinik;Kinderk.Tag.;KITAG;0080;0360;f;f;U080;f;1090
+0001;KITG;S;Kinder-Tagesklinik;KI Tageskl.;KITG;;;f;f;;t;
+0001;KITGON;S;Kinder-Tagesklinik A2 Onkol.;KI Tagesk.A2;KITGO;;;f;f;;t;
+0001;KKM_GER1;LS;Geriatrie 302 R EG;GER 1 302REG;KKM1;;;f;f;;f;
+0001;KL33;F;KL33 / Sachbearbeitung;KL33 / SB;KL33;;;f;f;;f;
+0001;KLKH;A;Klinische Krankehaushygiene;Krhs.Hygiene;KLKH;;;f;f;;f;
+0001;KO;F;HNO Abt.Kommunikationsstörung;Kommunikat.;KO;0240;0220;f;f;U240;f;1000
+0001;KO01;S;101/6 KO;101/6 KO;KO01;;;f;f;;t;
+0001;KOFD;LS;Funktionsdiagnostik Kommunik.;FD KO;KOFD;;;f;f;;f;
+0001;KOLO;LS;Logopädie Kl.f.Kom.störung;KOLO;KOLO;;;f;f;;f;
+0001;KOLS;LS;LS Kommunikationsstörung;LS KO;KOLS;;;f;f;;f;
+0001;KOLSAU;LS;KO LS Audiologie;LS Audiolog;KOLAU;;;f;f;;f;
+0001;KOLSLO;LS;KO LS Logopädie;LS Logopädie;KOLLO;;;f;f;;f;
+0001;KOLSTUE;LS;KO LS Hörgeräte-Prüfung;LS techn.Pr.;KOLST;;;f;f;;f;
+0001;KOLSWP;LS;KO LS Wahrnehmung Psychologie;LS WahrPsych;KOLWP;;;f;f;;f;
+0001;KOP;A;Polikl KO: allgemein;KO alle Amb.;KOP;;;f;f;;f;
+0001;KOPH;A;Polikl KO: Hören;Poli  Hören;KOPH;;;f;f;;f;
+0001;KOPLO;A;Logopädie Kl.f.Kom.störung;KO Logopädie;KOPLO;;;f;f;;f;
+0001;KOPPRI;A;KO Privatsprechstunde;KO Privatsp.;KOPPR;;;f;f;;f;
+0001;KOPS;A;Polikl KO: Sprache;KO P.Sprache;KOPS;;;f;f;;f;
+0001;KOPSPZ;A;KO Sozialpädia.Zentrum Sprache;SPZ Sprache;;;;f;f;;f;
+0001;KOPSPZH;A;KO Sozialpädia.Zentrum Hören;SPZ Hören;KOPSH;;;f;f;;f;
+0001;KOPSPZS;A;KO Sozialpädia.Zentrum Sprache;SPZ Sprache;KOPSS;;;f;f;;f;
+0001;KOPST;A;Polikl KO: Stimme;KO P. Stimme;KOPST;;;f;f;;f;
+0001;KTR;LS;Krankentransport;Krankentrans;.;;;f;f;;f;
+0001;LEI-ATOP;KL;Leistungsstellen AT-OP;Leist-ATOP;KATOP;;;f;f;;f;
+0001;LEIST-AT;KL;Leist-AT;Leistungsst.;KLAT;;;f;f;;f;
+0001;LEIST-AU;KL;Leist-AU;Leistungsst.;KLAU;;;f;f;;f;
+0001;LEIST-CH;KL;Leist-CH;Leistungsst.;KLCH;;;f;f;;f;
+0001;LEIST-DE;KL;Leist-DE;Leistungsst.;KLDE;;;f;f;;f;
+0001;LEIST-EN;KL;Leist-EN;Leistungsst.;KLEN;;;f;f;;f;
+0001;LEIST-GA;KL;Leist-GA;Leistungsst.;;;;f;f;;f;
+0001;LEIST-GY;KL;Leist-GY;Leistungsst.;KLGY;;;f;f;;f;
+0001;LEIST-HC;KL;Leist-HC;Leistungsst.;KLHC;;;f;f;;f;
+0001;LEIST-HN;KL;Leist-HN;Leistungsst.;KLHN;;;f;f;;f;
+0001;LEIST-KC;KL;Leist-KC;Leistungsst.;KLKC;;;f;f;;f;
+0001;LEIST-KI;KL;Leist-KI;Leistungsst.;KLKI;;;f;f;;f;
+0001;LEIST-KO;KL;Leistungsstellen Diagnostik KO;Diagnostik;KLKO;;;f;f;;f;
+0001;LEIST-M1;KL;Leist-M1;Leistungsst.;KLM1;;;f;f;;f;
+0001;LEIST-M2;KL;Leist-M2;Leistungsst.;KLM2;;;f;f;;f;
+0001;LEIST-M3;KL;Leist-M3;Leistungsst.;KLM3;;;f;f;;f;
+0001;LEIST-NC;KL;Leist-NC;Leistungsst.;KLNC;;;f;f;;f;
+0001;LEIST-NE;KL;Leist-NE;Leistungsst.;KLNE;;;f;f;;f;
+0001;LEIST-NR;KL;Leist-NR;Leistungsst.;KLNR;;;f;f;;f;
+0001;LEIST-NU;KL;Leist-NU;Leistungsst.;KLNU;;;f;f;;f;
+0001;LEIST-OR;KL;Leist-OR;Leistungsst.;KLOR;;;f;f;;f;
+0001;LEIST-PA;KL;Leist-NR;Leistungsst.;KLPA;;;f;f;;f;
+0001;LEIST-PM;KL;Leist-M3PM;Leistungsst.;LM3PM;;;f;f;;f;
+0001;LEIST-PN;KL;Leist-M3 Pneumologie;Leist- M3PN;KLPN;;;f;f;;f;
+0001;LEIST-PS;KL;Leist-PS;Leistungsst.;KLPS;;;f;f;;f;
+0001;LEIST-PT;KL;Leist-PT;Leistungsst.;KLPT;;;f;f;;f;
+0001;LEIST-RA;KL;Leist-RA;Leistungsst.;KLRA;;;f;f;;f;
+0001;LEIST-ST;KL;Leist-STR;Leistungsst.;KLST;;;f;f;;f;
+0001;LEIST-TC;KL;Leist-TC;Leistungsst.;KLTC;;;f;f;;f;
+0001;LEIST-TH;KL;Leist-TH;Leistungsst.;KLTH;;;f;f;;f;
+0001;LEIST-UC;KL;Leist-ZOU;Leistungsst.;KLZOU;;;f;f;;f;
+0001;LEIST-UR;KL;Leist-UR;Leistungsst.;KLUR;;;f;f;;f;
+0001;LEIST-ZL;KL;Leistungsstellen ZLAB;Leistungsst.;LEIZL;;;f;f;;f;
+0001;LEIST-ZM;KL;Leist-ZM;Leistungsst.;KLZM;;;f;f;;f;
+0001;LSWUND;LS;LS Wundmanagement;Wundmanag.;WUND;;;f;f;;f;
+0001;M1;F;1. Med. Klinik;1. Med.;M1;0040;0339;f;f;U040;f;0100
+0001;M101;S;M1 605 5E;M1 605 5E;M101;;;f;f;;f;0100
+0001;M102;S;206 1 B IÜ;206 1 B IÜ;M102;;;f;f;;f;0100
+0001;M103;S;M1 605 5B2;M1 605 5B2;M103;;;f;f;;f;
+0001;M104;S;NS 9;NS 9;M104;;;f;f;;f;
+0001;M105;S;D 3 B IÜ;D 3 B IÜ;M105;;;f;f;;f;
+0001;M106;S;M1 605 5F;M1 605 5F;M106;;;f;f;;f;
+0001;M107;S;M1 605 5B1;M1 605 5B1;M107;;;f;f;;f;
+0001;M108;S;NS 8 IÜ;NS 8 IÜ;M108;;;f;f;;f;
+0001;M109;S;M1 605 2B IB;M1 605 2B IB;M109;;;f;t;;f;0100
+0001;M110;S;EN 605 5A;EN 605 5A;M110;;;f;f;;f;
+0001;M111;S;EN 303 I;EN 303 I;M111;;;f;f;;f;
+0001;M112;S;M1 7A;M1 7A;M112;;;f;f;;f;
+0001;M113;S;M1 503 IK;M1 503 IK;503IK;;;f;f;;f;
+0001;M1DY;S;Dialyse teilstat;Dialyse teil;M1DY;;;f;f;;f;
+0001;M1DYMOB;S;mobile Dialyse teilstat.;mob. Dialyse;M1DYM;;;f;f;;f;
+0001;M1DYOP;LS;OP M1-Dialyse;OP M1-Dialy.;M1DOP;;;f;f;;f;
+0001;M1FD;LS;Funktionsdiagnostik 1.Med.;FD M1;M1FD;;;f;f;;f;
+0001;M1LS;LS;LS I.Med.klinik;LS M1;M1LS;;;f;f;;f;
+0001;M1LSBE;LS;Blutentnahme(M1);LS Blutentna;M1LSB;;;f;f;;f;
+0001;M1LSCM;LS;M1LS Case-Management;M1LS Case-Ma;M1LSC;;;f;f;;f;
+0001;M1LSDIAB;LS;M1LS Diabetikerschulung;LS Diab.schu;M1LSD;;;f;f;;f;
+0001;M1LSDYLA;LS;Künstliches Nierenlabor(M1);LS Künst Nie;M1LSK;;;f;f;;f;
+0001;M1LSEKG;LS;LS I.Med. EKG;LS EKG;M1EKG;;;f;f;;f;
+0001;M1LSENDO;LS;Endoskopie;LS Endoskop;M1LSE;;;f;f;;f;
+0001;M1LSERN;LS;M1LS Ernährungsteam;LS Ern.Team;M1ERN;;;f;f;;f;
+0001;M1LSIMMO;LS;LS I.Med. Immunserologie;LS Immunseri;M1LSI;;;f;f;;f;
+0001;M1LSKONS;LS;M1LSKONS Konsile;M1LSKONS Kon;M1KON;;;f;f;;f;
+0001;M1LSPT;LS;Physiotherapie;LS Physioth;M1LSP;;;f;f;;f;
+0001;M1LSSONO;LS;Endoskopie:Sonographie;LS Sonograph;M1LSS;;;f;f;;f;
+0001;M1MN;S;M1 Notaufnahme;M1 Notaufn.;M1MN;;;f;f;;f;
+0001;M1P;A;Poliklinik der 1. Med.;M1P Allgemei;M1P;;;f;f;;f;
+0001;M1PGC;A;Polikl.  M1 Gastro/Chrohnsp.;Gastro/Crohn;M1PGC;;;f;f;;f;
+0001;M1PHCC;A;HCC-Ambulanz;HCC-Ambulanz;M1PHC;;;f;f;;f;
+0001;M1PKO;A;Polikl.d. 1. Med. Koordination;Koordination;M1PKO;;;f;f;;f;
+0001;M1PLS;A;Poliklinik  M1 Lebersprechstd.;M1PLS Leber;M1PLS;;;f;f;;f;
+0001;M1PNS;A;Polikl.  M1 Nieren-Hochdruck;M1PNS  H - N;M1PNS;;;f;f;;f;
+0001;M1PON;A;Polikl.  M1 Onkolog.Amb.;M1PON  Onko;M1PON;;;f;f;;f;
+0001;M1PPRI;A;M1 Privatamb. Prof. Galle;Prof. Galle;M1PPR;;;f;f;;f;
+0001;M1PPRI2;A;M1 Privatamb. Prof. Kiesslich;Kiesslich;M1PR2;;;f;f;;f;
+0001;M1PPRI3;A;M1 Privatamb. Dr. Wandel;Dr. Wandel;M1PR3;;;f;f;;f;
+0001;M1PPRI4;A;M1 Privatamb. Prof.Schwarting;Prof.Schwart;M1PR4;;;f;f;;f;
+0001;M1PPRI5;A;M1 Privatamb. Prof. Lutz;Prof. Lutz;M1PR5;;;f;f;;f;
+0001;M1PRS;A;M1 Rheumsprechstunde allgemein;M1 Rheuma;M1PRS;;;f;f;;f;
+0001;M1PRS1;A;M1 Rheumatologie § 116b;M1 Rheuma1;M1PR1;;;f;f;;f;
+0001;M1PSP;A;Poliklinik der 1. Med. Spez.;M1PSP Spez1;M1PSP;;;f;f;;f;
+0001;M1PSPHEP;A;Spezialambulanz II (Hepatitis);M1PSP Spez2;M1PHE;;;f;f;;f;
+0001;M1PSTUON;A;M1 Studie Onkologie;M1P StudieON;M1PST;;;f;f;;f;
+0001;M1PTP;A;Poliklinik d. 1. Med. Transpl.;M1PTP  NTPL;M1PTP;;;f;f;;f;
+0001;M1PTXZEN;A;M1 Transplantationszentrum;M1PTX Transp;M1PTX;;;f;f;;f;
+0001;M1PZD;A;Polikl. Zöliakie und Dünndarm;M1 Zöliakie;M1PZD;;;f;f;;f;
+0001;M1SP;A;Poliklinik der 1. Med. Spez.;M1S Polikl.;M1SP;;;f;f;;f;
+0001;M1TAG;F;- 1. Med. Tagklinik;M1 Tagklinik;M1TG;0040;0310;f;f;U040;f;0192
+0001;M1TG;S;M1 605 TG;M1 605 TG;M1TG;;;f;f;;f;
+0001;M1TP;A;Poliklinik d. 1. Med. Transpl.;M1T Polikl.;M1TP;;;f;f;;f;
+0001;M2;F;Zentr.f.Kardiologie I und II;Kardiologie;M2;0050;0323;f;f;U050;f;0103
+0001;M201;S;301 / 2 (Mo.-Fr.);301 / 2;M201;;;f;f;;f;
+0001;M202;S;M2 605 4B;M2 605 4B;M202;;;f;f;;f;
+0001;M203;S;M2 605 4A;M2 605 4A;M203;;;f;f;;f;
+0001;M204;S;M2 605 4C;M2 605 4C;M204;;;f;f;;f;
+0001;M205;S;M2 605 2A IB;M2 605 2A IB;M205;;;f;t;;f;
+0001;M206;S;209 1 B;209 1 B IB;M206;;;f;f;;f;
+0001;M207;S;M2 605 2A IÜ;M2 605 2A IÜ;M207;;;f;f;;f;
+0001;M208;S;M2 AF Unit;M2 AF Unit;M208;;;f;f;;f;
+0001;M209;S;NS 6 IÜ;NS 6 IÜ;M209;;;f;f;;f;
+0001;M210;S;M2 701 6 OG;M2 701 6 OG;M210;;;f;f;;f;
+0001;M211;S;M2 605 4D;M2 605 4D;M211;;;f;f;;f;
+0001;M212;S;M2 605 2A SR;M2 605 2A SR;M212;;;f;f;;f;
+0001;M213;S;M2 401 K;M2 401 K;M213;;;f;f;;f;
+0001;M214;S;M2 605 HFU;M2 605 HFU;M214;;;f;f;;f;
+0001;M2AFU;S;Ateriale Flimmer Unit;M2 AFU;M2AFU;;;t;f;;f;
+0001;M2CPU;S;M2 605 Chest Pain Unit;M2 605 CPU;M2CPU;;;t;f;;f;
+0001;M2LS;LS;LS II.Med.;LS m2;M2LS;;;f;f;;f;
+0001;M2LSANG;LS;Angiologie;LS Angio-Unt;M2ANG;;;f;f;;f;
+0001;M2LSBEKG;LS;Belastungs-EKG;LS Belas-EKG;BEKG;;;f;f;;f;
+0001;M2LSCM;LS;M2 Case-Management;LS Case-Mana;M2LCM;;;f;f;;f;
+0001;M2LSEKG;LS;M2 EKG-Leistungsstelle;LS EKG;M2EKG;;;f;f;;f;
+0001;M2LSEP;LS;Elektro Physiologie;LS ElektroPh;ELPHY;;;f;f;;f;
+0001;M2LSHKM;LS;Herzkathetermeßplatz II.Med;LS Herzkathm;M2HKM;;;t;f;;f;
+0001;M2LSHZS;LS;Herzschrittmacher  II.Med;LS Herzschri;M2HZS;;;f;f;;f;
+0001;M2LSINT;LS;M2 Intensiv Ultraschall;LS Int.US;M2INT;;;f;f;;f;
+0001;M2LSKITI;LS;Kipptisch;LS Kipptisch;M2KIT;;;f;f;;f;
+0001;M2LSKONS;LS;M2 - Konsilanforderungen;M2 LS Konsil;M2KON;;;f;f;;f;
+0001;M2LSLEKG;LS;Langzeit-EKG;LS Langz-EKG;LEKG;;;f;f;;f;
+0001;M2LSLIHZ;LS;LS LIHZ  - PC - Abrechnung;PC LIHZ -Abr;M2LLI;;;f;f;;f;
+0001;M2LSLRR;LS;Lanzeit-Blutdruck;LS Lang-Blut;LSLRR;;;f;f;;f;
+0001;M2LSPREV;LS;LS Kard. I. Preventiv;LS Prevent;M2PR1;;;f;f;;f;
+0001;M2LSREKG;LS;Ruhe-EKG;LS Ruhe-EKG;REKG;;;f;f;;f;
+0001;M2LSSERG;LS;Spiroergometrie;LS Spiroergo;M2SPE;;;f;f;;f;
+0001;M2LSSONO;LS;Sonographie;LS Sonograph;M2SON;;;f;f;;f;
+0001;M2LSSPIR;LS;Spirometrie;LS Spirometr;M2SPI;;;f;f;;f;
+0001;M2LSUKG;LS;Ultraschallkardiographie;LS Ultrascha;M2UKG;;;f;f;;f;
+0001;M2LSVINZ;LS;Herzkathetermessplatz Vincenz;HKL Vincenz;M2LSV;;;f;f;;f;
+0001;M2MN;S;M2 Notaufnahme;M2 Notaufn.;M2MN;;;f;f;;f;
+0001;M2OP;LS;OP 2. Medizinische Klinik;OP M2;M2OP;;;f;f;;f;
+0001;M2P;A;Poliklinik der 2. Med.;M2 Polikl.;M2P;;;f;f;;f;
+0001;M2PAFU;A;Ateriale Flimmer Unit;M2P AFU;M2PAF;;;f;f;;f;
+0001;M2PAH;A;Therapieresistente AHT;AHT-Ambulanz;M2PAH;;;f;f;;f;
+0001;M2PANG;A;Angiologische Sprechstunde;Angiol.Spr.S;M2PAN;;;f;f;;f;
+0001;M2PATD;A;M2 Thromboseambulanz;amb.Thromb.;M2PTD;;;f;f;;f;
+0001;M2PAUF;A;M2 Aufnahmekoordination;M2 Aufnahme;M2PAU;;;f;f;;f;
+0001;M2PDEF;A;Defibrilatorsprechstunde M2;Defi-Spr-Std;M2PDE;;;f;f;;f;
+0001;M2PEMAH;A;EMAH Spechstunde M2;EMAH-Spr.S;M2PEM;;;f;f;;f;
+0001;M2PERN;A;Ernährungsteam M2;Ernähr.-Team;M2PER;;;f;f;;f;
+0001;M2PHTX;A;Herzinsuffizienz-Sprechstunde;HZINS-SprStd;M2PHT;;;f;f;;f;
+0001;M2PKLAP;A;Herzklappen Spr.Std M2;KLAP Spr.St.;M2PKL;;;f;f;;f;
+0001;M2PKVL;A;Kardiovaskuläre Lipidambulanz;Lipidambul.;M2PKV;;;f;f;;f;
+0001;M2PPRAEK;A;Kard. Präventionssprechstunde;Kard.Prävent;M2PRA;;;f;f;;f;
+0001;M2PPREV;A;Prevent it - Studie M2;Prevent it;M2PRE;;;f;f;;f;
+0001;M2PPRI;A;M2 Privatsprechstunde;M2 Privatsp.;M2PPR;;;f;f;;f;
+0001;M2PPRI1;A;Muenzel, T., Univ. Prof. Dr.;Muenzel, T.;M2PP1;;;f;f;;f;
+0001;M2PPRI10;A;M2PPRI10;M2PPRI10;M2P10;;;f;f;;f;
+0001;M2PPRI11;A;M2PPRI11;M2PPRI11;M2P11;;;f;f;;f;
+0001;M2PPRI12;A;Gori, Univ.-Prof. Dr. med.;Gori;M2P12;;;f;f;;f;
+0001;M2PPRI13;A;Prof. Dr. Wenzel;Wenzel;M2P13;;;f;f;;f;
+0001;M2PPRI14;A;Mainz 05;Mainz 05;M2P14;;;f;f;;f;
+0001;M2PPRI2;A;Wild, P. Univ. Prof. Dr.;Wild;M2PP2;;;f;f;;f;
+0001;M2PPRI3;A;Rostock, Dr.;Rostock;M2PP3;;;f;f;;f;
+0001;M2PPRI4;A;Weißer Dr.;Weißer;M2PP4;;;f;f;;f;
+0001;M2PPRI5;A;Espinola-Klein, C., PD Dr.;Espinola;M2PP5;;;f;f;;f;
+0001;M2PPRI6;A;Himmrich, E., PD Dr.;Himmrich;M2PP6;;;f;f;;f;
+0001;M2PPRI7;A;v. Bardeleben Dr.;v.Bardeleben;M2PP7;;;f;f;;f;
+0001;M2PPRI8;A;M2PPRI8;M2PPRI8;M2PP8;;;f;f;;f;
+0001;M2PPRI9;A;M2PPRI9;M2PPRI9;M2PP9;;;f;f;;f;
+0001;M2PREV;A;Prevent it - Studie M2;Prevent it;;;;f;f;;f;
+0001;M2PRHE;A;Rheumasprechstunde M2;Rheuma-Spr.S;M2PRH;;;f;f;;f;
+0001;M2PRHY;A;Rhythmussprechstunde M2;Rhythmus.M2;M2PRT;;;f;f;;f;
+0001;M2PRIV01;A;Meyer, J., Univ. Prof. Dr.;M2 Meyer;M2P01;;;f;f;;f;
+0001;M2PRIV02;A;Weilemann, S., Univ. Prof. Dr.;M2 Weilemann;M2P02;;;f;f;;f;
+0001;M2PRV;A;Rechtsventikuläre Sprechstunde;RV-Spr.Std.;M2PRV;;;f;f;;f;
+0001;M2PSM;A;Schrittmachersprechstunde M2;SchrMa-Spr.S;M2PSM;;;f;f;;f;
+0001;M2PSR;A;Schockraum 2.Med.Klinik;M2 Schockr.;M2PSR;;;t;f;;f;
+0001;M2PSZ;A;M2-Studienzentrum;M2-Studie;M2PSZ;;;f;f;;f;
+0001;M2PT;LS;Phys. Therapie 2. Med.;M2PT;M2PT;;;f;f;;f;
+0001;M3;F;3. Med. Klinik;3. Med.;M3;0060;0319;f;f;U060;f;0191
+0001;M301;S;HA 605 3A;HA 605 3A;M301;;;f;f;;f;
+0001;M302;S;HA 302 R 1;HA 302 R1;M302;;;f;f;;f;
+0001;M303;S;HA 605 3B;HA 605 3B;M303;;;f;f;;f;
+0001;M304;S;HA 302 R EG IÜ;HA 302 R EIÜ;M304;;;f;f;;f;
+0001;M306;S;HA 605 3C IÜ;HA 605 3C IÜ;M306;;;f;f;;f;
+0001;M310;S;PN 505 5B;PN 505 5B;M310;;;f;f;;f;
+0001;M311;S;PN 409 EG IÜ;PN 409 EG IÜ;M311;;;f;f;;f;
+0001;M312;S;PN 605 3D;PN 605 3D;M312;;;f;f;;f;
+0001;M314;S;PN 409 1 IÜ;PN 409 1 IÜ;M314;;;f;f;;f;
+0001;M315;S;M3 102 A2 IÜ;M3 102 A2;M315;;;f;f;;f;
+0001;M316;S;M3 407 EG Palliativstation;M3 407 EG;M316;;;f;f;;f;
+0001;M3FD;LS;Funktionsdiagnostik 3.Med.;FD M3;M3FD;;;f;f;;f;
+0001;M3HATG;A;Plantafel Tagesklinik M3;M3HATG P;M3HPT;;;f;f;;f;
+0001;M3HP;A;Poliklinik der 3. Med. Hämat.;M3HA Polikl.;M3HP;;;f;f;;f;
+0001;M3HPBSZ;A;Poliklinik 3. Med. Hämat. BSZT;M3HA BSZ Pol;M3HBS;;;f;f;;f;
+0001;M3HPDRIT;A;Drittmittel M3 Hämatologie;M3HP DRITTM;M3HPD;;;f;f;;f;
+0001;M3HPF;A;Poliklinik 3.Med.HA Fremdeins.;M3HA Fremd.;M3HPF;;;f;f;;f;
+0001;M3HPGER;A;Poliklinik 3. Med. Blutgerinnu;M3HA Blutger;M3HPG;;;f;f;;f;
+0001;M3HPITC;A;3. Med. Hämat. ITC-Ambulanz;M3HP ITC-Amb;M3ITC;;;f;f;;f;
+0001;M3HPKMT;A;Poliklinik 3. Med. Hämat. KMT;M3HA KMT Pol;M3HPK;;;f;f;;f;
+0001;M3HPKMTP;A;Poliklinik 3.Med.HA-KMT-Privat;M3HA KMT PRI;KMTPR;;;f;f;;f;
+0001;M3HPPRI;A;M3HA Privatsprechstunde;M3HA Privat.;M3HAP;;;f;f;;f;
+0001;M3HPSAC;A;M3 Sarkomsprechstunde;M3 Sarkom;;;;f;f;;f;
+0001;M3HPSAR;A;M3 Sarkomsprechstunde;M3 Sarkom;;;;f;f;;f;
+0001;M3HPSARK;A;M3 Sarkomsprechstunde;M3 Sarkom;M3HPS;;;f;f;;f;
+0001;M3HPTOS;A;M3 Thorax-Onkolog.Sprechstunde;M3 Th-Onko;M3HTO;;;f;f;;f;
+0001;M3ITC;A;3. Med. ITC-Ambulanz;M3 ITC-Amb;M3ITC;;;f;f;;f;
+0001;M3LS;LS;LS III.Med.;LS M3;M3LS;;;f;f;;f;
+0001;M3LSBRO;LS;M3 Bronchoskopie;M3 Bronchosk;M3LSB;;;f;f;;f;
+0001;M3LSDFZY;LS;M3 Durchflusszytometrie;LS DFZYTO;M3DZY;;;f;f;;f;
+0001;M3LSDGIA;LS;M3 Gesondendiagnostik;LS GesDiagn.;M3GDI;;;f;f;;f;
+0001;M3LSFACS;LS;M3 LS Durchflusszytometrie;M3LS FACS;M3FAC;;;f;f;;f;
+0001;M3LSHLAB;LS;M3 Herst. Labor Zellth.;LS HLAB;M3HLA;;;f;f;;f;
+0001;M3LSKLAB;LS;M3 Klinisches Labor;M3 Klin. Lab;M3KLA;;;f;f;;f;
+0001;M3LSKONS;LS;M3 LS Konsile;M3LS Konsile;M3KON;;;f;f;;f;
+0001;M3LSLF;LS;M3 Lungenfunktion;M3 Lungenf.;M3LSL;;;f;f;;f;
+0001;M3LSPCR;LS;M3 Gesondendiagnostik;LS PCR;M3PCR;;;f;f;;f;
+0001;M3LSZYTO;LS;M3 Zytologoie;LS Zytologie;M3ZYT;;;f;f;;f;
+0001;M3MN;S;M3 Notaufnahme;M3 Notaufn.;M3MN;;;f;f;;f;
+0001;M3OP;LS;OP Hämatologie;OP M3;M3OP;;;f;f;;f;
+0001;M3PM;F;3. Med. Palliativ;3. Med. Pall;M3PM;0060;0319;f;f;U060;f;3752
+0001;M3PMLSK;LS;palliativmed.Komplexbehandlung;LS Komplex.;PMLSK;;;f;f;;f;
+0001;M3PP;A;Poliklinik der 3. Med. Pneumo.;M3PN Polikl.;M3PP;;;f;f;;f;
+0001;M3PPDRIT;A;Drittmittel M3 Pneumologie;M3PP DRITTM;M3PPD;;;f;f;;f;
+0001;M3PPPRI;A;M3PN Privatsprechstunde;M3PN Privat.;M3PNP;;;f;f;;f;
+0001;M3PPRI;A;M3 Privatsprechstunde;M3 Privatsp.;M3PPR;;;f;f;;f;
+0001;M3TAG;F;- 3. Med. Tagklinik;3. Med. Tag.;M3TAG;0060;0319;f;f;U060;f;0500
+0001;M3TG;S;HA 605 TK;HA 605 TK;M3TG;;;f;f;;f;
+0001;M3TGKMT;S;HA 302/2 TK KMT;HA302/2TK KM;M3TGK;;;f;f;;f;
+0001;MDK;A;MDK externe Gutachten;MDK ext.Guta;MDK;;;f;f;;f;
+0001;MEDEINR;ME;Knoten Med.Einrichtungen;  MEDEINR;MED.E;;;f;f;;f;
+0001;MEDEXT;F;Externe Begutachtungen;Ext.Begutach;MEDEX;0040;0930;f;f;;f;3700
+0001;MEDIENZT;LS;Medienzentrum;Medienzentr.;MDZT;;;f;f;;f;
+0001;MEDKOOP;MK;Medizinische Kooperationen;Med.Kooperat;MEDKO;;;f;f;;f;
+0001;MEDLS;MZ;Leistungsstellen u. Institute;Lst.u.Instit;MEDLS;;;f;f;;f;
+0001;MEDZENTR;MZ;Medizinische Zentren;Med.Zentren;MEDZE;;;f;f;;f;
+0001;MET;LS;MET Medical Emergency Team;MET-Team;METLS;;;f;f;;f;
+0001;METFA;F;MET Medical Emergency Team;MET-Team;METKN;0040;0930;f;f;;f;3700
+0001;MN;F;Med. Notaufnahme;Med.Notaufn.;MNAUF;0050;0323;f;f;U050;f;0193
+0001;MN01;S;MN 401 4A Notaufnahme;MN 401 4A;MN01;;;f;f;;f;
+0001;MNCPU;A;Poliklinik Med.Notaufn. CPU;Notaufn.CPU;MNCPU;;;f;f;;f;
+0001;MNINF;A;Med. Notaufn. Infektion;Med.Not.INF;;;;f;f;;f;
+0001;MNM1;A;Poliklinik Med.Notaufn. 1.Med.;Notaufn.M1;MNM1;;;f;f;;f;
+0001;MNM2;A;Poliklinik Med.Notaufn. 2.Med.;Notaufn.M2;MNM2;;;f;f;;f;
+0001;MNM3;A;Poliklinik Med.Notaufn. 3.Med.;Notaufn.M3;MNM3;;;f;f;;f;
+0001;MNOT;S;MNOT Med. Notaufnahme;MNOT 605 EG;MNOT;;;t;f;;f;
+0001;MNOTCA;LS;MN Notaufnahme Case-Management;MN CA;MNCA;;;f;f;;f;
+0001;MNOTCM;LS;MN Notaufnahme Case-Management;MN CM;MNCM;;;f;f;;f;
+0001;MNP;A;Poliklinik der Med. Notaufn.;Med.Notaufn.;MNP;;;f;f;;f;
+0001;MVZ;F;Med. Versorgungs Zentrum;MVZ;MVZ1;0010;0930;f;f;;f;3700
+0001;MVZCARD;LS;MVZ Cardiopraxis;MVZ Cardio;MVZCA;;;f;f;;f;
+0001;MVZHG2;LS;MVZ Humangen. 2;MVZ Humang.2;MVZH2;;;f;f;;f;
+0001;MVZHGGB;LS;MVZ Humangenetik;MVZ Humangen;MVZHG;;;f;f;;f;
+0001;MVZKWZ;LS;MVZ Gynäkologie;MVZ GYN;MVZGY;;;f;f;;f;
+0001;MVZLAB;LS;MVZ Labormedizin;MVZ Labor;MVZLA;;;f;f;;f;
+0001;MVZMIK;LS;MVZ Mikrobiologie;MVZ Mikrobio;MVZMI;;;f;f;;f;
+0001;MVZNEUPA;LS;MVZ NeuroPathologie;MVZ NeuPatho;MVZNE;;;f;f;;f;
+0001;MVZNPS;LS;MVZ Neuropsychologie;MVZ NeuroPS;MVZNP;;;f;f;;f;
+0001;MVZNUC;LS;MVZ Nuklearmedizin;MVZ Nuklear;MVZNU;;;f;f;;f;
+0001;MVZPATHO;LS;MVZ Pathologie;MVZ Patho;MVZPA;;;f;f;;f;
+0001;MVZSTR;LS;MVZ Strahlentherapie;MVZ STR;MVZST;;;f;f;;f;
+0001;NC;F;Neurochirurgie;Neurochir.;NC;0200;0540;f;f;U200;f;1700
+0001;NC01;S;NC 3 A;NC 3 A;NC01;;;f;f;;f;
+0001;NC02;S;NC 2 B;NC 2 B;NC02;;;f;f;;f;
+0001;NC03;S;NC 3 B;NC 3 B;NC03;;;f;f;;f;
+0001;NC04;S;NC E 1 IB;NC E 1 IB;NC04;;;f;t;;f;
+0001;NCLACM;LS;NCLS Case-Managemant;NCLS Case-Ma;;;;f;f;;f;
+0001;NCLSCM;LS;NCLS Case-Management;NCLS Case-Ma;NCLSC;;;f;f;;f;
+0001;NCLSEEG;LS;LS NC EEG;NC EEG;NCLSE;;;f;f;;f;
+0001;NCLSKONS;LS;NC Klinische Konsile;NC Klin.Kons;NCLSK;;;f;f;;f;
+0001;NCLSLAB;LS;LS NC Labor;NC Labor;NCLSL;;;f;f;;f;
+0001;NCLSRBEF;LS;LS NC Befundung Röntgenbilder;NC Rönt.Bef;NCLSR;;;f;f;;f;
+0001;NCOP;LS;OP Neurochir.;OP NC;NCOP;;;f;f;;f;
+0001;NCOPA;LS;Amb. OP Neurochirurgie;OP NC Amb.;NCOPA;;;f;f;;f;
+0001;NCP;A;Poliklinik der Neurochirurgie;NC Polikl.;NCP;;;f;f;;f;
+0001;NCP0N;A;Onkologische Sprechstunde;NC Onko.Spr.;NCP0N;;;f;f;;f;
+0001;NCPAUF;A;NC Aufnahmekoordination;NC Aufnahme;NCPAK;;;f;f;;f;
+0001;NCPFUN;A;Funktionale Sprechstunde NC;NC Funktiona;NCPFU;;;f;f;;f;
+0001;NCPHY;A;Hypophysen+Hormon Sprechstunde;NC Hyp+Horm;NCPHY;;;f;f;;f;
+0001;NCPKI;A;Kinder-Neurochir. Sprechstunde;NC Kinder-Ch;NCPKI;;;f;f;;f;
+0001;NCPNE;A;Nervensprechstunde;NC Nervensps;NCPNE;;;f;f;;f;
+0001;NCPON;A;Onkologische Sprechstunde;NC Onkol.Spr;NCPON;;;f;f;;f;
+0001;NCPPRI;A;NC Privatsprechstunde;NC Privatsp.;NCPPR;;;f;f;;f;
+0001;NCPRA;A;Radiochirurgische Sprechstunde;NC RadChir.S;NCPRA;;;f;f;;f;
+0001;NCPSBS;A;Schädelbasis Sprechstunde;NC Schädelb.;NCPSB;;;f;f;;f;
+0001;NCPST;A;Stereotaktische Sprechstunde;NC Stereo. S;NCPST;;;f;f;;f;
+0001;NCPT;LS;Phys. Therapie Neurochirurgie;NCPT;NCPT;;;f;f;;f;
+0001;NCPTRI;A;Trigeminus Sprechstunde NC;NC Trigeminu;NCPTR;;;f;f;;f;
+0001;NCPVAS;A;Vaskuläre Sprechstunde NC;NC Vaskulär;NCPVA;;;f;f;;f;
+0001;NCPWS;A;Wirbelsäulensprechstunde;NC Wirbelsäu;NCPWS;;;f;f;;f;
+0001;NE;F;Neurologie;Neurologie;NE;0120;0570;f;f;U120;f;2800
+0001;NE01;S;503 2A;503 2A;NE01;;;f;f;;f;
+0001;NE02;S;NS 7 IÜ;NS 7 IÜ;NE02;;;f;f;;f;
+0001;NE03;S;503 2B;503 2B;NE03;;;f;f;;f;
+0001;NE04;S;NE 605 2C;NE 605 2C;NE04;;;f;f;;f;
+0001;NE05;S;NS 3 IÜ;NS 3 IÜ;NE05;;;f;f;;f;
+0001;NE06;S;D 3 A IÜ;D 3 A IÜ;NE06;;;f;f;;f;
+0001;NE07;S;NE 605 STRU;NE 605 STRU;NE07;;;f;f;;f;
+0001;NE08;S;NE 605 Intensiv-Unit;NE 605 Int-U;NE08;;;f;t;;f;
+0001;NEFD;LS;Funktionsdiagnostik Neurologie;FD NE;NEFD;;;f;f;;f;
+0001;NELS;LS;LS Neurologie;LS NE;NELS;;;f;f;;f;
+0001;NELSEEG;LS;NE EEG;LS EEG;NELEE;;;f;f;;f;
+0001;NELSEMG;LS;NE EMG;LS EMG;NELEM;;;f;f;;f;
+0001;NELSEP;LS;NE Evozierte Potenziale;LS Evoz.Pot.;NELEP;;;f;f;;f;
+0001;NELSKONS;LS;NE - Konsilanforderungen;NE LS Konsil;NEKON;;;f;f;;f;
+0001;NELSLO;LS;NE Logopädie;LS Logopädie;NELLO;;;f;f;;f;
+0001;NELSPS;LS;NE Neuropsychologie;LS Neuropsy.;NELPS;;;f;f;;f;
+0001;NELSQST;LS;NELS quantitative sens.Testung;NELSQST;NELSQ;;;f;f;;f;
+0001;NELSUS;LS;NE Ultraschall;LS Ultrascha;NELUS;;;f;f;;f;
+0001;NEP;A;Poliklinik der Neurologie;NEP;NEP;;;f;f;;f;
+0001;NEPAL;A;NE Anfallsleiden;NEPAL;NEPAL;;;f;f;;f;
+0001;NEPBE;A;NE Blutentnahme;NEPBE;NEPBE;;;f;f;;f;
+0001;NEPBTX;A;NE Botox Pers.Ermächtigung;NEPBTX;NEPBT;;;f;f;;f;
+0001;NEPMB;A;NE Muskelkr./Beatmung;NEPMB;NEPMB;;;f;f;;f;
+0001;NEPMC;A;NE-Sprechst. Muskelkranke CFS;NE-Spr.CFS;NEPMC;;;f;f;;f;
+0001;NEPMS;A;NE Multiple Sklerose;NEPMS;NEPMS;;;f;f;;f;
+0001;NEPPD;A;NE Parkinson/Dystonie;NEPPD;NEPPD;;;f;f;;f;
+0001;NEPPRI;A;NE Privatsprechstunde;NE Privatsp.;NEPPR;;;f;f;;f;
+0001;NEPSA;A;NE Schlaganfall;NEPSA;NEPSA;;;f;f;;f;
+0001;NEPSM;A;NE Schmerz;NEPSM;NEPSM;;;f;f;;f;
+0001;NEPSP;A;NE-Spast.Spinalparal.u.Neurog.;NE-Spinalpa.;NEPSP;;;f;f;;f;
+0001;NETAG;F;- NE Tagklinik;NE Tagklinik;NETAG;0120;0570;f;f;U120;f;2890
+0001;NETG;S;NE 503 TK;NE 503 TK;NETG;;;f;f;;f;
+0001;NR;LS;Abt. f. Neuroradiologie;Neurorad.;NR;;;f;f;;f;
+0001;NRAD;F;Neuroradiologie;NRAD;NRAD;0030;0930;f;f;;f;3751
+0001;NRFD;LS;Funktionsdiagnostik Neurorad.;FD NR;NRFD;;;f;f;;f;
+0001;NRLS;LS;LS Neuroradiologie;LS NR;NRLS;;;f;f;;f;
+0001;NRLSAN;LS;NRLS Angio Geb. 505 2. OG;LS NR ANGIO;NRLSA;;;f;f;;f;
+0001;NRLSCT;LS;NRLS CT Geb. 505 2. OG;LS NR CT;NRCT;;;f;f;;f;
+0001;NRLSM505;LS;NRLS MRT Geb. 505 EG;LSNR MRT 505;NRLSN;;;f;f;;f;
+0001;NRLSMR;LS;NRLS MRT Geb. 605 1. UG;LS NR MRT;NRMRT;;;f;f;;f;
+0001;NRLSRA;LS;NRLS RA Radiographie 505 2. OG;LS NR Radiog;NRLSR;;;f;f;;f;
+0001;NRP;A;Ambulanz Neuroradiologie;NRP;NRP;;;f;f;;f;
+0001;NRPEXT;A;NRPEXT PC NRAD Leist.an Dritte;NRPEXT PC;NRPEX;;;f;f;;f;
+0001;NRPPRI;A;NR Privatsprechstunde;NR Privatsp.;NRPPR;;;f;f;;f;
+0001;NU;F;Nuklearmedizin;Nuklearmed.;NU;0010;0630;f;f;U010;f;3200
+0001;NU01;S;NU 406 EG;NU 406 EG;NU01;;;f;f;;f;
+0001;NUFD;LS;Funktionsdiagnostik Nuklearm.;FD NU;NUFD;;;f;f;;f;
+0001;NULS;LS;LS Nuklearmedizin;LS NU;NULS;;;f;f;;f;
+0001;NULSGKZ;LS;LS NU Ganzkörperzählung;LS NU GKZ;NULSG;;;f;f;;f;
+0001;NULSPET;LS;LS NU PET Diagnostik;LS NU PET;NULSE;;;f;f;;f;
+0001;NULSPETC;LS;LS NU PET CT;LS NU PET-CT;NULSC;;;f;f;;f;
+0001;NULSPLAN;LS;LS NU PLANAR Diagnostik;LS NU PLANAR;NULSP;;;f;f;;f;
+0001;NULSSPEC;LS;LS NU SPECT Diagnostik;LS NU SPECT;NULSS;;;f;f;;f;
+0001;NUP;A;Poliklinik Nuklearmedizin 210;NU Poli. 210;NUP;;;f;f;;f;
+0001;NUP2;A;Poliklinik Nuklearmedizin 406;NU Poli. 406;NUP2;;;f;f;;f;
+0001;NUPEXT;A;NU Ext Abrechnung(Pet CT);NU Ext.Abr.;NUPEX;;;f;f;;f;
+0001;NUPPRI;A;NU Privatsprechstunde;NU Privatsp.;NUPPR;;;f;f;;f;
+0001;OHP;SE;OHP Open Health Platform;OHP;OHP;0040;0930;f;f;;f;3700
+0001;OHP_DOK;LS;OHP_DOK Dokumente;OHP_DOK;OHP_D;;;f;f;;f;
+0001;OR;F;Orthopädie;Orthopädie;OR;0180;0699;f;f;U180;f;2300
+0001;OR01;S;503 /1;503 /1;OR01;;;f;f;;f;
+0001;OR02;S;OR 8 A;OR 8 A;OR02;;;f;f;;f;
+0001;OR03;S;503 2 A IÜ;503 2 A IÜ;OR03;;;f;f;;f;
+0001;OR04;S;OR 6 A;OR 6 A;OR04;;;f;f;;f;
+0001;OR05;S;503 / 2 B IÜ;503 / 2 B IÜ;OR05;;;f;f;;f;
+0001;OR06;S;503 /3 KI;503 /3 KI;OR06;;;f;f;;t;
+0001;ORLSGIPS;LS;Gipsraum Orthopädie;OR Gipsraum;ORGIP;;;f;f;;f;
+0001;OROP;LS;OP Orthopädie;OR OP;OROP;;;f;f;;f;
+0001;OROPBRA;LS;OR amb. OP Tageskl. am Brand;OR amb.OPBra;ZORBR;;;f;f;;f;
+0001;ORP;A;Poliklinik der Orthopädie;Poliklinik;ORP;;;f;f;;f;
+0001;ORPFU;A;Fußsprechstunde;Fuß;ORPFU;;;f;f;;f;
+0001;ORPHA;A;Handsprechstunde OR;Hand;ORPHA;;;f;f;;f;
+0001;ORPHS;A;Hüftsprechstunde;Hüfte;ORPHS;;;f;f;;f;
+0001;ORPKF;A;Klumpfußsprechstunde;Klumpfuß;ORPKF;;;f;f;;f;
+0001;ORPKH;A;Kinder-Sono;Kinder-Sono;ORPKH;;;f;f;;f;
+0001;ORPKI;A;Kindersprechstunde;Kinder;ORPKI;;;f;f;;f;
+0001;ORPKN;A;Kniesprechstunde;Knie;ORPKN;;;f;f;;f;
+0001;ORPMP;A;Morbus Perthes Sprechstunde;Morb. Perth.;ORPMP;;;f;f;;f;
+0001;ORPPRI;A;Privatsprechstunde;OR Privatsp.;ORPPR;;;f;f;;f;
+0001;ORPPRIG;A;Gutachtensprechstunde;OR Gutachten;ORPRG;;;f;f;;f;
+0001;ORPRO;A;Rheuma/Osteoporose Sprechst.;Rheuma/Osteo;ORPRO;;;f;f;;f;
+0001;ORPS;A;Schultersprechstunde;Schulter;ORPS;;;f;f;;f;
+0001;ORPSPO;A;Sportverletzungen;Sport;ORPSP;;;f;f;;f;
+0001;ORPT;LS;Phys. Therapie Orthopädie;ORPT;ORPT;;;f;f;;f;
+0001;ORPTS;A;Tumorsprechstunde OR;Tumor;ORPTS;;;f;f;;f;
+0001;ORPWS;A;Wirbelsäulensprechstunde;Wirbelsäule;ORPWS;;;f;f;;f;
+0001;OTA;LS;OTA-Weiterbildung(OTA);OTA;OTA;;;f;f;;f;
+0001;PAT;F;Pathologie;Pathologie;PAT;0040;0930;f;f;;f;3700
+0001;PATHALL;LS;Pathologie allgemein;Patho allgem;PATAL;;;f;f;;f;
+0001;PATHASV;A;Pathologie ASV extern;PAT ASV ext.;PATAS;;;f;f;;f;
+0001;PATHKI;LS;Pathologie Kinder;Patho Kinder;PATKI;;;f;f;;f;
+0001;PATHNEU;LS;Pathologie Neurologie;Patho Neuro;PATNE;;;f;f;;f;
+0001;PATLSEM;LS;LS Elektronenmikroskop.Labor;LS EM;EMLS;;;f;f;;f;
+0001;PATLSHIS;LS;LS Histol.+Zytol.Hauptlab.;LS HIS;HISLS;;;f;f;;f;
+0001;PATLSIMM;LS;LS Immunhistol./histoch.Labor;LS IMM;IMMLS;;;f;f;;f;
+0001;PATLSMOL;LS;LS Molekularpathologie;LS MOL;MOLLS;;;f;f;;f;
+0001;PATLSSEK;LS;LS Prosektur Geb. 706 EG;LS SEK;SEKLS;;;f;f;;f;
+0001;PATPRI;A;PAT Privatambulanz;PAT Privat;PATPR;;;f;f;;f;
+0001;PATVER;LS;Patientenverwaltung(Archiv);Pat.Verwalt.;PATVE;;;f;f;;f;
+0001;PCAUHHT;LS;PC AU Hornhauttransplant.;PC AU HHTPL;PCAUH;;;f;f;;f;
+0001;PEER-REV;A;Peer-Review;Peer-Review;PEER;;;f;f;;f;
+0001;PFV;F;Pflegevorstand;Pfl.Vorstand;PFV;0040;0930;f;f;;f;3700
+0001;PS;F;Psychiatrie;Psychiatrie;PS;0100;0820;f;f;U100;f;2900
+0001;PS01;S;ST. 1 PS;ST. 1 PS;PS01;;;f;f;;f;
+0001;PS02;S;ST. 2 PS;ST. 2 PS;PS02;;;f;f;;f;
+0001;PS03;S;ST. 3 PS;ST. 3 PS;PS03;;;f;f;;f;
+0001;PS04;S;ST. 4 PS;ST. 4 PS;PS04;;;f;f;;f;
+0001;PS05;S;ST. 5 PS;ST. 5 PS;PS05;;;f;f;;f;
+0001;PS06;S;ST. 6 PS;ST. 6 PS;PS06;;;f;f;;f;
+0001;PS07;S;ST. 7 PS;ST. 7 PS;PS07;;;f;f;;f;
+0001;PSFD;LS;Funktionsdiagnostik Psychiatr.;FD PS;FSFD;;;f;f;;f;
+0001;PSLS;LS;LS Psychiatrie;LS PS;PSLS;;;f;f;;f;
+0001;PSLSEEG;LS;LS PS EEG/EKG;LS EEG/EKG;PSEEG;;;f;f;;f;
+0001;PSLSEKG;LS;LS PS EKG;LS EKG;PSEKG;;;f;f;;f;
+0001;PSLSEKT;LS;PS LS Elektrokrampftherapie;PSLS EKT;PSEKT;;;f;f;;f;
+0001;PSLSERGO;LS;PS LS Ergotherapie;PSLS Ergoth.;PSLSE;;;f;f;;f;
+0001;PSLSLOGO;LS;PS LS Logopädie;PSLS Logopäd;PSLSL;;;f;f;;f;
+0001;PSLSNLAB;LS;LS PS Neurochemisches Labor;NeurochemLab;PSLSN;;;f;f;;f;
+0001;PSLSSOZ;LS;PS Sozialdienst;PS Soziald.;PSLSO;;;f;f;;f;
+0001;PSP;A;Poliklinik der Psychiatrie;PS Poli;PSP;;;f;f;;f;
+0001;PSPG;A;Gerontopsychiatrie-Poliklinik;Poli G;PSPG;;;f;f;;f;
+0001;PSPIA;A;Psychiatrische Institutsamb.;PIA;PSPIA;;;f;f;;f;
+0001;PSPIAG;A;Gerontopsychiatrie-PIA;PIA G;PSPGP;;;f;f;;f;
+0001;PSPMEM;A;PS Gedächtnisambulanz;IV;PSPME;;;f;f;;f;
+0001;PSPNP;A;Neuropsychologie Pers. Ermächt;Neurops. PE;PSPNP;;;f;f;;f;
+0001;PSPPRI;A;PS Privatsprechstunde;Privat;PSPPR;;;f;f;;f;
+0001;PSPT;LS;Phys. Therapie Psychiatrie;PSPT;PSPT;;;f;f;;f;
+0001;PST1;S;Tagkl. PS ST.1;Tagkl.PS ST1;PST1;;;f;f;;f;
+0001;PST2;S;Tagkl. PS ST.2;Tagkl.PS ST2;PST2;;;f;f;;f;
+0001;PST3;S;Tagkl. PS ST.3;Tagkl.PS ST3;PST3;;;f;f;;f;
+0001;PST4;S;Tagkl. PS ST.4;Tagkl.PS ST4;PST4;;;f;f;;f;
+0001;PST5;S;Tagkl. PS ST.5;Tagkl.PS ST5;PST5;;;f;f;;f;
+0001;PST6;S;Tagkl. PS ST.6;Tagkl.PS ST6;PST6;;;f;f;;f;
+0001;PST7;S;Tagkl. PS ST.7;Tagkl.PS ST7;PST7;;;f;f;;f;
+0001;PSTAG;F;- Psychiatrie Tagklinik;PS Tagklinik;PSTG;0100;0820;f;f;U100;f;2960
+0001;PT;F;Psychosomatik/Psychotherapie;Psychosomat.;PT;0110;0830;f;f;U110;f;3100
+0001;PT01;S;Psychosom. 920;Psychos. 920;PT01;;;f;f;;f;
+0001;PT02;S;Psychosom. 303;Psychos.303;PT02;;;f;f;;f;
+0001;PTFD;LS;Funktionsdiagnostik Psychoth.;FD PT;PTFD;;;f;f;;f;
+0001;PTLS;LS;LS Psychotherapie;LS PT;PTLS;;;f;f;;f;
+0001;PTLSKONS;LS;PT - Konsilanforderungen;PT LS Konsil;;;;f;f;;f;
+0001;PTLSON;LS;Psychoonkologische Betreuung;LS PTON;PTON;;;f;f;;f;
+0001;PTLSSOZ;LS;Sozialdienst Psychosomatik;PT Soziald.;PTLSS;;;f;f;;f;
+0001;PTP;A;Polikl.der Psychos.u.Psychoth.;PT Polikl.;PTP;;;f;f;;f;
+0001;PTPIA;A;Institutsamb.der Psychotherap.;PT Inst.amb.;PTPIA;;;f;f;;f;2900
+0001;PTPPC;A;PT Webcambasierte Sprechstunde;PT Webcam;PTPPC;;;f;f;;f;
+0001;PTPPRI;A;PT Privatsprechstunde;PT Privatsp.;PTPPR;;;f;f;;f;
+0001;PTPSP;A;PT Ambulanz für Spielsucht;PT Spiels.;PTPSP;;;f;f;;f;
+0001;PTPTENS;A;Polikl.PT - TENS-Patienten;PT Poli-Tens;PTENS;;;f;f;;f;
+0001;PTPTSS;A;PTP Terminservicestelle;PTP TSS;PTTSS;;;f;f;;f;
+0001;PTT1;S;Tagkl. PT  Psychosomatik;Tagkl.  PT;PTT1;;;f;f;;f;
+0001;PTT2;S;Tagkl. 2 PT  Psychosomatik;Tagkl. 2 PT;PTT2;;;f;f;;f;
+0001;PTTAG;F;- Psychotherapie Tagklinik;PT Tagklinik;PTTAG;0110;0830;f;f;U110;f;3160
+0001;PV;SE;Pflegevorstand;Pfl.Vorstand;PV;0040;0930;f;f;;f;3700
+0001;RA;F;Radiologie bis 31.03.2005;Radiologie;RA;0030;0870;f;f;U030;f;3751
+0001;RA01;S;RA 401 2 B;RA 401 2 B;RA01;;;f;f;;f;
+0001;RAD;F;Radiologie;Radiologie;RAD;0030;0870;f;f;U030;f;3751
+0001;RAGF;A;SC1-RA Gerichtsfälle;Gerichtsfäll;RAGF;;;f;f;;f;
+0001;RALS;LS;LS Radiologie;LS RA;RALS;;;f;f;;f;
+0001;RALS2ANG;LS;RAD Angiographie (Geb. 210);Angio-210;RALAN;;;f;f;;f;
+0001;RALS2MRT;LS;RAD MRT (Geb. 210);MRT-210;RAMRT;;;f;f;;f;
+0001;RALS2PCT;LS;RAD PET-CT (Geb. 210);PET-CT-210;RAPCT;;;f;f;;f;
+0001;RALS5ANG;LS;RAD Angiographie (Geb. 505);Angio-505;RA5AN;;;f;f;;f;
+0001;RALS5CT;LS;RAD CT (Geb. 505);CT-505;RA5CT;;;f;f;;f;
+0001;RALS5IR;LS;RAD Intervent.Radiol.(Geb.505);IntervRA-505;RA5IR;;;f;f;;f;
+0001;RALS5MFR;LS;RAD Multifunktionsr. (Geb.505);Multi-505;RA5MF;;;f;f;;f;
+0001;RALS5MR1;LS;RAD MRT (Geb. 505) EG;MRT-505 EG;MRT-E;;;f;f;;f;
+0001;RALS5MR2;LS;RAD MRT (Geb. 505) UG;MRT-505 UG;MRT-U;;;f;f;;f;
+0001;RALS5MRT;LS;RAD MRT (Geb. 505);MRT-505;RA5MR;;;f;f;;f;
+0001;RALS5RÖ;LS;RAD Röntgendiagn. (Geb. 505);Röntgen-505;RA5RÖ;;;f;f;;f;
+0001;RALS5US;LS;RAD Ultraschall (Geb. 505);US-505;RA5US;;;f;f;;f;
+0001;RALS6ANG;LS;RAD Angiographie (Geb. 605);Angio-605 EG;RA6AN;;;f;f;;f;
+0001;RALS6BZ;LS;RAD Brustzentrum (Geb. 605);Brustz-605UG;RA6BZ;;;f;f;;f;
+0001;RALS6CT1;LS;RAD CT 1 (Geb. 605);CT 1-605 EG;RA6C1;;;f;f;;f;
+0001;RALS6CT2;LS;RAD CT 2 (Geb. 605);CT 2-605 EG;RA6C2;;;f;f;;f;
+0001;RALS6MRT;LS;RAD MRT (Geb. 605);MRT-605 UG;RA6MR;;;f;f;;f;
+0001;RALS6RÖ;LS;RAD Röntgendiagn. (Geb. 605);Röntg-605 EG;RA6RÖ;;;f;f;;f;
+0001;RALS6US;LS;RAD Ultraschall (Geb. 605);US-605;RA6US;;;f;f;;f;
+0001;RALS7DXA;LS;RAD DEXA (Geb. 701);DEXA-701 EG;RA7DX;;;f;f;;f;
+0001;RALSORTH;LS;RAD Röntgen Ortho (Geb. 503);Röntg-503 EG;RAORT;;;f;f;;f;
+0001;RALSSMR1;LS;RAD MRT (Geb. 505) EG;MRT-505 EG;;;;f;f;;f;
+0001;RALSSMR2;LS;RAD MRT (Geb. 505) UG;MRT-505 UG;;;;f;f;;f;
+0001;RANG210;LS;Roentgen 210 Angio;Roentgen 210;RA210;;;f;f;;f;
+0001;RANG505;LS;Roentgen 505 Angio;Roentgen 505;RA505;;;f;f;;f;
+0001;RANG701;LS;Roentgen 701 Angio;Roentgen 701;RA701;;;f;f;;f;
+0001;RAOP;LS;OP Radiologie;OP Radiolog.;RAOP;;;f;f;;f;
+0001;RAP;A;Poliklinik der Radiologie;RA Polikl.;RAP;;;f;f;;f;
+0001;RAPEXT;A;RA Externe Abrechnung;RA ext.Abr.;RAPEX;;;f;f;;f;
+0001;RAPKI;A;Radiologie Kinder;RA Polikl.KI;RAPKI;;;f;f;;f;
+0001;RAPPRI;A;RA Privatsprechstunde;RA Privatsp.;RAPPR;;;f;f;;f;
+0001;RAVF;A;SC1-RA Vollstreckungsfälle;Vollstreckun;RAVF;;;f;f;;f;
+0001;RKO;F;RKO Radiologische Konferenzen;Rad.-Konf.;RKO;0030;0930;f;f;;f;3700
+0001;RKO-HN;A;RKO-HN Rad. Konferenz HNO;RKO-HN Konf.;RKOHN;;;f;f;;f;
+0001;SC1-RA;F;SC1 Rechtsabteilung;SC1-Rechtsab;SC1RA;0040;0930;f;f;;f;3700
+0001;SC34;F;SC 34 Medizincontrolling;SC34 / MC;SC 34;;;f;f;;f;
+0001;SDEM;A;Servicestelle Demenz;Serv.Demenz;SDEM;;;f;f;;f;
+0001;SONEINR;SE;Knoten Sonst.Einricht.;Sonst.Ein.;S-EIN;0017;0930;f;f;;f;9999
+0001;SOZ;LS;Sozialdienst allgemein;Sozdialdiens;SOZ;;;f;f;;f;
+0001;SOZIALD;F;Soziale Dienste;Sozialdienst;SOZDI;0040;0930;f;f;;f;3700
+0001;SOZKI;LS;Sozialdienst Kinderklinik;SozDienst KI;SOZKI;;;f;f;;f;
+0001;SOZLEI;LS;Soziald.Pflegeüberleitung;SozPflegeübe;SOZLE;;;f;f;;f;
+0001;SOZPS;LS;Sozialdienst Psychiatrie;SozDienst PS;SOZPS;;;f;f;;f;
+0001;SPZ-KI;KA;SPZ-KI Sozialpäd. Zentrum;SPZ-Ambul.;SP-KI;;;f;f;;f;
+0001;ST01;S;ST 401 2B;ST 401 2B;ST01;;;f;f;;f;
+0001;STERI;F;Sterilisation;Sterilisatio;STERI;0040;0930;f;f;;f;3700
+0001;STLS;LS;STLS Radioonkologie;Radioonko.;STLS;;;f;f;;f;
+0001;STLSBRAC;LS;STLS Brachy;STLS Brachy;STLBR;;;f;f;;f;
+0001;STLSCT;LS;STLS CT Geb. 209;STLS CT 209;STLSC;;;f;f;;f;
+0001;STLSKONS;LS;ST - Konsilanforderungen;ST LS Konsil;STKON;;;f;f;;f;
+0001;STLSLIN;LS;STLS Linac;STLS Linac;STLSL;;;f;f;;f;
+0001;STLSMEPH;LS;STLS Med.Physik;STLS Med.Ph.;STLMP;;;f;f;;f;
+0001;STOMA;LS;LS Stomatherapie;Stomather.;STOMA;;;f;f;;f;
+0001;STP;A;Strahlentherapie;ST Polikl.;STP;;;f;f;;f;
+0001;STPPRI;A;ST Privatsprechstunde;ST Privatsp.;STPPR;;;f;f;;f;
+0001;STR;F;Radioonkologie und Strahlenth.;Radioonko.;STR;0030;0870;f;f;U030;f;3300
+0001;SZ;F;Studienzentren Unimedizin;Studienzentr;SZ;0040;0930;f;f;;f;3700
+0001;SZAT;A;Studienzentrum Anästhesiologie;SZAT;SZAT;;;f;f;;f;
+0001;SZAU;A;Studienzentrum Augenklinik;SZAU;ZSAU;;;f;f;;f;
+0001;SZCH;A;Studienzentrum AVTC;SZCH;SZCH;;;f;f;;f;
+0001;SZDE;A;Studienz. Hautkrebszentrum;SZDE;SZDE;;;f;f;;f;
+0001;SZDECRC;A;Studienz. CRC;SZDECRC;SZDEC;;;f;f;;f;
+0001;SZGY;A;Studienzentrum Gynäkologie;SZGY;SZGY;;;f;f;;f;
+0001;SZHN;A;Studienz.Hals-, Nasen-, Ohrenk;SZHN;SZHN;;;f;f;;f;
+0001;SZKI;A;Studienz. Kinder- u. Jugendmed;SZKI;SZKI;;;f;f;;f;
+0001;SZM1;A;Studienzentrum Onkologie;SZM1;SZM1;;;f;f;;f;
+0001;SZM2;A;Studienzentrum für Kardiologie;SZM2;SZM2;;;f;f;;f;
+0001;SZM3H;A;Studienzentr. Hämatologie/Onko;SZM3H;SZM3H;;;f;f;;f;
+0001;SZM3P;A;Studienzentrum Pneumologie;SZM3P;SZM3P;;;f;f;;f;
+0001;SZNC;A;Studienzentrum Neurochirurgie;SZNC;SZNC;;;f;f;;f;
+0001;SZNE;A;Studienzentrum Neurologie;SZNE;SZNE;;;f;f;;f;
+0001;SZPS;A;Studienz. Psychische Erkrankun;SZPS;SZPS;;;f;f;;f;
+0001;SZPT;A;Studienz. Psychische Erkrankun;SZPT;SZPT;;;f;f;;f;
+0001;SZSTR;A;Studienz. Radiologie (CTCR);SZSTR;SZSTR;;;f;f;;f;
+0001;SZUC;A;Studienz. Orthopädie u.Unfallc;SZUC;SZUC;;;f;f;;f;
+0001;SZUR;A;Studienzentrum Urologie;SZUR;SZUR;;;f;f;;f;
+0001;SZZM;A;Studienzentrum MKG;SZZM;SZZM;;;f;f;;f;
+0001;TC;F;AVTC;AVTC;TC;0170;0169;f;f;U170;f;1500
+0001;TC01;S;C 6 B;C 6 B;TC01;;;f;f;;f;
+0001;TCOP;LS;OP AVTC;OP AVTC;TCOP;;;f;f;;f;
+0001;TCP;A;Poliklinik der Transpl.Chir.;TC Poli;TCP;;;f;f;;f;
+0001;TCPLTX;A;Sprechstunde Lebertransplant;CH LTX;TCPLT;;;f;f;;f;
+0001;TCPNPTX;A;Sprechstunde Nieren/PankreasTR;TC NPTX;TCPNP;;;f;f;;f;
+0001;TCPPRI;A;TC Privatsprechstunde;TC Privat;TCPPR;;;f;f;;f;
+0001;TEST;F;Test-Klinik für PDMS-Team;Testklinik;TESTF;0020;0930;f;f;;f;3600
+0001;TEST-EIN;TE;Test-Einrichtung;Test-Einrich;TE;;;f;f;;f;
+0001;TEST-FA;F;Test-Fachabteilung;Test-Fach;TF;0220;0120;f;f;U220;f;2700
+0001;TEST01;S;TEST INTENSIV I;Test-Int II;TEST1;;;f;t;;f;
+0001;TEST02;S;TEST INTENSIV II;Test-Int II;TEST2;;;f;t;;f;
+0001;TEST03;S;TEST INTENSIV III;Test-Int III;TEST3;;;f;t;;f;
+0001;TESTAMB;A;Testambulanz;Testambulanz;TESTA;;;f;f;;f;
+0001;TH;F;Thoraxchirurgie;Thoraxchir.;TH;0160;0269;f;f;U160;f;2100
+0001;THOP;LS;OPThorax-Chir.;OP TH;THOP;;;f;f;;f;
+0001;THP;A;Thorax-Ambulanz;Thoraxamb.;THP;;;f;f;;f;
+0001;TO;LS;Technische Orthopädie;Techn.Orth.;TO;;;f;f;;f;
+0001;TR;F;Transfusionszentrale;TR;TR;0017;0930;f;f;;f;0100
+0001;TRANSPO;F;Transporte;Transporte;TRAPO;0040;0930;f;f;;f;3700
+0001;TRB;LS;Transfusionszentrale Blut;TransBlut;TRB;;;f;f;;f;
+0001;TRBLUT;TR;Bluttransport;Bluttranspor;TRBLU;;;f;f;;f;
+0001;TRHUB;TR;Hol und Bringedienst;H.u.B.;TRHUB;;;f;f;;f;
+0001;TRKTR;TR;Krankentransport;Krankentrans;TRKTR;;;f;f;;f;
+0001;TRL;LS;Transfusionszentrale Labor;TransLab;TRL;;;f;f;;f;
+0001;TRLPC;LS;Transfusionszentrale Labor PC;TransLab PC;TRLPC;;;f;f;;f;
+0001;TRTH;LS;Trafu.Intensivb.Plasmapherese;Tra.Int.Plas;TRTH;;;f;f;;f;
+0001;TX;F;TX - Board;TX Board;TX;0130;0930;f;f;;f;3700
+0001;TX-LTX;A;TX LTX Lebertransplantation;TX LTX Leber;LTX;;;f;f;;f;
+0001;TX-PNTX;A;TX PNTX Pankreas-Nieren-Transp;TX PNTX PaNi;PNTX;;;f;f;;f;
+0001;TZM;F;Testzentrum Mainz;TZM Mainz;TZM;0040;0930;f;f;;f;3700
+0001;TZMP;A;Ambulanz Testzentrum Mainz;TZMP-Ambul.;TZMP;;;f;f;;f;
+0001;UC;F;Zentr.f.Orthopäd.u.Unfallchir.;ZOU;ZOU;0140;0166;f;f;U140;f;2316
+0001;UC01;S;ZOU 4 A;ZOU 4 A;ZOU4A;;;f;f;;f;
+0001;UC02;S;ZOU 4 B;ZOU 4 B;ZOU4B;;;f;f;;f;
+0001;UC03;S;ZOU 8 B;ZOU 8 B;ZOU8B;;;f;f;;f;
+0001;UC04;S;CB1 ZOU IÜ;CB1 ZOU IÜ;ZOUIÜ;;;f;f;;f;
+0001;UC05;S;ZOU 8 A;ZOU 8 A;ZOU8A;;;f;f;;f;
+0001;UC06;S;ZOU 6 A;ZOU 6 A;ZOU6A;;;f;f;;f;
+0001;UCLSEKG;LS;LS ZOU EKG;EKG;ZOUEK;;;f;f;;f;
+0001;UCLSGIPS;LS;LS ZOU Gipsraum;Gipsraum;ZOUGI;;;f;f;;f;
+0001;UCLSKONS;LS;ZOU - Konsilanforderungen;ZOU LS Konsi;UCKON;;;f;f;;f;
+0001;UCLSSHOK;LS;LS ZOU Schockraum;Schockraum;ZOUS2;;;f;f;;f;
+0001;UCOP;LS;OP Z. Ortho/Unfall;OP ZOU;ZOUOP;;;f;f;;f;
+0001;UCOPBRA;LS;ZOU amb. OP Tageskl. am Brand;ZOUamb.OPBra;ZOUBR;;;f;f;;f;
+0001;UCP;A;Poliklinik des ZOU;ZOU-Poli;ZOUP;;;f;f;;f;
+0001;UCPBW;A;Beckensprechstunde;Becken;ZOUBS;;;f;f;;f;
+0001;UCPDA;A;D-Arztsprechstunde;DA;ZOUDA;;;f;f;;f;
+0001;UCPEL;A;Ellenbogensprechstunde;Ellb;ZOUES;;;f;f;;f;
+0001;UCPEP;A;Endoprothesensprechstunde;ZOU Endoprot;ZOUEP;;;f;f;;f;
+0001;UCPFRA;A;Fraktursprechstunde;Fraktur;ZOUFR;;;f;f;;f;
+0001;UCPFU;A;Fußsprechstunde;Fuß;ZOUFS;;;f;f;;f;
+0001;UCPHC;A;Hand- u.Ellenbogensprechstunde;Hand/Ellbgn;ZOUHE;;;f;f;;f;
+0001;UCPHS;A;Hüftsprechstunde;Hüfte;ZOUHS;;;f;f;;f;
+0001;UCPKF;A;Klumpfußsprechstunde;Klumpfuß;ZOUKF;;;f;f;;f;
+0001;UCPKH;A;Kinder-Sono;Kinder-Sono;ZOUKH;;;f;f;;f;
+0001;UCPKI;A;Kindersprechstunde;Kinder;ZOUKI;;;f;f;;f;
+0001;UCPKN;A;Kniesprechstunde;Knie;ZOUKN;;;f;f;;f;
+0001;UCPKS;A;Schultersprechstunde;Schulter;ZOUKS;;;f;f;;f;
+0001;UCPKT;A;Spez.Sprechstunde Kindertrauma;KT;ZOUKT;;;f;f;;f;
+0001;UCPMS;A;Spez. Sprechstunde Berufsmusik;Musik;ZOUMS;;;f;f;;f;
+0001;UCPPRI;A;ZOU Privatsprechstunde;Priv;ZOUPR;;;f;f;;f;
+0001;UCPPRI1;A;ZOU Privatsprechstunde OR;ZOU Priv.OR;ZOUP1;;;f;f;;f;
+0001;UCPPRIG;A;Gutachtensprechstunde;Gutachten;ZOUPG;;;f;f;;f;
+0001;UCPRO;A;Rheuma/Osteoporose Sprechst.;Rheuma/Osteo;ZOURO;;;f;f;;f;
+0001;UCPS3A;A;Stationssprechstunde ZOU  4 B;S4B;ZOUS3;;;f;f;;f;
+0001;UCPS4A;A;Stationssprechstunde ZOU 4A;S4A;ZOUS4;;;f;f;;f;
+0001;UCPS4B;A;Stationssprechstunde ZOU 8 B;S8B;ZOUS8;;;f;f;;f;
+0001;UCPSEP;A;septische Chirurgie;sept.Chir.;ZOUSE;;;f;f;;f;
+0001;UCPSPO;A;Sportverletzungen;Sport;ZOUSP;;;f;f;;f;
+0001;UCPSR;A;Schockraum der Unfallchirurgie;Schockraum;ZOUSR;;;f;f;;f;
+0001;UCPT;LS;Phys. Therapie ZOU;ZOU PT;ZOUPT;;;f;f;;f;
+0001;UCPWIR;A;Wirbelsäulensprechstunden;Wirbelsäule;ZOUWS;;;f;f;;f;
+0001;UCPWS;A;Wirbelsäulensprechstunde;Wirbelsäule;ZOUWI;;;f;f;;f;
+0001;UR;F;Urologie;Urologie;UR;0190;0900;f;f;U190;f;2200
+0001;UR01;S;604 / 1;604 / 1;UR01;;;f;f;;f;
+0001;UR02;S;604 / 1 IÜ;604 / 1 IÜ;UR02;;;f;f;;f;
+0001;UR03;S;604 / 2 A;604 / 2 A;UR03;;;f;f;;f;
+0001;UR04;S;604 / 2 B;604 / 2 B;UR04;;;f;f;;f;
+0001;UR05;S;604 / 2 KIURO;604/2 KIURO;UR05;;;f;f;;t;
+0001;URLSKONS;LS;LS UR Konsile;UR Konsile;URKON;;;f;f;;f;
+0001;URLSLAB;LS;LS UR Klinisches Labor;UR KlinLabor;URLSL;;;f;f;;f;
+0001;URLSNIER;LS;LS UR Nierenlithotripsie;LS Nierenlit;URESW;;;f;f;;f;
+0001;URLSROE;LS;LS UR Röntgen;UR Röntgen;URLSR;;;f;f;;f;
+0001;URLSUS;LS;LS UR Ultraschall;UR Ultrascha;URLSU;;;f;f;;f;
+0001;UROP;LS;OP Urologie;OP Uro.;UROP;;;f;f;;f;
+0001;URP;A;Poliklinik der Urologie;UR Polikl.;URP;;;f;f;;f;
+0001;URPAO;A;UR ambul.OP;UR amb.OP;URPAO;;;f;f;;f;
+0001;URPKI;A;Poliklinik der UR / Kinder;UR Polikl.KI;URPKI;;;f;f;;f;
+0001;URPPRI;A;UR Privatsprechstunde;UR Privatsp.;URPPR;;;f;f;;f;
+0001;URPZA;A;UR zentr. Aufnahmemanagement;UR zentr.Auf;URPZA;;;f;f;;f;
+0001;WBT;LS;Weiterbildung(WBT);WBT;WBT;;;f;f;;f;
+0001;WISMKG;LS;Wis Prä.Med.MKG;Wis Prä.MKG;WIMKG;;;f;f;;f;
+0001;ZA;F;Zahnklinik allgemein;Zahnklinik;ZA;0250;0510;f;f;U250;f;3500
+0001;ZAG;F;Zentr.f.Allg.Med.und Geriatrie;ZAG;;0035;0336;f;f;U035;f;0200
+0001;ZAG01;S;ZAG 302R EG;ZAG01;;;;f;f;;f;
+0001;ZAG02;S;ZAG 302R 1.OG;ZAG02;;;;f;f;;f;
+0001;ZAGPPRI;A;ZAG Privatsprechstunde;ZAG Privatsp;;;;f;f;;f;
+0001;ZAPIMP;A;ZAPIMP Implantat;ZA Implantat;ZAPIM;;;f;f;;f;
+0001;ZAPNOT;A;ZA Zahnärztl.Notfallbehandlung;ZA Notfall;ZAPNO;;;f;f;;f;
+0001;ZC;F;Kl.f. Zahnärztliche Chirurgie;Zahn.Chir.;ZC;0250;0510;f;f;U250;f;3500
+0001;ZCLSRAD;LS;ZC Röntgen Zahn.Chirurgie;ZC Röntgen;ZCLSR;;;f;f;;f;
+0001;ZCOP;LS;ZC OP Zahnärztl.Chirurgie;ZC OP;ZCOP;;;f;f;;f;
+0001;ZCP;A;Ambulanz Zahnärztl.Chirurgie;ZCP Zahn.Ch.;ZCP;;;f;f;;f;
+0001;ZCPNOT;A;ZC Zahnärztl.Notfallbehandlung;ZCP Notfall;ZCPNO;;;f;f;;f;
+0001;ZCPPRI;A;Privatambulanz Zahnärztl.Chir.;ZCP Privat;ZCPPR;;;f;f;;f;
+0001;ZD;F;Fachber.übergreifender Dienst;Fachb.Dienst;ZD;0040;0930;f;f;;f;3700
+0001;ZD-WE;A;Wundexperten;Wundexperten;ZDWE;;;f;f;;f;
+0001;ZE;F;Kl.f. Zahnerhaltungskunde;Zahnerhaltun;ZE;0250;0510;f;f;U250;f;3500
+0001;ZELSLA;LS;ZE Zahntechnisches Labor;Zahnt. Labor;ZELSL;;;f;f;;f;
+0001;ZEP;A;Ambulanz Zahnerhaltungskunde;ZE Zahnerh.;ZEP;;;f;f;;f;
+0001;ZEPPRI;A;Privatambulanz Zahnerhaltung;ZEP Privat;ZEPPR;;;f;f;;f;
+0001;ZGOE9S;A;Test OE;ZGY PaKo;ZGOE9;;;f;f;;f;
+0001;ZIBL-OE;IB;IBL - OE's  für Controlling;IBL-OE's;ZIBLO;0250;0930;f;f;;f;9999
+0001;ZK;F;Kl.f. Kieferorthopädie;Kieferortho;ZK;0250;0510;f;f;U250;f;3500
+0001;ZKLSLA;LS;ZKLS Kieferorthopädie Labor;ZK Labor;ZKLSL;;;f;f;;f;
+0001;ZKP;A;Ambulanz Kieferorthopädie;ZK Orthopäd.;ZKP;;;f;f;;f;
+0001;ZKPPRI;A;Privatamb. Kieferorthopädie;ZK Orth.Priv;ZKPPR;;;f;f;;f;
+0001;ZL;LS;Zentrallabor ambulant;ZLAB amb.;ZL;;;f;f;;f;
+0001;ZLA;A;Zentrallabor Ambulanz;ZL Ambulanz;ZLAMB;;;f;f;;f;
+0001;ZLAB;F;Zentrallabor FA;Zentrallabor;ZLAB;0010;0930;f;f;;f;3700
+0001;ZLC;LS;Zentrallabor Chirurgie;ZLAB Chir.;ZLC;;;f;f;;f;
+0001;ZLLSBAS;LS;ZL Klin. Chemie u. Basis-Imm.;ZL Basislab;ZLBAS;;;f;f;;f;
+0001;ZLLSCHRO;LS;ZL Chromatographie/ASS;ZL chroma;ZLCHR;;;f;f;;f;
+0001;ZLLSGESP;LS;ZL Gerinnung + Spezialunters.;ZL Gerinnung;ZLGES;;;f;f;;f;
+0001;ZLLSHAEM;LS;ZL Hämatologie und Spez.U.;ZL Häma;ZLHAE;;;f;f;;f;
+0001;ZLLSMBD;LS;ZL Molekularbiol. Diagnostik;ZL MBD;ZLMBD;;;f;f;;f;
+0001;ZLLSMKCU;LS;ZL Manuelle Klin. Chemie/Urinl;ZL Man.Labor;ZLMKC;;;f;f;;f;
+0001;ZLLSNCL;LS;ZL Neuroch.Labor;ZL NC Labor;ZLNCL;;;f;f;;f;
+0001;ZLLSNOT;LS;ZL Notlabor(Nacht+Wochenende);ZL Notlabor;ZLNOT;;;f;f;;f;
+0001;ZLLSSIMR;LS;ZL Spez. Immunassays u.RIA;ZL Spez Immo;ZLSIM;;;f;f;;f;
+0001;ZLN;LS;Zentrallabor Notlabor;ZLAB Notlab.;ZLN;;;f;f;;f;
+0001;ZLPRI;A;Zentrallabor Privatambulanz;ZL Priv.Amb;ZLPRI;;;f;f;;f;
+0001;ZLR;LS;Zentrallabor Routinelabor;ZLAB Routine;ZLR;;;f;f;;f;
+0001;ZM;F;Mund- Kiefer-Gesichtschirurgie;MKG;ZM;0250;0510;f;f;U250;f;3500
+0001;ZM01;S;Z. 4 KI;Z. 4 KI;ZM01;;;f;f;;t;
+0001;ZM02;S;Z. 4 A;Z. 4 A;ZM02;;;f;f;;f;
+0001;ZM03;S;Z. 4 IÜ;Z. 4 IÜ;ZM03;;;f;f;;f;
+0001;ZMLSKONS;LS;ZM - Konsilanforderungen;ZMLSKONS;ZMLSK;;;f;f;;f;
+0001;ZMLSMKGL;LS;ZMLS MKG Laboratorien;MKG Labor;MKGLA;;;f;f;;f;
+0001;ZMLSRAD;LS;ZMK Röntgen;ZMK Röntgen;ZMLSR;;;f;f;;f;
+0001;ZMOP;LS;OP MKG;OP MKG;ZMOP;;;f;f;;f;
+0001;ZMP;A;Poliklinik der MKG-Chirurgie;ZM Polikl.;ZMP;;;f;f;;f;
+0001;ZMPCHIR;A;Polikl. Zahnärztl. Chirurgie;ZMPCHIR;ZMPCH;;;f;f;;f;
+0001;ZMPKOA;A;Polikl. Kieferorthopädie;Kieferortho;ZMPOA;;;f;f;;f;
+0001;ZMPKONS;A;ZMPKONS;ZMPKONS;ZMPKO;;;f;f;;f;
+0001;ZMPMKG;A;Ambulanz f.Mund-Kiefer-Gesicht;ZMPMKG;ZMPMK;;;f;f;;f;
+0001;ZMPPOROA;A;Prothetik Ambulanz;ZM Prothetik;ZMPPA;;;f;f;;f;
+0001;ZMPPRI;A;Privatamb.Mund-Kiefer-Gesicht;ZMPPRI;ZMPPR;;;f;f;;f;
+0001;ZMPPRI1;A;ZM Privatambul. Chirurgie;ZM Priv.Chir;ZMPP1;;;f;f;;f;
+0001;ZMPPRI2;A;ZM Privatambul. Werkstoffkunde;ZM Priv.Werk;ZMPP2;;;f;f;;f;
+0001;ZMPPRIZ;A;Zahnerhaltung Privatambulanz;Zahnerh.Priv;ZMPPZ;;;f;f;;f;
+0001;ZMPPROA;A;Prothetik Ambulanz;ZM Prothetik;ZMPRO;;;f;f;;f;
+0001;ZMPWS;A;ZMPWS Zahnärztl.Werkstoffkunde;ZMPWS Werkst;ZMPWS;;;f;f;;f;
+0001;ZOP;F;Zentral-OPŽs;Zentral-OPŽs;ZOP;0130;0930;f;f;;f;3700
+0001;ZOPCHIR1;OL;Zentral-OP UC und KC;ZOP UC+KC;ZOPC1;0130;;f;f;;f;
+0001;ZOPCHIR2;OL;Zentral-OP AC/HC/NC/TC;ZOP 1.Stock;ZOPC2;0130;;f;f;;f;
+0001;ZOPCHIR3;OL;Zentral-OP Geb.503;ZOP 503;ZOPC3;0130;;f;f;;f;
+0001;ZP;F;Kl.f. Zahnärztl.Prothetik;Zahnproth.;ZP;0250;0510;f;f;U250;f;3500
+0001;ZPLSLA;LS;ZP Zahntechn.Labor Prothetik;ZP Labor;ZPLSP;;;f;f;;f;
+0001;ZPP;A;Ambulanz Zahnärztl.Prothetik;ZP Zahnproth;ZPP;;;f;f;;f;
+0001;ZPPPRI;A;Privatambul. Zahnärztl.Proth.;ZP Privat;ZPPPR;;;f;f;;f;
+0001;ZR;F;Zahnklinik Röntgen;ZR Röntgen;ZR;0250;0510;f;f;U250;f;3500
+0001;ZRLSRAD;LS;ZR Röntgen Zahnklinik;ZR Röntgen;ZRLSR;;;f;f;;f;
+0001;ZSTERI;LS;Zentralsterilisation;Zentralsteri;ZSTER;;;f;f;;f;
+0001;ZTP01;A;Testambulanz 01;Testamb 01;ZTP01;;;f;f;;f;
+0001;ZTP02;A;Testambulanz 02;Testamb 02;ZTP02;;;f;f;;f;
+0001;ZTP03;A;Testambulanz 03;Testamb 03;ZTP03;;;f;f;;f;
+0001;ZTP04;A;Testambulanz 04;Testamb 04;ZTP04;;;f;f;;f;
+0001;ZTP05;A;Testambulanz 05;Testamb 05;ZTP05;;;f;f;;f;
+0001;ZTP06;A;Testambulanz 06;Testamb 06;ZTP06;;;f;f;;f;
+0001;ZTP07;A;Testambulanz 07;Testamb 07;ZTP07;;;f;f;;f;
+0001;ZTP08;A;Testambulanz 08;Testamb 08;ZTP08;;;f;f;;f;
+0001;ZTP09;A;Testambulanz 09;Testamb 09;ZTP09;;;f;f;;f;
+0001;ZTP10;A;Testambulanz 10;Testamb 10;ZTP10;;;f;f;;f;
+0001;ZTP11;A;Testambulanz 11;Testamb 11;ZTP11;;;f;f;;f;
+0001;ZTP12;A;Testambulanz 12;Testamb 12;ZTP12;;;f;f;;f;
+0001;ZW;F;Kl.f. Zahnärztl.Werkstoffkunde;Zahn.Werkst.;ZW;0250;0510;f;f;U250;f;3500
+0001;ZWP;A;Ambulanz Zahnärztl.Werkstoffk.;ZW Werkstoff;ZWP;;;f;f;;f;
+0001;ZWPPRI;A;Privatambul.Zahnärztl.Werkst.;ZW Privat;ZWPPR;;;f;f;;f;
+0001;ZZ-TEST;TE;Test-Einrichtung;Test-Einrich;ZTEST;;;f;f;;f;

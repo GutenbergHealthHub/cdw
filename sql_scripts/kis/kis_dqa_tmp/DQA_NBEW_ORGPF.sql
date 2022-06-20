@@ -5,10 +5,10 @@ CREATE OR REPLACE VIEW kis."DQA_NBEW_ORGPF"
     CASE
       WHEN n."ORGPF" ~ '\w' THEN n."ORGPF"
         ELSE NULL
-    END AS "ORGPF"/*,
-    m.long_name*/
+    END AS "ORGPF",
+    m.orgna "ORGNA"
   FROM kis."NBEW" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."ORGPF" = m.sourceid
-  GROUP BY n."ORGPF"--, m.long_name
+  LEFT join norg m ON n."ORGFA" = m.orgid
+  GROUP BY n."ORGPF", "ORGNA"
   ORDER BY "QUANTITY" DESC;
 
