@@ -5,10 +5,9 @@ CREATE OR REPLACE VIEW kis."DQA_NBEW_STOID"
     CASE
       WHEN n."STOID" ~ '\w' THEN n."STOID"
         ELSE NULL
-    END AS "STOID"/*,
-    m.long_name*/
+    END AS "STOID",
+    m.stornierungsgrund
   FROM kis."NBEW" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."STOID" = m.sourceid
-  GROUP BY n."STOID"--, m.long_name
+  LEFT JOIN metadata_repository.stornierungsgrund m ON n."STOID" = m.sourceid
+  GROUP BY n."STOID", m.stornierungsgrund
   ORDER BY "QUANTITY" DESC;
-

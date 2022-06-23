@@ -5,10 +5,10 @@ CREATE OR REPLACE VIEW kis."DQA_NBEW_TODUR"
     CASE
       WHEN n."TODUR" ~ '\w' THEN n."TODUR"
         ELSE NULL
-    END AS "TODUR"/*,
-    m.long_name*/
+    END AS "TODUR",
+    m.todesursache
   FROM kis."NBEW" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."TODUR" = m.sourceid
-  GROUP BY n."TODUR"--, m.long_name
+  LEFT JOIN metadata_repository.todesursache m ON n."TODUR" = m.sourceid
+  GROUP BY n."TODUR", m.todesursache
   ORDER BY "QUANTITY" DESC;
 

@@ -5,10 +5,10 @@ CREATE OR REPLACE VIEW kis."DQA_NBEW_UNFKZ"
     CASE
       WHEN n."UNFKZ" ~ '\w' THEN n."UNFKZ"
         ELSE NULL
-    END AS "UNFKZ"/*,
-    m.long_name*/
+    END AS "UNFKZ",
+    m.unfallart
   FROM kis."NBEW" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."UNFKZ" = m.sourceid
-  GROUP BY n."UNFKZ"--, m.long_name
+  LEFT JOIN metadata_repository.unfallart m ON n."UNFKZ" = m.sourceid
+  GROUP BY n."UNFKZ", m.unfallart
   ORDER BY "QUANTITY" DESC;
-
+ 

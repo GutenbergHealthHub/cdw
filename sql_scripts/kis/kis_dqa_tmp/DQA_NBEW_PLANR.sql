@@ -1,6 +1,6 @@
 -- DQA_NBEW_PLANR
---CREATE OR REPLACE VIEW kis."DQA_NBEW_PLANR"
---  AS
+CREATE OR REPLACE VIEW kis."DQA_NBEW_PLANR"
+ AS
   SELECT count(n."RetrievalDate") AS "QUANTITY",
     CASE
       WHEN n."PLANR" ~ '\w' THEN n."PLANR"
