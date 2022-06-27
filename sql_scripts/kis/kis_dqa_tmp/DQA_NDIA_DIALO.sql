@@ -5,10 +5,10 @@ CREATE OR REPLACE VIEW kis."DQA_NDIA_DIALO"
     CASE
       WHEN n."DIALO" ~ '\w' THEN n."DIALO"
         ELSE NULL
-    END AS "DIALO"/*,
-    m.long_name*/
+    END AS "DIALO",
+    m.localisation
   FROM kis."NDIA" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."DIALO" = m.sourceid
-  GROUP BY n."DIALO"--, m.long_name
+  LEFT JOIN metadata_repository.body_localisation m ON n."DIALO" = m.sourceid
+  GROUP BY n."DIALO", m.localisation
   ORDER BY "QUANTITY" DESC;
 

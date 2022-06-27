@@ -5,8 +5,11 @@ CREATE OR REPLACE VIEW kis."DQA_NDIA_DKAT_REF"
     CASE
       WHEN n."DKAT_REF" ~ '\w' THEN n."DKAT_REF"
         ELSE NULL
-    END AS "DKAT_REF"/*,
-    m.long_name*/
+    END AS "DKAT_REF",
+    case
+    	WHEN n."DKAT_REF" ~ '\w' THEN '20'||n."DKAT_REF"
+        ELSE NULL
+    end "Jahr"
   FROM kis."NDIA" n
   --LEFT JOIN metadata_repository.TABLE m ON n."DKAT_REF" = m.sourceid
   GROUP BY n."DKAT_REF"--, m.long_name
