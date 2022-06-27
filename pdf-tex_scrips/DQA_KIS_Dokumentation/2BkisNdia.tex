@@ -1,0 +1,846 @@
+\section{Diagnosen (ndia)} \label{sec:diag}
+
+Die Diagnosen der Fälle während des Hospitalisieren.
+
+\subsubsection{Jährlich} \label{subsubsec:diagJahr}
+
+\clearpage
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bew\_jahr}
+	\label{tab:diagJahr}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		bewegungen & bigint & Menge an Bewegungen in einem Jahr\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+
+\subsection{Behandlungskategorie (bkat)} \label{subsec:behKat}
+
+\subsubsection{Insgesamt} \label{subsubsec:behKatI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bkat}
+	\label{tab:beweBkatAll}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Behandlungskategorie in der Tabelle \texttt{ndia} \\
+		\hline
+		bkat & varchar & Id der Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\
+		\hline
+		behandlungskategorie & varchar & Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:behKatJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bkat\_jahr}
+	\label{tab:beweBkatJahr}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Behandlungskategorie in der Tabelle \texttt{ndia} \\
+		\hline
+		bkat & varchar & Id der Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\
+		\hline
+		behandlungskategorie & varchar & Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\subsection{BauId eine Bettenstellplatzes (bett)} \label{subsec:bett}
+
+\subsubsection{Insgesamt} \label{subsubsec:bettI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bett}
+	\label{tab:beweBettAll}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit bestimmten BauId eine Bettenstellplatzes in der Tabelle \texttt{ndia} \\
+		\hline
+		bett & varchar & Id des BauIds eine Bettenstellplatzes (NULL bei nicht existierenden BauId eine Bettenstellplatzes)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bettJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bett\_jahr}
+	\label{tab:beweBettJahr}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit bestimmten BauId eine Bettenstellplatzes in der Tabelle \texttt{ndia} \\
+		\hline
+		bett & varchar &  Id des BauIds eine Bettenstellplatzes (NULL bei nicht existierendem BauId eine Bettenstellplatzes) \\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Bewegungstyp (bewty)} \label{subsec:bewtyp}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewtypI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bewty}
+	\label{tab:bewBtyI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Bewegungstyp in der Tabelle \texttt{ndia} \\
+		\hline
+		bewty & varchar & Id des Bewegungstyps (NULL bei nicht existierenden Bewegungstyp)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\subsubsection{Jährlich} \label{subsubsec:bewtypJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bewty\_jahr}
+	\label{tab:bewBtyJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Bewegungstyp in der Tabelle \texttt{ndia}\\
+		\hline
+		bewty & varchar & Id des Bewegungstyps (NULL bei nicht existierenden Bewegungstyp)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Bewegungsart (bwart)} \label{subsec:bewart}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewartI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bwart}
+	\label{tab:bewArtI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsart in der Tabelle \texttt{ndia} \\
+		\hline
+		bewart & varchar & Id der Bewegungsart (NULL bei nicht existierender Bewegungsart)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+%\newpage
+
+\subsubsection{Jährlich} \label{subsubsec:bewartJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bewart\_jahr}
+	\label{tab:bewArtJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsart in der Tabelle \texttt{ndia}\\
+		\hline
+		bewart & varchar & Id der Bewegungsart (NULL bei nicht existierender Bewegungsart)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Bewegungsgrund 1. und 2. Stelle (bewgr1)} \label{subsec:bewgr1}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewg1I}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bwgr1}
+	\label{tab:bewG1I}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 1. und 2. Stelle in der Tabelle \texttt{ndia} \\
+		\hline
+		bewgr1 & varchar & Id der Bewegungsgrund 1. und 2. Stelle (NULL bei nicht existierender Bewegungsgrund 1. und 2. Stelle)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+%\newpage
+
+\subsubsection{Jährlich} \label{subsubsec:bewg1J}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bwgr1\_jahr}
+	\label{tab:bewG1J}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 1. und 2. Stelle in der Tabelle \texttt{ndia}\\
+		\hline
+		bewgr1 & varchar & Id der Bewegungsgrund 1. und 2. Stelle (NULL bei nicht existierender Bewegungsgrund 1. und 2. Stelle)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Bewegungsgrund 3. und 4. Stelle (bwgr2)} \label{subsec:bewgr2}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewg2I}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bwgr2}
+	\label{tab:bewG2I}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 3. und 4. Stelle in der Tabelle \texttt{ndia} \\
+		\hline
+		bewgr2 & varchar & Id der Bewegungsgrund 3. und 4. Stelle (NULL bei nicht existierender Bewegungsgrund 3. und 4. Stelle)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\subsubsection{Jährlich} \label{subsubsec:bewg2J}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_bwgr2\_jahr}
+	\label{tab:bewG2J}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Bewegungsgrund 3. und 4. Stelle in der Tabelle \texttt{ndia}\\
+		\hline
+		bewgr1 & varchar & Id der Bewegungsgrund 3. und 4. Stelle (NULL bei nicht existierender Bewegungsgrund 3. und 4. Stelle)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Klasse der Bewegung (class)} \label{subsec:bewclass}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewClassI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_class}
+	\label{tab:bewClassI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Klasse in der Tabelle \texttt{ndia} \\
+		\hline
+		class & varchar & Id der Klasse (NULL bei nicht existierender Klasse)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bewClassJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_class\_jahr}
+	\label{tab:bewClassJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Klasse in der Tabelle \texttt{ndia}\\
+		\hline
+		class & varchar & Id der Klasse (NULL bei nicht existierender Klasse)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\subsection{Dispositionstyp für die Besuchsdisposition (dspty)} \label{subsec:bewdspty}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewDsptyI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_dspty}
+	\label{tab:bewDsptyI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Dispositionstyp für die Besuchsdisposition in der Tabelle \texttt{ndia} \\
+		\hline
+		dspty & varchar & Id des Dispositionstyps (NULL bei nicht existierendem Dispositionstyp für die Besuchsdisposition)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bewDsptyJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_dspty\_jahr}
+	\label{tab:bewDsptyJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Dispositionstyp für die Besuchsdisposition in der Tabelle \texttt{ndia}\\
+		\hline
+		dspty & varchar & Id des Dispositionstyps (NULL bei nicht existierendem Dispositionstyp für die Besuchsdisposition)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Fachrichtung der Ärzt:innen (fachr)} \label{subsec:bewFachr}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewFachrI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_fachr}
+	\label{tab:bewFachrI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Fachrichtung der Ärzt:innen in der Tabelle \texttt{ndia} \\
+		\hline
+		fachr & varchar & Id der Fachrichtung der Ärzt:innen (NULL bei nicht existierender Fachrichtung der Ärzt:innen)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bewFachrJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_fachr\_jahr}
+	\label{tab:bewFachrJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Fachrichtung der Ärzt:innen in der Tabelle \texttt{ndia}\\
+		\hline
+		fachr & varchar & Id der Fachrichtung der Ärzt:innen (NULL bei nicht existierender Fachrichtung der Ärzt:innen)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Probleme mit den Datumsangaben (datum\_problem)} \label{subsec:bewFalDat}
+
+Dieses Sichten zeigt die Probleme mit den Datumsangaben. Die Problemen können folgende sein:
+
+\begin{itemize}
+	\item start $>$ now: Bewegungsdatum liegt in der Zukunft.
+	\item no end time (time = 00:00:00): Bewegungsendezeit nicht definiert oder Default Wert.
+	\item no end date (date = 9999-12-31): Bewegungsendedatum nicht definiert oder Default Wert
+	\item ok: Kein erkanntes Problem
+\end{itemize}
+                          
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_datum\_problem}
+	\label{tab:bewFalDatI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit Problemen mit den Datumsangaben \\
+		\hline
+		problem & varchar & Art von Problem \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\subsection{Ereignis, durch das Bewegung angelegt wurde (insev)} \label{subsec:bewEreig}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewEreigI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_insev}
+	\label{tab:bewEreigI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Ereignis in der Tabelle \texttt{ndia} \\
+		\hline
+		insev & varchar & Id des Ereignisses (NULL bei nicht existierendem Ereignis)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bewEreigJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_insev\_jahr}
+	\label{tab:bewEreigJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Ereignis in der Tabelle \texttt{ndia}\\
+		\hline
+		insev & varchar & Id des Ereignisses (NULL bei nicht existierendem Ereignis)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Null Werte (null\_values)} \label{subsec:bewNull}
+
+Dieses Sichten zeigt die Null Werte bei jeder Spalte in der Tabelle \texttt{ndia}.
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_null\_values}
+	\label{tab:bewNull}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit Null Werten \\
+		\hline
+		column & varchar & Name der Spalten \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Art der Operation (opart)} \label{subsec:bewOpart}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewOpartI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_opart}
+	\label{tab:bewOpartI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Art der Operation in der Tabelle \texttt{ndia} \\
+		\hline
+		opart & varchar & Id der Art der Operation (NULL bei nicht existierender Art der Operation)\\
+		\hline
+	\end{tabular}
+\end{table}
+\newpage
+\subsubsection{Jährlich} \label{subsubsec:bewOpartJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_opart\_jahr}
+	\label{tab:bewOpartJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Art der Operation in der Tabelle \texttt{ndia}\\
+		\hline
+		opart & varchar & Id der Art der Operation (NULL bei nicht existierender Art der Operation)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Einweisungs-, Überweisungs,- Nachbehandlungsart \\ (rfsrc)} \label{subsec:bewRfsrc}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewRfsrcI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_rfsrc}
+	\label{tab:bewRfsrcI}
+	\begin{tabular}{||p{5cm}|l|p{8cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Einweisungs-, Überweisungs,- Nachbehandlungsart in der Tabelle \texttt{ndia} \\
+		\hline
+		rfsrc & varchar & Id der Einweisungs-, Überweisungs,- Nachbehandlungsart (NULL bei nicht existierender Einweisungs-, Überweisungs,- Nachbehandlungsart)\\
+		\hline
+		einweisungs\_ueberweisungs \_nachbehandlungsart & varchar & Name der Einweisungs-, Überweisungs,- Nachbehandlungsart \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bewRfsrcJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_rfsrc\_jahr}
+	\label{tab:bewRfsrcJ}
+	\begin{tabular}{||p{5cm}|l|p{8cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Einweisungs-, Überweisungs,- Nachbehandlungsart in der Tabelle \texttt{ndia}\\
+		\hline
+		rfsrc & varchar & Id der Einweisungs-, Überweisungs,- Nachbehandlungsart (NULL bei nicht existierender Einweisungs-, Überweisungs,- Nachbehandlungsart)\\
+		\hline
+		einweisungs\_ueberweisungs \_nachbehandlungsart & varchar & Name der Einweisungs-, Überweisungs,- Nachbehandlungsart \\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Interner Status eines ambulanten Besuchs (statu)} \label{subsec:bewStatu}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewStatuI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_statu}
+	\label{tab:bewStatuI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten internen Status eines ambulanten Besuchs in der Tabelle \texttt{ndia} \\
+		\hline
+		statu & varchar & Id des internen Status eines ambulanten Besuchs (NULL bei nicht existierendem internen Status eines ambulanten Besuchs)\\
+		\hline
+		status & varchar & Name des internen Status eines ambulanten Besuchs \\
+		\hline
+	\end{tabular}
+\end{table}
+\newpage
+\subsubsection{Jährlich} \label{subsubsec:bewStatuJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_rfsrc\_jahr}
+	\label{tab:bewStatuJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten internen Status eines ambulanten Besuchs in der Tabelle \texttt{ndia}\\
+		\hline
+		statu & varchar & Id des internen Status eines ambulanten Besuchs (NULL bei nicht existierendem internen Status eines ambulanten Besuchs)\\
+		\hline
+		status & varchar & Name des internen Status eines ambulanten Besuchs \\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Stornogrund (stoid)} \label{subsec:bewStoid}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewStoidI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_stoid}
+	\label{tab:bewStoidI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Stornogrund in der Tabelle \texttt{ndia} \\
+		\hline
+		stoid & varchar & Id des Stornogrundes (NULL bei nicht existierendem Stornogrund)\\
+		\hline
+		stornierungsgrund & varchar & Name des Stornogrundes \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\subsubsection{Jährlich} \label{subsubsec:bewStoidJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_stoid\_jahr}
+	\label{tab:bewStoidJ}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Stornogrund in der Tabelle \texttt{ndia}\\
+		\hline
+		stoid & varchar & Id des Stornogrundes (NULL bei nicht existierendem Stornogrund)\\
+		\hline
+		stornierungsgrund & varchar & Name des Stornogrundes \\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Transportart (tpart)} \label{subsec:bewTpart}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewTpartI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_stoid}
+	\label{tab:bewTpartI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Transportart in der Tabelle \texttt{ndia} \\
+		\hline
+		tpart & varchar & Id der Transportart (NULL bei nicht existierender Transportart)\\
+		\hline
+		transportart & varchar & Name der Transportart \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\subsubsection{Jährlich} \label{subsubsec:bewTpartJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_stoid\_jahr}
+	\label{tab:bewTpartJ}
+	\begin{tabular}{||l|l|p{10cm}||}
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Transportart in der Tabelle \texttt{ndia}\\
+		\hline
+		stoid & varchar & Id der Transportart (NULL bei nicht existierender Transportart)\\
+		\hline
+		stornierungsgrund & varchar & Name der Transportart \\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Einlieferungsart (unfav)} \label{subsec:bewUnfav}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewUnfavI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_unfav}
+	\label{tab:bewUnfavI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Einlieferungsart in der Tabelle \texttt{ndia} \\
+		\hline
+		unfav & varchar & Id der Einlieferungsart (NULL bei nicht existierender Einlieferungsart)\\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bewUnfavJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_unfav\_jahr}
+	\label{tab:bewUnfavJ}
+	\begin{tabular}{||l|l|p{10cm}||}
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Einlieferungsart in der Tabelle \texttt{ndia}\\
+		\hline
+		unfav & varchar & Id der Einlieferungsart (NULL bei nicht existierender Einlieferungsart)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Unfallart (unfkz)} \label{subsec:bewUnfkz}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewUnfkzI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_unfkz}
+	\label{tab:bewUnfkzI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Unfallart in der Tabelle \texttt{ndia} \\
+		\hline
+		unfkz & varchar & Id der Unfallart (NULL bei nicht existierender Unfallart)\\
+		\hline
+		unfallart & varchar & Name der Unfallart \\
+		\hline
+		
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bewUnfkzJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_unfkz\_jahr}
+	\label{tab:bewUnfkzJ}
+	\begin{tabular}{||l|l|p{10cm}||}
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einer bestimmten Unfallart in der Tabelle \texttt{ndia}\\
+		\hline
+		unfkz & varchar & Id der Unfallart (NULL bei nicht existierender Unfallart)\\
+		\hline
+		unfallart & varchar & Name der Unfallart \\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{Rettungsdienst (unfrt)} \label{subsec:bewUnfrt}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewUnfrtI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_unfrt}
+	\label{tab:bewUnfrtI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Rettungsdienst in der Tabelle \texttt{ndia} \\
+		\hline
+		unfrt & varchar & Id des Rettungsdiensts (NULL bei nicht existierendem Rettungsdienst)\\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bewUnfrtJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_unfrt\_jahr}
+	\label{tab:bewUnfrtJ}
+	\begin{tabular}{||l|l|p{10cm}||}
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten Rettungsdienst in der Tabelle \texttt{ndia}\\
+		\hline
+		unfrt & varchar & Id des Rettungsdiensts (NULL bei nicht existierendem Rettungsdienst)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+\subsection{BauId eines Zimmers (zimmr)} \label{subsec:bewZimmr}
+
+\subsubsection{Insgesamt} \label{subsubsec:bewZimmrI}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_zimmr}
+	\label{tab:bewZimmrI}
+	\begin{tabular}{||l|l|p{10cm}||}   		
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten BauId eines Zimmers in der Tabelle \texttt{ndia} \\
+		\hline
+		zimmr & varchar & Id des BauIds eines Zimmers (NULL bei nicht existierendem BauId eines Zimmers)\\
+		\hline
+	\end{tabular}
+\end{table}
+
+\subsubsection{Jährlich} \label{subsubsec:bewZimmrJ}
+
+\begin{table}[ht]
+	\centering   
+	\caption{View dqa\_ndia\_zimmr\_jahr}
+	\label{tab:bewZimmrJ}
+	\begin{tabular}{||l|l|p{10cm}||}
+		\hline
+		Spalte & Datentyp & Beschreibung \\ [0.5ex]
+		\hline\hline
+		quantity & bigint & Menge an Fälle mit einem bestimmten BauId eines Zimmers in der Tabelle \texttt{ndia}\\
+		\hline
+		zimmr & varchar & Id des BauIds eines Zimmers (NULL bei nicht existierendem Rettungsdienst)\\
+		\hline
+		jahr & int &  Jahr des Datum der Bewegung \\
+		\hline		
+	\end{tabular}
+\end{table}

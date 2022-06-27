@@ -1,0 +1,56 @@
+\documentclass[12pt, a4paper]{report}
+%\documentclass[12pt, a4paper]{article}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+%\usepackage{math}
+%\usepackage{amsmath}
+\usepackage{version}
+\usepackage{hyperref}
+\usepackage{graphicx}
+%\usepackage{svg}
+\usepackage{longtable}
+\usepackage[printonlyused, withpage, nohyperlinks]{acronym}
+\usepackage{fancyhdr}
+\usepackage[type={CC}, modifier={by-sa},version={4.0},]{doclicense}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{xcolor}
+\usepackage{ccicons}
+\usepackage{array,multirow,graphicx}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{scalerel}
+\usepackage{ragged2e}
+%\usepackage{orcidlink}
+\usepackage{pdflscape}
+\usepackage{booktabs}
+\usepackage{caption}
+
+
+\fancypagestyle{firstpage}
+{	
+    \pagestyle{fancy}
+	\fancyhf{}
+	\chead{ \includegraphics[width=\textwidth]{figures/ummz.png}}
+	\renewcommand{\headrulewidth}{0pt}
+}
+  
+    \begin{document}
+
+  \include{0Atitel}  	
+  \clearpage
+  \tableofcontents{}
+  %\listoffigures
+  \listoftables
+  \include{0Bacronyms}
+  \include{1intro}
+  %\include{2kis}
+  \include{2AkisNbew}
+  \include{2BkisNdia}
+  %\include{3structcdw}
+  %\include{4using}
+  %\include{5backup}
+  %\include{6schemas}
+  %\include{7users}  
+    \end{document}

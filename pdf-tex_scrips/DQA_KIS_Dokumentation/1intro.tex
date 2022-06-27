@@ -1,0 +1,40 @@
+\chapter{Einführung} \label{chp:intro}
+
+Im \ac{diz} werden Daten aus verschiedenen Fachabteilungen und Systemen zusammengeführt. Ein zentrales Puzzleteil für die Zwischenspeicherung der Information dieser Systemen ist das \acf{csdwh}. In dieser \ac{db} werden alle relevanten klinischen Systeme abgebildet. Diese Daten werden im Rahmen des Datenschutz sowie der Datenqualität aufbereitet und anschließend an weitere Komponenten des \ac{diz} übertragen.
+
+In diesem Dokument werden die Sichten für die Analyse der Datenqualität im \ac{kis}-Bereich des \ac{csdwh} dokumentiert.
+
+\section{\acsu{kis}}
+
+ Im \ac{kis}-Bereich werden die tagesaktuell extrahierten Daten von Patienten, Fällen, Bewegungen, Diagnosen, Prozeduren, Screenings, Broad Consents, Zuordnung von Fällen zu Personen, baulichen Einheiten und deren Hierarchien, sowie Organisationseinheiten und deren Hierarchien direkt aus dem Quellsystem \ac{kis} gespeichert. Mit Hilfe diesem Schema lassen sich viele der Abbildungen für weitere Projekte realisieren.
+ 
+ In diesem Schema behalten die Tabellen denselben Namen wie in \ac{kis} (Tabelle \ref{tab:schemaKis}). Die Dokumentation der Tabellen in \ac{kis} befinden in der Confluence Seite von Medizin Informatik der Universitätsmedizin Mainz.
+ 
+ \begin{table}[ht]
+ 	\centering   
+ 	\caption{Tabellen im Schema \acs{kis}}
+ 	\label{tab:schemaKis}
+ 	\begin{tabular}{||l|l||}   		
+ 		\hline
+ 		Tabelle & Beschreibung \\ [0.5ex]
+ 		\hline\hline
+ 		\texttt{NBEW} & Bewegungen \\
+ 		\hline
+ 		\texttt{NDIA} & Diagnosen \\
+ 		\hline
+ 		\texttt{NFAL} & Fälle \\
+ 		\hline
+ 		\texttt{NICP} & Prozeduren \\
+ 		\hline
+ 		\texttt{NPAT} & Patienten \\
+ 		\hline
+ 		\texttt{NORG} & Organisationseinheiten \\
+ 		\hline
+ 		\texttt{NBAU} & Bauliche Einheiten \\
+ 		\hline
+ 		\texttt{/HSROM/SCREENCOV} & COVID-19 \\
+ 		\hline
+ 		\texttt{/HSROM/NV\_NPERIOD} & Broad Consents \\
+ 		\hline
+ 	\end{tabular}
+ \end{table}
