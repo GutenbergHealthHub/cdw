@@ -1,0 +1,8 @@
+DQA_NBAU_BAUKB;QUANTITY;bigint
+DQA_NBAU_BAUKB;BAUKB;character varying
+DQA_NBAU_BAUNA;QUANTITY;bigint
+DQA_NBAU_BAUNA;BAUNA;character varying
+DQA_NBAU_BAUTY;QUANTITY;bigint
+DQA_NBAU_BAUTY;BAUTY;character varying
+DQA_NBAU_BKURZ;QUANTITY;bigint
+DQA_NBAU_BKURZ;BKURZ;character varying

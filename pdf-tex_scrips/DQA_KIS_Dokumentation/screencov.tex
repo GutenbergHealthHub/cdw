@@ -1,0 +1,145 @@
+\chapter{Screenings (COVID-19) - Tabelle /HSROM/SCREENCOV}
+  Die Screenings für COVID-19 befinden sich in der Tabelle \texttt{HSROM/SCREENCOV}.
+
+  \section{DQA\_/HSROM/SCREENCOV\_ \\ DISSCREENDLLENTRY}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_/HSROM/SCREENCOV\_DISSCREENDLLENTRY}
+    \label{tab:dqa/hsrom/screencovdisscreendllentry}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+      QUANTITY & bigint & Menge an Screenings mit einem bestimmten i.s.h.med: Typ \\ \hline
+      DISSCREENDLLENTRY & varchar & i.s.h.med: Typ (NULL bei nicht existierendem i.s.h.med: Typ)\\ \hline
+    \end{tabular}
+  \end{table}
+
+ \clearpage
+
+  \section{DQA\_/HSROM/SCREENCOV\_\\ DISSCREENRESULT}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_/HSROM/SCREENCOV\_DISSCREENRESULT}
+    \label{tab:dqa/hsrom/screencovdisscreenresult}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+      QUANTITY & bigint & Menge an Screenings mit einem bestimmten i.s.h.med: Ergebnis \\ \hline
+      DISSCREENRESULT & varchar & i.s.h.med: Ergebnis (NULL bei nicht existierendem i.s.h.med: Ergebnis)\\ \hline
+    \end{tabular}
+  \end{table}
+ 
+  \section{DQA\_/HSROM/SCREENCOV\_\\ SCREENISO}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_/HSROM/SCREENCOV\_SCREENISO}
+    \label{tab:dqa/hsrom/screencovscreeniso}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+      QUANTITY & bigint & Menge an Screenings mit einem bestimmten i.s.h.med: Screening: Isolation \\ \hline
+      SCREENISO & varchar & i.s.h.med: Screening: Isolation (NULL bei nicht existierendem i.s.h.med: Screening: Isolation)\\ \hline
+    \end{tabular}
+  \end{table}
+ 
+  \section{DQA\_/HSROM/SCREENCOV\_\\ SCREENISOSTATE}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_/HSROM/SCREENCOV\_SCREENISOSTATE}
+    \label{tab:dqa/hsrom/screencovscreenisostate}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+      QUANTITY & bigint & Menge an Screenings mit einem bestimmten i.s.h.med: Screening: Status Isolation \\ \hline
+      SCREENISOSTATE & varchar & i.s.h.med: Screening: Status Isolation (NULL bei nicht existierendem i.s.h.med: Screening: Status Isolation)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_/HSROM/SCREENCOV\_\\ SCREENOPTION}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_/HSROM/SCREENCOV\_SCREENOPTION}
+    \label{tab:dqa/hsrom/screencovscreenoption}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+      QUANTITY & bigint & Menge an Screenings mit eine bestimmten i.s.h.med: Screening: Testoptionen \\ \hline
+      SCREENOPTION & varchar & i.s.h.med: Screening: Testoptionen (NULL bei nicht existierende i.s.h.med: Screening: Testoptionen)\\ \hline
+    \end{tabular}
+  \end{table}
+ 
+  \section{DQA\_/HSROM/SCREENCOV\_\\ SCREENOTHERS}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_/HSROM/SCREENCOV\_SCREENOTHERS}
+    \label{tab:dqa/hsrom/screencovscreenothers}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+      QUANTITY & bigint & Menge an Screenings mit einem bestimmten i.s.h.med: Screening: Weitere/ Andere Kategorien \\ \hline
+      SCREENOTHERS & varchar & i.s.h.med: Screening: Weitere/ Andere Kategorien (NULL bei nicht existierendem i.s.h.med: Screening: Weitere/ Andere Kategorien)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_/HSROM/SCREENCOV\_\\ SCREENSTATE}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_/HSROM/SCREENCOV\_SCREENSTATE}
+    \label{tab:dqa/hsrom/screencovscreenstate}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+      QUANTITY & bigint & Menge an Screenings mit einem bestimmten i.s.h.med: Screening: Status \\ \hline
+      SCREENSTATE & varchar & i.s.h.med: Screening: Status (NULL bei nicht existierendem i.s.h.med: Screening: Status)\\ \hline
+    \end{tabular}
+  \end{table}
+ 
+  \section{DQA\_/HSROM/SCREENCOV\_\\ SCREENTESTTYPE}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_/HSROM/SCREENCOV\_SCREENTESTTYPE}
+    \label{tab:dqa/hsrom/screencovscreentesttype}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+      QUANTITY & bigint & Menge an Screenings mit einem bestimmten i.s.h.med: Screening: COVID-19 Testtyp Auswahl \\ \hline
+      SCREENTESTTYPE & varchar & i.s.h.med: Screening: COVID-19 Testtyp Auswahl (NULL bei nicht existierendem i.s.h.med: Screening: COVID-19 Testtyp Auswahl)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_/HSROM/SCREENCOV\_\\ SCREENVACCINE}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_/HSROM/SCREENCOV\_SCREENVACCINE}
+    \label{tab:dqa/hsrom/screencovscreenvaccine}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+      QUANTITY & bigint & Menge an Screenings mit einem bestimmten i.s.h.med: Screening Impfstoff/ -präparat \\ \hline
+      SCREENVACCINE & varchar & i.s.h.med: Screening Impfstoff/ -präparat (NULL bei nicht existierendem i.s.h.med: Screening Impfstoff/ -präparat)\\ \hline
+    \end{tabular}
+  \end{table}
+ 
+  \section{DQA\_/HSROM/SCREENCOV\_\\ SCREENVACCSTAT}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_/HSROM/SCREENCOV\_SCREENVACCSTAT}
+    \label{tab:dqa/hsrom/screencovscreenvaccstat}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+      QUANTITY & bigint & Menge an Screenings mit einem bestimmten i.s.h.med: Screening Impfstatus (geimpft: ja/nein) \\ \hline
+      SCREENVACCSTAT & varchar & i.s.h.med: Screening Impfstatus (geimpft: ja/nein) (NULL bei nicht existierendem i.s.h.med: Screening Impfstatus (geimpft: ja/nein))\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
