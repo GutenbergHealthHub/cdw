@@ -2,9 +2,20 @@
 
 Im \ac{diz} werden Daten aus verschiedenen Fachabteilungen und Systemen zusammengeführt. Ein zentrales Puzzleteil für die Zwischenspeicherung der Information dieser Systemen ist das \acf{csdwh}. In dieser \ac{db} werden alle relevanten klinischen Systeme abgebildet. Diese Daten werden im Rahmen des Datenschutz sowie der Datenqualität aufbereitet und anschließend an weitere Komponenten des \ac{diz} übertragen.
 
-In diesem Dokument werden die Sichten für die Analyse der Datenqualität im \ac{kis}-Bereich des \ac{csdwh} dokumentiert.
+In diesem Dokument werden die Sichten für die \ac{dqa} im \ac{kis}-Bereich des \ac{csdwh} dokumentiert.
 
-\section{\acsu{kis}}
+\section{\acs{dqa}}
+Die meisten Sichte für die \ac{dqa} beinhaltet die Information einer Spalte in einer Tabelle vom \ac{kis}. Die Sichte haben in den meisten Fällen drei Spalten:
+
+\begin{itemize}
+	\item Die Spalte \texttt{QUANTITY} beinhaltet die Menge an Entitäten mit einer bestimmten Eigenschaft in der Tabelle
+	\item \texttt{EINGESCHAFT} (fast immer in Großbuchstaben) z.B. BKAT beinhaltet die analysierte Eingenschaft in einer Tabelle. Manche Werte sind nicht für den Anwender oder Anwenderin illustrativ, denn vielen sind IDs oder Abkürzungen.
+	\item Die Spalte \texttt{klare\_Name\_der\_Eigenschaft} z.B. Bewegungskategorie beinhalte den klaren Namen der Eingenschaft und ist nicht immer vorhanden. Diese Information dieser Spalte ist in den meisten Fällen in einer Tabelle in dem Schema \texttt{metadata\_repsitory}.
+\end{itemize}
+
+Diese Sichte können auch für die Qualitätssicherung im System benutzt werden.
+
+\section{\acs{kis}}
 
  Im \ac{kis}-Bereich werden die tagesaktuell extrahierten Daten von Patienten, Fällen, Bewegungen, Diagnosen, Prozeduren, Screenings, Broad Consents, Zuordnung von Fällen zu Personen, baulichen Einheiten und deren Hierarchien, sowie Organisationseinheiten und deren Hierarchien direkt aus dem Quellsystem \ac{kis} gespeichert. Mit Hilfe diesem Schema lassen sich viele der Abbildungen für weitere Projekte realisieren.
  

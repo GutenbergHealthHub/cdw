@@ -1,5 +1,5 @@
-\chapter{Bewegungen (NBEW)}
-  Die Bewegungen der Fälle während der Hospitalisierung.
+\chapter{Bewegungen - Tabelle NBEW}
+  Die Bewegungen der Fälle während der Hospitalisierung befinden sich in der Tabelle \texttt{NBEW}.
 
   \section{DQA\_NBEW\_BEKAT}
 
@@ -10,12 +10,12 @@
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten BEKAT in der Tabelle NBEW \\ \hline
-BEKAT & varchar & ... (NULL bei nicht existierende BEKAT)\\ \hline
-bltxt & varchar & ... (NULL bei nicht existierende bltxt)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten Behandlungskategorie \\ \hline
+BEKAT & varchar & Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\ \hline
+bltxt & varchar & Klare Name der Behandlungskategorie (NULL bei nicht existierender Behandlungskategorie)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+\clearpage
   \section{DQA\_NBEW\_BETT}
 
   \begin{table}[ht]
@@ -25,11 +25,11 @@ bltxt & varchar & ... (NULL bei nicht existierende bltxt)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten BETT in der Tabelle NBEW \\ \hline
-BETT & varchar & ... (NULL bei nicht existierende BETT)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten BauId eines Bettenstellplatzes \\ \hline
+BETT & varchar & BauId eine Bettenstellplatzes (NULL bei nicht existierende BauId eine Bettenstellplatzes)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
   \section{DQA\_NBEW\_BWART}
 
   \begin{table}[ht]
@@ -39,9 +39,9 @@ BETT & varchar & ... (NULL bei nicht existierende BETT)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten BWART in der Tabelle NBEW \\ \hline
-BWART & varchar & ... (NULL bei nicht existierende BWART)\\ \hline
-bewegungsart & varchar & ... (NULL bei nicht existierende bewegungsart)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten Bewegungsart \\ \hline
+BWART & varchar & Bewegungsart (NULL bei nicht existierende Bewegungsart)\\ \hline
+bewegungsart & varchar & Klare Name der Bewegungsart (NULL bei nicht existierende Bewegungsart)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -54,13 +54,13 @@ bewegungsart & varchar & ... (NULL bei nicht existierende bewegungsart)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten BWGR12 in der Tabelle NBEW \\ \hline
-BWGR12 & text & ... (NULL bei nicht existierende BWGR12)\\ \hline
-BEWTY & character & ... (NULL bei nicht existierende BEWTY)\\ \hline
-Bewegungstyp & varchar & ... (NULL bei nicht existierende Bewegungstyp)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit bestimmten Zusammenführung von BWGR1 und BWGR2 \\ \hline
+BWGR12 & text & Zusammenführung von BWGR1 und BWGR2 (NULL bei nicht existierender Zusammenführung von BWGR1 und BWGR2)\\ \hline
+BEWTY & character & Bewegungstyp (NULL bei nicht existierendem Bewegungstyp)\\ \hline
+Bewegungstyp & varchar & Klare Name des Bewegungstyps (NULL bei nicht existierendem Bewegungstyp)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+% \clearpage
   \section{DQA\_NBEW\_CLASS}
 
   \begin{table}[ht]
@@ -70,8 +70,8 @@ Bewegungstyp & varchar & ... (NULL bei nicht existierende Bewegungstyp)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten CLASS in der Tabelle NBEW \\ \hline
-CLASS & varchar & ... (NULL bei nicht existierende CLASS)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten Klasse des Patienten \\ \hline
+CLASS & varchar & Klasse des Patienten (NULL bei nicht existierende Klasse des Patienten)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -84,11 +84,11 @@ CLASS & varchar & ... (NULL bei nicht existierende CLASS)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten DSPTY in der Tabelle NBEW \\ \hline
-DSPTY & varchar & ... (NULL bei nicht existierende DSPTY)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einem bestimmten Dispositionstyp für die Besuchsdisposition \\ \hline
+DSPTY & varchar & Dispositionstyp für die Besuchsdisposition (NULL bei nicht existierendem Dispositionstyp für die Besuchsdisposition)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+% \clearpage
   \section{DQA\_NBEW\_EZUST}
 
   \begin{table}[ht]
@@ -98,8 +98,8 @@ DSPTY & varchar & ... (NULL bei nicht existierende DSPTY)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten EZUST in der Tabelle NBEW \\ \hline
-EZUST & varchar & ... (NULL bei nicht existierende EZUST)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einem bestimmten Entlassungszustand \\ \hline
+EZUST & varchar & Entlassungszustand (NULL bei nicht existierendem Entlassungszustand)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -112,12 +112,12 @@ EZUST & varchar & ... (NULL bei nicht existierende EZUST)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten FACHR in der Tabelle NBEW \\ \hline
-FACHR & varchar & ... (NULL bei nicht existierende FACHR)\\ \hline
-Fachrichtung & varchar & ... (NULL bei nicht existierende Fachrichtung)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten Fachrichtung der Ärzte \\ \hline
+FACHR & varchar & Fachrichtung der Ärzte (NULL bei nicht existierender Fachrichtung der Ärzte)\\ \hline
+Fachrichtung & varchar & Klare Name der Fachrichtung der Ärzte (NULL bei nicht existierende Fachrichtung der Ärzte)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
   \section{DQA\_NBEW\_INSEV}
 
   \begin{table}[ht]
@@ -127,11 +127,11 @@ Fachrichtung & varchar & ... (NULL bei nicht existierende Fachrichtung)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten INSEV in der Tabelle NBEW \\ \hline
-INSEV & varchar & ... (NULL bei nicht existierende INSEV)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einem bestimmten Ereignis, durch das Bewegung angelegt wurde \\ \hline
+INSEV & varchar & Ereignis, durch das Bewegung angelegt wurde (NULL bei nicht existierendem Ereignis, durch das Bewegung angelegt wurde)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+ 
   \section{DQA\_NBEW\_OPART}
 
   \begin{table}[ht]
@@ -141,11 +141,11 @@ INSEV & varchar & ... (NULL bei nicht existierende INSEV)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten OPART in der Tabelle NBEW \\ \hline
-OPART & varchar & ... (NULL bei nicht existierende OPART)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten Art der Operation \\ \hline
+OPART & varchar & Art der Operation (NULL bei nicht existierender Art der Operation)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+\clearpage
   \section{DQA\_NBEW\_ORGAU}
 
   \begin{table}[ht]
@@ -155,11 +155,11 @@ OPART & varchar & ... (NULL bei nicht existierende OPART)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten ORGAU in der Tabelle NBEW \\ \hline
-ORGAU & varchar & ... (NULL bei nicht existierende ORGAU)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten OrgId der Aufnahmestelle \\ \hline
+ORGAU & varchar & OrgId der Aufnahmestelle (NULL bei nicht existierender OrgId der Aufnahmestelle)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
   \section{DQA\_NBEW\_ORGFA}
 
   \begin{table}[ht]
@@ -169,9 +169,9 @@ ORGAU & varchar & ... (NULL bei nicht existierende ORGAU)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten ORGFA in der Tabelle NBEW \\ \hline
-ORGFA & varchar & ... (NULL bei nicht existierende ORGFA)\\ \hline
-ORGNA & varchar & ... (NULL bei nicht existierende ORGNA)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten OrgEinheit, die einem Fall fachl. zugewiesen wird \\ \hline
+ORGFA & varchar & OrgEinheit, die einem Fall fachl. zugewiesen wird (NULL bei nicht existierender OrgEinheit, die einem Fall fachl. zugewiesen wird)\\ \hline
+ORGNA & varchar & Klare Name der OrgEinheit, die einem Fall fachl. zugewiesen wird (NULL bei nicht existierender OrgEinheit, die einem Fall fachl. zugewiesen wird)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -184,12 +184,12 @@ ORGNA & varchar & ... (NULL bei nicht existierende ORGNA)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten ORGPF in der Tabelle NBEW \\ \hline
-ORGPF & varchar & ... (NULL bei nicht existierende ORGPF)\\ \hline
-ORGNA & varchar & ... (NULL bei nicht existierende ORGNA)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten OrgEinheit, die einem Fall zugewiesen wird \\ \hline
+ORGPF & varchar & OrgEinheit, die einem Fall zugewiesen wird (NULL bei nicht existierender OrgEinheit, die einem Fall zugewiesen wird)\\ \hline
+ORGNA & varchar & Klare Name der OrgEinheit, die einem Fall zugewiesen wird (NULL bei nicht existierender OrgEinheit, die einem Fall zugewiesen wird)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+ 
   \section{DQA\_NBEW\_PLANR}
 
   \begin{table}[ht]
@@ -199,8 +199,8 @@ ORGNA & varchar & ... (NULL bei nicht existierende ORGNA)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten PLANR in der Tabelle NBEW \\ \hline
-PLANR & varchar & ... (NULL bei nicht existierende PLANR)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einem bestimmten Plankennzeichen für räumliche Zuweisung \\ \hline
+PLANR & varchar & Plankennzeichen für räumliche Zuweisung (NULL bei nicht existierendem Plankennzeichen für räumliche Zuweisung)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -210,15 +210,15 @@ PLANR & varchar & ... (NULL bei nicht existierende PLANR)\\ \hline
     \centering
     \caption{View DQA\_NBEW\_RFSRC}
     \label{tab:dqanbewrfsrc}
-    \begin{tabular}{||l|l|p{10cm}||}
+    \begin{tabular}{||p{3cm}|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten RFSRC in der Tabelle NBEW \\ \hline
-RFSRC & varchar & ... (NULL bei nicht existierende RFSRC)\\ \hline
-einweisungs\_ueberweisungs\_nachbehandlungsart & varchar & ... (NULL bei nicht existierende einweisungs\_ueberweisungs\_nachbehandlungsart)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten Einweisungs-, Überweisungs,- Nachbehandlungsart \\ \hline
+RFSRC & varchar & Einweisungs-, Überweisungs,- Nachbehandlungsart (NULL bei nicht existierender Einweisungs-, Überweisungs,- Nachbehandlungsart)\\ \hline
+einweisungs\_ ueberweisungs\_ nachbehandlungsart & varchar & Einweisungs-, Überweisungs,- Nachbehandlungsart (NULL bei nicht existierende Einweisungs-, Überweisungs,- Nachbehandlungsart)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
   \section{DQA\_NBEW\_STATU}
 
   \begin{table}[ht]
@@ -228,8 +228,8 @@ einweisungs\_ueberweisungs\_nachbehandlungsart & varchar & ... (NULL bei nicht e
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten STATU in der Tabelle NBEW \\ \hline
-STATU & varchar & ... (NULL bei nicht existierende STATU)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einem bestimmten Interner Status eines ambulanten Besuchs \\ \hline
+STATU & varchar & Interner Status eines ambulanten Besuchs (NULL bei nicht existierendem Interner Status eines ambulanten Besuchs)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -242,12 +242,12 @@ STATU & varchar & ... (NULL bei nicht existierende STATU)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten STOID in der Tabelle NBEW \\ \hline
-STOID & varchar & ... (NULL bei nicht existierende STOID)\\ \hline
-stornierungsgrund & varchar & ... (NULL bei nicht existierende stornierungsgrund)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einem bestimmten Stornogrund \\ \hline
+STOID & varchar & STOID (NULL bei nicht existierendem Stornogrund)\\ \hline
+stornierungsgrund & varchar & Klare Name des Stornogrundes (NULL bei nicht existierendem Stornogrund)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
   \section{DQA\_NBEW\_TODUR}
 
   \begin{table}[ht]
@@ -257,9 +257,9 @@ stornierungsgrund & varchar & ... (NULL bei nicht existierende stornierungsgrund
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten TODUR in der Tabelle NBEW \\ \hline
-TODUR & varchar & ... (NULL bei nicht existierende TODUR)\\ \hline
-todesursache & varchar & ... (NULL bei nicht existierende todesursache)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit einer bestimmten Todesursache \\ \hline
+TODUR & varchar & Todesursache (NULL bei nicht existierender Todesursache)\\ \hline
+todesursache & varchar & Klare Name der Todesursache (NULL bei nicht existierender Todesursache)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -272,12 +272,12 @@ todesursache & varchar & ... (NULL bei nicht existierende todesursache)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten TPART in der Tabelle NBEW \\ \hline
-TPART & varchar & ... (NULL bei nicht existierende TPART)\\ \hline
-transportart & varchar & ... (NULL bei nicht existierende transportart)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten TPART \\ \hline
+TPART & varchar & TPART (NULL bei nicht existierende TPART)\\ \hline
+transportart & varchar & transportart (NULL bei nicht existierende transportart)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
   \section{DQA\_NBEW\_UNFAV}
 
   \begin{table}[ht]
@@ -287,8 +287,8 @@ transportart & varchar & ... (NULL bei nicht existierende transportart)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten UNFAV in der Tabelle NBEW \\ \hline
-UNFAV & varchar & ... (NULL bei nicht existierende UNFAV)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten UNFAV \\ \hline
+UNFAV & varchar & UNFAV (NULL bei nicht existierende UNFAV)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -301,9 +301,9 @@ UNFAV & varchar & ... (NULL bei nicht existierende UNFAV)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten UNFKZ in der Tabelle NBEW \\ \hline
-UNFKZ & varchar & ... (NULL bei nicht existierende UNFKZ)\\ \hline
-unfallart & varchar & ... (NULL bei nicht existierende unfallart)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten UNFKZ \\ \hline
+UNFKZ & varchar & UNFKZ (NULL bei nicht existierende UNFKZ)\\ \hline
+unfallart & varchar & unfallart (NULL bei nicht existierende unfallart)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -316,8 +316,8 @@ unfallart & varchar & ... (NULL bei nicht existierende unfallart)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten UNFRT in der Tabelle NBEW \\ \hline
-UNFRT & varchar & ... (NULL bei nicht existierende UNFRT)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten UNFRT \\ \hline
+UNFRT & varchar & UNFRT (NULL bei nicht existierende UNFRT)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -330,8 +330,8 @@ UNFRT & varchar & ... (NULL bei nicht existierende UNFRT)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten VISTY in der Tabelle NBEW \\ \hline
-VISTY & varchar & ... (NULL bei nicht existierende VISTY)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten VISTY \\ \hline
+VISTY & varchar & VISTY (NULL bei nicht existierende VISTY)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -344,8 +344,8 @@ VISTY & varchar & ... (NULL bei nicht existierende VISTY)\\ \hline
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten ZIMMR in der Tabelle NBEW \\ \hline
-ZIMMR & varchar & ... (NULL bei nicht existierende ZIMMR)\\ \hline
+QUANTITY & bigint & Menge an Bewegungen mit eine bestimmten ZIMMR \\ \hline
+ZIMMR & varchar & ZIMMR (NULL bei nicht existierende ZIMMR)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage

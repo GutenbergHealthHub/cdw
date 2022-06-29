@@ -1,5 +1,5 @@
-echo "\\chapter{Bewegungen (NBEW)}"
-  echo "  Die Bewegungen der Fälle während der Hospitalisierung."
+echo "\\chapter{Bewegungen - Tabelle NBEW}"
+  echo "  Die Bewegungen der Fälle während der Hospitalisierung befinden sich in der Tabelle \\texttt{NBEW}."
   echo ""
 
 while read tables
@@ -21,9 +21,9 @@ do
      then
        if [ "$ty" = "bigint" ]
        then 
-         echo "$col & $ty & Menge an Bewegungen mit eine bestimmten $tables in der Tabelle NBEW \\\\ \\hline"  | sed -e 's/DQA_NBEW_//g' # -e 's///'
+         echo "$col & $ty & Menge an Bewegungen mit eine bestimmten $tables \\\\ \\hline"  | sed -e 's/DQA_NBEW_//g' # -e 's///'
        else
-	       echo "$col & $ty & ... (NULL bei nicht existierende $col)\\\\ \\hline" | sed -e 's/_/\\_/g'
+	       echo "$col & $ty & $col (NULL bei nicht existierende $col)\\\\ \\hline" | sed -e 's/_/\\_/g'
        fi
      fi
   done < columns.csv
