@@ -1,0 +1,239 @@
+\chapter{Diagnosen - Tabelle NDIA}
+  Die Diagnosen der Fällen befinden sich in der Tabelle \texttt{NDIA}.
+
+  \section{DQA\_NDIA\_DIAFP}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DIAFP}
+    \label{tab:dqandiadiafp}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit einer bestimmten Fallpauschale \\ \hline
+DIAFP & varchar & Fallpauschale (NULL bei nicht existierender Fallpauschale)\\ \hline
+    \end{tabular}
+  \end{table}
+\clearpage 
+  \section{DQA\_NDIA\_DIAGW}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DIAGW}
+    \label{tab:dqandiadiagw}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit einer bestimmten Diagnostischen Gewissheit \\ \hline
+DIAGW & varchar & DIAGW (NULL bei nicht existierender Diagnostische Gewissheit)\\ \hline
+diag\_gewissheit & varchar & Klare Name der diagnostische Gewissheit (NULL bei nicht existierender Diagnostische Gewissheit)\\ \hline
+    \end{tabular}
+  \end{table}
+
+  \section{DQA\_NDIA\_DIALO}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DIALO}
+    \label{tab:dqandiadialo}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit einer bestimmten Lokalisation einer Diagnose \\ \hline
+DIALO & varchar & Lokalisation einer Diagnose (NULL bei nicht existierender Lokalisation einer Diagnose)\\ \hline
+localisation & varchar & Lokalisation einer Diagnose (NULL bei nicht existierende Lokalisation einer Diagnose)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_NDIA\_DIAPR}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DIAPR}
+    \label{tab:dqandiadiapr}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit einem bestimmten Kennzeichen Medizinische Nebendiagnose \\ \hline
+DIAPR & varchar & Kennzeichen Medizinische Nebendiagnose (NULL bei nicht existierendem Kennzeichen Medizinische Nebendiagnose)\\ \hline
+    \end{tabular}
+  \end{table}
+
+  \section{DQA\_NDIA\_DIASI}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DIASI}
+    \label{tab:dqandiadiasi}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit einem bestimmten Grad der Sicherheit der Diagnose \\ \hline
+DIASI & varchar & Grad der Sicherheit der Diagnose (NULL bei nicht existierendem Grad der Sicherheit der Diagnose)\\ \hline
+    \end{tabular}
+  \end{table}
+ 
+  \section{DQA\_NDIA\_DIAZS}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DIAZS}
+    \label{tab:dqandiadiazs}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit einem bestimmten Diagnosenzusatz \\ \hline
+DIAZS & varchar & Diagnosenzusatz (NULL bei nicht existierendem Diagnosenzusatz)\\ \hline
+diagnosenzusatz & varchar & Klare Name des Diagnosenzusatzes (NULL bei nicht existierendem zusatz)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_NDIA\_DKAT1}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DKAT1}
+    \label{tab:dqandiadkat1}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit einem bestimmten Identifikationsschlüssel für Diagnosekatalog \\ \hline
+DKAT1 & varchar & Identifikationsschlüssel für Diagnosekatalog (NULL bei nicht existierendem Identifikationsschlüssel für Diagnosekatalog)\\ \hline
+kapti & varchar & Kapitel bei der ICD10GM (NULL bei nicht existierendem Identifikationsschlüssel für Diagnosekatalog)\\ \hline
+    \end{tabular}
+  \end{table}
+
+  \section{DQA\_NDIA\_DKAT2}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DKAT2}
+    \label{tab:dqandiadkat2}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit einem bestimmten Identifikationsschlüssel für Diagnosekatalog \\ \hline
+DKAT2 & varchar & Identifikationsschlüssel für Diagnosekatalog (NULL bei nicht existierendem Identifikationsschlüssel für Diagnosekatalog)\\ \hline
+kapti & varchar & Kapitel bei der ICD10GM (NULL bei nicht existierendem Identifikationsschlüssel für Diagnosekatalog)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_NDIA\_DKAT\_REF}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DKAT\_REF}
+    \label{tab:dqandiadkatref}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit einer bestimmten Katalod-ID des Referenzkatalogs für Statistiken \\ \hline
+DKAT\_REF & varchar & Katalod-ID des Referenzkatalogs für Statistiken (NULL bei nicht existierender Katalod-ID des Referenzkatalogs für Statistiken)\\ \hline
+Jahr & text & Jahr des ICD10GM-Katalog (NULL bei nicht existierende Jahr)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_NDIA\_DKEY1}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DKEY1}
+    \label{tab:dqandiadkey1}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DKEY1 \\ \hline
+DKEY1 & varchar & DKEY1 (NULL bei nicht existierende DKEY1)\\ \hline
+icd10\_titel & varchar & icd10\_titel (NULL bei nicht existierende icd10\_titel)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_NDIA\_DKEY2}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DKEY2}
+    \label{tab:dqandiadkey2}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DKEY2 \\ \hline
+DKEY2 & varchar & DKEY2 (NULL bei nicht existierende DKEY2)\\ \hline
+icd10\_titel & varchar & icd10\_titel (NULL bei nicht existierende icd10\_titel)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_NDIA\_DKEY\_REF}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DKEY\_REF}
+    \label{tab:dqandiadkeyref}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DKEY\_REF \\ \hline
+DKEY\_REF & varchar & DKEY\_REF (NULL bei nicht existierende DKEY\_REF)\\ \hline
+icd10\_titel & varchar & icd10\_titel (NULL bei nicht existierende icd10\_titel)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_NDIA\_DRG\_CATEGORY}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DRG\_CATEGORY}
+    \label{tab:dqandiadrgcategory}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DRG\_CATEGORY \\ \hline
+DRG\_CATEGORY & varchar & DRG\_CATEGORY (NULL bei nicht existierende DRG\_CATEGORY)\\ \hline
+drg\_category & varchar & drg\_category (NULL bei nicht existierende drg\_category)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_NDIA\_DTYP1}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DTYP1}
+    \label{tab:dqandiadtyp1}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DTYP1 \\ \hline
+DTYP1 & varchar & DTYP1 (NULL bei nicht existierende DTYP1)\\ \hline
+typ\_icd10 & varchar & typ\_icd10 (NULL bei nicht existierende typ\_icd10)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_NDIA\_DTYP2}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DTYP2}
+    \label{tab:dqandiadtyp2}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DTYP2 \\ \hline
+DTYP2 & varchar & DTYP2 (NULL bei nicht existierende DTYP2)\\ \hline
+typ\_icd10 & varchar & typ\_icd10 (NULL bei nicht existierende typ\_icd10)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage
+  \section{DQA\_NDIA\_DTYPE\_REF}
+
+  \begin{table}[ht]
+    \centering
+    \caption{View DQA\_NDIA\_DTYPE\_REF}
+    \label{tab:dqandiadtyperef}
+    \begin{tabular}{||l|l|p{10cm}||}
+      \hline
+      Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
+QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DTYPE\_REF \\ \hline
+DTYPE\_REF & varchar & DTYPE\_REF (NULL bei nicht existierende DTYPE\_REF)\\ \hline
+    \end{tabular}
+  \end{table}
+ \clearpage

@@ -5,10 +5,10 @@ CREATE OR REPLACE VIEW kis."DQA_NDIA_DKEY_REF"
     CASE
       WHEN n."DKEY_REF" ~ '\w' THEN n."DKEY_REF"
         ELSE NULL
-    END AS "DKEY_REF"/*,
-    m.long_name*/
+    END AS "DKEY_REF",
+    m.titel icd10_titel
   FROM kis."NDIA" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."DKEY_REF" = m.sourceid
-  GROUP BY n."DKEY_REF"--, m.long_name
-  ORDER BY "QUANTITY" DESC;
+  LEFT JOIN icd_metainfo.icd10gm m ON regexp_replace(n."DKEY_REF", '\W', '', 'g') = m.codeohnepunkt
+  GROUP BY n."DKEY_REF", m.titel
+  ORDER BY "QUANTITY" desc, "DKEY_REF";
 

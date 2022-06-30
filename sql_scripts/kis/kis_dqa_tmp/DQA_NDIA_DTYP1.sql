@@ -2,13 +2,10 @@
 CREATE OR REPLACE VIEW kis."DQA_NDIA_DTYP1"
   AS
   SELECT count(n."RetrievalDate") AS "QUANTITY",
-    CASE
-      WHEN n."DTYP1" ~ '\w' THEN n."DTYP1"
-        ELSE NULL
-    END AS "DTYP1"/*,
-    m.long_name*/
+    "DTYP1",
+    m.diagnosis_type_icd typ_icd10
   FROM kis."NDIA" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."DTYP1" = m.sourceid
-  GROUP BY n."DTYP1"--, m.long_name
+  LEFT JOIN metadata_repository.diagnosis_type_icd m ON n."DTYP1" = m.sourceid
+  GROUP BY n."DTYP1", m.diagnosis_type_icd
   ORDER BY "QUANTITY" DESC;
 
