@@ -132,7 +132,7 @@ DKAT\_REF & varchar & Katalod-ID des Referenzkatalogs für Statistiken (NULL bei
 Jahr & text & Jahr des ICD10GM-Katalog (NULL bei nicht existierende Jahr)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
   \section{DQA\_NDIA\_DKEY1}
 
   \begin{table}[ht]
@@ -142,9 +142,9 @@ Jahr & text & Jahr des ICD10GM-Katalog (NULL bei nicht existierende Jahr)\\ \hli
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DKEY1 \\ \hline
-DKEY1 & varchar & DKEY1 (NULL bei nicht existierende DKEY1)\\ \hline
-icd10\_titel & varchar & icd10\_titel (NULL bei nicht existierende icd10\_titel)\\ \hline
+QUANTITY & bigint & Menge an Diagnosen mit einer bestimmten Schlüsselung einer Diagnose \\ \hline
+DKEY1 & varchar & Schlüsselung einer Diagnose (NULL bei nicht existierender Schlüsselung einer Diagnose)\\ \hline
+icd10\_titel & varchar & Titel der ICD10GM der Diagnose (NULL bei nicht existierender Schlüsselung einer Diagnose)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -157,12 +157,12 @@ icd10\_titel & varchar & icd10\_titel (NULL bei nicht existierende icd10\_titel)
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DKEY2 \\ \hline
-DKEY2 & varchar & DKEY2 (NULL bei nicht existierende DKEY2)\\ \hline
-icd10\_titel & varchar & icd10\_titel (NULL bei nicht existierende icd10\_titel)\\ \hline
+QUANTITY & bigint & Menge an Diagnosen mit einer bestimmten Schlüsselung einer Diagnose \\ \hline
+DKEY2 & varchar & Schlüsselung einer Diagnose (NULL bei nicht existierender Schlüsselung einer Diagnose)\\ \hline
+icd10\_titel & varchar & Titel der ICD10GM der Diagnose (NULL bei nicht existierender Schlüsselung einer Diagnose)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
   \section{DQA\_NDIA\_DKEY\_REF}
 
   \begin{table}[ht]
@@ -172,12 +172,14 @@ icd10\_titel & varchar & icd10\_titel (NULL bei nicht existierende icd10\_titel)
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DKEY\_REF \\ \hline
-DKEY\_REF & varchar & DKEY\_REF (NULL bei nicht existierende DKEY\_REF)\\ \hline
-icd10\_titel & varchar & icd10\_titel (NULL bei nicht existierende icd10\_titel)\\ \hline
+QUANTITY & bigint & Menge an Diagnosen mit einer bestimmten Schlüsselung einer Referenzdiagnose für Statistiken \\ \hline
+DKEY\_REF & varchar & Schlüsselung einer Referenzdiagnose für Statistiken (NULL bei nicht existierender Schlüsselung einer Referenzdiagnose für Statistiken)\\ \hline
+icd10\_titel & varchar & Titel der ICD10GM der Diagnose (NULL bei nicht existierender Schlüsselung einer Referenzdiagnose für Statistiken)\\ \hline
     \end{tabular}
   \end{table}
+ 
  \clearpage
+ 
   \section{DQA\_NDIA\_DRG\_CATEGORY}
 
   \begin{table}[ht]
@@ -187,12 +189,12 @@ icd10\_titel & varchar & icd10\_titel (NULL bei nicht existierende icd10\_titel)
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DRG\_CATEGORY \\ \hline
-DRG\_CATEGORY & varchar & DRG\_CATEGORY (NULL bei nicht existierende DRG\_CATEGORY)\\ \hline
-drg\_category & varchar & drg\_category (NULL bei nicht existierende drg\_category)\\ \hline
+QUANTITY & bigint & Menge an Diagnosen mit einer bestimmten Kategorie einer DRG-Diagnose (Haupt- Neben) \\ \hline
+DRG\_CATEGORY & varchar & Kategorie einer DRG-Diagnose (Haupt- Neben) (NULL bei nicht existierender Kategorie einer DRG-Diagnose (Haupt- Neben))\\ \hline
+drg\_category & varchar & Name der Kategorie einer DRG-Diagnose (Haupt- Neben) (NULL bei nicht existierender Kategorie einer DRG-Diagnose (Haupt- Neben))\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
   \section{DQA\_NDIA\_DTYP1}
 
   \begin{table}[ht]
@@ -202,12 +204,12 @@ drg\_category & varchar & drg\_category (NULL bei nicht existierende drg\_catego
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DTYP1 \\ \hline
-DTYP1 & varchar & DTYP1 (NULL bei nicht existierende DTYP1)\\ \hline
-typ\_icd10 & varchar & typ\_icd10 (NULL bei nicht existierende typ\_icd10)\\ \hline
+QUANTITY & bigint & Menge an Diagnosen mit einem bestimmten Typ für ICD-10-Diagnosen \\ \hline
+DTYP1 & varchar & DTYP1 (NULL bei nicht existierendem Typ für ICD-10-Diagnosen)\\ \hline
+typ\_icd10 & varchar & Typ für ICD-10-Diagnosen (NULL bei nicht existierendem Typ für ICD-10-Diagnosen)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+\clearpage
   \section{DQA\_NDIA\_DTYP2}
 
   \begin{table}[ht]
@@ -217,12 +219,12 @@ typ\_icd10 & varchar & typ\_icd10 (NULL bei nicht existierende typ\_icd10)\\ \hl
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DTYP2 \\ \hline
-DTYP2 & varchar & DTYP2 (NULL bei nicht existierende DTYP2)\\ \hline
-typ\_icd10 & varchar & typ\_icd10 (NULL bei nicht existierende typ\_icd10)\\ \hline
+QUANTITY & bigint & Menge an Diagnosen mit einem bestimmten Typ für ICD-10-Diagnosen \\ \hline
+DTYP2 & varchar & Typ für ICD-10-Diagnosen (NULL bei nicht existierendem DTYP2)\\ \hline
+typ\_icd10 & varchar & Typ für ICD-10-Diagnosen (NULL bei nicht existierendem Typ für ICD-10-Diagnosen)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
   \section{DQA\_NDIA\_DTYPE\_REF}
 
   \begin{table}[ht]
@@ -232,8 +234,8 @@ typ\_icd10 & varchar & typ\_icd10 (NULL bei nicht existierende typ\_icd10)\\ \hl
     \begin{tabular}{||l|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
-QUANTITY & bigint & Menge an Diagnosen mit eine bestimmten DTYPE\_REF \\ \hline
-DTYPE\_REF & varchar & DTYPE\_REF (NULL bei nicht existierende DTYPE\_REF)\\ \hline
+QUANTITY & bigint & Menge an Diagnosen mit einem bestimmten Typ für ICD-10-Diagnosen \\ \hline
+DTYPE\_REF & varchar & Typ für ICD-10-Diagnosen (NULL bei nicht existierendem Typ für ICD-10-Diagnosen)\\ \hline
     \end{tabular}
   \end{table}
- \clearpage
+
