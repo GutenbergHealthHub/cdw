@@ -5,10 +5,10 @@ CREATE OR REPLACE VIEW kis."DQA_/HSROM/SCREENCOV_SCREENTESTTYPE"
     CASE
       WHEN n."SCREENTESTTYPE" ~ '\w' THEN n."SCREENTESTTYPE"
         ELSE NULL
-    END AS "SCREENTESTTYPE"/*,
-    m.long_name*/
+    END AS "SCREENTESTTYPE",
+    m.hsrom_screentesttype
   FROM kis."/HSROM/SCREENCOV" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."SCREENTESTTYPE" = m.sourceid
-  GROUP BY n."SCREENTESTTYPE"--, m.long_name
+  LEFT JOIN metadata_repository.hsrom_screentesttype m ON n."SCREENTESTTYPE" = m.sourceid
+  GROUP BY n."SCREENTESTTYPE", m.hsrom_screentesttype
   ORDER BY "QUANTITY" DESC;
 
