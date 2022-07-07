@@ -5,10 +5,11 @@ CREATE OR REPLACE VIEW kis."DQA_/HSROM/SCREENCOV_SCREENVACCINE"
     CASE
       WHEN n."SCREENVACCINE" ~ '\w' THEN n."SCREENVACCINE"
         ELSE NULL
-    END AS "SCREENVACCINE"/*,
-    m.long_name*/
+    END AS "SCREENVACCINE",
+    m.vaccine,
+    m.manufacturer
   FROM kis."/HSROM/SCREENCOV" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."SCREENVACCINE" = m.sourceid
-  GROUP BY n."SCREENVACCINE"--, m.long_name
+  LEFT JOIN metadata_repository.covid19_vaccine m ON n."SCREENVACCINE" = m.sourceid
+  GROUP BY n."SCREENVACCINE", m.vaccine, m.manufacturer, m.description
   ORDER BY "QUANTITY" DESC;
 
