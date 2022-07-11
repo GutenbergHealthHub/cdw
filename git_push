@@ -5,6 +5,5 @@ d=`date`
 git commit -m "Last update $d"
 #echo "Name of commit: "
 #read commit_name
-git commit -m "$d"
 git fetch origin
 git push origin main
