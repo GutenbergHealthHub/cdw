@@ -56,6 +56,7 @@ bewegungsart & varchar & Klarer Name der Bewegungsart (NULL bei nicht existieren
 		Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
 		QUANTITY & bigint & Menge an Bewegungen mit einem bestimmten Code des Besuchstyps \\ \hline
 		VISTY & varchar & Code des Besuchstyps (NULL bei nicht existierendem Code des Besuchstyps)\\ \hline
+		besuchtyp & varchar & Name des Besuchstyps (NULL bei nicht existierendem Code des Besuchstyps)\\ \hline
 	\end{tabular}
 \end{table}
 
@@ -239,11 +240,12 @@ ORGNA & varchar & Klarer Name der OrgEinheit, die einem Fall zugewiesen wird (NU
     \centering
     \caption{View DQA\_NBEW\_PLANR}
     \label{tab:dqanbewplanr}
-    \begin{tabular}{||l|l|p{10cm}||}
+    \begin{tabular}{||p{3cm}|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
 QUANTITY & bigint & Menge an Bewegungen mit einem bestimmten Plankennzeichen für räumliche Zuweisung \\ \hline
 PLANR & varchar & Plankennzeichen für räumliche Zuweisung (NULL bei nicht existierendem Plankennzeichen für räumliche Zuweisung)\\ \hline
+plankennzeichen\_ raum\_zuweisung & varchar & Plankennzeichen für räumliche Zuweisung (NULL bei nicht existierendem Plankennzeichen für räumliche Zuweisung)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
@@ -268,11 +270,12 @@ einweisungs\_ ueberweisungs\_ nachbehandlungsart & varchar & Einweisungs-, Über
     \centering
     \caption{View DQA\_NBEW\_STATU}
     \label{tab:dqanbewstatu}
-    \begin{tabular}{||l|l|p{10cm}||}
+    \begin{tabular}{||p{3cm}|l|p{10cm}||}
       \hline
       Spalte & Datentyp & Beschreibung \\ [0.5ex] \hline \hline
 QUANTITY & bigint & Menge an Bewegungen mit einem bestimmten Interner Status eines ambulanten Besuchs \\ \hline
 STATU & varchar & Interner Status eines ambulanten Besuchs (NULL bei nicht existierendem Interner Status eines ambulanten Besuchs)\\ \hline
+intern\_status \_amb\_besuch & varchar & Name des internes Status eines ambulanten Besuchs (NULL bei nicht existierendem Interner Status eines ambulanten Besuchs)\\ \hline
     \end{tabular}
   \end{table}
  \clearpage
