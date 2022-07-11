@@ -1,14 +1,14 @@
 -- DQA_NBEW_VISTY
+
+drop view kis."DQA_NBEW_VISTY";
+
 CREATE OR REPLACE VIEW kis."DQA_NBEW_VISTY"
-  AS
+ AS
   SELECT count(n."RetrievalDate") AS "QUANTITY",
-    CASE
-      WHEN n."VISTY" ~ '\w' THEN n."VISTY"
-        ELSE NULL
-    END AS "VISTY"/*,
-    m.long_name*/
+    "VISTY",
+    m.besuchtyp
   FROM kis."NBEW" n
-  --LEFT JOIN metadata_repository.TABLE m ON n."VISTY" = m.sourceid
-  GROUP BY n."VISTY"--, m.long_name
+  LEFT JOIN metadata_repository.besuchtyp m ON n."VISTY" = m.sourceid
+  GROUP BY n."VISTY", m.besuchtyp
   ORDER BY "QUANTITY" DESC;
 
